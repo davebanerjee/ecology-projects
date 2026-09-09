@@ -1,0 +1,311 @@
+{
+ "manifest_version": "stage0-2026-09-09",
+ "note": "Stage 0 retrievals only; raw files are not committed. Sources blocked by the sandbox egress policy are listed with status 'blocked'. Checksums are sha256 of the files as cloned (shallow clones, depth 1).",
+ "sources": [
+  {
+   "name": "FishGlob_data v2.1.0",
+   "github_repo": "AquaAuma/FishGlob_data",
+   "commit": "c8177629992a757a2b0f9011e04d0bcb6571d865|2026-08-28T13:00:33-04:00",
+   "retrieved": "2026-09-08",
+   "license": "CC BY 4.0 (LICENSE file in repo; citation policy in linked disclaimer)",
+   "status": "retrieved",
+   "notes": "29 surveys; std_clean products with footprint-trimming flags; NEWS.md version 2.1.0",
+   "files": [
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/AI_std_clean.RData",
+     "sha256": "8ea5424017b5b7aa01eac7fcbb4090fe43eb4a8fcfdc43f5a410e52262c3b912",
+     "bytes": 948750
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/BITS_std_clean.RData",
+     "sha256": "8f6ba639ffa4081b3fa44b1f815f3b8b6a2531d9b165d20b537ac722db288eab",
+     "bytes": 3673580
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/EBS_std_clean.RData",
+     "sha256": "2bb45b884e3be44eed3d43fa6dfa2c0f98294f7026cb8442b29d718f0129363d",
+     "bytes": 3005085
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/EVHOE_std_clean.RData",
+     "sha256": "6bae698fafc5e420720fb7a11925205c0e29c6d2b162f0ecc6ef590b9f1f3214",
+     "bytes": 2664290
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/FR-CGFS_std_clean.RData",
+     "sha256": "e5d7ea905b8b5d7a2ad2c5302134120b045d72a8bec5a9cbfcbd3b3fe99947de",
+     "bytes": 986219
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/GMEX_std_clean.RData",
+     "sha256": "a7445d45b18bd9bdfc31c502588ec67d1e96f6e90eb3b45ae08cd89b0115cba3",
+     "bytes": 11483338
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/GOA_std_clean.RData",
+     "sha256": "e7bb27175d1d46ff28b1fe9c1cbd79005a421d698ce3a62bc98b76bf6874ae7a",
+     "bytes": 2318133
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/GSL-N_std_clean.RData",
+     "sha256": "58ae06b4b5d97cdb82e48f3538ebcd7fd86927bd7496bb27d90960e853a1dfc8",
+     "bytes": 2596192
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/GSL-S_std_clean.RData",
+     "sha256": "9771a697b930529a4fddb9eb9c0528995f3c8f2b0ba19be291979c2a2b68e238",
+     "bytes": 2107379
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/HS_std_clean.RData",
+     "sha256": "1c4d2d77138c90d5f029c31eefbda061267fb0e0dbf267569903c565dae64584",
+     "bytes": 494652
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/IE-IGFS_std_clean.RData",
+     "sha256": "56b2da40329b3abb9b635b6d4604391da3d41b26d62db00b97d94a44747aed49",
+     "bytes": 2742009
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/NEUS_std_clean.RData",
+     "sha256": "6813c17ce0320b7cfae7e2a2de974e0958c886da841cc3240954d43b83e0c083",
+     "bytes": 12182177
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/NIGFS_std_clean.RData",
+     "sha256": "06c88833abfad48cf8d628b3158596e32ea49c8a89978fef94c28bd99549098d",
+     "bytes": 1181144
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/NOR-BTS_std_clean.RData",
+     "sha256": "bcf258486adc45115a93be9322b99aae54287a3a878a925652749908470e2191",
+     "bytes": 1262752
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/NS-IBTS_std_clean.RData",
+     "sha256": "6c2996bdf1c992db25e6a79caed6f07979ebb956af645548e37a4f9da5037b70",
+     "bytes": 14353028
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/PT-IBTS_std_clean.RData",
+     "sha256": "0a784b4800a64a4c745013cc21c40bf72c8644ee66644c8158aecb9f97f5691c",
+     "bytes": 576266
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/QCS_std_clean.RData",
+     "sha256": "3c4532fd94c6e4d5806c04c860cb566f9a8bbaac499c05afd5c8980bc9473b1b",
+     "bytes": 899308
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/ROCKALL_std_clean.RData",
+     "sha256": "419e8ab4d80ee8e30e0322169de96f98a8f58b07513cf33cb394ab49cc685576",
+     "bytes": 443069
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SCS_std_clean.RData",
+     "sha256": "dc5ff77cc784e6b3acc8e162fc0f765fbe4513bbcdd4982d32a913f3ae81f5e0",
+     "bytes": 4831858
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SEUS_std_clean.RData",
+     "sha256": "0b9cbcfe3a2766b6aab760390ba1acd09eb583cad8e2ed1fdf2c80f718e024d9",
+     "bytes": 5328195
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SOG_std_clean.RData",
+     "sha256": "0e17d410e88b992c8b495f61f3c4c5b02c544d1c1813ca9a3491a6b590111375",
+     "bytes": 45691
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SP-ARSA_std_clean.RData",
+     "sha256": "f6328bb42d6b7f8608d0ce32aab2ba4583c2dd014ae15a71c96ba95dfdb374c3",
+     "bytes": 510555
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SP-NORTH_std_clean.RData",
+     "sha256": "76d0428b05d9f61ed09c593e026fb7c054fe7b471978714aaa52be7ecb55fdf2",
+     "bytes": 1855400
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SP-PORC_std_clean.RData",
+     "sha256": "6cc9c7e49d5176caee8076c13ef5df23d2c5c103c996fc5519152068cc2eac7b",
+     "bytes": 1310654
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/SWC-IBTS_std_clean.RData",
+     "sha256": "e9231a7e3e9618caa372ca3586d2a28901220bd254bab9f49142d0dfc6e40eb5",
+     "bytes": 3054300
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/WCANN_std_clean.RData",
+     "sha256": "f27bee3b865f6446a19702d2f01dabb760d9a121909ca2edb6eb3218f143fdd6",
+     "bytes": 6106739
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/WCHG_std_clean.RData",
+     "sha256": "0cc6ea0340f45c8077ac77bb130f301de0599faa14d461226465c6a01ee2952a",
+     "bytes": 362669
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/WCTRI_std_clean.RData",
+     "sha256": "d45f2aa995fcad9a84ad0f5e75f6e88a70ce8236b59c569d45ad57b898bdfc42",
+     "bytes": 2019706
+    },
+    {
+     "path": "aquaauma/fishglob_data/outputs/Cleaned_data/WCVI_std_clean.RData",
+     "sha256": "d831103104fc7f35103a6c18b2b999ec7a32acae978315fdaaf6efa84e541a69",
+     "bytes": 521978
+    }
+   ]
+  },
+  {
+   "name": "GPDD v2010 (rgpdd bundle)",
+   "github_repo": "ropensci/rgpdd",
+   "commit": "7406de253d397e7fa7485ecd4b4816ede9a25a2e|2020-05-18T09:02:50-07:00",
+   "retrieved": "2026-09-08",
+   "license": "rgpdd package: CC0 (DESCRIPTION/LICENSE); GPDD data terms on KNB (doi:10.5063/F1BZ63Z8) not verifiable from sandbox",
+   "status": "retrieved",
+   "notes": "gpdd_version: Created Feb 2010, Revision 2.0; 685 MainIDs listed as Restricted in gpdd_restricted",
+   "files": [
+    {
+     "path": "ropensci/rgpdd/data/gpdd_biotope.rda",
+     "sha256": "a355ecae62868e72eb3798ffdb0bdf3b12f25530df991661c427db991b0f4d78",
+     "bytes": 3288
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_data.rda",
+     "sha256": "b8a83a55ebdb565ec15e32636c20e48eb2e2c8e2a32d333cb2267966b033d0f6",
+     "bytes": 337700
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_datasource.rda",
+     "sha256": "f15400d10c7fe4e220df7d453ba756e6e121199f84ab1dcc83e10997e0d00bde",
+     "bytes": 29048
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_location.rda",
+     "sha256": "445c3a80364a84ebc617034dbf14fcc24324e76dc906ce1ce81d83f3878ccee1",
+     "bytes": 43304
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_main.rda",
+     "sha256": "87f8397db300f45af9c984beebcd3cd33d3c9eedaf572348eaab86f84432d1aa",
+     "bytes": 60412
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_restricted.rda",
+     "sha256": "6c0df7d1e0e67e289e8e50d749b1dc42fed7940e5fa3b8ec517ecd986b518862",
+     "bytes": 824
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_taxon.rda",
+     "sha256": "5e2e7ce2aa4c8b907e538849d785059afe8d5092b8879a9384a5af07df1953b5",
+     "bytes": 57668
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_timeperiod.rda",
+     "sha256": "f95436b67618331e1228aff6987c91c8538d2ec39bfbbf010a4955b556ad4c04",
+     "bytes": 3876
+    },
+    {
+     "path": "ropensci/rgpdd/data/gpdd_version.rda",
+     "sha256": "76d542aeac131bcb33a25f3bed87db26e0b800f1a41d525a0b5738ff27a9d55c",
+     "bytes": 336
+    }
+   ]
+  },
+  {
+   "name": "RAM Legacy v4.41 extract (proxy)",
+   "github_repo": "cfree14/sst_recruitment",
+   "commit": "134104d76152f1869209e0eb883036274da156a1|2019-01-11T16:15:25-08:00",
+   "retrieved": "2026-09-08",
+   "license": "no LICENSE file in repo; underlying RAM Legacy data are CC BY 4.0 on Zenodo (to verify); proxy use only, not for analysis",
+   "status": "retrieved (proxy)",
+   "notes": "328 stocks SSB/R/TB/catch built from RAM v4.41 (8-20-18)",
+   "files": [
+    {
+     "path": "cfree14/sst_recruitment/data/ramldb/data/ramldb_stock_recruit_data.Rdata",
+     "sha256": "0575e41b1679d93dd9b919b1abfdc8f0db4cc83ef02c6e504f7221b33096c486",
+     "bytes": 173354
+    },
+    {
+     "path": "cfree14/sst_recruitment/data/ramldb/data/ramldb_stock_recruit_data_trimmed.Rdata",
+     "sha256": "3d017d58355da7a2029c014f43491e423226f7c676198fb07af340427b26698f",
+     "bytes": 209663
+    }
+   ]
+  },
+  {
+   "name": "O'Brien et al. 2023 lake challenge set",
+   "github_repo": "duncanobrien/ews-assessments",
+   "commit": "c89a76cc415ec6abdbe8a1ec2c7d44b8ed83a4fe|2023-12-07T07:58:33+00:00",
+   "retrieved": "2026-09-08",
+   "license": "no LICENSE file in repo; Kinneret and Kasumigaura data restricted (available on request only); public lakes cite original EIDC/EDI/PLOS sources",
+   "status": "retrieved (7 public lakes)",
+   "notes": "",
+   "files": [
+    {
+     "path": "duncanobrien/ews-assessments/Data/wrangled_genus_plank_data_public.Rdata",
+     "sha256": "a836d6b8e76659dc1749df0937ace9f5a8aec40fe45ab682a128c971ad4b4e8a",
+     "bytes": 280135
+    },
+    {
+     "path": "duncanobrien/ews-assessments/Data/transition_dates.csv",
+     "sha256": "149a4443678da99c900a9297f8ea8abf2651f9528fa05efcb24f1234f7f969bd",
+     "bytes": 3734
+    }
+   ]
+  },
+  {
+   "name": "Bury et al. 2021 deep-learning classifiers",
+   "github_repo": "ThomasMBury/deep-early-warnings-pnas",
+   "commit": "d56b5df879efbd557dad38aca1281cd00dc404c9|2025-11-28T15:23:14-05:00",
+   "retrieved": "2026-09-08",
+   "license": "CC BY-NC-SA 4.0 (LICENSE file in repo)",
+   "status": "retrieved",
+   "notes": "20 classifiers (10 x 2 padding types) for lengths 500 and 1500 stored as TF SavedModel directories under dl_train/best_models; ewstools on PyPI has no bundled classifier files",
+   "files": [
+    {
+     "path": "thomasmbury/deep-early-warnings-pnas/README.md",
+     "sha256": "312bef7a540ffa7c5b954e54a91f00d0aacc54a6cdcc75efeed45974c26ea6c6",
+     "bytes": 8906
+    },
+    {
+     "path": "thomasmbury/deep-early-warnings-pnas/LICENSE",
+     "sha256": "1349a4b6148492b44f629e64eed676612e234fe9a839e4f3b277c1482c8849f1",
+     "bytes": 20849
+    }
+   ]
+  },
+  {
+   "name": "RAM Legacy current release",
+   "url": "https://www.ramlegacy.org / Zenodo (v4.66 'Extended' record 14043038 seen in search results)",
+   "status": "blocked",
+   "notes": "egress blocked (zenodo.org, ramlegacy.org)"
+  },
+  {
+   "name": "Living Planet Database public release",
+   "url": "https://livingplanetindex.org/data_portal",
+   "status": "blocked",
+   "notes": "egress blocked; human must accept data-use terms"
+  },
+  {
+   "name": "BioTIME 2.0",
+   "url": "https://doi.org/10.5281/zenodo.10932823",
+   "status": "blocked",
+   "notes": "egress blocked"
+  },
+  {
+   "name": "ICES DATRAS / SAG",
+   "url": "https://datras.ices.dk ; https://standardgraphs.ices.dk",
+   "status": "blocked",
+   "notes": "egress blocked"
+  },
+  {
+   "name": "Burthe et al. 2016 data (Dryad)",
+   "url": "doi:10.1111/1365-2664.12519 supplement / Dryad",
+   "status": "blocked",
+   "notes": "egress blocked"
+  }
+ ]
+}

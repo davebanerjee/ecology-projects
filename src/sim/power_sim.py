@@ -165,20 +165,32 @@ def fa_burden(n_false, neg_years):
     return np.inf if ny == 0 else n_false.sum() / (ny / 20.0)
 
 
-def choose_threshold(S, Y, ev, budget, refractory=HORIZON, n_grid=300):
-    """Lowest threshold (max sensitivity) whose FA burden on this set is <= budget."""
+def choose_threshold(S, Y, ev, budget, refractory=HORIZON, n_grid=400):
+    """Lowest threshold (max sensitivity) whose FA burden on this set is <= budget.
+
+    FA burden is (near-)monotone non-increasing in the threshold, so we bisect
+    over a quantile grid of observed scores instead of scanning linearly.
+    """
     vals = S[~np.isnan(S)]
-    qs = np.quantile(vals, np.linspace(0.5, 0.999, n_grid))
-    best = None
-    for theta in qs:  # increasing thresholds -> decreasing FA (approximately)
+    qs = np.quantile(vals, np.linspace(0.3, 0.9995, n_grid))
+
+    def fa_at(theta):
         st = episode_starts(S, Y, theta, refractory)
-        det, nf, ny = metrics_from_starts(st, Y, ev)
-        if fa_burden(nf, ny) <= budget:
-            best = theta
-            break
-    if best is None:
-        best = np.nanmax(S) + 1.0  # never alarm
-    return best
+        _, nf, ny = metrics_from_starts(st, Y, ev)
+        return fa_burden(nf, ny)
+
+    lo, hi = 0, n_grid - 1
+    if fa_at(qs[hi]) > budget:
+        return np.nanmax(S) + 1.0  # never alarm
+    if fa_at(qs[lo]) <= budget:
+        return qs[lo]
+    while hi - lo > 1:               # invariant: fa(lo) > budget >= fa(hi)
+        mid = (lo + hi) // 2
+        if fa_at(qs[mid]) <= budget:
+            hi = mid
+        else:
+            lo = mid
+    return qs[hi]
 
 
 def sensitivity(detected, ev, ds, weighting):
@@ -234,9 +246,9 @@ def calibrate(specs, p: SimParams, rng, n_cal_scale=None):
     """Bisection for mu_B (target S_B) then delta (target S_B + delta_true)."""
     n_total = sum(int(round(s.n_systems * s.scale)) for s in specs)
     if n_cal_scale is None:
-        n_cal_scale = max(1.0, 6000.0 / n_total)
+        n_cal_scale = max(1.0, 4000.0 / n_total)
     lo, hi = 0.0, 6.0
-    for _ in range(18):
+    for _ in range(13):
         mid = 0.5 * (lo + hi)
         sB, _ = _pop_sens(specs, p, mid, 0.0, rng, n_cal_scale)
         if sB < p.S_B:
@@ -246,7 +258,7 @@ def calibrate(specs, p: SimParams, rng, n_cal_scale=None):
     mu_B = 0.5 * (lo + hi)
     target = p.S_B + p.delta_true
     lo, hi = 0.0, 12.0
-    for _ in range(18):
+    for _ in range(13):
         mid = 0.5 * (lo + hi)
         _, sE = _pop_sens(specs, p, mu_B, mid, rng, n_cal_scale)
         if sE < target:
@@ -311,10 +323,14 @@ def run_replicate(specs, p: SimParams, mu_B, delta, rng):
 
 
 def run_cell(args):
-    specs, p_dict, label = args
+    specs, p_dict, label = args[:3]
+    calib = args[3] if len(args) > 3 else None
     p = SimParams(**p_dict)
     rng = np.random.default_rng(p.seed)
-    mu_B, delta = calibrate(specs, p, rng)
+    if calib is None:
+        mu_B, delta = calibrate(specs, p, rng)
+    else:
+        mu_B, delta = calib
     rows = []
     for r in range(p.n_reps):
         rows.append(run_replicate(specs, p, mu_B, delta, rng))

@@ -64,7 +64,7 @@ SCENARIOS = {
 def build_grid(specs, quick=False):
     cells = []
     deltas = [0.0, 0.05, 0.10, 0.15, 0.20]
-    base = dict(S_B=0.45, n_boot=200 if quick else 300, n_reps=60 if quick else 300)
+    base = dict(S_B=0.45, n_boot=200 if quick else 400, n_reps=60 if quick else 500)
     for name, keys in SCENARIOS.items():
         sp = [specs[k] for k in keys]
         for d in deltas:
@@ -101,6 +101,17 @@ if __name__ == "__main__":
     cells = build_grid(specs, quick=quick)
     print("cells:", len(cells))
     t0 = time.time()
+    # calibration is shared by cells with identical (scenario, S_B, delta_true, w)
+    calib_keys = {}
+    for sp, pd_, name in cells:
+        calib_keys.setdefault((name, pd_["S_B"], pd_["delta_true"], pd_.get("w", 0.3)), (sp, pd_))
+    def _cal(item):
+        key, (sp, pd_) = item
+        return key, calibrate(sp, SimParams(**pd_), np.random.default_rng(12345))
+    with Pool(3) as pool:
+        calibs = dict(pool.map(_cal, list(calib_keys.items())))
+    print("calibrations done:", len(calibs), f"({round(time.time()-t0)}s)", flush=True)
+    cells = [(sp, pd_, name, calibs[(name, pd_["S_B"], pd_["delta_true"], pd_.get("w", 0.3))]) for sp, pd_, name in cells]
     with Pool(3) as pool:
         rows = []
         for i, r in enumerate(pool.imap_unordered(run_cell, cells)):
