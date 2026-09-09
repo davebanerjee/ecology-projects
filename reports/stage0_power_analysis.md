@@ -107,14 +107,21 @@ row is the more honest planning case.
 ## 5. Episode rule
 
 Under the 'run' rule (one maximal alarm run = one episode, refractory counted
-from the run's end) the false-alarm burden is bounded by one episode per
+from the run's end) the false-alarm burden is bounded by about one episode per
 system, so the lowest threshold meeting the budget is far too permissive:
-alarms start years before the window and every event is missed. The threshold
-must then be chosen to maximize development sensitivity subject to the budget
-(implemented as a scan). Results with that search are reported in
-`results/stage0/power_grid_dependence.csv` (rows `D_episode_rule=run_v2`) and
-summarized in the Stage 0 report; the block rule remains the recommended
-primary because the budget constraint alone controls persistent alarms.
+alarms start years before the window and every event is missed (the first
+grid's run-rule cells were degenerate for this reason). The threshold must
+then be chosen to maximize development sensitivity subject to the budget
+(implemented as a scan). With that search, scenario D under cross-fitting
+gives power 0.50 at a realized +0.10 and P(negligible) 0.81 at 0 (block rule:
+0.51 and 0.86), with realized false-alarm burdens of 0.66–0.82 per 20 years
+because the sensitivity-optimal threshold leaves part of the budget unused.
+The two rules therefore give similar power once the threshold search is
+matched to the rule, but they define different quantities (under the run rule
+a persistent early alarm can never count as a detection). Stage 0 recommends
+the block rule as primary because the budget constraint alone controls
+persistent alarms and the threshold rule stays monotone; the choice must be
+frozen explicitly in Stage 1.
 
 ## 6. Events needed (system weighting, cross-fitting, block rule)
 
