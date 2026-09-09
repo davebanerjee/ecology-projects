@@ -231,7 +231,10 @@ def classify(d_hat, lo, hi, sesoi):
 # --------------------------------------------------------------------------- #
 # calibration of mu_B and delta
 # --------------------------------------------------------------------------- #
-def _pop_sens(specs, p, mu_B, delta, rng, n_cal_scale):
+def _pop_sens(specs, p, mu_B, delta, seed, n_cal_scale):
+    """Population sensitivities of both models at the FA budget, using COMMON RANDOM
+    NUMBERS (fixed seed) so that the bisection targets are monotone in mu_B/delta."""
+    rng = np.random.default_rng(seed)
     big = [DatasetSpec(s.name, s.n_systems, s.n_events, s.pos_neg_event, s.neg_nonevent, s.scale * n_cal_scale) for s in specs]
     Y, K, ds, ev = gen_population(big, rng)
     sB, sE = gen_scores(Y, K, ev, p, mu_B, delta, rng)
@@ -242,15 +245,21 @@ def _pop_sens(specs, p, mu_B, delta, rng, n_cal_scale):
     return dB[ev == 1].mean(), dE[ev == 1].mean()
 
 
-def calibrate(specs, p: SimParams, rng, n_cal_scale=None):
-    """Bisection for mu_B (target S_B) then delta (target S_B + delta_true)."""
-    n_total = sum(int(round(s.n_systems * s.scale)) for s in specs)
-    if n_cal_scale is None:
-        n_cal_scale = max(1.0, 4000.0 / n_total)
+def calibrate(specs, p: SimParams, rng, n_cal_events=3000, n_iter=16):
+    """Bisection for mu_B (target S_B) then delta (target S_B + delta_true).
+
+    Uses a calibration population with >= n_cal_events events and common random
+    numbers, then re-evaluates the calibrated pair on an independent population
+    to report the REALIZED population increment (delta_realized), which is what
+    the replicates actually estimate.  Returns (mu_B, delta, delta_realized, sB_realized).
+    """
+    n_ev = sum(int(round(s.n_events * s.scale)) for s in specs)
+    n_cal_scale = max(1.0, n_cal_events / max(n_ev, 1))
+    seed = int(rng.integers(1 << 31))
     lo, hi = 0.0, 6.0
-    for _ in range(13):
+    for _ in range(n_iter):
         mid = 0.5 * (lo + hi)
-        sB, _ = _pop_sens(specs, p, mid, 0.0, rng, n_cal_scale)
+        sB, _ = _pop_sens(specs, p, mid, 0.0, seed, n_cal_scale)
         if sB < p.S_B:
             lo = mid
         else:
@@ -258,15 +267,16 @@ def calibrate(specs, p: SimParams, rng, n_cal_scale=None):
     mu_B = 0.5 * (lo + hi)
     target = p.S_B + p.delta_true
     lo, hi = 0.0, 12.0
-    for _ in range(13):
+    for _ in range(n_iter):
         mid = 0.5 * (lo + hi)
-        _, sE = _pop_sens(specs, p, mu_B, mid, rng, n_cal_scale)
+        _, sE = _pop_sens(specs, p, mu_B, mid, seed, n_cal_scale)
         if sE < target:
             lo = mid
         else:
             hi = mid
     delta = 0.5 * (lo + hi)
-    return mu_B, delta
+    sB_r, sE_r = _pop_sens(specs, p, mu_B, delta, seed + 1, n_cal_scale)
+    return mu_B, delta, float(sE_r - sB_r), float(sB_r)
 
 
 # --------------------------------------------------------------------------- #
@@ -328,19 +338,21 @@ def run_cell(args):
     p = SimParams(**p_dict)
     rng = np.random.default_rng(p.seed)
     if calib is None:
-        mu_B, delta = calibrate(specs, p, rng)
+        mu_B, delta, delta_realized, sB_realized = calibrate(specs, p, rng)
     else:
-        mu_B, delta = calib
+        mu_B, delta, delta_realized, sB_realized = calib
     rows = []
     for r in range(p.n_reps):
         rows.append(run_replicate(specs, p, mu_B, delta, rng))
     df = pd.DataFrame(rows)
     vc = df["verdict"].value_counts(normalize=True)
     out = {"scenario": label, **{k: v for k, v in p_dict.items()}, "mu_B": mu_B, "delta_cal": delta,
+           "delta_realized": delta_realized, "sB_realized": sB_realized,
            "p_meaningful": vc.get("meaningful", 0.0), "p_negligible": vc.get("negligible", 0.0),
            "p_inconclusive": vc.get("inconclusive", 0.0), "p_harm": vc.get("harm", 0.0),
            "mean_d_hat": df["d_hat"].mean(), "sd_d_hat": df["d_hat"].std(), "mean_ci_width": df["ci_width"].mean(),
-           "cover95": float(((df["ci_lo"] <= p.delta_true) & (df["ci_hi"] >= p.delta_true)).mean()),
+           "cover95_nominal": float(((df["ci_lo"] <= p.delta_true) & (df["ci_hi"] >= p.delta_true)).mean()),
+           "cover95": float(((df["ci_lo"] <= delta_realized) & (df["ci_hi"] >= delta_realized)).mean()),
            "mean_sensB": df["sensB"].mean(), "mean_sensE": df["sensE"].mean(),
            "mean_faB_eval": df["faB"].replace(np.inf, np.nan).mean(), "mean_faE_eval": df["faE"].replace(np.inf, np.nan).mean(),
            "p_faE_gt_1.5": float((df["faE"] > 1.5).mean()),

@@ -125,12 +125,13 @@ MainIDs (685) carry no data in the bundle.
 * The 38 surviving series are 35 bird counts from 12 locations and 12 data
   sources (mostly UK island/reserve censuses and North American counts) with
   onsets in 1937–1978; 16 contain zeros. They are far from independent.
-* The Reliability filter is the second-largest loss and its coding is
-  UNVERIFIED: the rgpdd bundle does not document whether 1 or 5 is "most
-  reliable" (the value −1 is also present). The long harvest series
-  (Reliability 1 and −1, e.g. fur returns, catch statistics) are excluded
-  anyway by the effort rule. This must be checked against the GPDD user guide
-  before Stage 1.
+* The Reliability filter is the second-largest loss. A published GPDD summary
+  (IWC document SC/A10/MSYR1) states that higher codes are more reliable, that
+  series with Reliability ≥ 3 "should be accepted" and that 2 is "probably too
+  unreliable"; the value −1 (1023 series) is undocumented in the bundle. With
+  ≥ 3 the screened cohort is 36 series and 5 events; with ≥ 4, 33 and 4. The
+  long harvest series (Reliability 1 and −1) are excluded anyway by the effort
+  rule. Confirm against the GPDD user guide on KNB before Stage 1.
 * History-minimum sensitivity on the screened pool: ≥ 25 → 59 series, 8 events;
   ≥ 20 → 140 series, 22 events.
 

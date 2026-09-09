@@ -64,7 +64,7 @@ SCENARIOS = {
 def build_grid(specs, quick=False):
     cells = []
     deltas = [0.0, 0.05, 0.10, 0.15, 0.20]
-    base = dict(S_B=0.45, n_boot=200 if quick else 400, n_reps=60 if quick else 500)
+    base = dict(S_B=0.45, n_boot=200 if quick else 400, n_reps=60 if quick else 400)
     for name, keys in SCENARIOS.items():
         sp = [specs[k] for k in keys]
         for d in deltas:
