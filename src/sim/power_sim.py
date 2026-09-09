@@ -200,18 +200,38 @@ def fa_burden(n_false, neg_years):
 
 
 def choose_threshold(S, Y, ev, budget, refractory=HORIZON, n_grid=400, rule="block"):
-    """Lowest threshold (max sensitivity) whose FA burden on this set is <= budget.
+    """Threshold maximizing development sensitivity subject to FA burden <= budget.
 
-    FA burden is (near-)monotone non-increasing in the threshold, so we bisect
-    over a quantile grid of observed scores instead of scanning linearly.
+    Under the 'block' rule sensitivity is monotone non-increasing and FA burden
+    monotone non-decreasing as the threshold falls, so the lowest threshold that
+    meets the budget is optimal and is found by bisection over a quantile grid.
+    Under the 'run' rule a lower threshold can START an alarm run earlier and
+    so LOSE detections, so the constrained optimum is found by scanning a
+    coarser grid and keeping the budget-feasible threshold with the highest
+    sensitivity (ties -> lower FA burden).
     """
     vals = S[~np.isnan(S)]
+
+    def eval_at(theta):
+        st = episode_starts(S, Y, theta, refractory, rule)
+        det, nf, ny = metrics_from_starts(st, Y, ev)
+        return fa_burden(nf, ny), (det[ev == 1].mean() if (ev == 1).any() else 0.0)
+
+    if rule == "run":
+        qs = np.quantile(vals, np.linspace(0.3, 0.9995, 80))
+        best, best_key = None, None
+        for theta in qs:
+            fa, sens = eval_at(theta)
+            if fa <= budget:
+                key = (sens, -fa)
+                if best_key is None or key > best_key:
+                    best, best_key = theta, key
+        return best if best is not None else np.nanmax(S) + 1.0
+
     qs = np.quantile(vals, np.linspace(0.3, 0.9995, n_grid))
 
     def fa_at(theta):
-        st = episode_starts(S, Y, theta, refractory, rule)
-        _, nf, ny = metrics_from_starts(st, Y, ev)
-        return fa_burden(nf, ny)
+        return eval_at(theta)[0]
 
     lo, hi = 0, n_grid - 1
     if fa_at(qs[hi]) > budget:
@@ -268,6 +288,21 @@ def paired_bootstrap(detB, detE, nfB, nfE, ny, ev, ds, weighting, n_boot, rng, c
         faB[b] = fa_burden(nfB[idx], ny[idx])
         faE[b] = fa_burden(nfE[idx], ny[idx])
     return diffs, faB, faE
+
+
+def classify_alt(d_hat, lo, hi, sesoi, n_disc=None, min_disc=0):
+    """Alternative rule (Stage 0 proposal): meaningful = superiority (lower bound > 0)
+    AND the interval does not exclude a meaningful effect (upper bound >= sesoi);
+    negligible / harm as in Section 10."""
+    if n_disc is not None and n_disc < min_disc:
+        return "inconclusive"
+    if hi < 0:
+        return "harm"
+    if hi < sesoi:
+        return "negligible"
+    if lo > 0 and hi >= sesoi:
+        return "meaningful"
+    return "inconclusive"
 
 
 def classify(d_hat, lo, hi, sesoi, n_disc=None, min_disc=0):
@@ -385,7 +420,8 @@ def run_replicate(specs, p: SimParams, mu_B, delta, rng):
     return {"d_hat": d_hat, "ci_lo": lo, "ci_hi": hi, "ci_width": hi - lo, "sensB": sensB, "sensE": sensE,
             "faB": fa_burden(nfB, ny), "faE": fa_burden(nfE, ny), "n_events_eval": int((ev_e == 1).sum()),
             "n_systems_eval": int(len(ev_e)), "n_negyears_eval": int(ny.sum()), "n_disc": n_disc,
-            "verdict": classify(d_hat, lo, hi, p.sesoi, n_disc, p.min_discordant)}
+            "verdict": classify(d_hat, lo, hi, p.sesoi, n_disc, p.min_discordant),
+            "verdict_alt": classify_alt(d_hat, lo, hi, p.sesoi, n_disc, p.min_discordant)}
 
 
 def run_cell(args):
@@ -402,10 +438,13 @@ def run_cell(args):
         rows.append(run_replicate(specs, p, mu_B, delta, rng))
     df = pd.DataFrame(rows)
     vc = df["verdict"].value_counts(normalize=True)
+    va = df["verdict_alt"].value_counts(normalize=True)
     out = {"scenario": label, **{k: v for k, v in p_dict.items()}, "mu_B": mu_B, "delta_cal": delta,
            "delta_realized": delta_realized, "sB_realized": sB_realized,
            "p_meaningful": vc.get("meaningful", 0.0), "p_negligible": vc.get("negligible", 0.0),
            "p_inconclusive": vc.get("inconclusive", 0.0), "p_harm": vc.get("harm", 0.0),
+           "p_meaningful_alt": va.get("meaningful", 0.0), "p_negligible_alt": va.get("negligible", 0.0),
+           "p_inconclusive_alt": va.get("inconclusive", 0.0), "p_harm_alt": va.get("harm", 0.0),
            "mean_d_hat": df["d_hat"].mean(), "sd_d_hat": df["d_hat"].std(), "mean_ci_width": df["ci_width"].mean(),
            "cover95_nominal": float(((df["ci_lo"] <= p.delta_true) & (df["ci_hi"] >= p.delta_true)).mean()),
            "cover95": float(((df["ci_lo"] <= delta_realized) & (df["ci_hi"] >= delta_realized)).mean()),
