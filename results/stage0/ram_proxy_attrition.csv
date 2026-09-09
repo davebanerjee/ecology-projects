@@ -1,0 +1,4 @@
+criterion,n_series,n_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins
+all stocks with SSB or TB series,328,170,3107,43,204,2903
+n_obs >= 35,213,170,3107,43,204,2903
+>=1 eligible forecast origin,170,170,3107,43,204,2903

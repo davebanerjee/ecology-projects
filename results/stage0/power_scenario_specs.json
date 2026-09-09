@@ -1,0 +1,32 @@
+{
+ "RAMproxy": {
+  "name": "RAMproxy",
+  "n_systems": 170,
+  "n_events": 43,
+  "scale": 1.0
+ },
+ "GPDD": {
+  "name": "GPDD",
+  "n_systems": 38,
+  "n_events": 5,
+  "scale": 1.0
+ },
+ "FishGlob": {
+  "name": "FishGlob",
+  "n_systems": 213,
+  "n_events": 41,
+  "scale": 1.0
+ },
+ "RAMfull_x3": {
+  "name": "RAMfull_x3",
+  "n_systems": 170,
+  "n_events": 43,
+  "scale": 3.0
+ },
+ "LPD_proj": {
+  "name": "LPD_proj",
+  "n_systems": 400,
+  "n_events": 32,
+  "scale": 1.0
+ }
+}

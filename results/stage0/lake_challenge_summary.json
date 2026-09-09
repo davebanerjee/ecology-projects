@@ -1,0 +1,37 @@
+{
+ "lakes_public": 7,
+ "lakes_total_in_paper": 9,
+ "lakes_restricted": [
+  "Kinneret",
+  "Kasumigaura"
+ ],
+ "annual_series_lengths": {
+  "Loch Leven": 12,
+  "Lower Zurich": 28,
+  "Mendota": 15,
+  "Monona": 12,
+  "Upper Zurich": 17,
+  "Washington": 9,
+  "Windermere": 20
+ },
+ "monthly_series_lengths": {
+  "Loch Leven": 152,
+  "Lower Zurich": 332,
+  "Mendota": 168,
+  "Monona": 130,
+  "Upper Zurich": 209,
+  "Washington": 97,
+  "Windermere": 244
+ },
+ "community_transition_dates": {
+  "Kasumigaura": 2009.0,
+  "Kinneret": 1998.0,
+  "Loch Leven": NaN,
+  "Lower Zurich": 2002.0,
+  "Mendota": 2012.0,
+  "Monona": NaN,
+  "Upper Zurich": NaN,
+  "Washington": 1975.0,
+  "Windermere": NaN
+ }
+}

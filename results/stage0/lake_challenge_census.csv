@@ -1,0 +1,15 @@
+lake,resolution,n_obs,n_taxa_columns,start,end,state_date,temporal_date,date_match,threshold_date,is_bimodal
+Loch Leven,annual,12,9,1992.0,2003.0,,,,,False
+Loch Leven,monthly,152,8,1992.0833333333333,2004.6666666666667,,,,,False
+Lower Zurich,annual,28,138,1977.0,2004.0,2002.0,2002.0,True,2002.0,True
+Lower Zurich,monthly,332,138,1977.0,2005.0,2002.0,2002.0,True,2002.0,True
+Mendota,annual,15,106,1995.0,2009.0,2012.0,2012.0,True,2012.0,True
+Mendota,monthly,168,104,1995.3333333333333,2009.25,2012.0,2012.0,True,2012.0,True
+Monona,annual,12,102,1999.0,2010.0,2012.0,2013.0,False,,False
+Monona,monthly,130,100,1999.25,2010.0,2012.0,2013.0,False,,False
+Upper Zurich,annual,17,80,1980.0,1996.0,1994.0,,,,True
+Upper Zurich,monthly,209,80,1980.0,1997.8333333333333,1994.0,,,,True
+Washington,annual,9,17,1962.0,1970.0,1975.0,1975.0,True,1975.0,True
+Washington,monthly,97,17,1962.0,1970.0,1975.0,1975.0,True,1975.0,True
+Windermere,annual,20,24,1979.0,1998.0,,,,,True
+Windermere,monthly,244,24,1979.0,1999.25,,,,,True

@@ -1,0 +1,8 @@
+n_series_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins,n_series_with_any_onset,frac,persistence,min_history,horizon
+213,1080,41,147,933,392,,,,
+285,1616,45,160,1456,209,0.1,,,
+150,720,45,169,551,563,0.3,,,
+253,1328,42,150,1178,245,,3.0,,
+529,4776,135,543,4233,392,,,20.0,
+417,2520,81,327,2193,392,,,25.0,
+237,1510,41,98,1412,392,,,,3.0

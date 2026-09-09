@@ -1,0 +1,329 @@
+stockid,n_obs,start,end,span,n_missing_years,n_zero,onset_year,n_origins,n_pos,n_neg,first_origin,last_origin,event_in_eligible_window,var_used,stocklong,species,region,area,method,country,yr1,yr2,nyr,family
+ACADREDGOMGB,101,1913,2013,101,0,0,1960.0,18,5,13,1942.0,1959.0,True,ssb,Acadian redfish Gulf of Maine / Georges Bank,Sebastes fasciatus,US East Coast,Gulf of Maine / Georges Bank,ASAP,USA,1913.0,2013.0,101,Sebastidae
+ACMACKSARG,25,1990,2014,25,0,0,,0,0,0,,,False,ssb,Argentine chub mackerel Southern Argentina,Scomber colias,South America,Southern Argentina,ASPM,Argentina,1990.0,2014.0,25,Scombridae
+ALBANPAC,23,1993,2015,23,0,0,,0,0,0,,,False,ssb,Albacore tuna North Pacific,Thunnus alalunga,Pacific Ocean,North Pacific Ocean,SS3,Multinational,1993.0,2015.0,23,Scombridae
+ALBASPAC,54,1960,2013,54,0,0,,20,0,20,1989.0,2008.0,False,ssb,Albacore tuna South Pacific Ocean,Thunnus alalunga,Pacific Ocean,South Pacific Ocean,Unknown,multinational,1960.0,2013.0,54,Scombridae
+ALPLAICBSAI,39,1975,2013,39,0,0,,5,0,5,2004.0,2008.0,False,ssb,Alaska plaice Bering Sea and Aleutian Islands,Pleuronectes quadrituberculatus,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1975.0,2013.0,39,Pleuronectidae
+ALSKABSAI,65,1950,2014,65,0,0,,31,0,31,1979.0,2009.0,False,ssb,Alaska skate Bering Sea and Aleutian Islands,Bathyraja parmifera,US Alaska,Bering Sea and Aleutian Islands,SS3,USA,1950.0,2014.0,65,Arhynchobatidae
+AMPL23K,20,1979,1998,20,0,0,1992.0,0,0,0,,,False,ssb,American Plaice NAFO-23K,Hippoglossoides platessoides,Canada East Coast,Labrador - NE Newfoundland,Unknown,Canada,1979.0,1998.0,20,Pleuronectidae
+AMPL3LNO,43,1960,2002,43,0,0,1992.0,3,3,0,1989.0,1991.0,True,ssb,American Plaice NAFO-3LNO,Hippoglossoides platessoides,Canada East Coast,Grand Banks,VPA,multinational,1960.0,2002.0,43,Pleuronectidae
+AMPL4T,32,1976,2007,32,0,0,1997.0,0,0,0,,,False,ssb,American plaice Southern Gulf of St. Lawrence,Hippoglossoides platessoides,Canada East Coast,Southern Gulf of St. Lawrence,VPA,Canada,1976.0,2007.0,32,Pleuronectidae
+AMPL5YZ,34,1980,2013,34,0,0,,0,0,0,,,False,ssb,American Plaice NAFO-5YZ,Hippoglossoides platessoides,US East Coast,Gulf of Maine / Georges Bank,VPA,USA,1980.0,2013.0,34,Pleuronectidae
+ANCHMEDGSA17-18,41,1975,2015,41,0,0,1985.0,0,0,0,,,False,ssb,Anchovy Adriatic Sea,Engraulis encrasicolus,Mediterranean-Black Sea,"Adriatic Sea (GSA 17,18)",SAM,multinational,1975.0,2015.0,41,Engraulidae
+ANCHMEDGSA29,27,1988,2014,27,0,0,,0,0,0,,,False,ssb,Anchovy Black Sea,Engraulis encrasicolus,Mediterranean-Black Sea,Black Sea,XSA,multinational,1988.0,2014.0,27,Engraulidae
+ANCHOSA,31,1984,2014,31,0,0,,0,0,0,,,False,ssb,Anchovy South Africa,Engraulis encrasicolus,South Africa,South Africa,SCA,South Africa,1984.0,2014.0,31,Engraulidae
+APOLLNSJ,32,1980,2011,32,0,0,2006.0,0,0,0,,,False,ssb,Walleye pollock Sea of Japan North,Theragra chalcogramma,Russia Japan,Sea of Japan North,Unknown,Japan,1980.0,2011.0,32,Gadidae
+APOLLPJPN,33,1981,2013,33,0,0,,0,0,0,,,False,ssb,Walleye pollock Pacific Coast of Japan,Theragra chalcogramma,Russia Japan,Pacific Coast of Japan,Unknown,Japan,1981.0,2013.0,33,Gadidae
+ARFLOUNDBSAI,38,1976,2013,38,0,0,,4,0,4,2005.0,2008.0,False,ssb,Arrowtooth flounder Bering Sea and Aleutian Islands,Atheresthes stomias,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1976.0,2013.0,38,Pleuronectidae
+ARFLOUNDGA,54,1961,2014,54,0,0,,20,0,20,1990.0,2009.0,False,ssb,Arrowtooth flounder Gulf of Alaska,Atheresthes stomias,US Alaska,Gulf of Alaska,Unknown,USA,1961.0,2014.0,54,Pleuronectidae
+ARFLOUNDPCOAST,102,1914,2015,102,0,0,,68,0,68,1943.0,2010.0,False,ssb,Arrowtooth flounder Pacific Coast,Atheresthes stomias,US West Coast,Pacific Coast,SS2,USA,1914.0,2015.0,102,Pleuronectidae
+ARGANCHONARG,26,1990,2015,26,0,0,,0,0,0,,,False,ssb,Argentine anchoita Northern Argentina,Engraulis anchoita,South America,Northern Argentina,unknown,Argentina,1990.0,2015.0,26,Engraulidae
+ARGANCHOSARG,25,1990,2014,25,0,0,,0,0,0,,,False,ssb,Argentine anchoita Southern Argentina,Engraulis anchoita,South America,Southern Argentina,ASPM,Argentina,1990.0,2014.0,25,Engraulidae
+ARGHAKENARG,28,1986,2013,28,0,0,,0,0,0,,,False,ssb,Argentine hake Northern Argentina,Merluccius hubbsi,South America,Northern Argentina,XSA,Argentina,1986.0,2013.0,28,Merlucciidae
+ARGHAKESARG,24,1990,2013,24,0,0,,0,0,0,,,False,ssb,Argentine hake Southern Argentina,Merluccius hubbsi,South America,Southern Argentina,XSA,Argentina,1990.0,2013.0,24,Merlucciidae
+ATBTUNAEATL,45,1968,2012,45,0,0,,11,0,11,1997.0,2007.0,False,ssb,Bluefin tuna Eastern Atlantic,Thunnus thynnus,Atlantic Ocean,Eastern Atlantic,VPA,multinational,1968.0,2012.0,45,Scombridae
+ATBTUNAWATL,36,1974,2009,36,0,0,,2,0,2,2003.0,2004.0,False,ssb,Bluefin tuna Western Atlantic,Thunnus thynnus,Atlantic Ocean,Western Atlantic,VPA,multinational,1974.0,2009.0,36,Scombridae
+ATHAL3NOPs4VWX5Zc,44,1970,2013,44,0,0,1993.0,0,0,0,,,False,ssb,Atlantic halibut Scotian Shelf and Southern Grand Banks,Hippoglossus hippoglossus,Canada East Coast,Scotian Shelf and Southern Grand Banks,Unknown,Canada,1970.0,2013.0,44,Pleuronectidae
+ATKABSAI,38,1977,2014,38,0,0,,4,0,4,2006.0,2009.0,False,ssb,Atka mackerel Bering Sea and Aleutian Islands,Pleurogrammus monopterygius,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1977.0,2014.0,38,Hexagrammidae
+ATLCROAKMATLC,30,1973,2002,30,0,0,,0,0,0,,,False,ssb,Atlantic croaker Mid-Atlantic Coast,Micropogonias undulatus,US East Coast,Mid-Atlantic Coast,AD-CAM,USA,1973.0,2002.0,30,Sciaenidae
+AUROCKPCOAST,98,1916,2013,98,0,0,,64,0,64,1945.0,2008.0,False,ssb,Aurora rockfish Pacific Coast,Sebastes aurora,US West Coast,Pacific Coast,SS3,USA,1916.0,2013.0,98,Sebastidae
+AUSSALMONNZ,84,1929,2012,84,0,0,,50,0,50,1958.0,2007.0,False,ssb,Australian salmon New Zealand,Arripis trutta,New Zealand,New Zealand,CASAL,New Zealand,1929.0,2012.0,84,Arripidae
+BGRDRNSWWA,53,1960,2012,53,0,0,,19,0,19,1989.0,2007.0,False,ssb,Blue grenadier New South Wales to Western Australia,Macruronus novaezelandiae,Australia,New South Wales to Western Australia,SS3,Australia,1960.0,2012.0,53,Merlucciidae
+BIGEYECWPAC,52,1952,2003,52,0,0,,18,0,18,1981.0,1998.0,False,ssb,Bigeye tuna Central Western Pacific,Thunnus obesus,Pacific Ocean,Central Western Pacific Ocean,MULTIFAN-CL,multinational,1952.0,2003.0,52,Scombridae
+BIGEYEEPAC,42,1975,2016,42,0,0,,8,0,8,2004.0,2011.0,False,ssb,Bigeye tuna Eastern Pacific,Thunnus obesus,Pacific Ocean,Eastern Pacific,Unknown,multinational,1975.0,2016.0,42,Scombridae
+BIGEYEIO,60,1952,2011,60,0,0,,26,0,26,1981.0,2006.0,False,ssb,Bigeye tuna Indian Ocean,Thunnus obesus,Indian Ocean,Indian Ocean,SS3,multinational,1952.0,2011.0,60,Scombridae
+BIGHTREDSE,55,1960,2014,55,0,0,,21,0,21,1989.0,2009.0,False,ssb,Bight redfish Southeast Australia,Centroberyx gerrardi,Australia,Southeast Australia,SS3,Australia,1960.0,2014.0,55,Berycidae
+BKCDLFENI,86,1923,2008,86,0,0,2001.0,49,5,44,1952.0,2000.0,True,ssb,Black cardinalfish East coast of North Island,Epigonus telescopus,New Zealand,East coast of North Island,CASAL,New Zealand,1923.0,2008.0,86,Epigonidae
+BLACKGROUPERGMSATL,23,1986,2008,23,0,0,,0,0,0,,,False,ssb,Black Grouper Gulf of Mexico and South Atlantic,Mycteroperca bonaci,US Southeast and Gulf,Gulf of Mexico and South Atlantic,ASAP,USA,1986.0,2008.0,23,Serranidae
+BLACKOREOPR,31,1974,2004,31,0,0,,0,0,0,,,False,ssb,Black Oreo Pukaki Rise,Allocyttus niger,New Zealand,Pukaki Rise,CASAL,New Zealand,1974.0,2004.0,31,Oreosomatidae
+BLACKOREOWECR,34,1973,2006,34,0,0,,0,0,0,,,False,ssb,Black oreo West end of Chatham Rise,Allocyttus niger,New Zealand,West end of Chatham Rise,CASAL,New Zealand,1973.0,2006.0,34,Oreosomatidae
+BLACKROCKCAL,100,1916,2015,100,0,0,1988.0,43,5,38,1945.0,1987.0,True,ssb,Black rockfish California,Sebastes melanops,US West Coast,California,SS3,USA,1916.0,2015.0,100,Sebastidae
+BLACKROCKORECOAST,124,1892,2015,124,0,0,,90,0,90,1921.0,2010.0,False,ssb,Black rockfish Oregon,Sebastes melanops,US West Coast,Oregon Coast,SS3,USA,1892.0,2015.0,124,Sebastidae
+BLACKROCKWASH,76,1940,2015,76,0,0,,42,0,42,1969.0,2010.0,False,ssb,Black rockfish Washington,Sebastes melanops,US West Coast,Washington,SS3,USA,1940.0,2015.0,76,Sebastidae
+BLSHARNPAC,41,1971,2011,41,0,0,,7,0,7,2000.0,2006.0,False,ssb,Blue shark North Pacific,Prionace glauca,Pacific Ocean,North Pacific Ocean,SS3,Multinational,1971.0,2011.0,41,Carcharhinidae
+BLUEFISHATLC,30,1985,2014,30,0,0,,0,0,0,,,False,ssb,Bluefish Atlantic Coast,Pomatomus saltatrix,US East Coast,Atlantic Coast,ASAP,USA,1985.0,2014.0,30,Pomatomidae
+BMACKECS,22,1992,2013,22,0,0,,0,0,0,,,False,ssb,Spotted mackerel East China Sea,Scomber australasicus,Russia Japan,East China Sea,Unknown,Japan,1992.0,2013.0,22,Scombridae
+BMARLINPAC,41,1971,2011,41,0,0,,7,0,7,2000.0,2006.0,False,ssb,Blue marlin Pacific Ocean,Makaira nigricans,Pacific Ocean,Pacific Ocean,SS3,Multinational,1971.0,2011.0,41,Istiophoridae
+BNSNZ,76,1935,2010,76,0,0,2009.0,45,5,40,1964.0,2008.0,True,ssb,Bluenose New Zealand,Hyperoglyphe antarctica,New Zealand,New Zealand,CASAL,New Zealand,1935.0,2010.0,76,Centrolophidae
+BRMSOJ,31,1980,2010,31,0,0,,0,0,0,,,False,ssb,Yellow sea bream Sea of Japan,Dentex tumifrons,Russia Japan,Sea of Japan,Unknown,Japan,1980.0,2010.0,31,Sparidae
+BRNSHRIMPGM,31,1984,2014,31,0,0,,0,0,0,,,False,ssb,Brown shrimp Gulf of Mexico,Farfantepenaeus aztecus,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1984.0,2014.0,31,Penaeidae
+BSBASSMATLC,44,1968,2011,44,0,0,,10,0,10,1997.0,2006.0,False,ssb,Black sea bass Mid-Atlantic Coast,Centropristis striata,US East Coast,Mid-Atlantic Coast,SCALE,USA,1968.0,2011.0,44,Serranidae
+BSQLOBSTERCSCH,34,1979,2012,34,0,0,,0,0,0,,,False,ssb,Yellow squat lobster Central-Southern Chile,Cervimunida johni,South America,Central-Southern Chile,SCALE,Chile,1979.0,2012.0,34,Galatheidae
+BSQLOBSTERNCH,28,1985,2012,28,0,0,,0,0,0,,,False,ssb,Yellow squat lobster Northern Chile,Cervimunida johni,South America,Northern Chile,SCALE,Chile,1985.0,2012.0,28,Galatheidae
+BUTTERGOMCHATT,24,1989,2012,24,0,0,,0,0,0,,,False,ssb,Atlantic butterfish Gulf of Maine / Cape Hatteras,Peprilus triacanthus,US East Coast,Gulf of Maine / Cape Hatteras,ASAP,USA,1989.0,2012.0,24,Stromateidae
+BWHITNEA,34,1981,2014,34,0,0,,0,0,0,,,False,ssb,Blue Whiting Northeast Atlantic,Micromesistius poutassou,European Union,Northeast Atlantic,Unknown,multinational,1981.0,2014.0,34,Gadidae
+CABEZNCAL,50,1960,2009,50,0,0,,16,0,16,1989.0,2004.0,False,ssb,Cabezon Northern California,Scorpaenichthys marmoratus,US West Coast,Northern California,SS3,USA,1960.0,2009.0,50,Cottidae
+CABEZORECOAST,37,1973,2009,37,0,0,,3,0,3,2002.0,2004.0,False,ssb,Cabezon Oregon Coast,Scorpaenichthys marmoratus,US West Coast,Oregon Coast,SS3,USA,1973.0,2009.0,37,Cottidae
+CABEZSCAL,50,1960,2009,50,0,0,1995.0,6,5,1,1989.0,1994.0,True,ssb,Cabezon Southern California,Scorpaenichthys marmoratus,US West Coast,Southern California,SS3,USA,1960.0,2009.0,50,Cottidae
+CALSCORPSCAL,102,1914,2015,102,0,0,1975.0,32,5,27,1943.0,1974.0,True,ssb,California scorpionfish Southern California,Scorpaena guttata,US West Coast,Southern California,SS2,USA,1914.0,2015.0,102,Scorpaenidae
+CAPEIIa-V-XIV,36,1979,2014,36,0,0,,2,0,2,2008.0,2009.0,False,ssb,Capelin IIa-V-XIV,Mallotus villosus,Europe non EU,IIa-V-XIV,Unknown,multinational,1979.0,2014.0,36,Osmeridae
+CAPENOR,25,1973,2005,33,8,0,,0,0,0,,,False,ssb,Capelin Barents Sea,Mallotus villosus,Europe non EU,Barents Sea,CapTool,multinational,1973.0,2005.0,25,Osmeridae
+CHAKESA,99,1917,2015,99,0,0,1956.0,10,5,5,1946.0,1955.0,True,ssb,Shallow-water cape hake South Africa,Merluccius capensis,South Africa,South Africa,AD-CAM,South Africa,1917.0,2015.0,99,Merlucciidae
+CHERRCHVX,22,1991,2012,22,0,0,,0,0,0,,,False,ssb,Chilean Herring Chile Region V-X,Clupea bentincki,South America,Central-Southern Chile,Unknown,Chile,1991.0,2012.0,22,Clupeidae
+CHTRACCH,45,1970,2014,45,0,0,2008.0,9,5,4,1999.0,2007.0,True,ssb,Chilean jack mackerel Chilean EEZ and offshore,Trachurus murphyi,South America,Chilean EEZ and offshore,JJM,multinational,1970.0,2014.0,45,Carangidae
+CMACKPJPN,44,1970,2013,44,0,0,1989.0,0,0,0,,,False,ssb,Chub mackerel Pacific Coast of Japan,Scomber japonicus,Russia Japan,Pacific Coast of Japan,Unknown,Japan,1970.0,2013.0,44,Scombridae
+CMACKTSST,41,1973,2013,41,0,0,,7,0,7,2002.0,2008.0,False,ssb,Chub mackerel Tsushima Strait,Scomber japonicus,Russia Japan,Tsushima Strait,Unknown,Japan,1973.0,2013.0,41,Scombridae
+COBGM,85,1927,2011,85,0,0,1985.0,29,5,24,1956.0,1984.0,True,ssb,Cobia Gulf of Mexico,Rachycentron canadum,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1927.0,2011.0,85,Rachycentridae
+COD2J3KL,20,1992,2011,20,0,0,,0,0,0,,,False,ssb,Atlantic cod NAFO 2J3KL,Gadus morhua,Canada East Coast,Southern Labrador-Eastern Newfoundland,SURBA,Canada,1992.0,2011.0,20,Gadidae
+COD3M,23,1988,2010,23,0,0,1996.0,0,0,0,,,False,ssb,Atlantic cod NAFO 3M,Gadus morhua,Canada East Coast,Flemish Cap,Unknown,multinational,1988.0,2010.0,23,Gadidae
+COD3Pn4RS,36,1974,2009,36,0,0,1991.0,0,0,0,,,False,ssb,Atlantic cod NAFO 3Pn4RS,Gadus morhua,Canada East Coast,Northern Gulf of St. Lawrence,SPA-ADAPT,Canada,1974.0,2009.0,36,Gadidae
+COD5Zjm,37,1978,2014,37,0,0,2004.0,0,0,0,,,False,ssb,Atlantic cod NAFO 5Zjm,Gadus morhua,Canada East Coast,Georges Bank,VPA,Canada,1978.0,2014.0,37,Gadidae
+CODBA2224,22,1994,2015,22,0,0,,0,0,0,,,False,ssb,Atlantic cod Baltic Areas 22 and 24,Gadus morhua,European Union,Western Baltic,Unknown,multinational,1994.0,2015.0,22,Gadidae
+CODBA2532,46,1966,2011,46,0,0,1992.0,0,0,0,,,False,ssb,Atlantic cod Baltic Areas 25-32,Gadus morhua,European Union,Eastern Baltic,Unknown,multinational,1966.0,2011.0,46,Gadidae
+CODFAPL,56,1959,2014,56,0,0,1991.0,3,3,0,1988.0,1990.0,True,ssb,Atlantic cod Faroe Plateau,Gadus morhua,Europe non EU,Faroe Plateau,Unknown,multinational,1959.0,2014.0,56,Gadidae
+CODGB,32,1978,2009,32,0,0,2003.0,0,0,0,,,False,ssb,Atlantic cod Georges Bank,Gadus morhua,US East Coast,Georges Bank,ASAP,USA,1978.0,2009.0,32,Gadidae
+CODICE,59,1955,2013,59,0,0,1975.0,0,0,0,,,False,ssb,Atlantic cod Iceland,Gadus morhua,Europe non EU,Iceland Grounds,Unknown,multinational,1955.0,2013.0,59,Gadidae
+CODIIIaW-IV-VIId,53,1963,2015,53,0,0,2004.0,12,5,7,1992.0,2003.0,True,ssb,Atlantic cod IIIa (west) and IV-VIId,Gadus morhua,European Union,IIIa (west) and IV-VIId,Unknown,multinational,1963.0,2015.0,53,Gadidae
+CODIS,48,1968,2015,48,0,0,2000.0,3,3,0,1997.0,1999.0,True,ssb,Atlantic cod Irish Sea,Gadus morhua,European Union,Irish Sea,Unknown,multinational,1968.0,2015.0,48,Gadidae
+CODNEAR,68,1946,2013,68,0,0,1964.0,0,0,0,,,False,ssb,Atlantic cod Northeast Arctic,Gadus morhua,Europe non EU,North-East Arctic,Unknown,multinational,1946.0,2013.0,68,Gadidae
+CODVIa,36,1981,2016,36,0,0,2003.0,0,0,0,,,False,ssb,Atlantic cod West of Scotland,Gadus morhua,European Union,West of Scotland,Unknown,multinational,1981.0,2016.0,36,Gadidae
+CODVIIek,45,1971,2015,45,0,0,,11,0,11,2000.0,2010.0,False,ssb,Atlantic Cod Celtic Sea,Gadus morhua,European Union,Celtic Sea,Unknown,multinational,1971.0,2015.0,45,Gadidae
+CSARDCSCH,26,1990,2015,26,0,0,,0,0,0,,,False,ssb,Chilean sardine Central-Southern Chile,Clupea bentincki,South America,Central-Southern Chile,unknown,Chile,1990.0,2015.0,26,Clupeidae
+CTRACSA,64,1950,2013,64,0,0,,30,0,30,1979.0,2008.0,False,ssb,Cape horse mackerel South Africa South coast,Trachurus capensis,South Africa,South Africa South coast,ASPM,South Africa,1950.0,2013.0,64,Carangidae
+CUSKVa-XIV,36,1981,2016,36,0,0,,2,0,2,2010.0,2011.0,False,ssb,Tusk Va and XIV,Brosme brosme,European Union,Va and XIV,Unknown,multinational,1981.0,2016.0,36,Lotidae
+DEEPCHAKESA,99,1917,2015,99,0,0,1973.0,27,5,22,1946.0,1972.0,True,ssb,Deep-water cape hake South Africa,Merluccius paradoxus,South Africa,South Africa,AD-CAM,South Africa,1917.0,2015.0,99,Merlucciidae
+DEEPFLATHEADSE,36,1980,2015,36,0,0,,2,0,2,2009.0,2010.0,False,ssb,Deepwater flathead Southeast Australia,Platycephalus conatus,Australia,Southeast Australia,SS3,Australia,1980.0,2015.0,36,Platycephalidae
+DSOLEGA,38,1978,2015,38,0,0,,4,0,4,2007.0,2010.0,False,ssb,Dover sole Gulf of Alaska,Microstomus pacificus,US Alaska,Gulf of Alaska,SS3,USA,1978.0,2015.0,38,Pleuronectidae
+DSOLEPCOAST,102,1910,2011,102,0,0,,68,0,68,1939.0,2006.0,False,ssb,Dover sole Pacific Coast,Microstomus pacificus,US West Coast,Pacific Coast,SS3,USA,1910.0,2011.0,102,Pleuronectidae
+DUSROCKGA,35,1977,2011,35,0,0,,1,0,1,2006.0,2006.0,False,ssb,Dusky rockfish Gulf of Alaska,Sebastes variabilis,US Alaska,Gulf of Alaska,Unknown,USA,1977.0,2011.0,35,Sebastidae
+EBASSIVbc-VII,32,1985,2016,32,0,0,,0,0,0,,,False,ssb,European seabass IVbc and VII,Dicentrarchus labrax,European Union,IVbc and VII,Unknown,multinational,1985.0,2016.0,32,Moronidae
+ESOLEPCOAST,132,1876,2007,132,0,0,,98,0,98,1905.0,2002.0,False,ssb,English sole Pacific Coast,Parophrys vetulus,US West Coast,Pacific Coast,SS3,USA,1876.0,2007.0,132,Pleuronectidae
+FLSOLEBSAI,35,1977,2011,35,0,0,,1,0,1,2006.0,2006.0,False,ssb,Flathead sole Bering Sea and Aleutian Islands,Hippoglossoides elassodon,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1977.0,2011.0,35,Pleuronectidae
+FLSOLEGA,38,1978,2015,38,0,0,,4,0,4,2007.0,2010.0,False,ssb,Flathead sole Gulf of Alaska,Hippoglossoides elassodon,US Alaska,Gulf of Alaska,Unknown,USA,1978.0,2015.0,38,Pleuronectidae
+FMEG8c9a,31,1986,2016,31,0,0,,0,0,0,,,False,ssb,Fourspotted megrim ICES VIIIc-IXa,Lepidorhombus boscii,European Union,VIIIc-IXa,Unknown,multinational,1986.0,2016.0,31,Scophthalmidae
+GAGSATLC,43,1962,2004,43,0,0,,9,0,9,1991.0,1999.0,False,ssb,Gag Southern Atlantic coast,Mycteroperca microlepis,US Southeast and Gulf,Southern Atlantic coast,BAM,USA,1962.0,2004.0,43,Serranidae
+GEMFISHNZ,54,1952,2005,54,0,0,,20,0,20,1981.0,2000.0,False,ssb,common gemfish New Zealand,Rexea solandri,New Zealand,New Zealand,CASAL,New Zealand,1952.0,2005.0,54,Gempylidae
+GEMFISHSE,42,1966,2007,42,0,0,1992.0,0,0,0,,,False,ssb,common gemfish Southeast Australia,Rexea solandri,Australia,Southeast Australia,SS2,Australia,1966.0,2007.0,42,Gempylidae
+GHAL23KLMNO,31,1975,2005,31,0,0,2004.0,0,0,0,,,False,ssb,Greenland halibut NAFO 23KLMNO,Reinhardtius hippoglossoides,Canada East Coast,Labrador Shelf - Grand Banks,Unknown,multinational,1975.0,2005.0,31,Pleuronectidae
+GHALBSAI,55,1960,2014,55,0,0,2004.0,15,5,10,1989.0,2003.0,True,ssb,Greenland turbot Bering Sea and Aleutian Islands,Reinhardtius hippoglossoides,US Alaska,Bering Sea and Aleutian Islands,SS3,USA,1960.0,2014.0,55,Pleuronectidae
+GHALNEAR,20,1992,2011,20,0,0,,0,0,0,,,False,ssb,Greenland halibut Northeast Arctic,Reinhardtius hippoglossoides,Europe non EU,North-East Arctic,Unknown,multinational,1992.0,2011.0,20,Pleuronectidae
+GOLDREDV-VI-XII-XIV,46,1971,2016,46,0,0,,12,0,12,2000.0,2011.0,False,ssb,Golden Redfish V-VI-XII-XIV,Sebastes norvegicus,European Union,V-VI-XII-XIV,Unknown,multinational,1971.0,2016.0,46,Sebastidae
+GRAMBERGM,63,1950,2012,63,0,0,1987.0,8,5,3,1979.0,1986.0,True,ssb,Greater amberjack Gulf of Mexico,Seriola dumerili,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1950.0,2012.0,63,Carangidae
+GRAMBERSATLC,60,1946,2005,60,0,0,,26,0,26,1975.0,2000.0,False,ssb,Greater amberjack Southern Atlantic coast,Seriola dumerili,US Southeast and Gulf,Southern Atlantic coast,SCA,USA,1946.0,2005.0,60,Carangidae
+GSTRGZRSTA7,44,1964,2007,44,0,0,,10,0,10,1993.0,2002.0,False,ssb,Giant stargazer NZ Area STA7,Kathetostoma giganteum,New Zealand,NZ Area STA7,CASAL,New Zealand,1964.0,2007.0,44,Uranoscopidae
+HAD5Y,37,1977,2013,37,0,0,1986.0,0,0,0,,,False,ssb,Haddock NAFO-5Y,Melanogrammus aeglefinus,US East Coast,Gulf of Maine,ASAP,USA,1977.0,2013.0,37,Gadidae
+HADFAPL,58,1957,2014,58,0,0,2010.0,24,5,19,1986.0,2009.0,True,ssb,Haddock Faroe Plateau,Melanogrammus aeglefinus,Europe non EU,Faroe Plateau,Unknown,multinational,1957.0,2014.0,58,Gadidae
+HADGB,54,1960,2013,54,0,0,1970.0,0,0,0,,,False,ssb,Haddock Georges Bank,Melanogrammus aeglefinus,US East Coast,Georges Bank,VPA,USA,1960.0,2013.0,54,Gadidae
+HADICE,36,1979,2014,36,0,0,,2,0,2,2008.0,2009.0,False,ssb,Haddock Iceland,Melanogrammus aeglefinus,Europe non EU,Iceland Grounds,Unknown,multinational,1979.0,2014.0,36,Gadidae
+HADNEAR,64,1950,2013,64,0,0,1985.0,6,5,1,1979.0,1984.0,True,ssb,Haddock Northeast Arctic,Melanogrammus aeglefinus,Europe non EU,North-East Arctic,Unknown,multinational,1950.0,2013.0,64,Gadidae
+HADNS-IIIa-VIa,44,1972,2015,44,0,0,1991.0,0,0,0,,,False,ssb,Haddock North Sea and IIIa-VIa,Melanogrammus aeglefinus,European Union,North Sea and IIIa-VIa,Unknown,multinational,1972.0,2015.0,44,Gadidae
+HADROCK,25,1991,2015,25,0,0,,0,0,0,,,False,ssb,Haddock Rockall Bank,Melanogrammus aeglefinus,European Union,Rockall Bank,Unknown,multinational,1991.0,2015.0,25,Gadidae
+HADVIIb-k,24,1993,2016,24,0,0,,0,0,0,,,False,ssb,Haddock ICES VIIb-k,Melanogrammus aeglefinus,European Union,ICES VIIb-k,Unknown,multinational,1993.0,2016.0,24,Gadidae
+HAKENRTN,39,1978,2016,39,0,0,,5,0,5,2007.0,2011.0,False,ssb,Hake Northeast Atlantic North,Merluccius merluccius,European Union,IIIa-IV-VI-VII-VIIIabd,Unknown,multinational,1978.0,2016.0,39,Merlucciidae
+HAKESOTH,35,1982,2016,35,0,0,1995.0,0,0,0,,,False,ssb,Hake Northeast Atlantic South,Merluccius merluccius,European Union,VIIIc-IXa,Unknown,multinational,1982.0,2016.0,35,Merlucciidae
+HERR2224IIIa,26,1991,2016,26,0,0,,0,0,0,,,False,ssb,Herring ICES 22-24-IIIa,Clupea harengus,European Union,22-24-IIIa,Unknown,multinational,1991.0,2016.0,26,Clupeidae
+HERR2529-32,42,1974,2015,42,0,0,,8,0,8,2003.0,2010.0,False,ssb,Herring Subdivisions 25-29 and 32,Clupea harengus,European Union,Subdivisions 25-29 and 32,Unknown,multinational,1974.0,2015.0,42,Clupeidae
+HERR30,43,1973,2015,43,0,0,,9,0,9,2002.0,2010.0,False,ssb,Herring ICES 30,Clupea harengus,European Union,Bothnian Sea,Unknown,multinational,1973.0,2015.0,43,Clupeidae
+HERR4RFA,29,1973,2001,29,0,0,,0,0,0,,,False,ssb,Herring NAFO 4R fall spawners,Clupea harengus,Canada East Coast,NAFO division 4R,SPA-ADAPT,Canada,1973.0,2001.0,29,Clupeidae
+HERR4RSP,38,1965,2002,38,0,0,,4,0,4,1994.0,1997.0,False,ssb,Herring NAFO 4R spring spawners,Clupea harengus,Canada East Coast,NAFO division 4R,SPA-ADAPT,Canada,1965.0,2002.0,38,Clupeidae
+HERR4TFA,26,1978,2003,26,0,0,,0,0,0,,,False,ssb,Herring NAFO 4T fall spawners,Clupea harengus,Canada East Coast,Southern Gulf of St. Lawrence,SPA-ADAPT,Canada,1978.0,2003.0,26,Clupeidae
+HERR4TSP,26,1978,2003,26,0,0,,0,0,0,,,False,ssb,Herring NAFO 4T spring spawners,Clupea harengus,Canada East Coast,Southern Gulf of St. Lawrence,SPA-ADAPT,Canada,1978.0,2003.0,26,Clupeidae
+HERRCC,63,1953,2015,63,0,0,2006.0,24,5,19,1982.0,2005.0,True,ssb,Pacific herring Central Coast,Clupea pallasii pallasii,Canada West Coast,Central Coast,SCA,Canada,1953.0,2015.0,63,Clupeidae
+HERRIsum,29,1987,2015,29,0,0,,0,0,0,,,False,ssb,Herring Iceland (Summer spawners),Clupea harengus,Europe non EU,Iceland Grounds,Unknown,multinational,1987.0,2015.0,29,Clupeidae
+HERRNIRS,55,1961,2015,55,0,0,1996.0,6,5,1,1990.0,1995.0,True,ssb,Herring Northern Irish Sea,Clupea harengus,European Union,Irish Sea,Unknown,multinational,1961.0,2015.0,55,Clupeidae
+HERRNORSS,28,1988,2015,28,0,0,,0,0,0,,,False,ssb,Norwegian Spring Spawning Herring,Clupea harengus,Europe non EU,I-II-IVa-V-XIVa,Unknown,multinational,1988.0,2015.0,28,Clupeidae
+HERRNS-IIIa-VIId,70,1947,2016,70,0,0,1968.0,0,0,0,,,False,ssb,"Herring IIIa, VIId and North Sea",Clupea harengus,European Union,"IIIa, VIId and North Sea",Unknown,multinational,1947.0,2016.0,70,Clupeidae
+HERRNWATLC,49,1965,2013,49,0,0,1977.0,0,0,0,,,False,ssb,Atlantic herring Northwestern Atlantic Coast,Clupea harengus,US East Coast,Northwestern Atlantic Coast,ASAP,USA,1965.0,2013.0,49,Clupeidae
+HERRPRD,63,1953,2015,63,0,0,1967.0,0,0,0,,,False,ssb,Pacific herring Prince Rupert District,Clupea pallasii pallasii,Canada West Coast,Prince Rupert District,SCA,Canada,1953.0,2015.0,63,Clupeidae
+HERRPWS,24,1980,2003,24,0,0,1994.0,0,0,0,,,False,ssb,Pacific herring Prince William Sound,Clupea pallasii pallasii,US Alaska,Prince William Sound,AD-CAM,USA,1980.0,2003.0,24,Clupeidae
+HERRQCI,63,1953,2015,63,0,0,1965.0,0,0,0,,,False,ssb,Pacific herring Haida Gwaii,Clupea pallasii pallasii,Canada West Coast,Queen Charlotte Islands,SCA,Canada,1953.0,2015.0,63,Clupeidae
+HERRRIGA,39,1977,2015,39,0,0,,5,0,5,2006.0,2010.0,False,ssb,Herring ICES 28,Clupea harengus,European Union,Gulf of Riga East of Gotland,Unknown,multinational,1977.0,2015.0,39,Clupeidae
+HERRSIRS,58,1958,2015,58,0,0,,24,0,24,1987.0,2010.0,False,ssb,Herring ICES VIIa-g-h-j,Clupea harengus,European Union,ICES VIIa-g-h-j,Unknown,multinational,1958.0,2015.0,58,Clupeidae
+HERRSITKA,27,1978,2004,27,0,0,,0,0,0,,,False,ssb,Pacific herring Sitka,Clupea pallasii pallasii,US Alaska,Sitka,AD-CAM,USA,1978.0,2004.0,27,Clupeidae
+HERRSOG,63,1953,2015,63,0,0,1966.0,0,0,0,,,False,ssb,Pacific herring Straight of Georgia,Clupea pallasii pallasii,Canada West Coast,Straight of Georgia,SCA,Canada,1953.0,2015.0,63,Clupeidae
+HERRVIa,57,1957,2013,57,0,0,1976.0,0,0,0,,,False,ssb,Herring ICES VIa,Clupea harengus,European Union,West of Scotland,Unknown,multinational,1957.0,2013.0,57,Clupeidae
+HERRVIaVIIbc,59,1957,2015,59,0,0,,25,0,25,1986.0,2010.0,False,ssb,Herring ICES VIa-VIIb-VIIc,Clupea harengus,European Union,"VIa, VIIb and VIIc",Unknown,multinational,1957.0,2015.0,59,Clupeidae
+HERRWCVANI,63,1953,2015,63,0,0,2004.0,22,5,17,1982.0,2003.0,True,ssb,Pacific herring West Coast of Vancouver Island,Clupea pallasii pallasii,Canada West Coast,West Coast of Vancouver Island,SCA,Canada,1953.0,2015.0,63,Clupeidae
+HMACKIIa-IVa-Vb-VIa-VII-VIII,34,1982,2015,34,0,0,2001.0,0,0,0,,,False,ssb,Horse mackerel IIa-IVa-Vb-VIa-VII-VIII,Trachurus trachurus,European Union,IIa-IVa-Vb-VIa-VII-VIII,Unknown,multinational,1982.0,2015.0,34,Carangidae
+HMACKIXa,25,1992,2016,25,0,0,,0,0,0,,,False,ssb,Horse mackerel Portugese Waters -East,Trachurus trachurus,European Union,Portugese Waters -East,Unknown,multinational,1992.0,2016.0,25,Carangidae
+HOKIENZ,44,1970,2013,44,0,0,,10,0,10,1999.0,2008.0,False,ssb,Hoki Eastern New Zealand,Macruronus novaezelandiae,New Zealand,Eastern New Zealand,CASAL,New Zealand,1970.0,2013.0,44,Merlucciidae
+HOKIWNZ,44,1970,2013,44,0,0,2004.0,5,5,0,1999.0,2003.0,True,ssb,Hoki Western New Zealand,Macruronus novaezelandiae,New Zealand,Western New Zealand,CASAL,New Zealand,1970.0,2013.0,44,Merlucciidae
+JAMBERJPN,20,1994,2013,20,0,0,,0,0,0,,,False,ssb,Japanese amberjack Japan,Seriola quinqueradiata,Russia Japan,Japan,Unknown,Japan,1994.0,2013.0,20,Carangidae
+JANCHOPJPN,36,1978,2013,36,0,0,,2,0,2,2007.0,2008.0,False,ssb,Japanese anchovy Pacific Coast of Japan,Engraulis japonicus,Russia Japan,Pacific Coast of Japan,Unknown,Japan,1978.0,2013.0,36,Engraulidae
+JANCHOSETO,33,1981,2013,33,0,0,,0,0,0,,,False,ssb,Japanese anchovy Inland Sea of Japan,Engraulis japonicus,Russia Japan,Inland Sea of Japan,Unknown,Japan,1981.0,2013.0,33,Engraulidae
+JANCHOTSST,37,1977,2013,37,0,0,,3,0,3,2006.0,2008.0,False,ssb,Japanese anchovy Tsushima Strait,Engraulis japonicus,Russia Japan,Tsushima Strait,Unknown,Japan,1977.0,2013.0,37,Engraulidae
+JCSQUIDJPNAR,36,1979,2014,36,0,0,,2,0,2,2008.0,2009.0,False,ssb,Japanese flying squid Japan Autumn recruitment,Todarodes pacificus,Russia Japan,Japan Autumn recruitment,Unknown,Japan,1979.0,2014.0,36,Ommastrephidae
+JCSQUIDJPNWR,36,1979,2014,36,0,0,,2,0,2,2008.0,2009.0,False,ssb,Japanese flying squid Japan Winter recruitment,Todarodes pacificus,Russia Japan,Japan Winter recruitment,Unknown,Japan,1979.0,2014.0,36,Ommastrephidae
+JMACKPJPN,32,1982,2013,32,0,0,,0,0,0,,,False,ssb,Japanese jack mackerel Pacific Coast of Japan,Trachurus japonicus,Russia Japan,Pacific Coast of Japan,Unknown,Japan,1982.0,2013.0,32,Carangidae
+JMACKTSST,41,1973,2013,41,0,0,,7,0,7,2002.0,2008.0,False,ssb,Japanese jack mackerel Tsushima Strait,Trachurus japonicus,Russia Japan,Tsushima Strait,Unknown,Japan,1973.0,2013.0,41,Carangidae
+JPUFFIMKB,21,1993,2013,21,0,0,,0,0,0,,,False,ssb,Japanese pufferfish Ise and Mikawa Bay,Takifugu rubripes,Russia Japan,Ise and Mikawa Bay,Unknown,Japan,1993.0,2013.0,21,Tetraodontidae
+KELPGREENLINGORECOAST,101,1915,2015,101,0,0,,67,0,67,1944.0,2010.0,False,ssb,Kelp greenling Oregon Coast,Hexagrammos decagrammus,US West Coast,Oregon Coast,SS3,USA,1915.0,2015.0,101,Hexagrammidae
+KMFLOUNBSAI,22,1991,2012,22,0,0,,0,0,0,,,False,ssb,Kamchatka flounder Bering Sea and Aleutian Islands,Atheresthes evermanni,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1991.0,2012.0,22,Pleuronectidae
+LINGCODNPCOAST,82,1928,2009,82,0,0,1991.0,34,5,29,1957.0,1990.0,True,ssb,Lingcod Northern Pacific Coast,Ophiodon elongatus,US West Coast,Northern Pacific Coast,SS3,USA,1928.0,2009.0,82,Hexagrammidae
+LINGCODSPCOAST,82,1928,2009,82,0,0,1982.0,25,5,20,1957.0,1981.0,True,ssb,Lingcod Southern Pacific Coast,Ophiodon elongatus,US West Coast,Southern Pacific Coast,SS3,USA,1928.0,2009.0,82,Hexagrammidae
+LINGVa,35,1982,2016,35,0,0,,1,0,1,2011.0,2011.0,False,ssb,Ling Iceland Grounds,Molva molva,European Union,Iceland Grounds,Unknown,multinational,1982.0,2016.0,35,Lotidae
+LNOSESKAPCOAST,93,1915,2007,93,0,0,,59,0,59,1944.0,2002.0,False,ssb,Longnose skate Pacific Coast,Raja rhina,US West Coast,Pacific Coast,SS2,USA,1915.0,2007.0,93,Rajidae
+LOBSTERGB,26,1982,2007,26,0,0,,0,0,0,,,False,ssb,American lobster Georges Bank,Homarus americanus,US East Coast,Georges Bank,CSM,USA,1982.0,2007.0,26,Nephropidae
+LOBSTERGOM,26,1982,2007,26,0,0,,0,0,0,,,False,ssb,American lobster Gulf of Maine,Homarus americanus,US East Coast,Gulf of Maine,CSM,USA,1982.0,2007.0,26,Nephropidae
+LOBSTERSNE,24,1984,2007,24,0,0,,0,0,0,,,False,ssb,American lobster Southern New England,Homarus americanus,US East Coast,Southern New England,CSM,USA,1984.0,2007.0,24,Nephropidae
+LSTHORNHPCOAST,49,1964,2012,49,0,0,,15,0,15,1993.0,2007.0,False,ssb,Longspine thornyhead Pacific Coast,Sebastolobus altivelis,US West Coast,Pacific Coast,SS3,USA,1964.0,2012.0,49,Sebastidae
+MACKNEICES,35,1980,2014,35,0,0,,1,0,1,2009.0,2009.0,False,ssb,Mackerel ICES Northeast Atlantic,Scomber scombrus,European Union,IIa-IIIabd-IV-Vb-VI-VII-VIIIabcde-XII-XIV-Ixa,Unknown,multinational,1980.0,2014.0,35,Scombridae
+MACKNWATLSA3-4,46,1968,2013,46,0,0,1995.0,0,0,0,,,False,ssb,Mackerel Northwest Atlantic (NAFO Subareas 3 and 4),Scomber scombrus,Canada East Coast,Northwest Atlantic (NAFO Subareas 3 and 4),Unknown,Canada,1968.0,2013.0,46,Scombridae
+MEG8c9a,30,1986,2015,30,0,0,,0,0,0,,,False,ssb,Megrim ICES VIIIc-IXa,Lepidorhombus whiffiagonis,European Union,VIIIc-IXa,Unknown,multinational,1986.0,2015.0,30,Scophthalmidae
+MEGVII-VIIIabd,32,1984,2015,32,0,0,,0,0,0,,,False,ssb,Megrim VII-VIIIabd,Lepidorhombus whiffiagonis,European Union,VII and VIIIabd,Unknown,multinational,1984.0,2015.0,32,Scophthalmidae
+MORWONGESE,100,1915,2014,100,0,0,1999.0,55,5,50,1944.0,1998.0,True,ssb,Jackass morwong Eastern half of Southeast Australia,Nemadactylus macropterus,Australia,Eastern half of Southeast Australia,SS3,Australia,1915.0,2014.0,100,Cheilodactylidae
+MORWONGWSE,29,1986,2014,29,0,0,,0,0,0,,,False,ssb,Jackass morwong Western half of Southeast Australia,Nemadactylus macropterus,Australia,Western half of Southeast Australia,SS3,Australia,1986.0,2014.0,29,Cheilodactylidae
+MUTSNAPSATLCGM,25,1981,2005,25,0,0,,0,0,0,,,False,ssb,Mutton snapper Southern Atlantic coast and Gulf of Mexico,Lutjanus analis,US Southeast and Gulf,Southern Atlantic coast and Gulf of Mexico,ASAP,USA,1981.0,2005.0,25,Lutjanidae
+NPOUTIIIa-IV,32,1983,2014,32,0,0,,0,0,0,,,False,ssb,Norway pout IIIa and North Sea,Trisopterus esmarkii,European Union,IIIa and North Sea,Unknown,multinational,1983.0,2014.0,32,Gadidae
+NROCKBSAI,35,1977,2011,35,0,0,,1,0,1,2006.0,2006.0,False,ssb,Northern rockfish Bering Sea and Aleutian Islands,Sebastes polyspinis,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1977.0,2011.0,35,Sebastidae
+NROCKGA,53,1961,2013,53,0,0,,19,0,19,1990.0,2008.0,False,ssb,Northern rockfish Gulf of Alaska,Sebastes polyspinis,US Alaska,Gulf of Alaska,Unknown,USA,1961.0,2013.0,53,Sebastidae
+NRSOLEEBSAI,40,1975,2014,40,0,0,,6,0,6,2004.0,2009.0,False,ssb,Northern rock sole Eastern Bering Sea and Aleutian Islands,Lepidopsetta polyxystra,US Alaska,Eastern Bering Sea and Aleutian Islands,Unknown,USA,1975.0,2014.0,40,Pleuronectidae
+NRSOLEGA,39,1977,2015,39,0,0,,5,0,5,2006.0,2010.0,False,ssb,Northern rock sole Gulf of Alaska,Lepidopsetta polyxystra,US Alaska,Gulf of Alaska,SS3,USA,1977.0,2015.0,39,Pleuronectidae
+NSHRIMPCSCH,71,1945,2015,71,0,0,1980.0,6,5,1,1974.0,1979.0,True,ssb,Nylon shrimp Central-Southern Chile,Heterocarpus reedi,South America,Central-Southern Chile,SCALE,Chile,1945.0,2015.0,71,Pandalidae
+NSHRIMPNCH,55,1961,2015,55,0,0,,21,0,21,1990.0,2010.0,False,ssb,Nylon shrimp Northern Chile,Heterocarpus reedi,South America,Northern Chile,SCALE,Chile,1961.0,2015.0,55,Pandalidae
+NZLINGESE,40,1968,2007,40,0,0,,6,0,6,1997.0,2002.0,False,ssb,New Zealand ling Eastern half of Southeast Australia,Genypterus blacodes,Australia,Southeast Australia,SS2,Australia,1968.0,2007.0,40,Ophidiidae
+NZLINGLIN3-4,43,1968,2010,43,0,0,,9,0,9,1997.0,2005.0,False,ssb,New Zealand ling New Zealand Areas LIN 3 and 4,Genypterus blacodes,New Zealand,New Zealand Areas LIN 3 and 4,CASAL,New Zealand,1968.0,2010.0,43,Ophidiidae
+NZLINGLIN5-6,43,1968,2010,43,0,0,,9,0,9,1997.0,2005.0,False,ssb,New Zealand ling New Zealand Areas LIN 5 and 6,Genypterus blacodes,New Zealand,New Zealand Areas LIN 5 and 6,CASAL,New Zealand,1968.0,2010.0,43,Ophidiidae
+NZLINGLIN6b,23,1980,2002,23,0,0,,0,0,0,,,False,ssb,New Zealand ling New Zealand Area LIN 6b,Genypterus blacodes,New Zealand,New Zealand Areas LIN 6b,CASAL,New Zealand,1980.0,2002.0,23,Ophidiidae
+NZLINGLIN72,39,1968,2006,39,0,0,,5,0,5,1997.0,2001.0,False,ssb,New Zealand ling New Zealand Area LIN 72,Genypterus blacodes,New Zealand,New Zealand Areas LIN 72,CASAL,New Zealand,1968.0,2006.0,39,Ophidiidae
+NZLINGLIN7WC,41,1968,2008,41,0,0,,7,0,7,1997.0,2003.0,False,ssb,New Zealand ling New Zealand Area LIN 7WC - WCSI,Genypterus blacodes,New Zealand,New Zealand Areas LIN 7WC-WCSI,CASAL,New Zealand,1968.0,2008.0,41,Ophidiidae
+NZLINGWSE,40,1968,2007,40,0,0,,6,0,6,1997.0,2002.0,False,ssb,New Zealand ling Western half of Southeast Australia,Genypterus blacodes,Australia,Western half of Southeast Australia,SS2,Australia,1968.0,2007.0,40,Ophidiidae
+NZSNAPNZ1BOP-HAGU,114,1899,2012,114,0,0,1979.0,51,5,46,1928.0,1978.0,True,ssb,New Zealand snapper New Zealand SNA 1 Bay of Plenty and Hauraki Gulf,Pagrus auratus,New Zealand,New Zealand SNA 1 Bay of Plenty and Hauraki Gulf,CASAL,New Zealand,1899.0,2012.0,114,Sparidae
+NZSNAPNZ1ENLD,114,1899,2012,114,0,0,1991.0,63,5,58,1928.0,1990.0,True,ssb,New Zealand snapper New Zealand SNA 1 east Northland,Pagrus auratus,New Zealand,New Zealand SNA 1 east Northland,CASAL,New Zealand,1899.0,2012.0,114,Sparidae
+NZSNAPNZ7,84,1931,2014,84,0,0,1980.0,20,5,15,1960.0,1979.0,True,ssb,New Zealand snapper New Zealand SNA 7,Pagrus auratus,New Zealand,New Zealand SNA 7,SS3,New Zealand,1931.0,2014.0,84,Sparidae
+NZSNAPNZ8,30,1971,2000,30,0,0,1984.0,0,0,0,,,False,ssb,New Zealand snapper New Zealand Area 8,Pagrus auratus,New Zealand,New Zealand Area 8 (Auckland and Central West),CASAL,New Zealand,1971.0,2000.0,30,Sparidae
+OFLOUNECS,27,1986,2012,27,0,0,,0,0,0,,,False,ssb,Japanese flounder East China Sea,Paralichthys olivaceus,Russia Japan,East China Sea,Unknown,Japan,1986.0,2012.0,27,Paralichthyidae
+OROUGHYCASCADE,20,1987,2006,20,0,0,,0,0,0,,,False,ssb,Orange roughy Cascade Plateau,Hoplostethus atlanticus,Australia,Cascade Plateau,SS2,Australia,1987.0,2006.0,20,Trachichthyidae
+OROUGHYNZMEC,102,1909,2010,102,0,0,1993.0,55,5,50,1938.0,1992.0,True,ssb,Orange roughy New Zealand Mid East Coast,Hoplostethus atlanticus,New Zealand,New Zealand Mid East Coast,CASAL,New Zealand,1909.0,2010.0,102,Trachichthyidae
+OROUGHYSE,34,1980,2013,34,0,0,1993.0,0,0,0,,,False,ssb,Orange roughy Southeast Australia,Hoplostethus atlanticus,Australia,Southeast Australia,SS3,Australia,1980.0,2013.0,34,Trachichthyidae
+PACBTUNA,63,1952,2014,63,0,0,1974.0,0,0,0,,,False,ssb,Pacific bluefin tuna Pacific Ocean,Thunnus orientalis,Pacific Ocean,Pacific Ocean,SS3,Multinational,1952.0,2014.0,63,Scombridae
+PANCHCCH,32,1985,2016,32,0,0,,0,0,0,,,False,ssb,Peruvian Anchoveta Central Chile,Engraulis ringens,South America,Central Chile,unknown,Chile,1985.0,2016.0,32,Engraulidae
+PANCHCSCH,27,1990,2016,27,0,0,2010.0,0,0,0,,,False,ssb,Peruvian Anchoveta Central-Southern Chile,Engraulis ringens,South America,Central-Southern Chile,unknown,Chile,1990.0,2016.0,27,Engraulidae
+PANCHNCHSP,32,1984,2015,32,0,0,,0,0,0,,,False,ssb,Peruvian Anchoveta Northern Chile Southern Peru,Engraulis ringens,South America,Northern Chile Southern Peru,unknown,Chile,1984.0,2015.0,32,Engraulidae
+PANCHPERUNC,47,1962,2008,47,0,0,1977.0,0,0,0,,,False,ssb,Peruvian anchoveta North-Central Peru,Engraulis ringens,South America,North-Central Peruvian coast,Unknown,Peru,1962.0,2008.0,47,Engraulidae
+PANDALIIIaW-IVaE,28,1988,2015,28,0,0,,0,0,0,,,False,ssb,Northern shrimp IIIa (west) and IVa (east),Pandalus borealis,European Union,IIIa (west) and IVa (east),Unknown,multinational,1988.0,2015.0,28,Pandalidae
+PATGRENADIERCH,30,1985,2014,30,0,0,2010.0,0,0,0,,,False,ssb,Patagonian grenadier Chile,Macruronus magellanicus,South America,Central-Southern Chile,unknown,Chile,1985.0,2014.0,30,Merlucciidae
+PATGRENADIERSARG,29,1985,2013,29,0,0,,0,0,0,,,False,ssb,Patagonian grenadier Southern Argentina,Macruronus magellanicus,South America,Southern Argentina,unknown,Argentina,1985.0,2013.0,29,Merlucciidae
+PAUANPAU5A,50,1965,2014,50,0,0,,16,0,16,1994.0,2009.0,False,ssb,Black Foot Paua NZ North PAUA5A,Haliotis iris,New Zealand,NZ Area North PAUA 5A,LBBM,New Zealand,1965.0,2014.0,50,Haliotidae
+PAUAPAU5B,49,1965,2013,49,0,0,,15,0,15,1994.0,2008.0,False,ssb,New Zealand abalone species New Zealand Area PAU 5B,Haliotis iris,New Zealand,New Zealand Area PAU 5B (Stewart Island),LBBM,New Zealand,1965.0,2013.0,49,Haliotidae
+PAUAPAU5D,48,1965,2012,48,0,0,,14,0,14,1994.0,2007.0,False,ssb,New Zealand abalone species New Zealand Area PAU 5D,Haliotis iris,New Zealand,New Zealand Area PAU 5D (Otago),LBBM,New Zealand,1965.0,2012.0,48,Haliotidae
+PAUAPAU7,51,1965,2015,51,0,0,1999.0,5,5,0,1994.0,1998.0,True,ssb,New Zealand abalone species New Zealand Area PAU 7,Haliotis iris,New Zealand,New Zealand Area PAU 7 (Marlborough),LBBM,New Zealand,1965.0,2015.0,51,Haliotidae
+PAUASPAU5A,50,1965,2014,50,0,0,,16,0,16,1994.0,2009.0,False,ssb,Black Foot Paua NZ South PAUA5A,Haliotis iris,New Zealand,NZ Area South PAUA 5A,LBBM,New Zealand,1965.0,2014.0,50,Haliotidae
+PCEELARGS,33,1980,2012,33,0,0,2008.0,0,0,0,,,False,ssb,Pink Cusk-eel Southern Argentina,Genypterus blacodes,South America,Southern Argentina,unknown,Argentina,1980.0,2012.0,33,Ophidiidae
+PCEELCSCH,35,1978,2012,35,0,0,,1,0,1,2007.0,2007.0,False,ssb,Pink cusk-eel Central-Southern Chile,Genypterus blacodes,South America,Central-Southern Chile,unknown,Chile,1978.0,2012.0,35,Ophidiidae
+PCEELSCH,35,1978,2012,35,0,0,,0,0,0,,,False,ssb,Pink cusk-eel Southern Chile,Genypterus blacodes,South America,Southern Chile,unknown,Chile,1978.0,2012.0,35,Ophidiidae
+PCODBS,39,1977,2015,39,0,0,,5,0,5,2006.0,2010.0,False,ssb,Pacific cod Bering Sea,Gadus macrocephalus,US Alaska,Bering Sea,SS3,USA,1977.0,2015.0,39,Gadidae
+PCODGA,39,1977,2015,39,0,0,,5,0,5,2006.0,2010.0,False,ssb,Pacific cod Gulf of Alaska,Gadus macrocephalus,US Alaska,Gulf of Alaska,SS3,USA,1977.0,2015.0,39,Gadidae
+PERCHEBSAI,52,1960,2011,52,0,0,1979.0,0,0,0,,,False,ssb,Pacific Ocean perch Eastern Bering Sea and Aleutian Islands,Sebastes alutus,US Alaska,Eastern Bering Sea and Aleutian Islands,Unknown,USA,1960.0,2011.0,52,Sebastidae
+PERCHQCI,72,1940,2011,72,0,0,,38,0,38,1969.0,2006.0,False,ssb,Pacific Ocean perch Haida Gwaii,Sebastes alutus,Canada West Coast,Queen Charlotte Islands,SCA,Canada,1940.0,2011.0,72,Sebastidae
+PERCHWCVANI,72,1940,2011,72,0,0,,38,0,38,1969.0,2006.0,False,ssb,Pacific Ocean perch West Coast of Vancouver Island,Sebastes alutus,Canada West Coast,West Coast of Vancouver Island,unknown,Canada,1940.0,2011.0,72,Sebastidae
+PHAKEPCOAST,51,1966,2016,51,0,0,,17,0,17,1995.0,2011.0,False,ssb,Pacific hake Pacific Coast,Merluccius productus,US West Coast,Pacific Coast,SS3,USA,1966.0,2016.0,51,Merlucciidae
+PILCHPJPN,38,1976,2013,38,0,0,1992.0,0,0,0,,,False,ssb,Japanese sardine Pacific Coast of Japan,Sardinops sagax,Russia Japan,Pacific Coast of Japan,Unknown,Japan,1976.0,2013.0,38,Clupeidae
+PILCHTSST,54,1960,2013,54,0,0,1994.0,5,5,0,1989.0,1993.0,True,ssb,Japanese sardine Tsushima Strait,Sardinops sagax,Russia Japan,Tsushima Strait,Unknown,Japan,1960.0,2013.0,54,Clupeidae
+PINKSHRIMPGM,30,1984,2013,30,0,0,,0,0,0,,,False,ssb,Pink shrimp Gulf of Mexico,Farfantepenaeus duorarum,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1984.0,2013.0,30,Penaeidae
+PLAIC7d,36,1980,2015,36,0,0,,2,0,2,2009.0,2010.0,False,ssb,European Plaice ICES VIId,Pleuronectes platessa,European Union,Eastern English Channel,Unknown,multinational,1980.0,2015.0,36,Pleuronectidae
+PLAICNS,59,1957,2015,59,0,0,,25,0,25,1986.0,2010.0,False,ssb,European Plaice North Sea,Pleuronectes platessa,European Union,North Sea,Unknown,multinational,1957.0,2015.0,59,Pleuronectidae
+POLL5YZ,44,1970,2013,44,0,0,,10,0,10,1999.0,2008.0,False,ssb,Pollock NAFO-5YZ,Pollachius virens,US East Coast,Gulf of Maine / Georges Bank,ASAP,USA,1970.0,2013.0,44,Gadidae
+POLLFAPL,53,1961,2013,53,0,0,,19,0,19,1990.0,2008.0,False,ssb,Pollock Faroe Plateau,Pollachius virens,Europe non EU,Faroe Plateau,Unknown,multinational,1961.0,2013.0,53,Gadidae
+POLLIEG,34,1980,2013,34,0,0,,0,0,0,,,False,ssb,Pollock Iceland Grounds,Pollachius virens,Europe non EU,Iceland Grounds,Unknown,multinational,1980.0,2013.0,34,Gadidae
+POLLNEAR,54,1960,2013,54,0,0,1986.0,0,0,0,,,False,ssb,Pollock Northeast Arctic,Pollachius virens,Europe non EU,North-East Arctic,Unknown,multinational,1960.0,2013.0,54,Gadidae
+POLLNS-VI-IIIa,47,1967,2013,47,0,0,,13,0,13,1996.0,2008.0,False,ssb,"Pollock ICES IIIa, VI and North Sea",Pollachius virens,European Union,"IIIa, VI and North Sea",Unknown,multinational,1967.0,2013.0,47,Gadidae
+POPERCHGA,53,1961,2013,53,0,0,1977.0,0,0,0,,,False,ssb,Pacific ocean perch Gulf of Alaska,Sebastes alutus,US Alaska,Gulf of Alaska,Unknown,USA,1961.0,2013.0,53,Sebastidae
+PSOLEPCOAST,140,1876,2015,140,0,0,1976.0,71,5,66,1905.0,1975.0,True,ssb,Petrale sole Pacific Coast,Eopsetta jordani,US West Coast,Pacific Coast,SS3,USA,1876.0,2015.0,140,Pleuronectidae
+PTOOTHFISHCH,34,1978,2011,34,0,0,2006.0,0,0,0,,,False,ssb,Patagonian Toothfish Chile,Dissostichus eleginoides,South America,South Chile Argentina,unknown,multinational,1978.0,2011.0,34,Nototheniidae
+PTOOTHFISHMI,36,1975,2010,36,0,0,,2,0,2,2004.0,2005.0,False,ssb,Patagonian toothfish Macquarie Island,Dissostichus eleginoides,Australia,Macquarie Island,SS3,Australia,1975.0,2010.0,36,Nototheniidae
+PTOOTHFISHPEI,56,1960,2015,56,0,0,,22,0,22,1989.0,2010.0,False,ssb,Patagonian toothfish South Africa Subantarctic Prince Edward Islands,Dissostichus eleginoides,South Africa,South Africa Subantarctic Prince Edward Islands,ASPM,South Africa,1960.0,2015.0,56,Nototheniidae
+RBRMECS,28,1986,2013,28,0,0,,0,0,0,,,False,ssb,Red seabream East China Sea,Pagrus major,Russia Japan,East China Sea,Unknown,Japan,1986.0,2013.0,28,Sparidae
+RBRMSETOE,36,1977,2012,36,0,0,,2,0,2,2006.0,2007.0,False,ssb,Red seabream Inland Sea of Japan (East),Pagrus major,Russia Japan,Inland Sea of Japan (East),Unknown,Japan,1977.0,2012.0,36,Sparidae
+RBRMSETOW,36,1977,2012,36,0,0,,2,0,2,2006.0,2007.0,False,ssb,Red seabream Inland Sea of Japan (West),Pagrus major,Russia Japan,Inland Sea of Japan (West),Unknown,Japan,1977.0,2012.0,36,Sparidae
+REDFEAUS,39,1975,2013,39,0,0,2001.0,0,0,0,,,False,ssb,Redfish Eastern Australia,Centroberyx affinis,Australia,Eastern Australia,SS3,Australia,1975.0,2013.0,39,Berycidae
+REXSOLEGA,27,1982,2008,27,0,0,,0,0,0,,,False,ssb,Rex sole Gulf of Alaska,Glyptocephalus zachirus,US Alaska,Gulf of Alaska,SS3,USA,1982.0,2008.0,27,Pleuronectidae
+REYEROCKBSAI,32,1977,2008,32,0,0,,0,0,0,,,False,ssb,Rougheye rockfish Bering Sea and Aleutian Islands,Sebastes aleutianus,US Alaska,Bering Sea and Aleutian Islands,SCA,USA,1977.0,2008.0,32,Sebastidae
+REYEROCKGA,30,1977,2006,30,0,0,,0,0,0,,,False,ssb,Rougheye rockfish Gulf of Alaska,Sebastes aleutianus,US Alaska,Gulf of Alaska,AD-CAM,USA,1977.0,2006.0,30,Sebastidae
+RGROUPSATL,33,1976,2008,33,0,0,,0,0,0,,,False,ssb,Red grouper South Atlantic,Epinephelus morio,US Southeast and Gulf,South Atlantic,BAM,USA,1976.0,2008.0,33,Serranidae
+RHERRTSST,38,1976,2013,38,0,0,2000.0,0,0,0,,,False,ssb,Round herring Tsushima Strait,Etrumeus sadina,Russia Japan,Tsushima Strait,Unknown,Japan,1976.0,2013.0,38,Dussumieriidae
+RKCRABBB,40,1976,2015,40,0,0,1981.0,0,0,0,,,False,ssb,Red king crab Bristol Bay,Paralithodes camtschaticus,US Alaska,Bristol Bay,Unknown,USA,1976.0,2015.0,40,Lithodidae
+RMULLMEDGSA29,25,1990,2014,25,0,0,,0,0,0,,,False,ssb,Red mullet Black Sea,Mullus barbatus barbatus,Mediterranean-Black Sea,Black Sea,XSA,multinational,1990.0,2014.0,25,Mullidae
+RSFLOUNSOJ,21,1993,2013,21,0,0,,0,0,0,,,False,ssb,Round-nose flounder Sea of Japan,Eopsetta grigorjewi,Russia Japan,Sea of Japan,Unknown,Japan,1993.0,2013.0,21,Pleuronectidae
+RSOLE5AB,68,1945,2012,68,0,0,1996.0,22,5,17,1974.0,1995.0,True,ssb,Rock sole Queen Charlotte Sound,Lepidopsetta bilineata,Canada West Coast,Queen Charlotte Sound,SCA,Canada,1945.0,2012.0,68,Pleuronectidae
+RSOLEGA,39,1977,2015,39,0,0,,5,0,5,2006.0,2010.0,False,ssb,Rock sole Gulf of Alaska,Lepidopsetta bilineata,US Alaska,Gulf of Alaska,SS3,USA,1977.0,2015.0,39,Pleuronectidae
+RSOLEHSTR,69,1945,2013,69,0,0,,35,0,35,1974.0,2008.0,False,ssb,Rock sole Hecate Strait,Lepidopsetta bilineata,Canada West Coast,Hecate Strait,SCA,Canada,1945.0,2013.0,69,Pleuronectidae
+RSQLOBSTERCSCH,47,1968,2014,47,0,0,1978.0,0,0,0,,,False,ssb,Red squat lobster Central-Southern Chile,Pleuroncodes monodon,South America,Central-Southern Chile,A-SCALA,Chile,1968.0,2014.0,47,Galatheidae
+SAABALONESA,65,1951,2015,65,0,0,,30,0,30,1980.0,2009.0,False,ssb,Abalone South Africa,Haliotis midae,South Africa,South Africa,ASPM,South Africa,1951.0,2015.0,65,Haliotidae
+SABLEFEBSAIGA,54,1960,2013,54,0,0,,20,0,20,1989.0,2008.0,False,ssb,Sablefish Eastern Bering Sea / Aleutian Islands / Gulf of Alaska,Anoplopoma fimbria,US Alaska,Eastern Bering Sea / Aleutian Islands / Gulf of Alaska,Unknown,USA,1960.0,2013.0,54,Anoplopomatidae
+SABLEFPCAN,46,1965,2010,46,0,0,2000.0,6,5,1,1994.0,1999.0,True,ssb,Sablefish Pacific Coast of Canada,Anoplopoma fimbria,Canada West Coast,Pacific Coast of Canada,BSPM,Canada,1965.0,2010.0,46,Anoplopomatidae
+SABLEFPCOAST,116,1900,2015,116,0,0,,82,0,82,1929.0,2010.0,False,ssb,Sablefish Pacific Coast,Anoplopoma fimbria,US West Coast,Pacific Coast,SS3,USA,1900.0,2015.0,116,Anoplopomatidae
+SARDMEDGSA17-18,41,1975,2015,41,0,0,1999.0,0,0,0,,,False,ssb,European pilchard Adriatic Sea,Sardina pilchardus,Mediterranean-Black Sea,"Adriatic Sea (GSA 17,18)",SAM,multinational,1975.0,2015.0,41,Clupeidae
+SARDPVIIIc-IXa,34,1978,2011,34,0,0,,0,0,0,,,False,ssb,European pilchard ICES VIIIc-IXa,Sardina pilchardus,European Union,VIIIc-IXa,Unknown,multinational,1978.0,2011.0,34,Clupeidae
+SARDSA,32,1984,2015,32,0,0,,0,0,0,,,False,ssb,Sardine South Africa,Sardinops sagax,South Africa,South Africa,SCA,South Africa,1984.0,2015.0,32,Clupeidae
+SBELLYROCKPCOAST,56,1950,2005,56,0,0,2002.0,23,5,18,1979.0,2001.0,True,ssb,Shortbelly rockfish Pacific Coast,Sebastes jordani,US West Coast,Pacific Coast,SS2,USA,1950.0,2005.0,56,Sebastidae
+SBREAMCH,20,1992,2011,20,0,0,2006.0,0,0,0,,,False,ssb,Deepwater Cardinalfish Chile,Epigonus crassicaudus,South America,Chilean EEZ and offshore,Unknown,multinational,1992.0,2011.0,20,Epigonidae
+SBT,86,1931,2016,86,0,0,1991.0,31,5,26,1960.0,1990.0,True,ssb,Southern bluefin tuna Southern Oceans,Thunnus maccoyii,Indian Ocean,Southern Oceans,SCA,multinational,1931.0,2016.0,86,Scombridae
+SBWHITACIR,35,1977,2011,35,0,0,,1,0,1,2006.0,2006.0,False,ssb,Southern blue whiting Campbell Island Rise,Micromesistius australis,New Zealand,New Zealand - Campbell Island Rise,CASAL,New Zealand,1977.0,2011.0,35,Gadidae
+SBWHITARGS,26,1987,2012,26,0,0,2007.0,0,0,0,,,False,ssb,Southern blue whiting Southern Argentina,Micromesistius australis,South America,Southern Argentina,unknown,Argentina,1987.0,2012.0,26,Gadidae
+SBWHITCH,38,1978,2015,38,0,0,2009.0,2,2,0,2007.0,2008.0,True,ssb,Southern blue whiting Chile,Micromesistius australis,South America,Central-Southern Chile,unknown,Chile,1978.0,2015.0,38,Gadidae
+SCMPBP,27,1985,2011,27,0,0,,0,0,0,,,False,ssb,Scampi Bay of Plenty,Metanephrops challengeri,New Zealand,Bay of Plenty,CASAL,New Zealand,1985.0,2011.0,27,Nephropidae
+SCMPMB,25,1989,2013,25,0,0,,0,0,0,,,False,ssb,Scampi Mernoo Bank,Metanephrops challengeri,New Zealand,Mernoo Bank,CASAL,New Zealand,1989.0,2013.0,25,Nephropidae
+SCMPWHB,27,1985,2011,27,0,0,,0,0,0,,,False,ssb,Scampi Wairapa/Hawke Bay,Metanephrops challengeri,New Zealand,Wairarapa/Hawke Bay,CASAL,New Zealand,1985.0,2011.0,27,Nephropidae
+SCUPNWATLC,31,1984,2014,31,0,0,,0,0,0,,,False,ssb,Scup Atlantic Coast,Stenotomus chrysops,US East Coast,Northwestern Atlantic Coast,ASAP,USA,1984.0,2014.0,31,Sparidae
+SDOGBLKGSA29,26,1989,2014,26,0,0,2001.0,0,0,0,,,False,ssb,Spiny Dogfish Black Sea,Squalus acanthias,Mediterranean-Black Sea,Black Sea,XSA,multinational,1989.0,2014.0,26,Squalidae
+SEELNSSA1,34,1983,2016,34,0,0,,0,0,0,,,False,ssb,Sand eel SA 1,Ammodytes marinus,European Union,Sandeel Area 1,Unknown,multinational,1983.0,2016.0,34,Ammodytidae
+SEELNSSA2,34,1983,2016,34,0,0,,0,0,0,,,False,ssb,Sand eel SA 2,Ammodytes marinus,European Union,Sandeel Area 2,Unknown,multinational,1983.0,2016.0,34,Ammodytidae
+SEELNSSA3,34,1983,2016,34,0,0,,0,0,0,,,False,ssb,Sand eel SA 3,Ammodytes marinus,European Union,Sandeel Area 3,Unknown,multinational,1983.0,2016.0,34,Ammodytidae
+SFLOUNMATLC,33,1982,2014,33,0,0,,0,0,0,,,False,ssb,Summer flounder Mid-Atlantic Coast,Paralichthys dentatus,US East Coast,Mid-Atlantic Coast,ASAP,USA,1982.0,2014.0,33,Paralichthyidae
+SILVERFISHSE,35,1980,2014,35,0,0,,1,0,1,2009.0,2009.0,False,ssb,Silverfish Southeast Australia,Seriolella punctata,Australia,Southeast Australia,SS3,Australia,1980.0,2014.0,35,Centrolophidae
+SKJCWPAC,44,1972,2015,44,0,0,,10,0,10,2001.0,2010.0,False,ssb,Skipjack tuna Central Western Pacific,Katsuwonus pelamis,Pacific Ocean,Central Western Pacific Ocean,Unknown,multinational,1972.0,2015.0,44,Scombridae
+SMOOTHOREOBP,25,1983,2007,25,0,0,,0,0,0,,,False,ssb,Smooth Oreo Bounty Plateau,Pseudocyttus maculatus,New Zealand,Bounty Plateau,CASAL,New Zealand,1983.0,2007.0,25,Oreosomatidae
+SMOOTHOREOCR,59,1955,2013,59,0,0,,25,0,25,1984.0,2008.0,False,ssb,Smooth oreo Chatham Rise,Pseudocyttus maculatus,New Zealand,Chatham Rise,CASAL,New Zealand,1955.0,2013.0,59,Oreosomatidae
+SMOOTHOREOEPR,29,1973,2001,29,0,0,,0,0,0,,,False,ssb,Smooth Oreo East Pukaki Rise,Pseudocyttus maculatus,New Zealand,East Pukaki Rise,CASAL,New Zealand,1973.0,2001.0,29,Oreosomatidae
+SMOOTHOREOSLD,30,1973,2002,30,0,0,,0,0,0,,,False,ssb,Smooth Oreo Southland,Pseudocyttus maculatus,New Zealand,Southland,CASAL,New Zealand,1973.0,2002.0,30,Oreosomatidae
+SMOOTHOREOWECR,40,1965,2004,40,0,0,,6,0,6,1994.0,1999.0,False,ssb,Smooth oreo West end of Chatham Rise,Pseudocyttus maculatus,New Zealand,West end of Chatham Rise,CASAL,New Zealand,1965.0,2004.0,40,Oreosomatidae
+SNOWCRABBS,36,1980,2015,36,0,0,,2,0,2,2009.0,2010.0,False,ssb,Snow crab Bering Sea,Chionoecetes opilio,US Alaska,Bering Sea,Unknown,USA,1980.0,2015.0,36,Oregoniidae
+SOLECS,45,1971,2015,45,0,0,,11,0,11,2000.0,2010.0,False,ssb,Common sole Celtic Sea,Solea solea,European Union,Celtic Sea,Unknown,multinational,1971.0,2015.0,45,Soleidae
+SOLEIIIa-2224,32,1984,2015,32,0,0,,0,0,0,,,False,ssb,Common sole 22-24-IIIa,Solea solea,European Union,22-24-IIIa,Unknown,multinational,1984.0,2015.0,32,Soleidae
+SOLEIS,45,1970,2014,45,0,0,2013.0,14,5,9,1999.0,2012.0,True,ssb,Common sole Irish Sea,Solea solea,European Union,Irish Sea,Unknown,multinational,1970.0,2014.0,45,Soleidae
+SOLENS,59,1957,2015,59,0,0,,25,0,25,1986.0,2010.0,False,ssb,Common sole North Sea,Solea solea,European Union,North Sea,Unknown,multinational,1957.0,2015.0,59,Soleidae
+SOLEVIId,34,1982,2015,34,0,0,,0,0,0,,,False,ssb,Common sole ICES VIId,Solea solea,European Union,Eastern English Channel,Unknown,multinational,1982.0,2015.0,34,Soleidae
+SOLEVIIe,46,1969,2014,46,0,0,,12,0,12,1998.0,2009.0,False,ssb,Common sole Western English Channel,Solea solea,European Union,Western English Channel,Unknown,multinational,1969.0,2014.0,46,Soleidae
+SOLEVIIIab,31,1984,2014,31,0,0,,0,0,0,,,False,ssb,Common sole VIIIab,Solea solea,European Union,VIIIab,Unknown,multinational,1984.0,2014.0,31,Soleidae
+SOUTHHAKECH,38,1977,2014,38,0,0,,4,0,4,2006.0,2009.0,False,ssb,Southern hake Chile,Merluccius australis,South America,Central-Southern Chile,unknown,Chile,1977.0,2014.0,38,Merlucciidae
+SOUTHHAKECR,38,1974,2011,38,0,0,,4,0,4,2003.0,2006.0,False,ssb,Southern hake Chatham Rise,Merluccius australis,New Zealand,Chatham Rise,CASAL,New Zealand,1974.0,2011.0,38,Merlucciidae
+SOUTHHAKESA,40,1974,2013,40,0,0,,6,0,6,2003.0,2008.0,False,ssb,Southern hake Sub-Antarctic,Merluccius australis,New Zealand,Sub-Antarctic,CASAL,New Zealand,1974.0,2013.0,40,Merlucciidae
+SOUTHHAKEWCSI,38,1973,2010,38,0,0,,4,0,4,2002.0,2005.0,False,ssb,Southern hake West Coast South Island,Merluccius australis,New Zealand,West Coast South Island,CASAL,New Zealand,1973.0,2010.0,38,Merlucciidae
+SPANMACKGM,126,1886,2011,126,0,0,1995.0,80,5,75,1915.0,1994.0,True,ssb,Spanish mackerel Gulf of Mexico,Scomberomorus maculatus,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1886.0,2011.0,126,Scombridae
+SPANMACKSETO,27,1987,2013,27,0,0,1996.0,0,0,0,,,False,ssb,Japanese Spanish mackerel Inland Sea of Japan,Scomberomorus niphonius,Russia Japan,Inland Sea of Japan,Unknown,Japan,1987.0,2013.0,27,Scombridae
+SPHAKECH,74,1940,2013,74,0,0,2004.0,35,5,30,1969.0,2003.0,True,ssb,South Pacific Hake Chile,Merluccius gayi gayi,South America,Central-Southern Chile,unknown,Chile,1940.0,2013.0,74,Merlucciidae
+SPRAT22-32,42,1974,2015,42,0,0,,8,0,8,2003.0,2010.0,False,ssb,Sprat ICES Baltic Areas 22-32,Sprattus sprattus,European Union,Baltic Areas 22-32,Unknown,multinational,1974.0,2015.0,42,Clupeidae
+SPRATNS,43,1974,2016,43,0,0,1985.0,0,0,0,,,False,ssb,Sprat North Sea,Sprattus sprattus,European Union,North Sea,Unknown,multinational,1974.0,2016.0,43,Clupeidae
+SPRBLKGSA29,20,1995,2014,20,0,0,,0,0,0,,,False,ssb,Sprat Black Sea,Sprattus sprattus,Mediterranean-Black Sea,Black Sea,ICA,multinational,1995.0,2014.0,20,Clupeidae
+SSLOBSTERSASC,42,1973,2014,42,0,0,,8,0,8,2002.0,2009.0,False,ssb,Southern spiny lobster South Africa South coast,Palinurus gilchristi,South Africa,South Africa South coast,ASPM,South Africa,1973.0,2014.0,42,Palinuridae
+SSTHORNHPCOAST,113,1901,2013,113,0,0,,79,0,79,1930.0,2008.0,False,ssb,Shortspine thornyhead Pacific Coast,Sebastolobus alascanus,US West Coast,Pacific Coast,SS3,USA,1901.0,2013.0,113,Sebastidae
+STFLOUNNPCOAST,36,1970,2005,36,0,0,,2,0,2,1999.0,2000.0,False,ssb,Starry flounder Northern Pacific Coast,Platichthys stellatus,US West Coast,Northern Pacific Coast,SS2,USA,1970.0,2005.0,36,Pleuronectidae
+STFLOUNSPCOAST,36,1970,2005,36,0,0,,2,0,2,1999.0,2000.0,False,ssb,Starry flounder Southern Pacific Coast,Platichthys stellatus,US West Coast,Southern Pacific Coast,SS2,USA,1970.0,2005.0,36,Pleuronectidae
+STMARLINWCNPAC,36,1975,2010,36,0,0,,2,0,2,2004.0,2005.0,False,ssb,Striped marlin Western and Central North Pacific,Kajikia audax,Pacific Ocean,Western and Central North Pacific,SS3,Multinational,1975.0,2010.0,36,Istiophoridae
+STRIPEDBASSGOMCHATT,30,1982,2011,30,0,0,,0,0,0,,,False,ssb,Striped bass Gulf of Maine / Cape Hatteras,Morone saxatilis,US East Coast,Gulf of Maine / Cape Hatteras,SCA,USA,1982.0,2011.0,30,Moronidae
+SWHITSE,62,1947,2008,62,0,0,,28,0,28,1976.0,2003.0,False,ssb,School whiting Southeast Australia,Sillago flindersi,Australia,Southeast Australia,SS3,Australia,1947.0,2008.0,62,Sillaginidae
+TANNERCRABBSAI,51,1965,2015,51,0,0,1979.0,0,0,0,,,False,ssb,Tanner crab Bering Sea and Aleutian Islands,Chionoecetes bairdi,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1965.0,2015.0,51,Oregoniidae
+TARAKNZ,76,1932,2007,76,0,0,,42,0,42,1961.0,2002.0,False,ssb,Tarakihi New Zealand,Nemadactylus macropterus,New Zealand,Sub-Antarctic,CASAL,New Zealand,1932.0,2007.0,76,Cheilodactylidae
+TIGERFLATSE,101,1915,2015,101,0,0,1947.0,3,3,0,1944.0,1946.0,True,ssb,Tiger flathead Southeast Australia,Platycephalus richardsoni,Australia,Southeast Australia,SS3,Australia,1915.0,2015.0,101,Platycephalidae
+TILEMATLC,41,1971,2011,41,0,0,1984.0,0,0,0,,,False,ssb,Tilefish Mid-Atlantic Coast,Lopholatilus chamaeleonticeps,US East Coast,Mid-Atlantic Coast,ASAP,USA,1971.0,2011.0,41,Malacanthidae
+TREVALLYTRE7,71,1944,2014,71,0,0,,37,0,37,1973.0,2009.0,False,ssb,Trevally New Zealand Areas TRE 7,Pseudocaranx dentex,New Zealand,New Zealand Areas TRE 7,SS3,New Zealand,1944.0,2014.0,71,Carangidae
+TURBLKGSA29,65,1950,2014,65,0,0,1990.0,11,5,6,1979.0,1989.0,True,ssb,Turbot Black Sea,Scophthalmus maximus,Mediterranean-Black Sea,Black Sea,SAM,multinational,1950.0,2014.0,65,Scophthalmidae
+WANGLVIIIc-IXa,37,1980,2016,37,0,0,1993.0,0,0,0,,,False,ssb,White anglerfish VIIIc-IXa,Lophius piscatorius,European Union,VIIIc-IXa,Unknown,multinational,1980.0,2016.0,37,Lophiidae
+WAREHOUESE,23,1986,2008,23,0,0,1999.0,0,0,0,,,False,ssb,Blue Warehou Eastern half of Southeast Australia,Seriolella brama,Australia,Eastern half of Southeast Australia,SS3,Australia,1986.0,2008.0,23,Centrolophidae
+WAREHOUWSE,23,1986,2008,23,0,0,1999.0,0,0,0,,,False,ssb,Blue Warehou Western half of Southeast Australia,Seriolella brama,Australia,Western half of Southeast Australia,SS3,Australia,1986.0,2008.0,23,Centrolophidae
+WHAKE4T,34,1978,2011,34,0,0,1996.0,0,0,0,,,False,ssb,White hake Southern Gulf of St. Lawrence,Urophycis tenuis,Canada East Coast,Southern Gulf of St. Lawrence,SPA,Canada,1978.0,2011.0,34,Phycidae
+WHAKEGBGOM,51,1963,2013,51,0,0,,17,0,17,1992.0,2008.0,False,ssb,White hake Georges Bank / Gulf of Maine,Urophycis tenuis,US East Coast,Gulf of Maine / Georges Bank,ASAP,USA,1963.0,2013.0,51,Phycidae
+WHITMEDGSA29,21,1994,2014,21,0,0,,0,0,0,,,False,ssb,Whiting Black Sea,Merlangius merlangus,Mediterranean-Black Sea,Black Sea,XSA,multinational,1994.0,2014.0,21,Gadidae
+WHITNS-VIId,26,1990,2015,26,0,0,,0,0,0,,,False,ssb,Whiting NS-VIId,Merlangius merlangus,European Union,IV and VIId,Unknown,multinational,1990.0,2015.0,26,Gadidae
+WHITVIa,35,1981,2015,35,0,0,2003.0,0,0,0,,,False,ssb,Whiting ICES VIa,Merlangius merlangus,European Union,West of Scotland,Unknown,multinational,1981.0,2015.0,35,Gadidae
+WINFLOUN4T,39,1973,2011,39,0,0,,5,0,5,2002.0,2006.0,False,ssb,Winter flounder Southern Gulf of St. Lawrence,Pseudopleuronectes americanus,Canada East Coast,Southern Gulf of St. Lawrence,VPA,Canada,1973.0,2011.0,39,Pleuronectidae
+WINFLOUN5Z,32,1982,2013,32,0,0,,0,0,0,,,False,ssb,Winter Flounder NAFO-5Z,Pseudopleuronectes americanus,US East Coast,Georges Bank,ADAPT,USA,1982.0,2013.0,32,Pleuronectidae
+WINFLOUNSNEMATL,30,1981,2010,30,0,0,,0,0,0,,,False,ssb,Winter Flounder Southern New England-Mid Atlantic,Pseudopleuronectes americanus,US East Coast,Southern New England /Mid Atlantic,ASAP,USA,1981.0,2010.0,30,Pleuronectidae
+WITFLOUN5Y,30,1982,2011,30,0,0,,0,0,0,,,False,ssb,Witch Flounder NAFO-5Y,Glyptocephalus cynoglossus,US East Coast,Gulf of Maine,VPA,USA,1982.0,2011.0,30,Pleuronectidae
+WMARLINATL,55,1956,2010,55,0,0,1982.0,0,0,0,,,False,ssb,White marlin Atlantic,Kajikia albida,Atlantic Ocean,Atlantic Ocean,SS3,multinational,1956.0,2010.0,55,Istiophoridae
+WPOLLAI,38,1978,2015,38,0,0,,4,0,4,2007.0,2010.0,False,ssb,Walleye pollock Aleutian Islands,Theragra chalcogramma,US Alaska,Aleutian Islands,Unknown,USA,1978.0,2015.0,38,Gadidae
+WPOLLEBS,50,1964,2013,50,0,0,,16,0,16,1993.0,2008.0,False,ssb,Walleye pollock Eastern Bering Sea,Theragra chalcogramma,US Alaska,Eastern Bering Sea,IA,USA,1964.0,2013.0,50,Gadidae
+WPOLLGA,45,1970,2014,45,0,0,,11,0,11,1999.0,2009.0,False,ssb,Walleye pollock Gulf of Alaska,Theragra chalcogramma,US Alaska,Gulf of Alaska,Unknown,USA,1970.0,2014.0,45,Gadidae
+WROCKPCOAST,100,1916,2015,100,0,0,,66,0,66,1945.0,2010.0,False,ssb,Widow rockfish Pacific Coast,Sebastes entomelas,US West Coast,Pacific Coast,SS3,USA,1916.0,2015.0,100,Sebastidae
+WSHRIMPGM,31,1984,2014,31,0,0,,0,0,0,,,False,ssb,White shrimp Gulf of Mexico,Litopenaeus setiferus,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1984.0,2014.0,31,Penaeidae
+YEGROUPGM,35,1975,2009,35,0,0,,1,0,1,2004.0,2004.0,False,ssb,Yellowedge grouper Gulf of Mexico,Hyporthodus flavolimbatus,US Southeast and Gulf,Gulf of Mexico,SS3,USA,1975.0,2009.0,35,Serranidae
+YELLCCODGOM,29,1985,2013,29,0,0,,0,0,0,,,False,ssb,Yellowtail flounder Cape Cod / Gulf of Maine,Limanda ferruginea,US East Coast,Cape Cod / Gulf of Maine,VPA,USA,1985.0,2013.0,29,Pleuronectidae
+YELLGB,35,1973,2007,35,0,0,,1,0,1,2002.0,2002.0,False,ssb,Yellowtail flounder Georges Bank,Limanda ferruginea,US East Coast,Georges Bank,SURBA,USA,1973.0,2007.0,35,Pleuronectidae
+YELLSNEMATL,41,1973,2013,41,0,0,1992.0,0,0,0,,,False,ssb,Yellowtail Flounder Southern New England-Mid Atlantic,Limanda ferruginea,US East Coast,Southern New England /Mid Atlantic,ASAP,USA,1973.0,2013.0,41,Pleuronectidae
+YFINEIO,40,1972,2011,40,0,0,,6,0,6,2001.0,2006.0,False,ssb,Yellowfin tuna Indian Ocean,Thunnus albacares,Indian Ocean,Indian Ocean,MULTIFAN-CL,multinational,1972.0,2011.0,40,Scombridae
+YFINEPAC,42,1975,2016,42,0,0,,8,0,8,2004.0,2011.0,False,ssb,Yellowfin tuna Eastern Pacific,Thunnus albacares,Pacific Ocean,Northeast Pacific,Unknown,multinational,1975.0,2016.0,42,Scombridae
+YNOSESKACSCH,35,1979,2013,35,0,0,1998.0,0,0,0,,,False,ssb,Yellownose skate Central-Southern Chile,Zearaja chilensis,South America,Central-Southern Chile,unknown,Chile,1979.0,2013.0,35,Rajidae
+YNOSESKASCH,35,1979,2013,35,0,0,2003.0,0,0,0,,,False,ssb,Yellownose skate Southern Chile,Zearaja chilensis,South America,Southern Chile,unknown,Chile,1979.0,2013.0,35,Rajidae
+YSOLEBSAI,61,1954,2014,61,0,0,1962.0,0,0,0,,,False,ssb,Yellowfin sole Bering Sea and Aleutian Islands,Limanda aspera,US Alaska,Bering Sea and Aleutian Islands,Unknown,USA,1954.0,2014.0,61,Pleuronectidae
+YTROCKNPCOAST,39,1967,2005,39,0,0,,5,0,5,1996.0,2000.0,False,ssb,Yellowtail rockfish Northern Pacific Coast,Sebastes flavidus,US West Coast,Northern Pacific Coast,SS3,USA,1967.0,2005.0,39,Sebastidae

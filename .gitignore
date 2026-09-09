@@ -1,0 +1,9 @@
+# raw data are never committed; retrieval instructions live in data/raw/README.md
+data/raw/*
+!data/raw/README.md
+data/processed/*
+!data/processed/README.md
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.log
