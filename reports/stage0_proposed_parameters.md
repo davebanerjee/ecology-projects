@@ -20,6 +20,8 @@ event counts, and pure simulations.
 |---|---|---|---|
 | minimum history before an origin | 30 observations | **25** (technical floor = 24 for the provisional 15-year window + 10 trend points); present 20 only together with a 12-year window | 30 discards 63 of 106 fisheries collapses (proxy), most FishGlob origins, and most GPDD events; 25 recovers +13 fisheries events (+30 %) and roughly doubles FishGlob events; 20 recovers +25 fisheries events but forces a shorter indicator window. |
 | follow-up for negatives | 5 years complete | keep | required by the estimand. |
+| complete feature window | "complete regular windows" | require the trailing 24 years up to the origin to be fully observed (no imputation); gap-tolerant eligibility only in the state-space sensitivity | code review found 27 % of FishGlob and 24 % of GPDD origins had a missing year inside the window under the earlier census. |
+| unconfirmed collapse | not specified | a low year whose confirmation year is missing censors all later origins of that series | prevents already-collapsed years from entering as positive origins. |
 | method-change screen | narrative | explicit per-survey change-year table (FishGlob) + Notes keywords (GPDD) + assessment-model change (RAM `assessid`) | implemented for FishGlob and GPDD; RAM needs the full release. |
 | zero-inflation | not specified | exclude series with > 20 % zero years from the primary cohort | census shows 16 of 38 GPDD series contain zeros; FishGlob zero-year fraction is the natural screen. |
 | minimum hauls per survey-year (FishGlob) | not specified | 20 unflagged hauls | years below this become missing; affects early NS-IBTS years. |
@@ -32,7 +34,7 @@ event counts, and pure simulations.
 | Parameter | Provisional | Proposal |
 |---|---|---|
 | primary horizon | 1–5 years | keep; 1–3 and 6–10 secondary |
-| episode start rule | five-year refractory | a new episode may start only when t − t_start > 5 (episodes are ≤ 5-year blocks aligned with the horizon); true iff it starts at a positive origin |
+| episode start rule | five-year refractory | TWO candidate rules, choice to be frozen in Stage 1: 'block' (new episode once t − t_start > 5; a persistent alarm is re-scored every six years and can still detect a late collapse) or 'run' (one maximal alarm run = one episode; a persistent early alarm is one false episode and the collapse is missed). Stage 0 recommends 'block' because it penalizes always-alarm strategies more heavily under the false-alarm budget and matches an annual management review, but reports power under both. |
 | false-alarm denominator | "monitored non-event population-years" | number of eligible negative origins (each = one monitored non-event year); pre-window years of event systems count as non-event years, and alarms there are false |
 | false-alarm budget | 1 per 20 | keep; report realized burden and a non-inferiority margin (proposal: +0.25 episodes per 20 years) |
 
