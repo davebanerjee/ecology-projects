@@ -65,11 +65,49 @@ available.
 
 ## F. Classical EWS specification (Section 6.2) — from pure simulation only
 
-See `results/stage0/ews_window_detectability.csv`. Preliminary: within-window
-linear detrending in short annual windows removes most of the critical-slowing-
-down signal; mean-removal (or a detrend fitted on the pre-window history only)
-should be the provisional transform. Window/trend recommendations are in the
-power report once the simulation completes.
+`src/sim/ews_window_detectability.py` (results in
+`results/stage0/ews_window_detectability.csv`): annual AR(1) series whose
+coefficient ramps linearly toward 0.97 over the last ≤ 40 years (fold-type
+loss of resilience) with observation error, versus white-noise and red-noise
+(AR 0.7, no resilience loss) nulls; score = mean Kendall tau of rolling lag-1
+autocorrelation and log variance over the last k window estimates; origins
+1–5 years before the transition. 300 series per arm. Stylized, so the absolute
+numbers are not forecasts of empirical performance; the ranking of choices is
+the point.
+
+| window w / trend k (min obs) | AUROC vs white null, history 30 / 40 | sensitivity at 5 % FA (history 30) | FA on red-noise null at the white-null threshold |
+|---|---|---|---|
+| 10 / 5 (14), linear detrend | 0.53 / 0.49 | 0.10 | 0.11 |
+| 15 / 10 (24), linear detrend | 0.60 / 0.53 | 0.11 | 0.09 |
+| 15 / 10 (24), mean removal | 0.63 / 0.60 | 0.19 | 0.12 |
+| 15 / 15 (29), mean removal | 0.64 / 0.62 | 0.17 | 0.06 |
+| 20 / 10 (29), mean removal | 0.64 / 0.64 | 0.14 | 0.06 |
+| 20 / 15 (34), mean removal | — / 0.66 | 0.22 (h40) | 0.10 |
+
+Findings and proposals:
+
+1. Within-window linear detrending removes most of the critical-slowing-down
+   signal in short annual windows; mean removal (or a detrend fitted on the
+   pre-window history only) should be the provisional transform.
+2. Detectability rises with both window length and trend length; the
+   provisional 15-year window with 10 trend points (24 observations) is close
+   to the floor of usable performance, and 15/15 or 20/10 (29 observations)
+   is measurably better. This conflicts with the event-count case for a
+   25-observation history minimum (Section B): a 25-observation minimum
+   implies 15/10; a 30-observation minimum permits 20/10 or 15/15.
+   Stage 1 must choose one pairing knowingly; Stage 0 proposes 15/10 with a
+   25-observation minimum as primary and 20/10 with a 30-observation minimum
+   as the single prespecified alternative (Section 13: "at most one
+   best-in-development alternative chosen by a deterministic rule").
+3. Red-noise nulls trigger 6–16 % false alarms at a threshold set on white
+   noise, so the alarm threshold must be calibrated on real development data
+   (as planned), never on white-noise nulls, and coloured-noise series must be
+   in the falsification suite (Section 12).
+4. Even under favourable forcing the two-indicator score reaches AUROC ≈ 0.6–
+   0.66 and ~20 % sensitivity at 5 % false alarms on annual data; combined
+   with Section 5 (power), the realistic prior for the primary hypothesis is a
+   small increment, which is exactly why the smallest useful effect and the
+   evaluation-set size matter.
 
 ## G. Items Stage 0 could not settle
 
