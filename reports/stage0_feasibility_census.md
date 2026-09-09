@@ -11,9 +11,15 @@ Sections 4.3, 5.1 and 5.2 exactly as implemented in `src/census/labels.py`
 * collapse onset = first year s with x_s < 0.20·R(s) and x_{s+1} < 0.20·R(s),
   R(s) = max over u ≤ s−1 of the median of the complete 5-year window ending at u,
   defined only after ≥ 5 positive observations;
-* forecast origin t eligible if x_t observed, t < onset, ≥ 30 observations at
-  years ≤ t, and the 5-year label is ascertainable (Y=1 if onset ∈ {t+1..t+5};
-  Y=0 only if an onset is ruled out at every year t+1..t+5; otherwise excluded).
+* forecast origin t eligible if x_t observed, t < onset (and before any
+  unconfirmed low year), ≥ 30 observations at years ≤ t, the trailing 24 years
+  fully observed (no imputation), and the 5-year label ascertainable (Y=1 if
+  onset ∈ {t+1..t+5}; Y=0 only if an onset is ruled out at every year t+1..t+5;
+  an undefined reference or a missing year makes a year "unknown", not ruled out).
+
+These rules were tightened after the code review of 2026-09-09; the earlier
+(gap-tolerant) counts are retained in the sensitivity grids as the
+`min_complete_window = 0` rows.
 
 "Event" below means a system whose unique onset falls inside the horizon of at
 least one eligible origin (i.e., a first collapse that the benchmark could
@@ -80,47 +86,54 @@ total biomass. The power analysis therefore includes a "RAM ×3" projection
 Proposed aggregation (to be frozen in Stage 1): `survey_unit` (survey ×
 quarter/season) × species; hauls flagged by footprint-trimming method
 `flag_trimming_hex7_2` removed; years with < 20 unflagged hauls set missing;
-species retained if present in ≥ 5 % of hauls; index = mean weight CPUA
-(kg km⁻²) over hauls with zeros for absences.
+species retained if caught in ≥ 5 % of hauls; index = mean weight CPUA
+(kg km⁻²) over hauls with zeros for absences; species-years with catches but
+no positive weight record set missing.
 
 | Step | series | with ≥1 origin | origins | events |
 |---|---|---|---|---|
-| all survey_unit × species candidates | 1635 | 261 | 1560 | 68 |
-| not irregular-interval survey (AI, GOA, WCTRI, DFO surveys, SOG) | 1508 | 261 | 1560 | 68 |
-| n_obs ≥ 35 | 392 | 260 | 1559 | 67 |
-| ≥ 1 eligible origin | 260 | 260 | 1559 | 67 |
-| no documented survey method change inside feature window / follow-up (FR-CGFS 2015; GSL-S 1985, 1992; SCS 1996; NOR-BTS 2004; GSL-N 1990) | 215 | 215 | 1094 | 43 |
-| zero fraction ≤ 0.2 | 212 | 212 | 1079 | 40 |
+| all survey_unit × species candidates | 1662 | 156 | 1027 | 40 |
+| not irregular-interval survey (AI, GOA, WCTRI, DFO surveys, SOG) | 1535 | 156 | 1027 | 40 |
+| n_obs ≥ 35 | 394 | 156 | 1027 | 40 |
+| ≥ 1 eligible origin (complete 24-year window) | 156 | 156 | 1027 | 40 |
+| no documented survey method change inside feature window / follow-up (FR-CGFS 2015; GSL-S 1985, 1992; SCS 1996; NOR-BTS 2004; GSL-N 1990) | 132 | 132 | 771 | 25 |
+| zero fraction ≤ 0.2 | 129 | 129 | 756 | 22 |
 
-* Only 7 survey units are long enough: GMEX-Fall 54 series, GMEX-Summer 48,
-  NEUS-Fall 35, NS-IBTS-Q1 35, EBS 25, NEUS-Spring 15, SWC-IBTS-Q1 1.
-  Origins per series: median 4 (IQR 3–6, max 18). Most FishGlob series only
-  just clear the 30-observation minimum, so their origins are the last few years.
-* Events cluster by survey and year: 24 of 40 are in the two Gulf of Mexico
-  units with onsets concentrated in 2016–2019 and 2022–2023 (the GMEX data were
-  re-merged in v2.1.0 and the SEAMAP survey has documented vessel/gear
-  transitions). These are not 24 independent collapses; a survey-level shift is
-  the more likely explanation and must be adjudicated in the method-change
-  audit before any FishGlob event enters the confirmatory cohort.
+* The complete-window requirement removes every survey unit with a missing
+  year inside the 24-year window (GMEX-Summer, NEUS-Fall, SWC-IBTS). Only four
+  units remain: GMEX-Fall 54 series (11 events), NS-IBTS-Q1 35 (4), EBS 25 (5),
+  NEUS-Spring 15 (2). Origins per series: median 4 (IQR 3–7, max 18).
+* Gap-tolerant eligibility (state-space sensitivity) gives 219 series, 42
+  events and 1115 origins; the earlier census (before the review) reported 212
+  / 40 / 1079 under that rule.
+* Events cluster by survey and year: half the screened events are Gulf of
+  Mexico series with onsets in 2016–2020 (the GMEX data were re-merged in
+  v2.1.0 and the SEAMAP survey has documented vessel/gear transitions). These
+  are not independent collapses; a survey-level shift is the more likely
+  explanation and must be adjudicated in the method-change audit before any
+  FishGlob event enters the confirmatory cohort.
 * FishGlob series of commercial species duplicate RAM stocks (Section 6 below).
-* History-minimum sensitivity: ≥ 25 observations → 417 series, 81 events;
-  ≥ 20 → 529 series, 135 events (mostly shorter surveys and the GMEX cluster).
+* History-minimum sensitivity (complete window of the same length): ≥ 25
+  observations → 303 series, 51 events; ≥ 20 → 344 series, 89 events.
 
 ## 4. GPDD v2010
 
-3615 series are annual (`SamplingFrequency == 1`); 856 sub-annual series were
-annualized as a sensitivity and yield no eligible origin. Restricted-availability
-MainIDs (685) carry no data in the bundle.
+3613 series are annual (`SamplingFrequency == 1`) after dropping 2930 rows
+with negative sample years; 60 annual series contain negative values (index or
+deviation scales) and are excluded; 856 sub-annual series were annualized as a
+sensitivity and yield no eligible origin. Restricted-availability MainIDs
+(685) carry no data in the bundle.
 
 | Step | series | with ≥1 origin | origins | events |
 |---|---|---|---|---|
-| all annual series | 3615 | 280 | 4229 | 85 |
-| not restricted | 3615 | 280 | 4229 | 85 |
-| Reliability ≥ 2 | 2142 | 53 | 560 | 10 |
-| n_obs ≥ 35 | 100 | 53 | 560 | 10 |
-| no method/effort-change keyword in Notes | 94 | 51 | 541 | 9 |
-| not harvest/catch/kill series | 68 | 38 | 400 | 5 |
-| ≥ 1 eligible origin | 38 | 38 | 400 | 5 |
+| all annual series | 3613 | 245 | 3756 | 76 |
+| not restricted | 3613 | 245 | 3756 | 76 |
+| no negative values | 3553 | 245 | 3756 | 76 |
+| Reliability ≥ 2 | 2084 | 53 | 440 | 10 |
+| n_obs ≥ 35 | 100 | 53 | 440 | 10 |
+| no method/effort-change keyword in Notes | 94 | 51 | 421 | 9 |
+| not harvest/catch/kill series | 68 | 38 | 303 | 5 |
+| ≥ 1 eligible origin (complete 24-year window) | 38 | 38 | 303 | 5 |
 
 * The 38 surviving series are 35 bird counts from 12 locations and 12 data
   sources (mostly UK island/reserve censuses and North American counts) with
@@ -132,8 +145,9 @@ MainIDs (685) carry no data in the bundle.
   ≥ 3 the screened cohort is 36 series and 5 events; with ≥ 4, 33 and 4. The
   long harvest series (Reliability 1 and −1) are excluded anyway by the effort
   rule. Confirm against the GPDD user guide on KNB before Stage 1.
-* History-minimum sensitivity on the screened pool: ≥ 25 → 59 series, 8 events;
-  ≥ 20 → 140 series, 22 events.
+* History-minimum sensitivity on the screened pool: ≥ 25 → 46 series, 8 events;
+  ≥ 20 (20-year complete window) → 90 series, 16 events; gap-tolerant ≥ 20 →
+  139 series, 22 events.
 
 ## 5. Lake / community challenge set (separate analysis)
 
@@ -150,35 +164,37 @@ monthly data with the published classifications, as the protocol anticipates.
 
 ## 6. Independence and overlap
 
-* 44 of the 261 FishGlob series with origins match a RAM v4.41 stock by species
-  and region (89 candidate pairs, 82 RAM stocks); with the full RAM release most
+* 30 of the 156 FishGlob series with origins match a RAM v4.41 stock by species
+  and region (74 candidate pairs, 74 RAM stocks); with the full RAM release most
   long commercial-species survey series will be dependent on an assessed stock.
 * 21 of 280 eligible GPDD annual series sit in taxon×location groups with
   several MainIDs; 27 pairs of the same taxon lie within 50 km.
-* Eligible series per source concentrate in a few programmes (GPDD: 4 data
-  sources hold 178 of 280 eligible annual series; FishGlob: 2 GMEX units hold
-  102 of 212 primary series).
+* Eligible series per source concentrate in a few programmes (GPDD: 12 data
+  sources hold all 38 screened series; FishGlob: one GMEX unit holds 54 of 129
+  screened series).
 
 ## 7. Attrition drivers, in order of importance
 
 1. The 30-observation history minimum before the first origin (RAM: 63 of 106
-   collapses lost; FishGlob: 135 → 41 events; GPDD: 22 → 5). The provisional
+   collapses lost; FishGlob: 89 → 22 events; GPDD: 16 → 5). The provisional
    classical EWS specification needs 24 pre-origin observations, so 25 is the
    technical floor; 20 would require a shorter indicator window.
-2. Complete 5-year follow-up for negatives (series ending 2013–2016 in the
+2. The complete 24-year window (no imputation): FishGlob 42 → 22 events;
+   GPDD origins 376 → 303; RAM unaffected (assessment series are gap-free).
+3. Complete 5-year follow-up for negatives (series ending 2013–2016 in the
    proxy lose their last five years of origins; the current RAM release recovers most).
-3. Survey method changes (FishGlob) and unknown effort (GPDD harvest series).
-4. Reliability coding (GPDD; semantics unverified).
+4. Survey method changes (FishGlob) and unknown effort (GPDD harvest series).
+5. Reliability coding (GPDD; semantics partly verified).
 
-## 8. Accessible-now totals (provisional rules)
+## 8. Accessible-now totals (provisional rules, complete windows)
 
 | Source | systems with origins | events | origins (pos / neg) |
 |---|---|---|---|
 | RAM v4.41 proxy | 170 | 43 | 3107 (204 / 2903) |
-| FishGlob (screened) | 212–213 | 40–41 | 1079 (146 / 933) |
-| GPDD (screened) | 38 | 5 | 400 (15 / 385) |
-| total | ≈ 420 | ≈ 89 | ≈ 4590 |
+| FishGlob (screened) | 129 | 22 | 756 (86 / 670) |
+| GPDD (screened) | 38 | 5 | 303 (13 / 290) |
+| total | 337 | 70 | 4166 |
 
 With the current RAM release, LPD and BioTIME the totals could plausibly reach
-700–1500 systems and 150–350 events, but every one of those numbers is a
+600–1200 systems and 130–300 events, but every one of those numbers is a
 projection until a human retrieves the blocked sources.

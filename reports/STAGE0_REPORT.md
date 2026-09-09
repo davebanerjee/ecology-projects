@@ -70,41 +70,45 @@ check.
 rules (identifier, species + stock boundary, species + region, taxon +
 coordinates, GPDD taxon × location groups, published-set membership), a
 blinded audit protocol and partition-integrity tests. Preliminary pass:
-44 of 261 FishGlob series with eligible origins match a RAM v4.41 stock by
-species and region (89 candidate pairs); with the full RAM release most long
+30 of 156 FishGlob series with eligible origins match a RAM v4.41 stock by
+species and region (74 candidate pairs); with the full RAM release most long
 commercial-species survey series will be dependent on an assessed stock, so
 FishGlob and RAM cannot be treated as independent evidence for those species.
-GPDD eligible series concentrate in four data sources (178 of 280), 21 sit in
-multi-MainID groups and 27 pairs lie within 50 km. Species within one FishGlob
+GPDD eligible series concentrate in a few data sources, some sit in
+multi-MainID groups and 27 pairs of the same taxon lie within 50 km. Species within one FishGlob
 survey unit share survey-level shocks; a survey-unit cluster bootstrap is
 proposed as a robustness analysis.
 
-## 4. Feasibility census (Section 3.2) — provisional rules
+## 4. Feasibility census (Section 3.2) — provisional rules, complete windows
 
 | Source | systems with eligible origins | first collapses inside eligible windows | origins (positive / negative) |
 |---|---|---|---|
 | RAM v4.41 proxy (328 stocks) | 170 | 43 | 3107 (204 / 2903) |
-| FishGlob v2.1.0 (screened) | 212 | 40 | 1079 (146 / 933) |
-| GPDD v2010 (screened) | 38 | 5 | 400 (15 / 385) |
-| total accessible now | ≈ 420 | ≈ 89 | ≈ 4590 |
+| FishGlob v2.1.0 (screened) | 129 | 22 | 756 (86 / 670) |
+| GPDD v2010 (screened) | 38 | 5 | 303 (13 / 290) |
+| total accessible now | 337 | 70 | 4166 |
 
 Dominant attrition driver: the 30-observation history minimum. It discards
 63 of the 106 proxy fisheries collapses (most occurred inside the first 30
-years of the assessment series), reduces FishGlob events from 135 (20-year
-minimum) to 41, and GPDD from 22 to 5. A 25-observation minimum (the technical
+years of the assessment series), reduces FishGlob events from 89 (20-year
+minimum) to 22, and GPDD from 16 to 5. A 25-observation minimum (the technical
 floor for the provisional 15-year window + 10 trend points) recovers 56
-fisheries events and 81 FishGlob events. Second driver: complete 5-year
-follow-up (the proxy ends 2013–2016; the current RAM release recovers most).
-Third: survey method changes and unknown effort. FishGlob events are
-clustered: 24 of 40 sit in the two Gulf of Mexico survey units with onsets in
-2016–2023, more plausibly a survey-level shift than 24 collapses; they must
-not enter the confirmatory cohort before the method-change audit. GPDD's
+fisheries events and 51 FishGlob events. Second driver: the no-imputation
+rule (a complete 24-year window), which halves FishGlob events (42 → 22).
+Third: complete 5-year follow-up (the proxy ends 2013–2016; the current RAM
+release recovers most). Fourth: survey method changes and unknown effort.
+FishGlob events are clustered: half sit in one Gulf of Mexico survey unit with
+onsets in 2016–2020, more plausibly a survey-level shift than independent
+collapses; they must not enter the confirmatory cohort before the
+method-change audit. GPDD's
 surviving cohort is 35 bird counts from 12 locations with onsets in 1937–1978.
 The lake challenge set offers 7 public lakes with 9–28 annual and 97–332
 monthly observations; annual series are far too short for the confirmatory
 rules. Projections for blocked sources: RAM v4.66 ≈ 3 × the proxy (≈ 510
 eligible stocks, ≈ 130 events; uncertain); LPD and BioTIME unknown (a 400-
 system / 32-event placeholder was used in the power scenarios).
+Structure of eligible origins: RAM median 10 origins per stock (IQR 5–25);
+FishGlob median 4 (3–7); GPDD median 8 (6–12).
 
 ## 5. Power and precision gate (Section 3.3)
 
