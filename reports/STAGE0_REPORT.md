@@ -110,9 +110,47 @@ system / 32-event placeholder was used in the power scenarios).
 Structure of eligible origins: RAM median 10 origins per stock (IQR 5–25);
 FishGlob median 4 (3–7); GPDD median 8 (6–12).
 
-## 5. Power and precision gate (Section 3.3)
+## 5. Power and precision gate (Section 3.3) — gate: FAILED on accessible data
 
-[POWER RESULTS PENDING — filled from the corrected grids]
+Full detail in `reports/stage0_power_analysis.md`; figure
+`results/stage0/power_curves.png`. The whole Sections 7–10 procedure was
+simulated on census-derived structure (systems, events, origin counts,
+clusters, dataset imbalance) with calibrated latent alarm scores, 400
+replicates per cell and a 400-draw paired bootstrap.
+
+| data scenario | events | best design | power at +0.10 (Section 10 rule) | power at +0.15 | P(negligible) at 0 | verdict |
+|---|---|---|---|---|---|---|
+| accessible now (RAM proxy + FishGlob + GPDD) | 70 | grouped cross-fitting | 0.44 | 0.75 | 0.68 | fail |
+| accessible now | 70 | locked hold-out, 50 % development | 0.31 | 0.53 | 0.18 | fail |
+| RAM ×3 projection alone | 129 | grouped cross-fitting | 0.51 | 0.86 | 0.75 | fail |
+| RAM ×3 + FishGlob + GPDD | 156 | grouped cross-fitting | 0.50 | 0.91 | 0.86 | fails at +0.10, passes at +0.15 |
+| RAM ×3 + FishGlob + GPDD | 156 | locked hold-out, 50 % | 0.52 | 0.86 | 0.60 | fail |
+| + LPD placeholder | 188 | grouped cross-fitting | 0.43 | 0.84 | 0.86 | fails at +0.10, passes at +0.15 |
+| pooled projection ×2 | 312 | locked hold-out, 50 % | 0.50 | 0.91 | 0.87 | fails at +0.10, passes at +0.15 |
+
+Two findings dominate. First, the Section 10 rule ("estimate ≥ 0.10 and CI
+excludes 0") cannot reach 80 % power at a true +0.10 whatever the sample
+size, because the point estimate is below 0.10 half the time when the truth
+is 0.10; the gate must be defined at a larger true increment (0.15
+recommended) or use a superiority-plus-relevance rule (rule B in the power
+report: passes at ≈ 150 events with cross-fitting and ≈ 300 with a 50 %
+hold-out, but calls a true +0.05 "meaningful" 20–45 % of the time). Second,
+design dominates: 70 % development leaves too few evaluation events for any
+conclusion; a 50 % locked hold-out needs ≈ 300 events; grouped cross-fitting
+of thresholds over all systems needs ≈ 150 events but must be described as
+internally validated (gate alternative 3). The dataset-weighted estimand is
+under-powered and mis-calibrated while GPDD contributes 5 events (system
+weighting, or a 15-event floor per dataset, is needed). Sensitivities: a less
+correlated EWS model (w = 0.6, closer to a real learner) costs about a third
+of the power; cluster shocks and cluster bootstrap change little at 4–17
+clusters per dataset; the 'run' episode rule gives similar power once its
+threshold search maximizes sensitivity under the budget; the simulator
+ignores learner estimation error, so all "events needed" figures are lower
+bounds. The Section 6.2 window simulation (`ews_window_detectability.csv`)
+shows AUROC ≈ 0.6–0.66 for the classical two-indicator score on annual data
+even under favourable forcing, with mean removal clearly better than
+within-window linear detrending and 15/10 (24 obs) near the floor of usable
+performance.
 
 ## 6. Proposed parameter choices (not frozen)
 
@@ -126,7 +164,13 @@ Summarized from `reports/stage0_proposed_parameters.md`:
   false-alarm denominator = eligible negative origins; budget 1 per 20.
 * Smallest useful effect: keep +10 points pending the management decision
   sketch and human sign-off (checkpoint 3).
-* Design and allocation: see Section 5 (pending).
+* Design and allocation: locked hold-out with 50 % development only if ≥ 300
+  independent events are available; otherwise grouped nested cross-fitting as
+  the primary (described as internally validated) with a small lockbox used
+  once for confirmation; never 70 % development.
+* Power gate target: keep the Section 10 rule and evaluate power at a true
+  increment of 0.15 (1.5 × the smallest useful effect), or adopt rule B; the
+  human decides at checkpoint 3.
 * Weighting: equal-dataset estimand only for datasets with ≥ 15 evaluation
   events; otherwise pool small datasets.
 * FishGlob aggregation: survey_unit × species, hex7_2 footprint trimming,
@@ -159,4 +203,34 @@ Summarized from `reports/stage0_proposed_parameters.md`:
 
 ## 8. Go / no-go recommendation
 
-[PENDING — filled from the corrected grids]
+**No-go for the confirmatory study on the data accessible from this sandbox**
+(≈ 340 systems, 70 first collapses): no design, weighting or decision rule
+comes close to the Section 3.3 gate, and an imprecise null would not be
+interpretable.
+
+**Conditional go, in three steps.**
+
+1. Human acquisition of the blocked sources (RAM Legacy v4.66 from Zenodo,
+   Living Planet Database under its data-use agreement, BioTIME 2.0), and a
+   re-run of the census scripts with the tightened label rules. The decisive
+   numbers are the count of first collapses with a complete 24-year window
+   and 5-year follow-up, and how many of them are biologically independent
+   after the crosswalk (FishGlob survey series that duplicate RAM stocks do
+   not add events; the GMEX cluster must be audited).
+2. Design chosen by that count: ≥ 300 independent events → locked 50 %
+   hold-out with the Section 10 rule and a 0.15 power target (gate
+   alternative 1, the preferred design); 150–300 events → grouped nested
+   cross-fitting as the primary analysis with a small single-use lockbox,
+   reported as internally validated (gate alternative 3); < 150 events →
+   narrow to a fisheries-only, estimation-focused study (gate alternative 2)
+   and drop equivalence claims.
+3. Stage 1 freezes, with human sign-off: the 25-observation history minimum
+   with the 15/10 EWS windows (or 30 with 20/10), the block episode rule, the
+   smallest useful effect and power target, system weighting (or a per-dataset
+   event floor), and the FishGlob/GPDD screening rules listed in Section 6.
+
+The literature gate is provisionally passed (novel combination; Zhang 2020,
+Cano 2025 and Pélissié 2026 must be read in full first). The licensing
+position is workable: RAM, FishGlob, ICES and (pending the KNB check) GPDD
+allow redistribution of raw values with attribution; LPD raw values cannot be
+released and derived labels only under the same terms.

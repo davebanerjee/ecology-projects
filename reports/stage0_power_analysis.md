@@ -102,7 +102,42 @@ row is the more honest planning case.
 
 ## 4. Alternative decision rule (Stage 0 proposal, not frozen)
 
-[ALT-RULE RESULTS PENDING]
+Rule B: "meaningful benefit" = the paired 95 % interval excludes zero
+(superiority) AND its upper bound is ≥ 0.10 (a meaningful effect cannot be
+excluded); "negligible" and "harm" as in Section 10. Both rules were scored on
+the same replicates (`results/stage0/power_grid_v2.csv`,
+`power_gate_table_v2.csv`); block episode rule, system weighting unless noted.
+
+| scenario | design | events (eval) | power at +0.10: Section 10 rule / rule B | power at +0.15: Sec. 10 / B | P(negligible) at 0 | rule B: P(meaningful) at true +0.05 / at true 0 | gate under rule B |
+|---|---|---|---|---|---|---|---|
+| A accessible now | cross-fit | 70 (70) | 0.44 / 0.56 | — | 0.68 | 0.20 / 0.01 | fail |
+| A accessible now | hold-out 50 % | 70 (35) | 0.31 / 0.31 | — | 0.18 | 0.11 / 0.01 | fail |
+| C RAM ×3 | cross-fit | 129 (129) | 0.51 / 0.79 | 0.86 / 0.97 | 0.75 | 0.34 / 0.04 | fail (both criteria just under) |
+| D RAM ×3 + FishGlob + GPDD | cross-fit | 156 (156) | 0.50 / 0.83 | 0.91 / 0.99 | 0.86 | 0.37 / 0.04 | PASS |
+| D | hold-out 50 % | 156 (79) | 0.52 / 0.61 | 0.86 / 0.91 | 0.60 | 0.22 / 0.04 | fail |
+| D, dataset weighting | cross-fit | 156 (156) | 0.49 / 0.76 | 0.75 / 0.91 | 0.69 | 0.38 / 0.09 | fail |
+| E D + LPD placeholder | cross-fit | 188 (188) | 0.43 / 0.83 | 0.84 / 0.99 | 0.86 | 0.41 / 0.07 | PASS |
+| E | hold-out 50 % | 188 (95) | 0.41 / 0.58 | 0.76 / 0.87 | 0.67 | 0.24 / 0.06 | fail |
+| D scaled ×1.5 | cross-fit | 235 | 0.53 / 0.93 | 0.97 / 1.00 | 0.95 | 0.39 / 0.01 | PASS |
+| D scaled ×2 | hold-out 50 % | 312 (156) | 0.50 / 0.86 | 0.91 / 0.99 | 0.87 | 0.38 / 0.05 | PASS |
+| D scaled ×3 | hold-out 50 % | 468 (233) | 0.53 / 0.89 | 0.94 / 1.00 | 0.93 | 0.45 / 0.04 | PASS |
+
+Reading: rule B makes the gate attainable (≈ 150 events with grouped
+cross-fitting; ≈ 300 events with a 50 % locked hold-out) but it labels a true
++0.05 "meaningful" 20–45 % of the time, because superiority plus a wide
+interval is enough; the Section 10 rule labels a true +0.05 meaningful 10–30 %
+of the time (`power_grid_v2.csv`, delta_true = 0.05) and never reaches 80 %
+power at +0.10. The two defensible ways to make the gate coherent are:
+
+* keep the Section 10 rule and set the power target at a true increment of
+  0.15 (1.5 × the smallest useful effect): passed at 156 events with
+  cross-fitting (0.91 / 0.86) and at ≈ 300 events with a 50 % hold-out
+  (0.91 / 0.87); or
+* adopt rule B and accept its behaviour on sub-threshold effects, stating the
+  operating characteristics in the preregistration.
+
+Stage 0 recommends the first (the claim stays anchored to the point estimate)
+and leaves the choice to the human at checkpoint 3.
 
 ## 5. Episode rule
 
