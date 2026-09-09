@@ -54,13 +54,14 @@ def main():
         if c not in df:
             df[c] = np.nan
     df["w"] = df["w"].fillna(0.3)
-    base = df[(df["S_B"] == 0.45) & (df["w"] == 0.3) & (df["weighting"] == "system")]
-    gate = gate_table(base, ["scenario", "design", "dev_frac"]).sort_values(["scenario", "design", "dev_frac"])
+    base_all = df[(df["S_B"] == 0.45) & (df["w"] == 0.3)]
+    base = base_all[base_all["weighting"] == "system"]
+    gate = gate_table(base_all, ["scenario", "design", "dev_frac", "weighting"]).sort_values(["scenario", "weighting", "design", "dev_frac"])
     gate.to_csv(os.path.join(OUT, "power_gate_table.csv"), index=False)
     pd.set_option("display.width", 250)
     print("=== GATE TABLE (base params) ==="); print(gate.to_string(index=False))
-    print("\n=== weighting comparison ===")
-    print(df[df["weighting"] == "dataset"][["scenario", "delta_true", "delta_realized", "p_meaningful", "p_negligible", "mean_ci_width", "sd_d_hat"]].sort_values(["scenario", "delta_true"]).to_string(index=False))
+    print("\n=== degenerate CIs / discordance ===")
+    print(base_all[["scenario", "design", "dev_frac", "weighting", "delta_true", "p_degenerate_ci", "mean_n_disc", "p_inconclusive"]].sort_values(["scenario", "weighting", "design", "delta_true"]).to_string(index=False))
     print("\n=== S_B / w sensitivity (scenario D, holdout 0.6) ===")
     print(df[(df["scenario"].str.startswith("D_")) & (df["design"] == "holdout") & (df["dev_frac"] == 0.6) & (df["weighting"] == "system")][["S_B", "w", "delta_true", "delta_realized", "p_meaningful", "p_negligible", "mean_ci_width", "mean_faE_eval"]].sort_values(["S_B", "w", "delta_true"]).to_string(index=False))
     # scaling grid

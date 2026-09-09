@@ -67,7 +67,13 @@ def main():
     # Annual series: SamplingFrequency == 1 -> one observation per SampleYear.
     # Sub-annual: annual mean of PopulationUntransformed within SampleYear (sensitivity only).
     data["value"] = data["PopulationUntransformed"].astype(float)
+    data["SampleYear"] = pd.to_numeric(data["SampleYear"], errors="coerce")
+    n_bad_year = int((data["SampleYear"] < 0).sum())
+    data = data[data["SampleYear"] >= 0].copy()
     data["SampleYear"] = data["SampleYear"].astype(int)
+    neg_series = set(data.loc[data["value"] < 0, "MainID"])
+    meta_summary["rows_dropped_negative_sampleyear"] = n_bad_year
+    meta_summary["series_with_negative_values"] = int(len(neg_series))
     freq = main_.set_index("MainID")["SamplingFrequency"]
     data["freq"] = data["MainID"].map(freq)
     ann = data[data["freq"] == 1].groupby(["MainID", "SampleYear"], as_index=False)["value"].mean()
@@ -87,9 +93,11 @@ def main():
     method_change_flag = notes.str.contains("method|protocol|changed|change in|effort|gear|survey area|different")
     harvest_like = cens["SamplingProtocol"].fillna("").str.lower().str.contains("harvest|catch|bag|kill|fur|pelt|hunt") | \
         cens["SamplingUnits"].fillna("").str.lower().str.contains("harvest|catch|kill|pelt|fur|bag")
+    cens["has_negative_values"] = cens.index.isin(neg_series)
     steps = [
         ("all annual (SamplingFrequency==1) series with data", pd.Series(True, index=cens.index)),
         ("not in GPDD restricted list", ~cens["restricted"].fillna(False).astype(bool)),
+        ("no negative values (abundance scale, not deviations)", ~cens["has_negative_values"]),
         ("reliability >= 2 (GPDD 1-5 scale; 1 = lowest)", cens["Reliability"].fillna(0) >= 2),
         ("n_obs >= 35 (30 history + 5 follow-up)", cens["n_obs"] >= 35),
         ("no method/effort-change keyword in Notes", ~method_change_flag),
@@ -102,15 +110,16 @@ def main():
     # sensitivity grid on outcome / eligibility parameters
     grid = [
         {},
+        {"min_complete_window": 0},
         {"frac": 0.10},
         {"frac": 0.30},
         {"persistence": 3},
-        {"min_history": 20},
+        {"min_history": 20, "min_complete_window": 20},
         {"min_history": 25},
         {"horizon": 3},
-        {"min_history": 20, "frac": 0.30},
+        {"min_history": 20, "min_complete_window": 0},
     ]
-    keep_ids = cens.index[(~cens["restricted"].astype(bool)) & (cens["Reliability"].fillna(0) >= 2) & (~harvest_like) & (~method_change_flag)]
+    keep_ids = cens.index[(~cens["restricted"].astype(bool)) & (cens["Reliability"].fillna(0) >= 2) & (~harvest_like) & (~method_change_flag) & (~cens["has_negative_values"])]
     sg = sensitivity_grid(ann[ann["MainID"].isin(keep_ids)], "MainID", "SampleYear", "value", grid)
     sg.to_csv(os.path.join(OUT, "gpdd_sensitivity_grid.csv"), index=False)
 

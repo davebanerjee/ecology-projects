@@ -52,9 +52,10 @@ class DatasetSpec:
     pos_neg_event: np.ndarray      # (k,2) array of (n_pos, n_neg) pairs from event systems in the census
     neg_nonevent: np.ndarray       # 1-d array of n_neg for non-event systems
     scale: float = 1.0             # multiplier applied to n_systems and n_events (projections)
+    n_clusters: int = 0            # 0 = every system is its own cluster (independent)
 
     def to_dict(self):
-        return {"name": self.name, "n_systems": self.n_systems, "n_events": self.n_events, "scale": self.scale}
+        return {"name": self.name, "n_systems": self.n_systems, "n_events": self.n_events, "scale": self.scale, "n_clusters": self.n_clusters}
 
 
 @dataclass
@@ -67,7 +68,11 @@ class SimParams:
     design: str = "holdout"        # 'holdout' or 'cv5'
     weighting: str = "system"      # 'system' or 'dataset'
     s_u2: float = 0.3              # system random-effect variance share
+    s_c2: float = 0.0              # cluster (survey unit / region) random-effect variance share
     rho: float = 0.5               # AR(1) of within-system noise
+    episode_rule: str = "block"    # 'block' (new episode allowed once > refractory years after the last start) or 'run' (maximal alarm run = one episode; refractory from run end)
+    boot_unit: str = "system"      # 'system' (stratified by dataset x event) or 'cluster'
+    min_discordant: int = 5        # replicates with fewer discordant events are inconclusive
     tau: float = 3.0               # ramp decay (years) before the window
     w: float = 0.3                 # weight of the EWS block
     refractory: int = HORIZON
@@ -81,11 +86,15 @@ class SimParams:
 # --------------------------------------------------------------------------- #
 def gen_population(specs, rng):
     """Return padded arrays: labels Y (n,L) in {-1 pad, 0, 1}, k_before (n,L), dataset ids, event flags."""
-    ds_id, ev, seqs = [], [], []
+    ds_id, ev, seqs, cl = [], [], [], []
+    cl_offset = 0
     for j, sp in enumerate(specs):
         n_sys = int(round(sp.n_systems * sp.scale))
         n_ev = int(round(sp.n_events * sp.scale))
+        n_cl = sp.n_clusters if sp.n_clusters and sp.n_clusters > 0 else n_sys
+        order = rng.permutation(n_sys)  # random cluster assignment so events are not all in the first clusters
         for i in range(n_sys):
+            cl.append(cl_offset + int(order[i]) % n_cl)
             if i < n_ev:
                 npos, nneg = sp.pos_neg_event[rng.integers(len(sp.pos_neg_event))]
                 seq = [0] * int(nneg) + [1] * int(npos)
@@ -96,6 +105,7 @@ def gen_population(specs, rng):
                 ev.append(0)
             seqs.append(seq)
             ds_id.append(j)
+        cl_offset += n_cl
     n = len(seqs)
     L = max(len(s) for s in seqs)
     Y = -np.ones((n, L), dtype=int)
@@ -103,20 +113,24 @@ def gen_population(specs, rng):
     for i, s in enumerate(seqs):
         Y[i, : len(s)] = s
         if ev[i]:
-            npos = sum(s)
-            # last origin is 1 year before onset; k counts years before onset
-            ks = np.arange(len(s), 0, -1)  # len(s) .. 1
+            npos = int(sum(s)); nneg = len(s) - npos
+            # positives are the last npos of the 5 years before onset (k = npos..1);
+            # negatives are eligible origins with onset outside the horizon, i.e. k >= 6
+            ks = np.concatenate([np.arange(HORIZON + nneg, HORIZON, -1), np.arange(npos, 0, -1)])
             K[i, : len(s)] = ks
-    return Y, K, np.array(ds_id), np.array(ev)
+    return Y, K, np.array(ds_id), np.array(ev), np.array(cl)
 
 
-def gen_scores(Y, K, ev, p: SimParams, mu_B, delta, rng):
+def gen_scores(Y, K, ev, p: SimParams, mu_B, delta, rng, cl=None):
     n, L = Y.shape
     valid = Y >= 0
     u = rng.normal(0, np.sqrt(p.s_u2), size=(n, 1))
+    if p.s_c2 > 0 and cl is not None:
+        ceff = rng.normal(0, np.sqrt(p.s_c2), size=int(cl.max()) + 1)
+        u = u + ceff[cl][:, None]
     e = np.zeros((n, L))
     eps = rng.normal(0, 1, size=(n, L))
-    se = np.sqrt(1 - p.s_u2)
+    se = np.sqrt(1 - p.s_u2 - p.s_c2)
     e[:, 0] = eps[:, 0]
     for t in range(1, L):
         e[:, t] = p.rho * e[:, t - 1] + np.sqrt(1 - p.rho ** 2) * eps[:, t]
@@ -138,16 +152,36 @@ def gen_scores(Y, K, ev, p: SimParams, mu_B, delta, rng):
 # --------------------------------------------------------------------------- #
 # alarm episodes and metrics
 # --------------------------------------------------------------------------- #
-def episode_starts(S, Y, theta, refractory=HORIZON):
-    """Boolean (n,L) array of episode starts for threshold theta."""
+def episode_starts(S, Y, theta, refractory=HORIZON, rule="block"):
+    """Boolean (n,L) array of episode starts for threshold theta.
+
+    rule='block': a new episode may start whenever an alarm occurs more than
+    `refractory` years after the previous episode START (a persistent alarm is
+    re-scored every refractory+1 years).
+    rule='run': a maximal run of consecutive alarmed years is one episode; a new
+    run starting within `refractory` years of the previous episode's last
+    alarmed year is merged into it (no new start).
+    """
     n, L = S.shape
     A = np.where(np.isnan(S), False, S >= theta)
     starts = np.zeros((n, L), dtype=bool)
-    last = np.full(n, -10 ** 6)
-    for t in range(L):
-        can = A[:, t] & ((t - last) > refractory)
-        starts[:, t] = can
-        last = np.where(can, t, last)
+    if rule == "block":
+        last = np.full(n, -10 ** 6)
+        for t in range(L):
+            can = A[:, t] & ((t - last) > refractory)
+            starts[:, t] = can
+            last = np.where(can, t, last)
+    elif rule == "run":
+        last_end = np.full(n, -10 ** 6)
+        prev = np.zeros(n, dtype=bool)
+        for t in range(L):
+            a = A[:, t]
+            can = a & (~prev) & ((t - last_end) > refractory)
+            starts[:, t] = can
+            last_end = np.where(a, t, last_end)
+            prev = a
+    else:
+        raise ValueError(rule)
     return starts
 
 
@@ -165,7 +199,7 @@ def fa_burden(n_false, neg_years):
     return np.inf if ny == 0 else n_false.sum() / (ny / 20.0)
 
 
-def choose_threshold(S, Y, ev, budget, refractory=HORIZON, n_grid=400):
+def choose_threshold(S, Y, ev, budget, refractory=HORIZON, n_grid=400, rule="block"):
     """Lowest threshold (max sensitivity) whose FA burden on this set is <= budget.
 
     FA burden is (near-)monotone non-increasing in the threshold, so we bisect
@@ -175,7 +209,7 @@ def choose_threshold(S, Y, ev, budget, refractory=HORIZON, n_grid=400):
     qs = np.quantile(vals, np.linspace(0.3, 0.9995, n_grid))
 
     def fa_at(theta):
-        st = episode_starts(S, Y, theta, refractory)
+        st = episode_starts(S, Y, theta, refractory, rule)
         _, nf, ny = metrics_from_starts(st, Y, ev)
         return fa_burden(nf, ny)
 
@@ -205,20 +239,40 @@ def sensitivity(detected, ev, ds, weighting):
     return float(np.mean(vals)) if vals else np.nan
 
 
-def paired_bootstrap(detB, detE, nfB, nfE, ny, ev, ds, weighting, n_boot, rng):
+def paired_bootstrap(detB, detE, nfB, nfE, ny, ev, ds, weighting, n_boot, rng, cl=None, boot_unit="system"):
+    """Percentile bootstrap of the paired sensitivity difference.
+
+    boot_unit='system': systems resampled within dataset x event-status strata
+    (every dataset keeps its events); 'cluster': clusters resampled within
+    dataset with all their systems.
+    """
     diffs = np.empty(n_boot)
     faB = np.empty(n_boot)
     faE = np.empty(n_boot)
-    idx_by_ds = {d: np.where(ds == d)[0] for d in np.unique(ds)}
+    if boot_unit == "cluster" and cl is not None:
+        groups = []
+        for d in np.unique(ds):
+            m = ds == d
+            cls = np.unique(cl[m])
+            members = [np.where(m & (cl == c))[0] for c in cls]
+            groups.append(members)
+    else:
+        strata = [np.where((ds == d) & (ev == e))[0] for d in np.unique(ds) for e in (0, 1)]
+        strata = [ix for ix in strata if len(ix) > 0]
     for b in range(n_boot):
-        idx = np.concatenate([rng.choice(ix, size=len(ix), replace=True) for ix in idx_by_ds.values()])
+        if boot_unit == "cluster" and cl is not None:
+            idx = np.concatenate([np.concatenate([members[i] for i in rng.integers(len(members), size=len(members))]) for members in groups])
+        else:
+            idx = np.concatenate([rng.choice(ix, size=len(ix), replace=True) for ix in strata])
         diffs[b] = sensitivity(detE[idx], ev[idx], ds[idx], weighting) - sensitivity(detB[idx], ev[idx], ds[idx], weighting)
         faB[b] = fa_burden(nfB[idx], ny[idx])
         faE[b] = fa_burden(nfE[idx], ny[idx])
     return diffs, faB, faE
 
 
-def classify(d_hat, lo, hi, sesoi):
+def classify(d_hat, lo, hi, sesoi, n_disc=None, min_disc=0):
+    if n_disc is not None and n_disc < min_disc:
+        return "inconclusive"
     if hi < 0:
         return "harm"
     if hi < sesoi:
@@ -235,14 +289,14 @@ def _pop_sens(specs, p, mu_B, delta, seed, n_cal_scale):
     """Population sensitivities of both models at the FA budget, using COMMON RANDOM
     NUMBERS (fixed seed) so that the bisection targets are monotone in mu_B/delta."""
     rng = np.random.default_rng(seed)
-    big = [DatasetSpec(s.name, s.n_systems, s.n_events, s.pos_neg_event, s.neg_nonevent, s.scale * n_cal_scale) for s in specs]
-    Y, K, ds, ev = gen_population(big, rng)
-    sB, sE = gen_scores(Y, K, ev, p, mu_B, delta, rng)
-    thB = choose_threshold(sB, Y, ev, p.fa_budget, p.refractory)
-    thE = choose_threshold(sE, Y, ev, p.fa_budget, p.refractory)
-    dB, _, _ = metrics_from_starts(episode_starts(sB, Y, thB, p.refractory), Y, ev)
-    dE, _, _ = metrics_from_starts(episode_starts(sE, Y, thE, p.refractory), Y, ev)
-    return dB[ev == 1].mean(), dE[ev == 1].mean()
+    big = [DatasetSpec(s.name, s.n_systems, s.n_events, s.pos_neg_event, s.neg_nonevent, s.scale * n_cal_scale, s.n_clusters) for s in specs]
+    Y, K, ds, ev, cl = gen_population(big, rng)
+    sB, sE = gen_scores(Y, K, ev, p, mu_B, delta, rng, cl)
+    thB = choose_threshold(sB, Y, ev, p.fa_budget, p.refractory, rule=p.episode_rule)
+    thE = choose_threshold(sE, Y, ev, p.fa_budget, p.refractory, rule=p.episode_rule)
+    dB, _, _ = metrics_from_starts(episode_starts(sB, Y, thB, p.refractory, p.episode_rule), Y, ev)
+    dE, _, _ = metrics_from_starts(episode_starts(sE, Y, thE, p.refractory, p.episode_rule), Y, ev)
+    return sensitivity(dB, ev, ds, p.weighting), sensitivity(dE, ev, ds, p.weighting)
 
 
 def calibrate(specs, p: SimParams, rng, n_cal_events=3000, n_iter=16):
@@ -294,17 +348,18 @@ def split_holdout(ds, ev, dev_frac, rng):
 
 
 def run_replicate(specs, p: SimParams, mu_B, delta, rng):
-    Y, K, ds, ev = gen_population(specs, rng)
-    sB, sE = gen_scores(Y, K, ev, p, mu_B, delta, rng)
+    Y, K, ds, ev, cl = gen_population(specs, rng)
+    sB, sE = gen_scores(Y, K, ev, p, mu_B, delta, rng, cl)
     n = len(ev)
+    R = p.episode_rule
     if p.design == "holdout":
         dev = split_holdout(ds, ev, p.dev_frac, rng)
-        thB = choose_threshold(sB[dev], Y[dev], ev[dev], p.fa_budget, p.refractory)
-        thE = choose_threshold(sE[dev], Y[dev], ev[dev], p.fa_budget, p.refractory)
+        thB = choose_threshold(sB[dev], Y[dev], ev[dev], p.fa_budget, p.refractory, rule=R)
+        thE = choose_threshold(sE[dev], Y[dev], ev[dev], p.fa_budget, p.refractory, rule=R)
         te = ~dev
-        detB, nfB, ny = metrics_from_starts(episode_starts(sB[te], Y[te], thB, p.refractory), Y[te], ev[te])
-        detE, nfE, _ = metrics_from_starts(episode_starts(sE[te], Y[te], thE, p.refractory), Y[te], ev[te])
-        ev_e, ds_e = ev[te], ds[te]
+        detB, nfB, ny = metrics_from_starts(episode_starts(sB[te], Y[te], thB, p.refractory, R), Y[te], ev[te])
+        detE, nfE, _ = metrics_from_starts(episode_starts(sE[te], Y[te], thE, p.refractory, R), Y[te], ev[te])
+        ev_e, ds_e, cl_e = ev[te], ds[te], cl[te]
     else:  # grouped 5-fold CV over all systems, thresholds from the other folds
         folds = np.zeros(n, dtype=int)
         for d in np.unique(ds):
@@ -316,20 +371,21 @@ def run_replicate(specs, p: SimParams, mu_B, delta, rng):
         nfB = np.zeros(n, dtype=int); nfE = np.zeros(n, dtype=int); ny = np.zeros(n, dtype=int)
         for f in range(5):
             tr, te = folds != f, folds == f
-            thB = choose_threshold(sB[tr], Y[tr], ev[tr], p.fa_budget, p.refractory)
-            thE = choose_threshold(sE[tr], Y[tr], ev[tr], p.fa_budget, p.refractory)
-            detB[te], nfB[te], ny[te] = metrics_from_starts(episode_starts(sB[te], Y[te], thB, p.refractory), Y[te], ev[te])
-            detE[te], nfE[te], _ = metrics_from_starts(episode_starts(sE[te], Y[te], thE, p.refractory), Y[te], ev[te])
-        ev_e, ds_e = ev, ds
+            thB = choose_threshold(sB[tr], Y[tr], ev[tr], p.fa_budget, p.refractory, rule=R)
+            thE = choose_threshold(sE[tr], Y[tr], ev[tr], p.fa_budget, p.refractory, rule=R)
+            detB[te], nfB[te], ny[te] = metrics_from_starts(episode_starts(sB[te], Y[te], thB, p.refractory, R), Y[te], ev[te])
+            detE[te], nfE[te], _ = metrics_from_starts(episode_starts(sE[te], Y[te], thE, p.refractory, R), Y[te], ev[te])
+        ev_e, ds_e, cl_e = ev, ds, cl
     sensB = sensitivity(detB, ev_e, ds_e, p.weighting)
     sensE = sensitivity(detE, ev_e, ds_e, p.weighting)
     d_hat = sensE - sensB
-    diffs, faB, faE = paired_bootstrap(detB, detE, nfB, nfE, ny, ev_e, ds_e, p.weighting, p.n_boot, rng)
+    n_disc = int(((detB != detE) & (ev_e == 1)).sum())
+    diffs, faB, faE = paired_bootstrap(detB, detE, nfB, nfE, ny, ev_e, ds_e, p.weighting, p.n_boot, rng, cl_e, p.boot_unit)
     lo, hi = np.nanpercentile(diffs, [2.5, 97.5])
     return {"d_hat": d_hat, "ci_lo": lo, "ci_hi": hi, "ci_width": hi - lo, "sensB": sensB, "sensE": sensE,
             "faB": fa_burden(nfB, ny), "faE": fa_burden(nfE, ny), "n_events_eval": int((ev_e == 1).sum()),
-            "n_systems_eval": int(len(ev_e)), "n_negyears_eval": int(ny.sum()),
-            "verdict": classify(d_hat, lo, hi, p.sesoi)}
+            "n_systems_eval": int(len(ev_e)), "n_negyears_eval": int(ny.sum()), "n_disc": n_disc,
+            "verdict": classify(d_hat, lo, hi, p.sesoi, n_disc, p.min_discordant)}
 
 
 def run_cell(args):
@@ -356,6 +412,7 @@ def run_cell(args):
            "mean_sensB": df["sensB"].mean(), "mean_sensE": df["sensE"].mean(),
            "mean_faB_eval": df["faB"].replace(np.inf, np.nan).mean(), "mean_faE_eval": df["faE"].replace(np.inf, np.nan).mean(),
            "p_faE_gt_1.5": float((df["faE"] > 1.5).mean()),
+           "p_degenerate_ci": float((df["ci_width"] == 0).mean()), "mean_n_disc": df["n_disc"].mean(),
            "n_events_eval": df["n_events_eval"].mean(), "n_systems_eval": df["n_systems_eval"].mean(),
            "n_negyears_eval": df["n_negyears_eval"].mean(),
            "n_systems_total": sum(int(round(s.n_systems * s.scale)) for s in specs),
@@ -366,8 +423,9 @@ def run_cell(args):
 # --------------------------------------------------------------------------- #
 # census-derived specs
 # --------------------------------------------------------------------------- #
-def spec_from_census(name, cens: pd.DataFrame, scale=1.0):
+def spec_from_census(name, cens: pd.DataFrame, scale=1.0, cluster_col=None):
     c = cens[cens["n_origins"] > 0]
+    n_cl = int(c[cluster_col].nunique()) if cluster_col and cluster_col in c else 0
     evm = c["event_in_eligible_window"].astype(bool)
     pn = c.loc[evm, ["n_pos", "n_neg"]].to_numpy()
     if len(pn) == 0:
@@ -375,7 +433,7 @@ def spec_from_census(name, cens: pd.DataFrame, scale=1.0):
     nn = c.loc[~evm, "n_neg"].to_numpy()
     if len(nn) == 0:
         nn = np.array([10])
-    return DatasetSpec(name, int(len(c)), int(evm.sum()), pn, nn, scale)
+    return DatasetSpec(name, int(len(c)), int(evm.sum()), pn, nn, scale, n_cl)
 
 
 def synthetic_spec(name, n_systems, n_events, origins_mean=10, pos_mean=4.5):

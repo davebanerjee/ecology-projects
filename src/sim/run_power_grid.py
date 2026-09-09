@@ -41,14 +41,19 @@ def load_specs():
             return True
         return not any(row["first_origin"] - 30 <= c <= row["last_origin"] + 5 for c in ch)
     fg_prim = fg[(~fg["survey"].isin(IRREGULAR)) & (fg["zero_frac"] <= 0.2) & fg.apply(nomc, axis=1)]
+    if "has_negative_values" in gp_prim:
+        gp_prim = gp_prim[~gp_prim["has_negative_values"].astype(bool)]
     S = {
-        "RAMproxy": spec_from_census("RAMproxy", ram),
-        "GPDD": spec_from_census("GPDD", gp_prim),
-        "FishGlob": spec_from_census("FishGlob", fg_prim),
+        "RAMproxy": spec_from_census("RAMproxy", ram, cluster_col="region"),
+        "GPDD": spec_from_census("GPDD", gp_prim, cluster_col="LocationID"),
+        "FishGlob": spec_from_census("FishGlob", fg_prim, cluster_col="survey_unit"),
     }
     # projections
-    S["RAMfull_x3"] = spec_from_census("RAMfull_x3", ram, scale=3.0)
-    S["LPD_proj"] = DatasetSpec("LPD_proj", 400, 32, S["GPDD"].pos_neg_event, S["GPDD"].neg_nonevent, 1.0)
+    S["RAMfull_x3"] = spec_from_census("RAMfull_x3", ram, scale=3.0, cluster_col="region")
+    # LPD projection: mixture of RAM and FishGlob origin structures (GPDD alone has too few event templates)
+    pn = np.concatenate([S["RAMproxy"].pos_neg_event, S["FishGlob"].pos_neg_event, S["GPDD"].pos_neg_event])
+    nn = np.concatenate([S["RAMproxy"].neg_nonevent, S["FishGlob"].neg_nonevent, S["GPDD"].neg_nonevent])
+    S["LPD_proj"] = DatasetSpec("LPD_proj", 400, 32, pn, nn, 1.0, 40)
     return S
 
 
@@ -71,10 +76,11 @@ def build_grid(specs, quick=False):
             for dev_frac in (0.5, 0.7):
                 cells.append((sp, {**base, "delta_true": d, "dev_frac": dev_frac, "design": "holdout", "weighting": "system"}, name))
             cells.append((sp, {**base, "delta_true": d, "dev_frac": 0.6, "design": "cv5", "weighting": "system"}, name))
-        # dataset-weighted estimand for the pooled scenarios, primary delta values only
+        # dataset-weighted estimand (protocol primary) for the pooled scenarios: full delta grid
         if len(keys) > 1:
-            for d in (0.0, 0.10, 0.20):
-                cells.append((sp, {**base, "delta_true": d, "dev_frac": 0.6, "design": "holdout", "weighting": "dataset"}, name))
+            for d in deltas:
+                cells.append((sp, {**base, "delta_true": d, "dev_frac": 0.5, "design": "holdout", "weighting": "dataset"}, name))
+                cells.append((sp, {**base, "delta_true": d, "dev_frac": 0.6, "design": "cv5", "weighting": "dataset"}, name))
     # sensitivity to baseline sensitivity level and EWS-block weight (scenario D only)
     sp = [specs[k] for k in SCENARIOS["D_RAMfull_x3+FishGlob+GPDD"]]
     for S_B in (0.30, 0.60):
@@ -104,14 +110,14 @@ if __name__ == "__main__":
     # calibration is shared by cells with identical (scenario, S_B, delta_true, w)
     calib_keys = {}
     for sp, pd_, name in cells:
-        calib_keys.setdefault((name, pd_["S_B"], pd_["delta_true"], pd_.get("w", 0.3)), (sp, pd_))
+        calib_keys.setdefault((name, pd_["S_B"], pd_["delta_true"], pd_.get("w", 0.3), pd_.get("weighting", "system")), (sp, pd_))
     def _cal(item):
         key, (sp, pd_) = item
         return key, calibrate(sp, SimParams(**pd_), np.random.default_rng(12345))
     with Pool(3) as pool:
         calibs = dict(pool.map(_cal, list(calib_keys.items())))
     print("calibrations done:", len(calibs), f"({round(time.time()-t0)}s)", flush=True)
-    cells = [(sp, pd_, name, calibs[(name, pd_["S_B"], pd_["delta_true"], pd_.get("w", 0.3))]) for sp, pd_, name in cells]
+    cells = [(sp, pd_, name, calibs[(name, pd_["S_B"], pd_["delta_true"], pd_.get("w", 0.3), pd_.get("weighting", "system"))]) for sp, pd_, name in cells]
     with Pool(3) as pool:
         rows = []
         for i, r in enumerate(pool.imap_unordered(run_cell, cells)):

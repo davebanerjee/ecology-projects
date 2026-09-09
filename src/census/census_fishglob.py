@@ -48,22 +48,33 @@ def build_index(flag_col=FLAG_COL, min_hauls=MIN_HAULS, min_occ=MIN_OCC, value="
             hauls_year = g.groupby("year")["haul_id"].nunique()
             good_years = hauls_year[hauls_year >= min_hauls].index
             n_hauls_total = int(g["haul_id"].nunique())
-            sp = g[(g["rank"] == "Species") & (g["flag_taxa"].isna()) & (g[value].notna()) & (g[value] > 0)]
-            occ = sp.groupby("accepted_name")["haul_id"].nunique() / n_hauls_total
+            spall = g[(g["rank"] == "Species") & (g["flag_taxa"].isna())]
+            caught = spall[(spall["num_cpua"].fillna(0) > 0) | (spall[value].fillna(0) > 0)]
+            occ = caught.groupby("accepted_name")["haul_id"].nunique() / n_hauls_total
             keep_sp = occ[occ >= min_occ].index
-            sp = sp[sp["accepted_name"].isin(keep_sp) & sp["year"].isin(good_years)]
-            tot = sp.groupby(["accepted_name", "year"])[value].sum().reset_index()
+            sp = spall[spall["accepted_name"].isin(keep_sp) & spall["year"].isin(good_years)]
+            pos = sp[sp[value].fillna(0) > 0]
+            tot = pos.groupby(["accepted_name", "year"])[value].sum().reset_index()
             tot["value"] = tot[value] / tot["year"].map(hauls_year)
-            # zero years: species in keep_sp with no positive record in a good year -> 0
+            # species-years with catches recorded (num > 0) but no positive weight anywhere -> missing, not zero
+            nowt = sp[(sp["num_cpua"].fillna(0) > 0)].groupby(["accepted_name", "year"]).size().reset_index()[["accepted_name", "year"]]
+            nowt = nowt.merge(tot[["accepted_name", "year"]], how="left", indicator=True)
+            nowt = nowt[nowt["_merge"] == "left_only"][["accepted_name", "year"]]
+            # zero years: species in keep_sp with no catch record in a good year -> 0
             full = pd.MultiIndex.from_product([keep_sp, good_years], names=["accepted_name", "year"]).to_frame(index=False)
             tot = full.merge(tot[["accepted_name", "year", "value"]], on=["accepted_name", "year"], how="left").fillna({"value": 0.0})
+            if len(nowt):
+                tot = tot.merge(nowt.assign(_nowt=1), on=["accepted_name", "year"], how="left")
+                tot.loc[tot["_nowt"] == 1, "value"] = np.nan
+                tot = tot.drop(columns="_nowt")
             tot["survey"] = g["survey"].iloc[0]
             tot["survey_unit"] = su
             tot["system_id"] = "FG|" + su + "|" + tot["accepted_name"]
             rows.append(tot)
             diag.append({"survey": g["survey"].iloc[0], "survey_unit": su, "year_min": int(hauls_year.index.min()), "year_max": int(hauls_year.index.max()),
                          "n_years_total": int(len(hauls_year)), "n_years_good": int(len(good_years)),
-                         "n_hauls_total": n_hauls_total, "n_species_candidates": int(len(keep_sp))})
+                         "n_hauls_total": n_hauls_total, "n_species_candidates": int(len(keep_sp)),
+                         "n_species_years_caught_no_weight": int(len(nowt))})
     return pd.concat(rows, ignore_index=True), pd.DataFrame(diag)
 
 
@@ -97,7 +108,7 @@ def main():
     att = attrition(cens, steps)
     att.to_csv(os.path.join(OUT, "fishglob_attrition.csv"), index=False)
     ok = cens.index[(~cens["survey"].isin(IRREGULAR)) & cens.apply(no_method_change, axis=1) & (cens["zero_frac"] <= 0.2)]
-    grid = [{}, {"frac": 0.10}, {"frac": 0.30}, {"persistence": 3}, {"min_history": 20}, {"min_history": 25}, {"horizon": 3}]
+    grid = [{}, {"min_complete_window": 0}, {"frac": 0.10}, {"frac": 0.30}, {"persistence": 3}, {"min_history": 20, "min_complete_window": 20}, {"min_history": 25}, {"horizon": 3}]
     sg = sensitivity_grid(long[long["system_id"].isin(ok)], "system_id", "year", "value", grid)
     sg.to_csv(os.path.join(OUT, "fishglob_sensitivity_grid.csv"), index=False)
     prim = cens.loc[ok]

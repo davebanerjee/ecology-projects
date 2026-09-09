@@ -17,7 +17,7 @@ if __name__ == "__main__":
     base_keys = SCENARIOS["D_RAMfull_x3+FishGlob+GPDD"]
     cells = []
     for factor in (1.0, 1.5, 2.0, 3.0, 4.0):
-        sp = [DatasetSpec(s.name, s.n_systems, s.n_events, s.pos_neg_event, s.neg_nonevent, s.scale * factor) for s in (specs[k] for k in base_keys)]
+        sp = [DatasetSpec(s.name, s.n_systems, s.n_events, s.pos_neg_event, s.neg_nonevent, s.scale * factor, s.n_clusters) for s in (specs[k] for k in base_keys)]
         label = f"D_scaled_x{factor}"
         for d in (0.0, 0.05, 0.10, 0.15):
             cells.append((sp, dict(S_B=0.45, delta_true=d, dev_frac=0.5, design="holdout", weighting="system", n_boot=400, n_reps=400), label))

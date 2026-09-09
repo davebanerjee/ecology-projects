@@ -15,13 +15,17 @@ Conventions
   complete window exists.
 * Collapse onset C = first s with x[s] < frac*R(s) and x[s+1] < frac*R(s)
   (threshold fixed at onset).  Both values must be observed.
-* An onset at s is *ruled out* (ascertained negative) when x[s] is observed
-  and x[s] >= frac*R(s), or when x[s] < frac*R(s) but x[s+1] is observed and
-  x[s+1] >= frac*R(s), or when R(s) is undefined (no reference => no event
-  can be declared).  Otherwise the onset status at s is *unknown*.
-* Forecast origin t is eligible when x[t] is observed, t < C (or no C),
-  at least ``min_history`` observations exist at years <= t, and the
-  fixed-horizon label Y_t is ascertainable:  Y_t = 1 if C in {t+1..t+H};
+* An onset at s is *ruled out* (ascertained negative) when R(s) is defined and
+  x[s] is observed and x[s] >= frac*R(s), or when x[s] < frac*R(s) but x[s+1]
+  is observed and x[s+1] >= frac*R(s).  When R(s) is undefined, or x[s] is
+  missing, or x[s] is low and x[s+1] is missing, the status at s is *unknown*.
+* The first year s* < C at which x[s*] is low but x[s*+1] is missing marks an
+  unconfirmed collapse: origins at t >= s* are censored (the population may
+  already be collapsed), as are all origins at t >= C.
+* Forecast origin t is eligible when x[t] is observed, t < min(C, s*),
+  at least ``min_history`` observations exist at years <= t, the trailing
+  ``min_complete_window`` years up to t are all observed (no imputation), and
+  the fixed-horizon label Y_t is ascertainable:  Y_t = 1 if C in {t+1..t+H};
   Y_t = 0 only if onset is ruled out at every s in {t+1..t+H}.
 """
 from __future__ import annotations
@@ -77,6 +81,12 @@ class OnsetResult:
     threshold_at_onset: Optional[float]
     reference_at_onset: Optional[float]
     onset_status: pd.Series = field(repr=False)  # per year: 1=onset, 0=ruled out, -1=unknown
+    first_unknown_low: Optional[int] = None      # first low year whose confirmation year is missing (before onset)
+
+    @property
+    def censor_year(self) -> Optional[int]:
+        ys = [y for y in (self.onset_year, self.first_unknown_low) if y is not None]
+        return min(ys) if ys else None
 
 
 def collapse_onset(x: pd.Series, frac: float = 0.20, window: int = 5,
@@ -90,9 +100,10 @@ def collapse_onset(x: pd.Series, frac: float = 0.20, window: int = 5,
     onset = None
     thr_at = None
     ref_at = None
+    first_unknown_low = None
     for s in range(n):
         if not np.isfinite(Rv[s]):
-            status[s] = 0  # no reference defined -> no event can be declared at s
+            status[s] = -1  # no reference defined -> onset status cannot be determined at s
             continue
         thr = frac * Rv[s]
         if not np.isfinite(vals[s]):
@@ -111,14 +122,13 @@ def collapse_onset(x: pd.Series, frac: float = 0.20, window: int = 5,
                 st = 0
                 break
         status[s] = st
+        if st == -1 and onset is None and first_unknown_low is None:
+            first_unknown_low = int(x.index[s])
         if st == 1 and onset is None:
             onset = int(x.index[s])
             thr_at = float(thr)
             ref_at = float(Rv[s])
-    if onset is not None:
-        # years after onset are irrelevant for the unique first event
-        pass
-    return OnsetResult(onset, thr_at, ref_at, pd.Series(status, index=x.index))
+    return OnsetResult(onset, thr_at, ref_at, pd.Series(status, index=x.index), first_unknown_low)
 
 
 @dataclass
@@ -127,23 +137,33 @@ class OriginTable:
 
 
 def forecast_origins(x: pd.Series, onset: OnsetResult, horizon: int = 5,
-                     min_history: int = 30) -> pd.DataFrame:
-    """Eligible forecast origins with ascertained fixed-horizon labels."""
+                     min_history: int = 30, min_complete_window: int = 24) -> pd.DataFrame:
+    """Eligible forecast origins with ascertained fixed-horizon labels.
+
+    ``min_complete_window`` = length of the trailing window (years t-w+1..t)
+    that must be fully observed (Section 4.3: complete regular windows, no
+    imputation); 0 disables the check (gap-tolerant sensitivity).
+    """
     vals = x.to_numpy(dtype=float)
     years = x.index.to_numpy()
     st = onset.onset_status.to_numpy()
     n = len(vals)
-    obs_cum = np.cumsum(np.isfinite(vals))
+    fin = np.isfinite(vals)
+    obs_cum = np.cumsum(fin)
     rows = []
     C = onset.onset_year
+    cens = onset.censor_year
     for t in range(n):
         yr = int(years[t])
-        if not np.isfinite(vals[t]):
+        if not fin[t]:
             continue
-        if C is not None and yr >= C:
+        if cens is not None and yr >= cens:
             break
         if obs_cum[t] < min_history:
             continue
+        if min_complete_window > 0:
+            if t - min_complete_window + 1 < 0 or not fin[t - min_complete_window + 1 : t + 1].all():
+                continue
         # label
         if C is not None and C <= yr + horizon:
             label = 1
@@ -163,7 +183,7 @@ def forecast_origins(x: pd.Series, onset: OnsetResult, horizon: int = 5,
 
 
 def summarize_series(years, values, *, frac=0.20, window=5, min_positive_ref=5,
-                     persistence=2, horizon=5, min_history=30) -> dict:
+                     persistence=2, horizon=5, min_history=30, min_complete_window=24) -> dict:
     """One-row census summary for a series (metadata + outcome only)."""
     x = regularize(years, values)
     n_obs = int(np.isfinite(x.to_numpy()).sum())
@@ -174,15 +194,17 @@ def summarize_series(years, values, *, frac=0.20, window=5, min_positive_ref=5,
         "span": int(len(x)) if n_obs else 0,
         "n_missing_years": int(len(x) - n_obs) if n_obs else 0,
         "n_zero": int((x.to_numpy() == 0).sum()) if n_obs else 0,
-        "onset_year": None, "n_origins": 0, "n_pos": 0, "n_neg": 0,
+        "onset_year": None, "censor_year": None, "n_origins": 0, "n_pos": 0, "n_neg": 0,
         "first_origin": None, "last_origin": None,
     }
     if n_obs == 0:
         return out
     on = collapse_onset(x, frac=frac, window=window, min_positive_ref=min_positive_ref,
                         persistence=persistence)
-    orig = forecast_origins(x, on, horizon=horizon, min_history=min_history)
+    orig = forecast_origins(x, on, horizon=horizon, min_history=min_history,
+                            min_complete_window=min_complete_window)
     out["onset_year"] = on.onset_year
+    out["censor_year"] = on.censor_year
     out["n_origins"] = int(len(orig))
     out["n_pos"] = int(orig["label"].sum()) if len(orig) else 0
     out["n_neg"] = int((orig["label"] == 0).sum()) if len(orig) else 0

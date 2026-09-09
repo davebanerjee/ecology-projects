@@ -21,6 +21,12 @@ if __name__ == "__main__":
     for budget in (0.5, 2.0):
         for d in (0.0, 0.10):
             cells.append((sp, dict(S_B=0.45, delta_true=d, dev_frac=0.6, design="cv5", weighting="system", fa_budget=budget, n_boot=400, n_reps=400), f"D_budget={budget}"))
+    # cluster shocks + cluster bootstrap; episode rule 'run'; conservative EWS-block weight
+    for d in (0.0, 0.10):
+        cells.append((sp, dict(S_B=0.45, delta_true=d, dev_frac=0.6, design="cv5", weighting="system", s_c2=0.15, boot_unit="cluster", n_boot=400, n_reps=400), "D_cluster_sc2=0.15_clusterboot"))
+        cells.append((sp, dict(S_B=0.45, delta_true=d, dev_frac=0.6, design="cv5", weighting="system", s_c2=0.15, n_boot=400, n_reps=400), "D_cluster_sc2=0.15_systemboot"))
+        cells.append((sp, dict(S_B=0.45, delta_true=d, dev_frac=0.6, design="cv5", weighting="system", episode_rule="run", n_boot=400, n_reps=400), "D_episode_rule=run"))
+        cells.append((sp, dict(S_B=0.45, delta_true=d, dev_frac=0.6, design="cv5", weighting="system", w=0.6, s_c2=0.15, boot_unit="cluster", n_boot=400, n_reps=400), "D_conservative_w0.6_cluster"))
     def _cal(item):
         i, (sp_, pd_, name) = item
         return i, calibrate(sp_, SimParams(**pd_), np.random.default_rng(999))

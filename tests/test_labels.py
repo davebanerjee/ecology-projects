@@ -110,7 +110,41 @@ def test_negative_edge_case_last_year_below_threshold_unknown():
     assert 2004 in set(orig["year"])
 
 
+def test_low_then_missing_censors_origins():
+    # a low year followed by a missing year is an unconfirmed collapse: origins from that year on are censored
+    vals = [100.0] * 40 + [5.0, np.nan, 5.0, 5.0, 5.0]
+    x = regularize(range(1970, 1970 + len(vals)), vals)
+    on = collapse_onset(x)
+    assert on.onset_year == 2012 and on.first_unknown_low == 2010 and on.censor_year == 2010
+    orig = forecast_origins(x, on, min_complete_window=0)
+    assert orig["year"].max() < 2010
+    # origins whose horizon contains the unknown year but not the onset are excluded; those containing the onset are positive
+    assert set(orig.loc[orig.label == 1, "year"]) == {2007, 2008, 2009}
+    assert 2005 not in set(orig["year"]) and 2004 in set(orig["year"])
+
+
+def test_undefined_reference_is_unknown_not_negative():
+    # zeros only: reference never defined -> no negative origins
+    vals = [0.0] * 36 + [3.0, 0, 0, 0, 0, 0]
+    x = regularize(range(1970, 1970 + len(vals)), vals)
+    on = collapse_onset(x)
+    assert on.onset_year is None and (on.onset_status == -1).all()
+    assert len(forecast_origins(x, on, min_complete_window=0)) == 0
+
+
+def test_complete_window_required():
+    vals = [100.0] * 45
+    x = regularize(range(1970, 2015), vals)
+    x.loc[1990] = np.nan
+    on = collapse_onset(x)
+    o24 = forecast_origins(x, on, min_history=30, min_complete_window=24)
+    o0 = forecast_origins(x, on, min_history=30, min_complete_window=0)
+    # with a 24-year complete window the first eligible origin is 2013 (1990 missing) -> but needs follow-up to 2018: none
+    assert len(o24) == 0
+    assert len(o0) > 0 and o0["year"].min() == 2000  # 30 observations reached in 2000 (1990 missing)
+
+
 def test_summarize_series_counts():
     vals = [100.0] * 40 + [5.0, 5.0, 5.0]
     d = summarize_series(range(1970, 1970 + len(vals)), vals)
-    assert d["onset_year"] == 2010 and d["n_pos"] == 5 and d["n_neg"] == 6
+    assert d["onset_year"] == 2010 and d["n_pos"] == 5 and d["n_neg"] == 6 and d["censor_year"] == 2010

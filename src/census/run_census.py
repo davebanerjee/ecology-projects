@@ -6,7 +6,7 @@ import pandas as pd
 
 from .labels import summarize_series
 
-LABEL_KW = dict(frac=0.20, window=5, min_positive_ref=5, persistence=2, horizon=5, min_history=30)
+LABEL_KW = dict(frac=0.20, window=5, min_positive_ref=5, persistence=2, horizon=5, min_history=30, min_complete_window=24)
 
 
 def census_long(df: pd.DataFrame, id_col: str, year_col: str, value_col: str, **kw) -> pd.DataFrame:

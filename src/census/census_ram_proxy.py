@@ -49,7 +49,7 @@ def main():
     ]
     att = attrition(cens, steps)
     att.to_csv(os.path.join(OUT, "ram_proxy_attrition.csv"), index=False)
-    grid = [{}, {"frac": 0.10}, {"frac": 0.30}, {"persistence": 3}, {"min_history": 20}, {"min_history": 25}, {"horizon": 3}]
+    grid = [{}, {"min_complete_window": 0}, {"frac": 0.10}, {"frac": 0.30}, {"persistence": 3}, {"min_history": 20, "min_complete_window": 20}, {"min_history": 25}, {"horizon": 3}]
     sg = sensitivity_grid(long, "stockid", "year", "value", grid)
     sg.to_csv(os.path.join(OUT, "ram_proxy_sensitivity_grid.csv"), index=False)
     prim = cens[cens["n_origins"] > 0]

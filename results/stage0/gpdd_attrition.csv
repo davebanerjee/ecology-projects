@@ -1,8 +1,9 @@
 criterion,n_series,n_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins
-all annual (SamplingFrequency==1) series with data,3615,280,4229,85,335,3894
-not in GPDD restricted list,3615,280,4229,85,335,3894
-reliability >= 2 (GPDD 1-5 scale; 1 = lowest),2142,53,560,10,36,524
-n_obs >= 35 (30 history + 5 follow-up),100,53,560,10,36,524
-no method/effort-change keyword in Notes,94,51,541,9,31,510
-not harvest/catch/kill-type series (effort unknown),68,38,400,5,15,385
-">=1 eligible forecast origin (complete follow-up, >=30 obs history)",38,38,400,5,15,385
+all annual (SamplingFrequency==1) series with data,3613,245,3756,76,293,3463
+not in GPDD restricted list,3613,245,3756,76,293,3463
+"no negative values (abundance scale, not deviations)",3553,245,3756,76,293,3463
+reliability >= 2 (GPDD 1-5 scale; 1 = lowest),2084,53,440,10,34,406
+n_obs >= 35 (30 history + 5 follow-up),100,53,440,10,34,406
+no method/effort-change keyword in Notes,94,51,421,9,29,392
+not harvest/catch/kill-type series (effort unknown),68,38,303,5,13,290
+">=1 eligible forecast origin (complete follow-up, >=30 obs history)",38,38,303,5,13,290
