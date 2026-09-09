@@ -1,8 +1,9 @@
-n_series_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins,n_series_with_any_onset,frac,persistence,min_history,horizon
-170,3107,43,204,2903,106,,,,
-198,3898,23,108,3790,45,0.1,,,
-151,2492,57,234,2258,158,0.3,,,
-174,3207,41,195,3012,98,,3.0,,
-271,5368,68,315,5053,106,,,20.0,
-225,4115,56,247,3868,106,,,25.0,
-185,3387,43,128,3259,106,,,,3.0
+n_series_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins,n_series_with_any_onset,min_complete_window,frac,persistence,min_history,horizon
+170,3107,43,204,2903,106,,,,,
+170,3107,43,204,2903,106,0.0,,,,
+198,3898,23,108,3790,45,,0.1,,,
+151,2492,57,234,2258,158,,0.3,,,
+174,3207,41,195,3012,98,,,3.0,,
+270,5367,68,315,5052,106,20.0,,,20.0,
+225,4115,56,247,3868,106,,,,25.0,
+185,3387,43,128,3259,106,,,,,3.0

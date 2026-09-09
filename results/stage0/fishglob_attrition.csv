@@ -1,7 +1,7 @@
 criterion,n_series,n_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins
-"all survey_unit x species candidates (>=5% occurrence, unflagged hauls, >=20 hauls/yr)",1635,261,1560,68,260,1300
-not irregular-interval survey,1508,261,1560,68,260,1300
-n_obs >= 35,392,260,1559,67,259,1300
->=1 eligible forecast origin,260,260,1559,67,259,1300
-no documented survey method change within feature window/follow-up,215,215,1094,43,159,935
-zero_frac <= 0.2 (not zero-inflated),212,212,1079,40,146,933
+"all survey_unit x species candidates (>=5% occurrence, unflagged hauls, >=20 hauls/yr)",1662,156,1027,40,154,873
+not irregular-interval survey,1535,156,1027,40,154,873
+n_obs >= 35,394,156,1027,40,154,873
+>=1 eligible forecast origin,156,156,1027,40,154,873
+no documented survey method change within feature window/follow-up,132,132,771,25,99,672
+zero_frac <= 0.2 (not zero-inflated),129,129,756,22,86,670

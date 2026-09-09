@@ -145,9 +145,11 @@
   "Polar": 1,
   "Savanna": 1
  },
- "annual_series_with_duplicate_years": 192,
+ "rows_dropped_negative_sampleyear": 2930,
+ "series_with_negative_values": 60,
+ "annual_series_with_duplicate_years": 190,
  "subannual_annualized": {
-  "n_series": 856,
+  "n_series": 719,
   "n_with_origins": 0,
   "n_events_in_window": 0,
   "n_origins": 0
@@ -156,15 +158,15 @@
   "n_series": 38,
   "n_events_in_window": 5,
   "n_series_any_onset": 5,
-  "n_origins": 400,
-  "n_pos_origins": 15,
-  "n_neg_origins": 385,
+  "n_origins": 303,
+  "n_pos_origins": 13,
+  "n_neg_origins": 290,
   "origins_per_series_quantiles": {
    "0.0": 1.0,
-   "0.25": 9.0,
-   "0.5": 12.5,
-   "0.75": 13.0,
-   "0.9": 14.0,
+   "0.25": 6.0,
+   "0.5": 8.0,
+   "0.75": 11.5,
+   "0.9": 12.0,
    "1.0": 23.0
   },
   "n_obs_quantiles": {
