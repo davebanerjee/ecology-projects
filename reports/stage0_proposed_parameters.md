@@ -12,6 +12,7 @@ event counts, and pure simulations.
 | decline threshold | 0.20 × R(s) | keep 0.20 | 0.10 halves the fisheries events (43 → 23); 0.30 adds events (57) but relabels moderate declines as "collapse"; 0.20 keeps the outcome interpretable as an 80 % loss and matches common fisheries "collapse" usage (to be confirmed by the literature audit). |
 | persistence | 2 low years | keep 2 | 3 years costs few events (43 → 41) but removes short collapses that recover; keep as sensitivity. |
 | reference | max of trailing 5-year medians, ≥ 5 positive obs | keep | implemented exactly; note that the reference can only grow, so late-starting series with an early low period get a low reference (design feature, documented). |
+| sensitivity outcomes | 90 % decline; 3-year persistence; best 10-year reference; B/B_MSY < 0.5 | ADD the thresholds verified in Pélissié et al. 2026: 10 % of maximum biomass, and 15 %, 25 % and 50 % of average biomass | places our outcome inside a published family and makes the comparison with the nearest-neighbour paper direct. |
 | negative-label ascertainment | "observed through t+5" | exact rule: an onset must be RULED OUT at each of t+1..t+5, which needs x_{t+6} only when x_{t+5} is below threshold | implemented in `labels.py`; strictly stronger than the draft wording. |
 
 ## B. Eligibility (Section 4.3)
@@ -49,6 +50,26 @@ assessment/response triggered per alarm and the avoided loss per warned
 collapse. Stage 0 recommends keeping 10 points but notes that the power results
 (Section E) make anything below 10 points untestable with the data likely to be
 available.
+
+## D2. Baseline specification (Section 6.1) — from the literature audit
+
+Add to B1 a **random walk without drift** risk score (probability that the
+last observed value, carried forward with the estimated observation and
+process variance, falls below the collapse threshold within the horizon).
+Ward et al. (2014) fitted 49 model variants to 2379 vertebrate population
+series and found this last-value benchmark hard to beat at 1-5 year horizons;
+a baseline that omits it is not the strongest conventional forecast available
+to a manager. Report skill in MASE-like terms alongside the alarm metrics.
+
+Present B2 as a bracketed quantity in the manner of Lapeyrolerie & Boettiger
+(2023): a correctly specified model fitted by MCMC is the upper bound, ARIMA
+the lower bound, and the local-linear state-space threshold-crossing
+probability an achievable middle. Do not describe B2 as an oracle.
+
+For B3, the Pélissié et al. (2026) productivity-shift signal now has a known
+operating point on RAM Legacy: 26 % of negative shifts were followed by
+collapse, against 23 % versus 12 % base rates in collapsed and non-collapsed
+stocks. That is the number the fisheries comparator must be scored against.
 
 ## E. Design and allocation (Section 7) — to be finalized after the power grids
 

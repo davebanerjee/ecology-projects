@@ -1,168 +1,193 @@
 # Stage 0 literature audit (Section 3.1)
 
-Date of searches: 2026-09-08 and 2026-09-09. Engine: the sandbox's WebSearch
-tool only. Publisher sites, PubMed/PMC, Crossref, OpenAlex, Semantic Scholar,
-Google Scholar, Web of Science, Scopus, Zenodo, Dryad, OSF, arXiv, bioRxiv and
-EcoEvoRxiv were all blocked by the sandbox egress policy, so every design detail
-below comes from search-result snippets (abstract level) or from the auditor's
-prior knowledge, and is labelled accordingly. Full texts of the anchor papers
-MUST be read by a human before the positioning statement is used in a
-preregistration. Saved queries: `data/metadata/literature_queries.json`
-(243 dated queries). Raw structured results of the four completed sweeps
-(193 study records): `data/metadata/literature_sweeps_raw.json`.
+Searches: 2026-09-08 to 2026-09-10. Engine: the sandbox's WebSearch tool.
+Publisher sites, PubMed/PMC, Crossref, OpenAlex, Semantic Scholar, Google
+Scholar, Web of Science, Scopus, Zenodo, Dryad, OSF, arXiv and bioRxiv were
+blocked by the egress policy throughout, so no full text was read; details
+below come from search-result snippets, from authors' public code
+repositories, and (for two papers) from author-hosted PDFs on
+raw.githubusercontent.com. Saved queries:
+`data/metadata/literature_queries.json` (482 executed, 23 submitted after the
+session's 200-query budget was exhausted and refused). Raw structured
+outputs: `data/metadata/literature_sweeps_raw.json` (six sweep agents, 256
+study records) and `data/metadata/literature_keypapers_raw.json` (eight
+anchor-paper design extractions).
 
-Coverage achieved: four of nine planned topic sweeps completed (fixed-horizon
-prediction and false alarms; out-of-sample/hindcast validation and forecasting
-baselines; fisheries collapse prediction; lakes and communities). Five sweeps
-(machine-learning and multivariate EWS; methodological critiques; evaluation
-methodology; terrestrial GPDD/LPD/BioTIME; 2024–2026 recent work), the twelve
-key-paper extractions, the four adversarial novelty refutations and the
-synthesis/critic agents did not run because the session's usage limit was
-reached twice. Their absence is a known gap (Section 7).
+Coverage achieved: four topic sweeps with working search (fixed-horizon
+prediction and false alarms; out-of-sample validation and forecasting
+baselines; fisheries collapse prediction; lakes and communities), two
+GitHub-only supplementary sweeps, and eight anchor-paper extractions. Five
+planned sweeps (machine-learning and multivariate EWS; methodological
+critiques; evaluation methodology; GPDD/LPD/BioTIME applications; a 2024-2026
+recency sweep), three adversarial novelty refutations and the synthesis and
+critic agents did not run: the session usage limit was reached three times
+and the WebSearch budget is now spent. Those gaps are listed in Section 7.
 
-## 1. What the audit found on the novelty question
+## 1. Novelty verdict
 
-None of the 193 records describes a study that combines, for population-
-abundance collapse, (i) sequential time-indexed forecast origins with fixed
-1–5-year labels, (ii) held-out validation across biological systems, (iii) a
-capacity-matched state/trend or conventional-forecast baseline, (iv) alarm
-thresholds calibrated to a common false-alarm budget, and (v) explicit handling
-of right-censored origins. All four sweeps reached this conclusion
-independently, with the caveat that snippet-level evidence cannot rule out such
-a design inside a paper whose abstract does not mention it. The two records
-that most need full-text checking are:
+The intended contribution survives as a novel COMBINATION, but the margin is
+narrower than a first pass suggested, and three fisheries papers now have to
+be positioned explicitly rather than merely cited.
 
-* **Zhang, F. et al. (2020) Early warning signals of population productivity
-  regime shifts in global fisheries, Ecological Indicators.** Snippets: SD and
-  AR1 evaluated against productivity regime shifts in 191 RAM Legacy
-  populations, lead times > 5 years for > 50 % of populations, a positive
-  likelihood ratio reported. Whether origins were sequential, whether a
-  baseline was used and how false alarms were counted is not visible. This is
-  the closest fisheries-wide precedent and was not in the plan's source list.
-* **Cano, Jensen & Dakos (2025) PNAS.** Snippets: machine learning on a
-  "dynamical footprint" (variance, autocorrelation and other metrics) across
-  three global fish datasets (RAM Legacy, ICES cod, FishGlob; one snippet says
-  9,006 series) to classify series as abrupt/non-abrupt with "moderate
-  accuracy"; PNAS page shows "No data available". This is whole-series
-  classification after the fact, not sequential prediction, but its use of
-  FishGlob and RAM is the same data base as ours and the paper must be read
-  for its train/test design.
+What we can claim: no study found performs sequential, fixed-horizon
+prediction of first population-abundance collapse in which (i) every
+predictor at origin t uses only data available by t, (ii) alarm thresholds
+are calibrated in development data to a common false-alarm budget, (iii) a
+matched state-and-trend or conventional-forecast baseline is scored on the
+same origins, and (iv) negatives require complete outcome ascertainment
+through the horizon.
 
-Prior work clearly did not ignore false positives or non-transitioning series,
-consistent with the plan's stated non-claim: Burthe et al. 2016 (series-level
-true/false classifications; true positives in only 8 % of series for variance
-and 6 % for autocorrelation; false classifications in all but one series),
-O'Brien et al. 2023 (true-negative lake series; most indicators at chance),
-Buelo et al. 2022 (true- vs false-positive alarm rates in lake-years),
-Litzow et al. 2013 (12 collapsing vs 2 non-collapsing Alaska fisheries),
-Drake & Griffen 2010 (30 control populations), Carpenter 2011 / Seekell 2012 /
-Batt 2013 (reference lake), Boettiger & Hastings 2012 (ROC; prosecutor's
-fallacy).
+What we must NOT claim: that prior work ignored false positives, ignored
+non-transitioning series, lacked out-of-sample validation, or had not applied
+autocorrelation- and variance-type indicators to RAM Legacy or FishGlob at
+scale. Each of those has been done.
 
-Sequential, threshold-based alarm evaluation exists but not for population
-collapse across systems: Wilkinson et al. 2018 ("quickest detection" in
-whole-lake experiments vs a reference lake), Pace et al. 2017 (the only field
-study with a preset prospective alarm threshold; n = 1 lake, no forecasting
-baseline), and in epidemiology O'Brien & Clements 2021, Brett & Rohani 2020,
-Gao et al. 2025 (rolling-origin, out-of-sample detection of outbreaks).
+## 2. The three fisheries precedents
 
-Hefley, Tyre & Blankenship 2013 (bobwhite quail) is the one record pairing an
-EWS indicator with a state-space threshold-crossing forecast, but on a single
-population and without comparative skill evaluation; it is a precedent for the
-B2 comparator rather than for the benchmark.
+**Zhang, F. (2020). Early warning signals of population productivity regime
+shifts in global fisheries. Ecological Indicators 115: 106371.** Verified from
+abstract snippets: standard deviation and lag-1 autocorrelation evaluated for
+predicting observed productivity regime shifts in 191 RAM Legacy populations;
+a positive likelihood ratio is reported, which requires a false-positive rate,
+and the paper explicitly asks whether the indicators are absent when there is
+no shift; standard deviation outperformed autocorrelation on the likelihood
+ratio; the two indicators agreed on fewer than half the shifts; more than five
+years of warning for more than half the populations, longer in rockfish. Not
+visible: forecast origins, any train/test split, any non-EWS comparator, and
+how "no regime shift" was operationalized. Outcome is a productivity regime
+shift, not a first abundance collapse. Threat to novelty: moderate. This paper
+was absent from the plan's source list and is the closest RAM Legacy
+precedent for the primary indicators.
 
-Verdict (Stage 0, snippet-level evidence): the intended contribution survives
-as a novel COMBINATION. It does not survive as "first to score false alarms",
-"first to include non-transitioning series", or "first to evaluate EWS on RAM
-Legacy at scale" (Zhang 2020, Cano 2025, Pélissié 2026 all precede it there).
+**Cano, A. V., Jensen, O. P. & Dakos, V. (2025). PNAS 122: e2505461122.**
+Verified: each series is classified by AICc into no-change, linear, quadratic
+or abrupt, with `asdetect` confirmation; a "dynamical footprint" of seven
+stability metrics (dominant eigenvalue from an S-map Jacobian, lag-1
+autocorrelation, standard deviation, coefficient of variation, disparity,
+dispersion, skewness) is computed both over the whole series and as a Kendall
+tau trend using a rolling window of 50 % of series length; boosted regression
+trees predict the class; **leave-one-out cross-validation across series gives
+AUC 0.84 for RAM Legacy, 0.75 for ICES cod and 0.65 for FishGlob**; minimum
+series length 20 years; abrupt-class sensitivity as low as 40 % in FishGlob.
+Two features matter for us. First, this is genuinely out-of-sample across
+series, which corrects an earlier reading of this audit. Second, and more
+usefully, **non-abrupt series that the model predicts as abrupt are not
+counted as false alarms but relabelled as populations "at risk" of future
+shifts**, with no follow-up window and no later verification. That is exactly
+the accounting our design replaces with a false-alarm budget, and it is a
+precise, citable statement of what our benchmark adds. Threat: low, provided
+we never claim to be first to apply these metrics to RAM Legacy or FishGlob.
 
-## 2. Positioning against the anchor papers (to be verified on full text)
+**Pélissié, M., Devictor, V., Jensen, O. P. & Dakos, V. (2026). Science
+Advances 12, doi:10.1126/sciadv.aed7911.** Verified: surplus-production
+("productivity") trajectories of 315 assessed stocks classified by AICc into
+four types with an independent breakpoint method for validation; productivity
+abrupt shifts detected in more than a quarter of stocks; abrupt declines
+overrepresented where warming has been fastest, abrupt increases under lower
+fishing intensity. Critically for us, the paper quantifies its own false
+alarms: **negative productivity shifts occurred in 23 % of collapsed stocks
+and 12 % of non-collapsed stocks, and only 11 of 42 stocks (26 %) with a
+negative shift went on to collapse**, with most shifts 4 to 12 years before
+collapse. Collapse-threshold sensitivity used 10 % of maximum biomass and
+15 %, 25 % and 50 % of average biomass. No forecast origins, no baseline, no
+held-out evaluation. Threat: moderate, because it is the nearest neighbour on
+data source, outcome and framing, and it was promoted publicly as a warning
+system with roughly a decade of lead time. Our design's answer is that a
+signal with a 26 % positive predictive value and no comparator is precisely
+what an operating-point analysis is for.
 
-| Paper | What the snippets support | What it does not do relative to our task | Threat to novelty |
+## 3. The other anchor papers
+
+| Paper | Verified design | Relative to our task | Threat |
 |---|---|---|---|
-| Burthe et al. 2016 J Appl Ecol | 126 long-term marine and freshwater series, 55 taxa; indicator classifications cross-tabulated against detected nonlinear change; true positives rare; excluded cases near series ends (plan text; not visible in snippets) | no forecast origins, no horizon, no baseline, no out-of-sample fit | low |
-| O'Brien et al. 2023 Nat Commun | lake plankton series incl. non-transitioning lakes; classical, multivariate and ML (EWSNet) EWS; chance (0.5) as reference; EWSmethods package | community regime shifts, monthly data; no state/trend baseline; whole-series classification | low (different endpoint) |
-| Cano, Jensen & Dakos 2025 PNAS | ML classification of abrupt vs non-abrupt shapes from dynamical-footprint metrics on RAM/ICES/FishGlob series; "moderate accuracy" | retrospective series classification; no sequential origins or false-alarm budget visible; data availability "No data available" | moderate until read |
-| Pélissié, Devictor, Jensen & Dakos 2026 Sci Adv (published 2026-09-04; PMC13537261) | 315 stocks since 1950; abrupt productivity shifts in > 25 % of stocks; abrupt declines precede collapse by 10–20 years in 25 % of cases; declines over-represented under larger SST increases | retrospective association of shift timing with later collapse; no origin-wise prediction, baseline or false-alarm accounting visible | moderate until read; supplies the B3 productivity-shift comparator |
-| Lapeyrolerie & Boettiger 2023 MEE | deep-learning uncertainty for critical-transition forecasting; MCMC/AR comparators; out-of-sample on simulations | simulations, not empirical collapse | none |
-| Zhang et al. 2020 Ecol Indic | SD/AR1 vs productivity regime shifts, 191 RAM populations, lead > 5 y | design not visible | moderate until read |
-| Litzow, Mueter & Urban 2013 Ecol Appl | rising catch variability preceded 12 Alaska collapses; 2 non-collapsing contrasts; 1–4-y lead | no origins, baseline, or held-out test | low |
-| Ward et al. 2014 Oikos | 49 forecasting models on RAM Legacy and GPDD; naive last-value and low-order AR hardest to beat | not an EWS study | none; supports B1/B2 |
-| Hefley et al. 2013 Theor Ecol | EWS + state-space extinction forecast on one quail population | single system | none; supports B2 |
+| Burthe et al. 2016, J Appl Ecol 53:666-676 | 126 abundance datasets, 55 taxa, six aquatic systems (shallow lake, deep lake, coastal marine), all trophic levels; each series standardized by a GAM before turning-point detection; true positives, false negatives and false positives counted with a 10-year association window; false positives more prevalent than false negatives; variance and autocorrelation classified 43 % of series differently | retrospective whole-series classification; no forecast origins, no horizon, no baseline, no held-out fit | low |
+| O'Brien et al. 2023, Nat Commun 14:7942 | nine lakes; rolling and expanding windows; classical univariate, multivariate and EWSNet indicators; Bayesian binomial models against a 0.5 chance reference; true-positive and true-negative rates reported separately (unscaled EWSNet: TP 0.93 monthly / 0.89 yearly but TN 0.19 / 0.05) | community regime shifts, not first population collapse; binary per-series fate; no fixed horizon, no lead-time analysis, no state/trend baseline | low |
+| Bury et al. 2021, PNAS 118:e2106140118 | classifier trained on synthetic bifurcation libraries with a train/validation/test split, applied at sequential origins incremented by 10 points; null simulations and quasi-static segments as negatives; ROC/AUC against Kendall tau of rolling variance and autocorrelation; "early" and "late" relative windows rather than fixed horizons | no population-abundance data at all (empirical tests are thermoacoustic, paleoclimate and sediment records) | low |
+| Ward et al. 2014, Oikos 123:652-661 | 2379 vertebrate population index series; models fit to all but the last five observations; 1-5 step-ahead forecasts scored by MASE against a random walk without drift (last observed value) as the explicit baseline; 49 model variants | no event outcome, no alarms, no calibration; a single hold-out origin per series | low; strongest precedent for our baseline |
+| Lapeyrolerie & Boettiger 2023, MEE | simulation only (Nicholson-Bailey, May); probabilistic forecasts bracketed between MCMC given the true generative model (upper bound) and ARIMA (lower bound); no alarms, no thresholds, no false-alarm rate | no empirical data, no event outcome, no EWS predictor | low |
 
-Corrections to the plan's own text surfaced by the sweeps: Gsell et al. 2016
-PNAS analysed five freshwater ecosystems (not "nine lakes"); the "nine-lake"
-challenge set in the plan corresponds to O'Brien et al. 2023; Pélissié is not
-an author of Cano et al. 2025; Litzow et al. 2013 is in Ecological
-Applications.
+Corrections to the plan's own text, from the sweeps: Gsell et al. 2016 (PNAS)
+analysed five freshwater ecosystems, not nine lakes; the nine-lake set is
+O'Brien et al. 2023. Pélissié is not an author of Cano et al. 2025. Litzow
+et al. 2013 is in Ecological Applications.
 
-## 3. Design lessons taken from the literature
+## 4. Design lessons adopted
 
-1. Baselines: naive last-value and low-order autoregressive forecasts are
-   hard to beat on RAM/GPDD series (Ward 2014); diffusion-approximation
-   quasi-extinction risk has been validated on held-out 10–30-year windows
-   (Holmes 2005, 2007); fisheries hindcast cross-validation with tail cutting
-   and MASE against a naive forecast is an established convention (HCXval,
-   2024 PLOS ONE, authors not visible). B1/B2 should include a naive
-   last-value/random-walk risk score and report MASE-style skill.
-2. Collapse definitions in use: catch < 10 % of maximum (Worm 2006); biomass
-   ≤ 25 % of mean (Essington 2015); < 20 % of maximum observed (Hilborn 2014);
-   B_min < 0.2 B_MSY (attributed to Pinsky 2011 in snippets, unverified);
-   < 10 % of maximum historical biomass (2024 Science); process-based turnover
-   (Yletyinen 2018). The plan's 80 % decline from a trailing-median reference
-   sits inside this family; the B/B_MSY < 0.5 sensitivity outcome is standard.
-3. Confounds to anticipate in fisheries: fishing-induced age truncation
-   raises variability (Hsieh 2006; Anderson 2008); survival variability rises
-   at low abundance (Minto 2008); assessment series available at time t differ
-   from final series (retrospective bias; 2024 Science "stock assessment
-   models overstate sustainability"), which threatens a strict prequential
-   claim built on final assessment output and argues for survey-index
-   robustness analyses and for stating that assessment-derived origins are
-   "as-finally-assessed".
-4. Directional caveat: critical speeding up in depensatory stocks (Entropy
-   2026 review; Titus & Watson) supports keeping the speeding-up score
-   separate and directional.
-5. Evaluation precedents for alarm episodes come from epidemiology
-   (rolling-origin outbreak detection) and whole-lake quickest detection;
-   the seizure-prediction "sensitivity at fixed false-prediction rate" family
-   was not reached by the completed sweeps.
+1. **Add a random-walk baseline.** Ward et al. 2014 showed on 2379 vertebrate
+   series that a random walk without drift (the last observed value) is the
+   benchmark simple forecasts must beat, and that added model complexity
+   usually cost accuracy at 1-5 year horizons. B1 should therefore include a
+   last-value risk score, and skill should be reported in MASE-like terms
+   alongside the alarm metrics.
+2. **Bracket the conventional forecast.** Lapeyrolerie & Boettiger's
+   upper-bound (correct model, MCMC) and lower-bound (ARIMA) framing is the
+   right way to present B2: the state-space threshold-crossing probability is
+   an achievable middle, not an oracle.
+3. **Count false alarms as false alarms.** Cano et al. relabel predicted-abrupt
+   non-abrupt series as "at risk"; Pélissié et al. report that 74 % of
+   negative productivity shifts were not followed by collapse. Our episode
+   accounting with a frozen budget is the direct remedy, and both papers give
+   us the numbers to motivate it.
+4. **Collapse-definition family.** Verified thresholds in use: 10 % of maximum
+   biomass and 15 / 25 / 50 % of average biomass (Pélissié 2026); catch below
+   10 % of maximum (Worm 2006); biomass at or below 25 % of the mean
+   (Essington 2015); below 20 % of maximum observed (Hilborn 2014). Our 80 %
+   decline from a trailing-median reference sits inside this family; the
+   Pélissié thresholds should join the Section 5.1 sensitivity list.
+5. **Association windows are the retrospective analogue of our horizon.**
+   Burthe's 10-year window and Pélissié's 4-12 year observed lead distribution
+   bracket our 1-5 year primary horizon and support reporting 6-10 years as a
+   secondary.
+6. **Directional caveat.** Critical speeding up in depensatory stocks
+   (Entropy 2026 review) supports keeping that score separate and directional.
+7. **Retrospective bias.** A 2024 Science paper (authors not visible) reports
+   that assessment models overstate sustainability, implying the series
+   available at time t differs from the final series. RAM-derived origins are
+   therefore "as finally assessed", which must be stated, and survey-index
+   robustness analyses matter more because of it.
 
-## 4. Verification status
+## 5. Prior work that did quantify false positives
 
-* Bibliographic details verified from snippets (high confidence): Burthe
-  2016; O'Brien 2023; Cano 2025; Pélissié 2026 (authors, journal, date, PMC
-  id); Bury 2021; Litzow 2013; Ward 2014; Holmes 2007; Carpenter 2011;
-  Wilkinson 2018; Pace 2017; Boettiger & Hastings 2012 (both papers).
-* Partially verified (author lists or venue not visible): Zhang 2020 (first
-  author only); the 2024 Science retrospective-bias paper; the 2024 HCXval
-  paper; the 2026 Entropy review; the 2026 Nat Ecol Evol nonlinearity paper.
-* Not reached: the five missing sweeps' topics (see Section 7).
+Burthe et al. 2016 (explicit TP/FN/FP tally; FP more common than FN);
+O'Brien et al. 2023 (true-negative rates in non-transitioning lakes, most
+indicators near chance); Zhang et al. 2020 (positive likelihood ratio);
+Pélissié et al. 2026 (26 % positive predictive value); Buelo et al. 2022
+(true- versus false-positive alarm rates in lake-years); Litzow et al. 2013
+(two non-collapsing contrast fisheries); Drake & Griffen 2010 (30 control
+populations); Carpenter 2011, Seekell 2012, Batt 2013 (reference lake);
+Bury et al. 2021 and the measles-EWS work (null simulations as negatives);
+Boettiger & Hastings 2012 (ROC; the prosecutor's fallacy). Sequential,
+threshold-based alarms exist in whole-lake experiments (Wilkinson et al. 2018
+quickest detection; Pace et al. 2017, the one field study with a preset
+prospective threshold, n = 1 lake) and in epidemiology (O'Brien & Clements
+2021; Brett & Rohani 2020; Harris et al. 2020, a rolling forecast on a single
+malaria series; Gao et al. 2025).
 
-## 5. Must-read before preregistration (full text)
+## 6. Must-read in full before preregistration
 
-Burthe 2016 (methods: series-end exclusions, classification rule); O'Brien
-2023 (windowing, lake count, ROC supplement); Cano 2025 (train/test design,
-footprint metrics, data availability); Pélissié 2026 (shift detector,
-collapse definition, lead-time accounting); Zhang 2020; Buelo 2022; Wilkinson
-2018; Hefley 2013; Ward 2014; Holmes 2007; the 2024 Science retrospective-bias
-paper; Pinsky 2011 / Pinsky & Byler 2015 for collapse definitions.
-
-## 6. Bottom line for the go/no-go
-
-The novelty gate of Section 3.1 is PASSED at the snippet level: no prior
-study performs the same time-indexed, baseline-controlled, out-of-sample task.
-The contribution statement must be narrowed to the combination and must cite
-Zhang 2020, Cano 2025 and Pélissié 2026 as the fisheries-scale precedents.
-The gate cannot be called fully passed until the must-read list is checked.
+Zhang 2020 (design, false-alarm operationalization); Cano 2025 (BRT features,
+LOO-CV protocol, relabelling rule); Pélissié 2026 (shift detector, collapse
+definition, lead-time accounting); Burthe 2016 (turning-point rule, series-end
+handling); O'Brien 2023 (windowing, thresholds); Buelo 2022; Wilkinson 2018;
+Hefley 2013; Ward 2014 (already read via the authors' PDF); the 2024 Science
+retrospective-bias paper; Pinsky 2011 and Pinsky & Byler 2015 for collapse
+definitions.
 
 ## 7. Known gaps of this audit
 
-Missing sweeps: ML/multivariate EWS follow-ups 2024–2026; methodological
-critiques (window/detrending sensitivity, sampling frequency, selection bias);
-evaluation methodology (landmark/IPCW, seizure-prediction metrics, equivalence
-testing); GPDD/LPD/BioTIME EWS applications; and a dedicated 2024–2026 recency
-sweep (the completed sweeps surfaced 2026 items only incidentally: Pélissié
-2026, Benerradi/Dakos/Cano 2026, an Entropy 2026 review, a Nature Ecology &
-Evolution 2026 nonlinearity paper, a Nature Communications 2026 compound-
-climate paper). No refutation agents ran. Re-running those searches from a
-machine with publisher access is the first Stage 1 action.
+No full text was read for any paper except Ward et al. 2014 and Lapeyrolerie &
+Boettiger 2023, whose manuscripts are on GitHub. Five planned sweeps did not
+run: machine-learning and multivariate EWS follow-ups, methodological
+critiques (window and detrending sensitivity, sampling frequency, selection
+bias), evaluation methodology (landmark and IPCW methods, seizure-prediction
+metrics, equivalence testing), GPDD/LPD/BioTIME applications, and a dedicated
+2024-2026 recency sweep. No adversarial refutation agent ran. The
+GitHub-only supplements surfaced items worth following up: Ma, Zeng, Zhang &
+Bury 2025 (Communications Physics 8:258, surrogate-trained ML with ROC); Liu
+et al. 2024 (Phys Rev X, GIN-GRU tipping predictor); Looker, Rock & Dyson
+(PLoS Comput Biol, doi:10.1371/journal.pcbi.1013524); Pélissié, Devictor &
+Dakos 2024 (Biol Conserv, doi:10.1016/j.biocon.2023.110429, the abrupt-shift
+classifier itself); Evers et al. `bifurcationEWS`; O'Brien & Clements 2025
+(`lpi-multivariate-res`, which applies multivariate resilience methods to
+Living Planet data and must be checked for overlap). Re-running the missing
+searches from a machine with publisher access is the first Stage 1 action.

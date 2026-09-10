@@ -4777,5 +4777,1290 @@
    }
   ],
   "notes": "Scope and limits: 59 distinct WebSearch queries run; WebFetch/curl not attempted because the orchestrator stated they are blocked for all relevant publisher/repository domains. All design-field entries are therefore derived from search-result snippets; where snippets did not expose the design detail the field is marked 'unknown' rather than inferred. Key corrections to the orchestrator's brief: (1) Gsell et al. 2016 PNAS used FIVE freshwater ecosystems per PNAS/PubMed/KNAW snippets, not 'nine lakes'; a query for 'nine lakes' Gsell returned only unrelated glacial-lake news. (2) Spanbauer et al. 2016 (body size) is in Proc R Soc B, not Ecosphere. (3) Arani et al. 2021 (exit time) is in Science, not Nature. (4) The Litzow 2013 Global Change Biology Gulf of Alaska paper did not surface; only Litzow 2013 Ecol Appl (Alaska catch variability) appeared. Evidence gaps: Wilkinson 2018's reference-lake design and any false-positive accounting were not visible in any snippet; O'Brien 2023's number of lakes and windowing procedure were not visible; Cline 2014's quantitative results were not visible; the Su 2021 lake name was not visible. Precedents most relevant to the novelty claim (prior work that DID score non-transitioning series or false positives, which the claim must acknowledge): Burthe 2016 (series-level true/false positives; 8%/6% true positives), O'Brien 2023 (true-negative series and chance baseline), Buelo 2022 (true- vs false-positive alarm rates in lake-years with/without enrichment), Drake & Griffen 2010 (30 control populations), Carpenter 2011/Seekell 2012/Batt 2013/Batt 2019 (single reference lake), and Boettiger & Hastings 2012 (prosecutor's fallacy). No study found in this sweep combined sequential fixed-horizon origins, out-of-sample holdout across systems, a matched state/trend forecasting baseline, threshold calibration to a common false-alarm budget, and complete follow-up; Pace 2017 is the only field study with a prospective preset alarm threshold, and it is n=1 lake with no forecasting baseline. Two items surfaced as titles only and warrant follow-up in a later stage: 'Systematically false positives in early warning signal analysis' (PLOS ONE 2019, doi 10.1371/journal.pone.0211072) and 'Quantifying limits to detection of early warning for critical transitions' (J R Soc Interface 2012, PubMed 22593100). Per the hard rules, no EWS-outcome associations were computed or speculated about for any candidate dataset."
+ },
+ {
+  "queries_run": [
+   "2026-09-08 | \"early warning signals\" \"false positive\" population collapse",
+   "2026-09-08 | \"early warning\" \"receiver operating characteristic\" ecological time series",
+   "2026-09-08 | \"critical slowing down\" \"sensitivity\" \"specificity\" empirical populations",
+   "2026-09-08 | \"early warning signals\" \"lead time\" collapse \"false alarm\"",
+   "2026-09-08 | extinction \"early warning\" \"predict\" empirical time series ROC"
+  ],
+  "notes": "CRITICAL LIMITATION: the session's WebSearch budget was already exhausted (200/200) before this sweep started. The five seed queries listed in queries_run were submitted but the tool refused all of them (\"Web search was not performed\"); ZERO WebSearch results were seen in this sweep. No further WebSearch queries were attempted after the refusal. One WebFetch probe of api.semanticscholar.org was EGRESS_BLOCKED. The only reachable evidence route was GitHub: (a) GitHub MCP repository/code search (the MCP file-content reader is restricted to davebanerjee/ecology-projects, so it could not read other repos), and (b) WebFetch of raw.githubusercontent.com and github.com pages, which worked. Every study below is therefore grounded ONLY in repository descriptions, READMEs and folder listings that I actually saw; journal names, years, sample sizes and findings that are not in those pages are marked \"not visible in GitHub sources\". Design fields are mostly \"unknown\" for the same reason.\n\nCONTEXT THE ORCHESTRATOR SHOULD KNOW: the project already contains a completed fixed-horizon sweep. data/metadata/literature_queries.json logs 243 dated queries whose first five are exactly this sweep's seed queries (dated 2026-09-08), and data/metadata/literature_sweeps_raw.json holds four completed sweeps (sweep 0 = \"fixed-horizon prediction and false alarms\": 49 queries, 43 study records; total 193 records), summarised in reports/stage0_literature_audit.md. This run is therefore a re-run of an already-completed stage. I did NOT re-report those 193 records as my own (I did not see the underlying search results); the orchestrator should treat sweep 0 of literature_sweeps_raw.json as the primary output for this topic and this result as an independent, GitHub-only supplement. Studies present in the prior record that I could NOT independently corroborate here (no GitHub companion found): Burthe et al. 2016 J Appl Ecol; Litzow, Mueter & Urban 2013 Ecol Appl; Gsell et al. 2016 PNAS; Zhang et al. 2020 Ecol Indic; Cano, Jensen & Dakos 2025 PNAS; Buelo et al. 2022 Ecol Appl; Wilkinson et al. 2018 Ecol Monogr; Pace et al. 2017; Clements et al. 2017 Nat Ecol Evol; Cerini, Childs & Clements 2023 Nat Ecol Evol; Cerini et al. 2025 Ecology; Arkilanian/Baruah et al. 2020 Ecology; Grziwotz et al. 2023 Sci Adv; Brett & Rohani 2020 PLoS Biol; Proverbio et al. 2022 PLoS Comput Biol; Dablander et al. 2022 Proc R Soc B (the fdabl/Early-Warning repo I found is a different, psychology-focused Dablander paper); Gao et al. 2025 PLoS Comput Biol; Krkosek & Drake 2014; Hefley et al. 2013; Ward et al. 2014 Oikos; Holmes et al. 2005/2007; Perretti & Munch 2012; J\u00e4ger & F\u00fcllsack 2019.\n\nWHAT THIS SUPPLEMENT ADDS (new, GitHub-verified details): (1) O'Brien et al. 2023 lake study: Code/supplementary_code/ROC_ability.R \"calculates Receiver Operator Curve and precision-recall based indices for the binary critical-no critical transition classification task performed by EWSs\", and Code/bayesian_success_models.R fits binomial models for probability of correct classification \u2014 direct evidence that prior lake work quantified false alarms on non-transitioning series (supports the plan's stated non-claim). (2) Harris, Hay & Drake (Kericho malaria): README documents a \"rolling forecast\" validation with test periods Feb 1984\u2013Apr 1994 plus point tests at a hypothesised April-1993 transition and bandwidth sensitivity (35\u201345 months) \u2014 a single-series sequential-origin precedent in epidemiology. (3) project-aero/measles-ews: AUC computed for each EWS over \"null and test intervals\" from SEIR/pomp simulations fitted to four Niger cities (null-interval comparator). (4) Bury et al. 2021 PNAS repo: classifier trained on 500,000 + 200,000 simulated series (fold/Hopf/transcritical/null classes), ROC vs variance and lag-1 AC, tested on three empirical non-population datasets. (5) Jarvis-Cross et al. (Daphnia\u2013Ordospora experimental epidemic): 4 control + 4 warming experimental populations and 1,000 simulated control/warming populations, i.e., explicit non-transitioning controls. (6) Newly surfaced items not in the prior record: Looker, Rock & Dyson \"Identifying COVID-19 peaks using early warning signals\" (PLoS Comput Biol, doi 10.1371/journal.pcbi.1013524); Ma, Zeng, Zhang & Bury 2025 Communications Physics 8:258 (surrogate-trained ML, ROC, includes tree-ring data); Liu et al. 2024 Phys Rev X (GIN-GRU tipping predictor); Batt et al. PLoS ONE doi 10.1371/journal.pone.0223366 (time-scale dependence of autocorrelation EWS, cyanobacteria/sonde); P\u00e9lissi\u00e9, Devictor & Dakos 2024 Biol Conserv doi 10.1016/j.biocon.2023.110429 (abrupt-shift trajectory classification with simulated-data performance baselines); matpelissie/ocean_warming_fisheries (manuscript \"Abrupt declines in fish productivity are associated with ocean warming at global scale\"; possibly the pre-publication version of the 2026 Sci Adv paper in the prior record \u2014 NOT verified); Evers et al. bifurcationEWS (submitted); duncanobrien/lpi-multivariate-res (O'Brien & Clements 2025, Zenodo 10.5281/zenodo.8341485). (7) Data pointer: boettiger-lab/gpdd README gives the GPDD KNB DOI 10.5063/F1BZ63Z8 and lists tables gpdd_data, gpdd_main, gpdd_timeperiod, gpdd_taxon, gpdd_datasource, gpdd_biotope, gpdd_location.\n\nNOVELTY VERDICT FROM THIS SUPPLEMENT: nothing seen on GitHub describes the plan's full combination (sequential fixed-horizon origins + held-out systems + matched state/trend baseline + common false-alarm budget + complete follow-up) for population-abundance collapse; but ROC/AUC-based false-alarm accounting with non-transitioning series is clearly documented in O'Brien 2023 (lakes), measles-ews and Bury 2021, and a rolling-origin validation exists for a single malaria series (Harris et al.). Full texts must be read before any positioning statement; several attributions (journal/year) flagged as \"from project prior record\" were not seen by me. No EWS\u2013outcome associations were computed or speculated on in any dataset.",
+  "studies": [
+   {
+    "citation": "O'Brien D.A., Deb S., Gal G., Thackeray S.J., Dutta P.S., Matsuzaki S.S., May L. & Clements C.F. (2023) Early warning signals have limited applicability to empirical lake data. [journal not visible in GitHub sources; project prior record lists Nature Communications]",
+    "year": 2023,
+    "doi_or_url": "https://github.com/duncanobrien/ews-assessments (Zenodo badge https://zenodo.org/badge/latestdoi/555307206)",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/ews-assessments",
+     "https://raw.githubusercontent.com/duncanobrien/ews-assessments/main/README.md",
+     "https://github.com/duncanobrien/ews-assessments/tree/main/Code",
+     "https://github.com/duncanobrien/ews-assessments/tree/main/Code/supplementary_code"
+    ],
+    "relevance": "core",
+    "confidence": "high",
+    "data_system": "Eight empirical lakes (Kinneret, Kasumigaura, Loch Leven, Mendota, Monona, Washington, Windermere, Zurich upper/lower); plankton time series (aggregated_plank_genus.R, plankton_ews_assessment.R); Kinneret and Kasumigaura data by request only",
+    "outcome_definition": "Binary 'critical / no critical transition' classification task (per supplementary README); lake state spaces and threshold GAM scripts (lake_state_spaces.R, threshold_gam.R) suggest state-based regime-shift labelling; exact definition not visible",
+    "time_indexed_forecast_origins": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "yes",
+    "false_alarms_quantified": "yes",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "baseline_comparator": "Not visible in GitHub sources (no state/trend forecasting baseline script names seen); classification evaluated by binomial 'success' models and ROC / precision-recall indices",
+    "key_finding": "Findings not visible in GitHub sources beyond the title. Repository documents (a) bayesian_success_models.R 'fits binomial models to estimate probabilities of correct classification', (b) ews_success_analysis.R extracting EWS success rates, and (c) supplementary_code/ROC_ability.R which 'calculates Receiver Operator Curve and precision-recall based indices for the binary critical-no critical transition classification task performed by EWSs', added 'during the review process regarding classification of regime shifts in monthly time series'.",
+    "notes": "Strongest GitHub-verified precedent for explicit true/false-alarm accounting on empirical ecological series that include non-transitioning cases. Whether origins were sequential or held-out is not visible."
+   },
+   {
+    "citation": "Bury T.M. et al. (2021) Deep learning for early warning signals of tipping points. PNAS 118(39)",
+    "year": 2021,
+    "doi_or_url": "https://doi.org/10.1073/pnas.2106140118",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/ThomasMBury/deep-early-warnings-pnas/main/README.md",
+     "https://github.com/ThomasMBury/deep-early-warnings-pnas",
+     "https://raw.githubusercontent.com/ThomasMBury/ewstools/main/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "Training: simulated time series from random dynamical systems via AUTO-07P (500-classifier: 500,000 series of length 500; 1500-classifier: 200,000 series of length 1500; classes fold, Hopf, transcritical, null). Empirical tests: Mediterranean sedimentary archive (PANGAEA), thermoacoustic instability data (Pavithran & Sujith), paleoclimate transitions (World Data Center for Paleoclimatology)",
+    "outcome_definition": "Bifurcation class (fold/Hopf/transcritical) vs null, as labelled in simulations; empirical transitions as documented in the source datasets (details not visible)",
+    "time_indexed_forecast_origins": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "out_of_sample_holdout": "yes",
+    "non_transitioning_series_included": "yes",
+    "false_alarms_quantified": "yes",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "baseline_comparator": "Classical CSD indicators (variance and lag-1 autocorrelation) compared by ROC statistics; a 'null' (no-bifurcation) training class serves as the negative class; no state/trend forecasting baseline visible",
+    "key_finding": "README states performance was compared by 'computing ROC statistics' for the deep-learning classifiers versus 'CSD-based EWS - variance and lag-1 autocorrelation'; 20 networks trained (10 with two-sided zero padding, 10 with left-only padding). Quantitative AUC values not visible in GitHub sources.",
+    "notes": "Empirical test systems are geological/physical, not ecological populations; out-of-sample holdout = simulation-trained classifier tested on empirical data."
+   },
+   {
+    "citation": "Bury T.M. (2023) ewstools: A Python package for early warning signals of bifurcations in time series data. Journal of Open Source Software 8(82):5038",
+    "year": 2023,
+    "doi_or_url": "https://doi.org/10.21105/joss.05038",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/ThomasMBury/ewstools/main/README.md",
+     "https://github.com/ThomasMBury/ewstools"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "data_system": "Software (no empirical evaluation visible)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none",
+    "key_finding": "Software paper; README cites Scheffer et al. 2009 Nature, Dakos et al. 2012 PLOS ONE, Bury et al. 2021 PNAS and Dakos et al. 2024 Earth System Dynamics (https://esd.copernicus.org/articles/15/1117/2024/). README contains no ROC/AUC/false-positive evaluation.",
+    "notes": "Useful as tooling reference; also cites the 2024 Dakos et al. ESD review 'Tipping point detection and early warnings in climate, ecological, and human systems'."
+   },
+   {
+    "citation": "Bury T.M., Dylewsky D., Bauch C., Anand M., Glass L., Shrier A. & Bub G. Predicting discrete-time bifurcations with deep learning. [journal/year not visible in GitHub sources; arXiv 2303.09669]",
+    "year": 2023,
+    "doi_or_url": "https://doi.org/10.48550/arXiv.2303.09669",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/ThomasMBury/dl_discrete_bifurcation/main/README.md",
+     "https://github.com/ThomasMBury/dl_discrete_bifurcation"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "data_system": "Simulated discrete-time systems for training; empirical demonstration on chick heart cell aggregate data (per README)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Findings/metrics not visible; README provides a pretrained classifier, reproduction code and a Code Ocean capsule. Relevant because discrete-time (map) bifurcations match annual population census data structure.",
+    "notes": "Year 2023 is from the arXiv identifier; published venue not visible."
+   },
+   {
+    "citation": "Ma Z., Zeng C., Zhang Y.-C. & Bury T.M. (2025) Predicting critical transitions with machine learning trained on surrogates of historical data. Communications Physics 8(1):258",
+    "year": 2025,
+    "doi_or_url": "https://github.com/ZhiqinMa/surrogate_data_based_machine_learning (article DOI not visible in GitHub sources)",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/ZhiqinMa/surrogate_data_based_machine_learning/main/README.md",
+     "https://github.com/ZhiqinMa/surrogate_data_based_machine_learning"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "Chick heart data; Mediterranean sedimentary archive (PANGAEA 10.1594/PANGAEA.923197); paleoclimate transitions (WDC Paleoclimatology); Southwestern US tree-ring data (tDAR 10.6067/XCV82J6D7B)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "partial",
+    "non_transitioning_series_included": "unknown",
+    "false_alarms_quantified": "yes",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "README states 'ROC statistics' were computed and that results are 'the average prediction from these 10 networks'; classifiers trained on surrogates of historical data rather than generic simulations. Metric values not visible.",
+    "notes": "Not population-abundance data, but methodologically relevant (training on surrogates of the same historical record)."
+   },
+   {
+    "citation": "Deb S., Sidheekh S., Clements C.F., Krishnan N.C. & Dutta P.S. (2022) Machine learning methods trained on simple models can predict critical transitions in complex natural systems. Royal Society Open Science 9:211475",
+    "year": 2022,
+    "doi_or_url": "https://doi.org/10.1098/rsos.211475",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md",
+     "https://raw.githubusercontent.com/sahilsid/EWSNet/master/README.md",
+     "https://github.com/sahilsid/EWSNet"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "EWSNet code repository references 'real-world paleoclimatic and ecological data' in its data folder (Zenodo 10.5281/zenodo.5027683); details not visible",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Citation and DOI seen in the EWSmethods README; EWSNet outputs probabilistic transition classifications (e.g., 'Smooth Transition'). Findings and evaluation metrics not visible in GitHub sources.",
+    "notes": "EWSNet is wrapped by EWSmethods::ewsnet_predict()."
+   },
+   {
+    "citation": "O'Brien D.A., Deb S., Sidheekh S., Krishnan N.C., Dutta P.S. & Clements C.F. EWSmethods: an R package to forecast tipping points at the community level using early warning signals and machine learning models. [journal/year not visible in GitHub sources; project prior record lists Ecography 2023]",
+    "year": 2023,
+    "doi_or_url": "https://github.com/duncanobrien/EWSmethods",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/EWSmethods",
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md",
+     "https://github.com/cran/EWSmethods"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Software (CRAN package); no empirical evaluation visible",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none",
+    "key_finding": "Package README cites Dakos et al. 2012 PLOS ONE, Drake & Griffen 2010 Nature, Deb et al. 2022 RSOS, Clements & Ozgul 2016 Nat Commun 7:10984 and Clements et al. 2019 Nat Commun 10:1681 as the methods it implements; provides univariate/multivariate EWS and the EWSNet interface.",
+    "notes": "Author list taken from the project's prior record is NOT visible on GitHub; only the package description and citations were seen."
+   },
+   {
+    "citation": "Harris M.J., Hay S.I. & Drake J.M. (2020) Evidence of Critical Slowing Down Prior to Malaria Resurgence in Kericho, Kenya [README title, 'In Review'; project prior record lists Biology Letters 2020 'Early warning signals of malaria resurgence in Kericho, Kenya']",
+    "year": 2020,
+    "doi_or_url": "https://github.com/mjharris95/Kericho-EWS",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/mjharris95/Kericho-EWS/master/README.md",
+     "https://github.com/mjharris95/Kericho-EWS"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "data_system": "Monthly malaria incidence, Kericho, Kenya, January 1965 \u2013 November 2002 (kericho.csv); single series",
+    "outcome_definition": "Hypothesised critical transition (malaria resurgence) dated April 1993; notional alternative transition dates in sensitivity analyses",
+    "time_indexed_forecast_origins": "partial",
+    "fixed_horizon_labels": "unknown",
+    "out_of_sample_holdout": "no",
+    "non_transitioning_series_included": "no",
+    "false_alarms_quantified": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "baseline_comparator": "none visible (indicator trends tested with Kendall's tau and Spearman's rho via the spaero package)",
+    "key_finding": "README documents ten indicators computed with spaero 0.4.0, a 'test at transition' (bandwidth 40 months, April 1993), a 'rolling forecast' with testing periods February 1984 \u2013 April 1994, and sensitivity analyses over bandwidths 35\u201345 and notional transition dates. Numerical results not visible.",
+    "notes": "Single-series epidemiological precedent for rolling-origin evaluation; no non-transitioning comparator visible."
+   },
+   {
+    "citation": "project-aero (Tredennick A.T. et al.; full author list not visible) measles-ews: research compendium on detecting critical slowing down in measles dynamics from four cities in Niger. [manuscript title/journal/DOI not visible in GitHub sources]",
+    "year": 2018,
+    "doi_or_url": "https://github.com/project-aero/measles-ews",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/project-aero/measles-ews/master/README.md",
+     "https://github.com/project-aero/measles-ews",
+     "https://github.com/project-aero"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "data_system": "Weekly measles case counts from four Niger cities (provided by Matthew Ferrari); SEIR models fitted with pomp 1.18 / MIF2; parametric bootstrap; simulated emergence and elimination replicates",
+    "outcome_definition": "Simulated 'emergence' vs 'elimination' (transcritical) scenarios from fitted SEIR models; 'null and test intervals'",
+    "time_indexed_forecast_origins": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "yes",
+    "false_alarms_quantified": "yes",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "baseline_comparator": "Null intervals / null (non-emergence) simulations from the fitted SEIR model; no state/trend forecasting baseline visible",
+    "key_finding": "Five-step pipeline: fit SEIR to weekly counts, bootstrap parameter uncertainty, simulate replicate emergence/elimination series, compute EWS in fixed and moving windows over null and test intervals, then compute 'Area Under the Curve values for each EWS'. AUC values not visible.",
+    "notes": "Year is the repository creation year (2018); publication details not visible. Evaluation is on model-based simulations conditioned on empirical fits, not on the raw empirical outcomes."
+   },
+   {
+    "citation": "Boettiger C. & Hastings A. (2012) Early warning signals and the prosecutor's fallacy. Proceedings of the Royal Society B",
+    "year": 2012,
+    "doi_or_url": "https://doi.org/10.1098/rspb.2012.2085",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/cboettig/prosecutors-fallacy/master/README.md",
+     "https://github.com/cboettig/prosecutors-fallacy"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "data_system": "Simulation/theory (archived code and data on Dryad doi:10.5061/dryad.2k462)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "README identifies the paper (and the companion Boettiger & Hastings 2013 Proc R Soc B 280:20131372, doi:10.1098/rspb.2013.1372, 'No early warning signals for stochastic transitions') as addressing a logical fallacy in interpreting EWS when only series that transitioned are analysed; README does not explicitly mention ROC or false-positive methodology.",
+    "notes": "Methodological anchor for the selection-bias / non-transitioning-series argument."
+   },
+   {
+    "citation": "Boettiger C. & Hastings A. (2012) Quantifying limits to detection of early warning for critical transitions [README title: 'Limits to the Detection of Early Warning Signals for Critical Transitions']. Journal of the Royal Society Interface",
+    "year": 2012,
+    "doi_or_url": "https://doi.org/10.1098/rsif.2012.0125",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/cboettig/earlywarning/master/README.md",
+     "https://github.com/cboettig/earlywarning"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "data_system": "Simulation; R package with example analyses (per README)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "README gives citation, DOI, May 2012 publication and CC-BY preprint; no explicit mention of ROC, false positives or detection limits beyond the title.",
+    "notes": "Project prior record classifies this as a core methodological (ROC-based) study; that detail is not visible on GitHub."
+   },
+   {
+    "citation": "Dakos V. et al. (2012) Methods for detecting early warnings of critical transitions in time series illustrated using simulated ecological data. PLoS ONE 7(7):e41010",
+    "year": 2012,
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0041010",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/earlywarningtoolbox/earlywarnings-R/master/README.md",
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md",
+     "https://github.com/earlywarningtoolbox/earlywarnings-R"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "data_system": "Simulated ecological data (per title); implemented in the 'earlywarnings' R package by Dakos and Lahti",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "none visible",
+    "key_finding": "Foundational methods paper underlying the earlywarnings R package; README also cites Lahti et al. 2014 Nat Commun 5:4344 for potential-analysis functions. No evaluation metrics visible.",
+    "notes": "Methods reference only."
+   },
+   {
+    "citation": "Drake J.M. & Griffen B.D. (2010) Early warning signals of extinction in deteriorating environments. Nature 467:456\u2013459",
+    "year": 2010,
+    "doi_or_url": "https://doi.org/10.1038/nature09389",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "not visible in GitHub sources (citation only)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Only the citation was seen (in the EWSmethods README, as a source of implemented methods). Findings not visible in GitHub sources.",
+    "notes": "Experimental extinction EWS study per its title; project prior record contains snippet-level details."
+   },
+   {
+    "citation": "Clements C.F. & Ozgul A. (2016) [title not visible in GitHub sources]. Nature Communications 7:10984",
+    "year": 2016,
+    "doi_or_url": "https://doi.org/10.1038/ncomms10984",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "data_system": "not visible in GitHub sources",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Cited in EWSmethods README as a source of trait-based / composite EWS methods; title and findings not visible in GitHub sources (project prior record gives title 'Including trait-based early warning signals helps predict population collapse').",
+    "notes": "Needs full-text check for whether collapse prediction was scored with false alarms."
+   },
+   {
+    "citation": "Clements C.F., McCarthy M.A. & Blanchard J.L. (2019) [title not visible in GitHub sources]. Nature Communications 10:1681",
+    "year": 2019,
+    "doi_or_url": "https://doi.org/10.1038/s41467-019-09684-y",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "not visible in GitHub sources",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Cited in EWSmethods README (DOI seen); author names beyond 'Clements et al.' and title are from the project's prior record, not visible on GitHub.",
+    "notes": "Recovery-signal paper per prior record; peripheral to collapse prediction."
+   },
+   {
+    "citation": "Jarvis-Cross M., Kirk D., Krichel L., Luijckx P., Moln\u00e1r P.K. & Krko\u0161ek M. Early warning signals do not predict a warming-induced experimental epidemic. [journal/year not visible in GitHub sources; project prior record lists PLOS Global Public Health 2025, doi 10.1371/journal.pgph.0005142]",
+    "year": 2025,
+    "doi_or_url": "https://github.com/MadelineJC/EarlyWarningSignals_Repo",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/MadelineJC/EarlyWarningSignals_Repo/main/README.md",
+     "https://github.com/MadelineJC/EarlyWarningSignals_Repo"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "Daphnia magna \u2013 Ordospora colligata host\u2013parasite experiment: 4 experimental Control and 4 experimental Warming populations (from Kirk et al., Proc R Soc B, 'Experimental evidence of warming-induced disease emergence and its prediction by a trait-based mechanistic model') plus 1,000 simulated Control and Warming populations",
+    "outcome_definition": "Warming-induced epidemic emergence (experimental treatment vs control)",
+    "time_indexed_forecast_origins": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "yes",
+    "false_alarms_quantified": "partial",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "baseline_comparator": "Control (non-warmed) populations, experimental and simulated; no forecasting baseline visible",
+    "key_finding": "Title states EWS did not predict the experimental epidemic; README describes analysis of raw and detrended data across populations with sampling protocols and statistical significance testing. Quantitative false-alarm rates not visible.",
+    "notes": "Experimental design with explicit non-transitioning controls; outcome is disease emergence rather than host population collapse."
+   },
+   {
+    "citation": "Batt R.D. et al. [authors/year not visible in GitHub sources] The influence of time scale on autocorrelation as an early warning indicator of regime shift. PLOS ONE",
+    "year": 2019,
+    "doi_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223366",
+    "evidence_urls": [
+     "https://github.com/rBatt/timeScales",
+     "https://raw.githubusercontent.com/rBatt/timeScales/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "data_system": "Repository topics: algal bloom, cyanobacteria, chlorophyll, phycocyanin, high-frequency sonde time series, eutrophication, Hopf bifurcation (per GitHub topics)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Findings not visible; README gives only the title and PLOS ONE article link (10.1371/journal.pone.0223366). Year inferred from the PLOS ONE article number (0223366 \u2248 2019) \u2014 low confidence on year.",
+    "notes": "Lake cyanobacterial bloom EWS at high frequency; relevant to the lake challenge analysis."
+   },
+   {
+    "citation": "P\u00e9lissi\u00e9 M., Devictor V. & Dakos V. (2024) A systematic approach for detecting abrupt shifts in ecological timeseries. Biological Conservation (special issue 'Non-equilibrium perspectives in biological conservation')",
+    "year": 2024,
+    "doi_or_url": "https://doi.org/10.1016/j.biocon.2023.110429",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/matpelissie/abrupt_shifts_ecological_timeseries_classification/main/README.md",
+     "https://github.com/matpelissie/abrupt_shifts_ecological_timeseries_classification"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "Simulated time series for performance baselines plus 'minimal empirical and simulated data' in the repository; GUI for classifying single csv time series",
+    "outcome_definition": "Trajectory classification (abrupt vs other shapes) by comparing candidate models with quality-of-fit indices and adjustable breakpoint parameters",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "yes",
+    "false_alarms_quantified": "partial",
+    "baseline_comparator": "Simulated series with known shapes; 'quality of fit indices evaluated against both correctly and incorrectly classified simulated datasets'",
+    "key_finding": "Provides an outcome-labelling method (abrupt-shift detection) rather than an EWS predictor; classification accuracy benchmarked on simulations. Not a sequential prediction study.",
+    "notes": "Relevant to defining collapse/abrupt-shift outcomes; same group as the RAM/ICES/FishGlob dynamical-footprint work in the prior record."
+   },
+   {
+    "citation": "P\u00e9lissi\u00e9 M. et al. [authors not visible in GitHub sources] Abrupt declines in fish productivity are associated with ocean warming at global scale [manuscript title in repository README; journal/year/DOI not visible]",
+    "year": 2026,
+    "doi_or_url": "https://github.com/matpelissie/ocean_warming_fisheries",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/matpelissie/ocean_warming_fisheries/main/README.md",
+     "https://github.com/matpelissie/ocean_warming_fisheries"
+    ],
+    "relevance": "adjacent",
+    "confidence": "low",
+    "data_system": "Fisheries productivity time series downloaded by script (source databases not visible; R 4.3.3); 'time series classification' scripts",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Repository (created 2024-10) holds data-download, time-series-classification and figure scripts for a manuscript on abrupt fish-productivity declines and ocean warming. Possibly the pre-publication version of the 2026 Science Advances paper listed in the project's prior record ('Abrupt declines in fish productivity often precede stock collapses in marine fisheries', doi 10.1126/sciadv.aed7911) \u2014 this linkage is NOT verified.",
+    "notes": "Year assigned tentatively from the prior record; treat as unverified until full text is read."
+   },
+   {
+    "citation": "O'Brien D.A. & Clements C.F. (2021) Early warning signal reliability varies with COVID-19 waves. Biology Letters 17:20210487",
+    "year": 2021,
+    "doi_or_url": "https://doi.org/10.1098/rsbl.2021.0487",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/COVID-EWS",
+     "https://raw.githubusercontent.com/duncanobrien/COVID-EWS/main/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "data_system": "Daily COVID-19 case data from https://covid19.who.int/info/ (countries not visible)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Citation, DOI and data source seen; findings and detection-rate metrics not visible in GitHub sources.",
+    "notes": "Epidemiological; multi-wave reliability of EWS."
+   },
+   {
+    "citation": "Looker J., Rock K. & Dyson L. Identifying COVID-19 peaks using early warning signals. PLOS Computational Biology [year not visible in GitHub sources]",
+    "year": 2025,
+    "doi_or_url": "https://doi.org/10.1371/journal.pcbi.1013524",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/joshlooks/COVIDews/main/README.md",
+     "https://github.com/joshlooks/COVIDews"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "data_system": "UK COVID-19 data (ONS and UKHSA sources referenced; data not included in repository); spatio-temporal analysis",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Findings and performance metrics not visible; README gives title, authors, journal and DOI. Year inferred from the PCBI article number (1013524) \u2014 low confidence on year.",
+    "notes": "Not in the project's prior record; epidemiological peak (not collapse) detection."
+   },
+   {
+    "citation": "Southall E., Brett T.S., Tildesley M.J. & Dyson L. Early-warning signals of infectious disease transitions: a review. [journal/year not visible in GitHub sources; project prior record lists J R Soc Interface 2021]",
+    "year": 2021,
+    "doi_or_url": "https://github.com/ersouthall/disease_transitions",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/ersouthall/disease_transitions/master/README.md",
+     "https://github.com/ersouthall/disease_transitions"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Notebooks: EWS theory figures and a pertussis case-data example",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "none",
+    "key_finding": "Review; README abstract snippet: EWS 'are a group of statistical time series signals which could be used to anticipate a critical transition before it is reached'. Author list is from the project's prior record (only the repo owner 'ersouthall' is visible on GitHub).",
+    "notes": "Background review for the epidemiological EWS literature."
+   },
+   {
+    "citation": "Liu Y., Kumar M., Katul G.G. & Porporato A. (2019) Reduced resilience as an early warning signal of forest mortality. Nature Climate Change",
+    "year": 2019,
+    "doi_or_url": "https://www.nature.com/articles/s41558-019-0583-9",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/YanlanLiu/early-warning-signal-DLM/master/README.md",
+     "https://github.com/YanlanLiu/early-warning-signal-DLM"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "data_system": "Not visible beyond 'forest mortality'; method is a Dynamic Linear Model adapted from Prado & West (2010)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "DLM-based resilience indicator for forest mortality; findings not visible in GitHub sources.",
+    "notes": "Ecosystem-level (vegetation) rather than population abundance."
+   },
+   {
+    "citation": "Liu Z., Zhang X., Ru X., Gao T.-T., Moore J.M. & Yan G. (2024) Early Predictor for the Onset of Critical Transitions in Networked Dynamical Systems. Physical Review X",
+    "year": 2024,
+    "doi_or_url": "https://github.com/m-serious/tipping-predictor (article DOI not visible in GitHub sources)",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/m-serious/tipping-predictor/main/README.md",
+     "https://github.com/m-serious/tipping-predictor"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "data_system": "Simulated networked dynamical systems (scripts generate 'biomass' and transient data); an 'empirical_data' folder for 'a new empirical system' (not described)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "GIN-GRU neural network predicts onset of critical transitions in networked systems; robustness tests to incomplete data and observational noise. Metrics not visible.",
+    "notes": "ML tipping predictor; mostly simulation-based."
+   },
+   {
+    "citation": "Kong L.-W., Fan H.-W., Grebogi C. & Lai Y.-C. (2021) Machine learning prediction of critical transition and system collapse. Physical Review Research 3(1):013090",
+    "year": 2021,
+    "doi_or_url": "https://github.com/lw-kong/Reservoir_with_a_Parameter_Channel_PRR2021",
+    "evidence_urls": [
+     "https://github.com/lw-kong/Reservoir_with_a_Parameter_Channel_PRR2021"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Reservoir computing on simulated dynamical systems (per repository description/topics)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Only the repository description (full citation) was seen; findings not visible.",
+    "notes": "Non-ecological, simulation-based."
+   },
+   {
+    "citation": "Evers K.C. et al. (submitted) Early Warning Signals of Complex Critical Transitions in Deterministic Dynamics. Nonlinear Dynamics (submitted)",
+    "year": 2024,
+    "doi_or_url": "https://github.com/kcevers/bifurcationEWS",
+    "evidence_urls": [
+     "https://github.com/kcevers/bifurcationEWS"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Simulated deterministic bifurcations in a four-dimensional generalised Lotka\u2013Volterra model (bifurcationEWS R package)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "no",
+    "non_transitioning_series_included": "unknown",
+    "false_alarms_quantified": "partial",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Package simulates bifurcations, computes univariate and multivariate EWS and 'assesses EWS performance'; GitHub code search matched 'false positive rate' and 'autocorrelation' in R/EWS.R, but the README does not report metrics. Year is the repository's approximate date and is uncertain.",
+    "notes": "Simulation-only; status 'submitted' per README."
+   },
+   {
+    "citation": "Arellano-Nava B. [author per repository owner] regimeshifts: Python library for regime-shift detection and early warning signals (implements Boulton & Lenton 2019 abrupt-shift detection and Boulton et al. 2014 bootstrap surrogate significance testing) [no paper citation visible]",
+    "year": 2022,
+    "doi_or_url": "https://github.com/BeatrizArellano/regimeshifts",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/BeatrizArellano/regimeshifts/main/README.md",
+     "https://github.com/BeatrizArellano/regimeshifts"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Software; no empirical evaluation visible",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "partial",
+    "baseline_comparator": "Null model: bootstrap surrogate series (residuals resampled with replacement); p-value = proportion of surrogates with Kendall tau trend as extreme as observed",
+    "key_finding": "Documents a standard surrogate-based significance test for EWS trends (lag-1 AC, variance) and a gradient-based abrupt-shift detector flagging points exceeding three median absolute deviations.",
+    "notes": "Methodological reference for null-model false-alarm control; year = repository creation year."
+   },
+   {
+    "citation": "O'Brien D.A. & Clements C.F. (2025) Stability metrics behave predictably across data qualities but are sensitive to community size(s). [journal not visible in GitHub sources]",
+    "year": 2025,
+    "doi_or_url": "https://doi.org/10.5281/zenodo.8341485",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/lpi-multivariate-res",
+     "https://raw.githubusercontent.com/duncanobrien/lpi-multivariate-res/main/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "'Raw multispecies communities and resilience metric data' (repository name suggests Living Planet Index data; LPI use is not stated in the README)",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Findings not visible beyond the title; relevant as evidence that multivariate stability/EWS metrics have been applied to multispecies data possibly drawn from the Living Planet Database (unverified).",
+    "notes": "Flagged because LPD is one of the study's candidate data systems."
+   },
+   {
+    "citation": "Dablander F., Pichler A., Cika A. & Bacilieri A. (accepted) Anticipating Critical Transitions in Psychological Systems using Early Warning Signals: Theoretical and Practical Considerations. Psychological Methods (preprint PsyArXiv 5wc28)",
+    "year": 2022,
+    "doi_or_url": "https://psyarxiv.com/5wc28",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/fdabl/Early-Warning/master/README.md",
+     "https://github.com/fdabl/Early-Warning"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Simulations (large simulation results available on request); replication/extension of Boerlijst et al. 2013",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "yes",
+    "baseline_comparator": "not visible in GitHub sources",
+    "key_finding": "Repository includes scripts for AUC calculations in a simulation-based assessment of EWS; non-ecological (psychological systems). NOTE: this is not the Dablander et al. 2022 COVID second-wave paper in the project's prior record.",
+    "notes": "Included only as a methodological AUC-evaluation precedent; year uncertain (repository created 2020; 'accepted')."
+   },
+   {
+    "citation": "Dakos V., Boulton C.A., Buxton J.E. et al. (2024) Tipping point detection and early warnings in climate, ecological, and human systems. Earth System Dynamics 15:1117",
+    "year": 2024,
+    "doi_or_url": "https://esd.copernicus.org/articles/15/1117/2024/esd-15-1117-2024.html",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/ThomasMBury/ewstools/main/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "data_system": "Review",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "none",
+    "key_finding": "Cited in the ewstools README as 'Dakos et al. (2024) Earth System Dynamics'; author list beyond Dakos is from the project's prior record, not visible on GitHub.",
+    "notes": "Recent cross-domain review useful for positioning."
+   }
+  ]
+ },
+ {
+  "queries_run": [
+   "2026-09-08 | \"early warning signals\" \"out-of-sample\" ecology  [WebSearch REFUSED: session budget 200/200 exhausted before this subagent ran]",
+   "2026-09-08 | \"hindcast\" \"early warning\" population collapse  [WebSearch REFUSED: budget exhausted]",
+   "2026-09-08 | \"cross-validation\" \"early warning signals\" transitions ecological time series  [WebSearch REFUSED: budget exhausted]",
+   "2026-09-08 | \"forecast\" \"population collapse\" \"state-space\" threshold crossing probability  [WebSearch REFUSED: budget exhausted]",
+   "2026-09-08 | \"ecological forecasting\" evaluation \"proper scoring\" horizon  [WebSearch REFUSED: budget exhausted]"
+  ],
+  "studies": [
+   {
+    "citation": "Bury TM, Sujith RI, Pavithran I, Scheffer M, Lenton TM, Anand M, Bauch CT (2021) Deep learning for early warning signals of tipping points. Proceedings of the National Academy of Sciences 118(39): e2106140118",
+    "doi_or_url": "10.1073/pnas.2106140118",
+    "evidence_urls": [
+     "https://github.com/ThomasMBury/deep-early-warnings-pnas",
+     "https://raw.githubusercontent.com/ThomasMBury/deep-early-warnings-pnas/main/README.md",
+     "https://github.com/ThomasMBury/deep-early-warnings-pnas/blob/main/test_models/cr_hopf_500/compute_roc.py",
+     "https://raw.githubusercontent.com/ThomasMBury/ewstools/main/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "year": 2021,
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "yes",
+    "false_alarms_quantified": "yes",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "yes",
+    "baseline_comparator": "Classical CSD-based EWS (variance and lag-1 autocorrelation, Kendall tau trends) used as the comparator to the deep-learning classifier; no state/trend abundance baseline visible",
+    "data_system": "Simulated bifurcation library (AUTO-07P generated; 500,000 length-500 and 200,000 length-1500 series across fold/Hopf/transcritical/null classes); test models (consumer-resource, May harvesting, SEIRx) with simulated null trajectories; empirical test sets: Mediterranean sedimentary anoxia archive (PANGAEA), thermoacoustic instability experiments, paleoclimate transitions (NOAA WDC). No ecological population-abundance data.",
+    "outcome_definition": "Bifurcation class labels (fold, Hopf, transcritical, null) for simulations; empirical transitions taken from source studies (Hennekam et al. 2020; Dakos et al. 2008; Pavithran & Sujith 2021)",
+    "key_finding": "README documents the workflow: 20 trained neural networks (predictions averaged), applied to residuals of test models and empirical data, then 'Compute ROC statistics' to compare DL classifiers against CSD-based EWS; compute_roc.py scripts output fpr/tpr/thresholds/auc and ROC figures plot a 'False positive' axis. ewstools README shows classifiers applied incrementally along a series (apply_classifier_inc). Quantitative AUC results are not visible in search results.",
+    "notes": "Out-of-sample in the sense of train-on-simulations / test-on-separate-models-and-empirical-data. Whether scoring was done over sequential forecast origins with fixed horizons is not visible."
+   },
+   {
+    "citation": "Bury TM, Dylewsky D, Bauch CT, Anand M, Glass L, Shrier A, Bub G (2023) Predicting discrete-time bifurcations with deep learning. arXiv preprint 2303.09669 (journal version not visible in search results)",
+    "doi_or_url": "10.48550/arXiv.2303.09669",
+    "evidence_urls": [
+     "https://github.com/ThomasMBury/dl_discrete_bifurcation",
+     "https://raw.githubusercontent.com/ThomasMBury/dl_discrete_bifurcation/main/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "year": 2023,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Experimental inter-beat intervals of chick heart cell aggregates (period-doubling bifurcation) plus simulations; not ecological",
+    "outcome_definition": "Discrete-time bifurcation (e.g., period-doubling) onset",
+    "key_finding": "README states a deep-learning classifier (GPU-trained) is applied to predict discrete-time bifurcations, with a Code Ocean capsule for reproducibility and instructions to apply the classifier to users' own data; results not visible in search results.",
+    "notes": "Included as methodological background for DL-based EWS; not ecological population data."
+   },
+   {
+    "citation": "Deb S, et al. (2022) [EWSNet paper; title not visible in search results]. Royal Society Open Science",
+    "doi_or_url": "10.1098/rsos.211475",
+    "evidence_urls": [
+     "https://github.com/sahilsid/EWSNet",
+     "https://raw.githubusercontent.com/sahilsid/EWSNet/master/README.md",
+     "https://raw.githubusercontent.com/cran/EWSmethods/master/DESCRIPTION",
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "year": 2022,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Pretrained deep-learning ensembles (25 models) trained on simulated data ('Dataset-C' and 'Dataset-W'); README says 'a few real-world paleoclimatic and ecological data are added in the data folder for testing'",
+    "outcome_definition": "Classifies a univariate series into transition classes with probabilities (label + probability output)",
+    "key_finding": "EWSNet (Zenodo 10.5281/zenodo.5027683) provides a deep-learning framework for predicting critical transitions that is trained on simulated series and tested on real-world paleoclimatic and ecological series; supports fine-tuning on custom labeled data. EWSmethods DESCRIPTION cites it as Deb et al. (2022) doi:10.1098/rsos.211475. Performance metrics not visible.",
+    "notes": "Only the DOI, not the title, is visible. Real-world testing is described but evaluation design (origins, false alarms) is not visible."
+   },
+   {
+    "citation": "O'Brien DA, Deb S, Gal G, Thackeray SJ, Dutta PS, Matsuzaki SS, May L, Clements CF (2023) Early warning signals have limited applicability to empirical lake data. (journal not visible in search results)",
+    "doi_or_url": "https://github.com/duncanobrien/ews-assessments",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/ews-assessments",
+     "https://raw.githubusercontent.com/duncanobrien/ews-assessments/main/README.md"
+    ],
+    "relevance": "core",
+    "confidence": "medium",
+    "year": 2023,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Long-term lake plankton monitoring: Lake Kinneret and Lake Kasumigaura (on request), Loch Leven diatoms 1968-2007 and zooplankton 1972-2007 (NERC EIDC), Lakes Mendota and Monona (NTL-LTER phytoplankton/zooplankton), Lake Washington 1962-1994, Windermere/Cumbrian lakes (1940-2013), Upper and Lower Zurich",
+    "outcome_definition": "not visible in search results",
+    "key_finding": "Repository (Zenodo-archived; DOI badge https://zenodo.org/badge/latestdoi/555307206) holds processed data, code and results for a study whose title asserts that early warning signals have limited applicability to empirical lake data across at least nine lakes. Indicator set, alarm rules, and false-positive quantification are not visible in search results.",
+    "notes": "Directly relevant to the planned lake regime-shift challenge analysis. Journal, DOI and quantitative results must be confirmed via WebSearch when budget is available."
+   },
+   {
+    "citation": "O'Brien DA, Clements CF (2025) Stability metrics behave predictably across data qualities but are sensitive to community size. (journal not visible in search results)",
+    "doi_or_url": "10.5281/zenodo.8341485",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/lpi-multivariate-res",
+     "https://raw.githubusercontent.com/duncanobrien/lpi-multivariate-res/main/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "year": 2025,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Raw multispecies community time series and resilience-metric data (repo name references 'lpi'; explicit Living Planet Database use is not stated in the README)",
+    "outcome_definition": "not visible in search results",
+    "key_finding": "Code (R and Julia) and results for an assessment of how stability/resilience metrics respond to data quality and community size; the title states metrics behave predictably across data qualities but are sensitive to community size.",
+    "notes": "Relevant to data-quality sensitivity of resilience indicators across heterogeneous monitoring series; details not visible."
+   },
+   {
+    "citation": "O'Brien DA (maintainer) EWSmethods: Forecasting Tipping Points at the Community Level. R package (CRAN v1.3.3, published 2026-03-30)",
+    "doi_or_url": "https://github.com/duncanobrien/EWSmethods",
+    "evidence_urls": [
+     "https://github.com/duncanobrien/EWSmethods",
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md",
+     "https://raw.githubusercontent.com/cran/EWSmethods/master/DESCRIPTION"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "partial",
+    "fixed_horizon_labels": "no",
+    "calibration_reported": "no",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "none (software package; no forecasting baseline)",
+    "data_system": "Software; README demo uses a dummy 50-year skylark abundance/body-mass series",
+    "outcome_definition": "not applicable",
+    "key_finding": "Implements rolling-window (Dakos et al. 2012) and expanding-window (Drake & Griffen 2010) univariate and multivariate EWS (e.g., SD, ar1, skewness) with Kendall tau trend statistics; expanding-window mode standardises indicators over time with a burn-in and a threshold (e.g., 2 sigma, one-tailed) to declare signals; interfaces EWSNet. README states that including trait information 'has been shown to decrease the likelihood of both false positive and false negative signals (Clements and Ozgul, 2016; Baruah et al. 2019)'.",
+    "notes": "Useful as the reference implementation of the classical EWS score (rolling-window ar1/variance with Kendall tau) the preregistration prespecifies."
+   },
+   {
+    "citation": "Dakos V, Carpenter SR, Brock WA, Ellison AM, Guttal V, et al. (2012) Methods for Detecting Early Warnings of Critical Transitions in Time Series Illustrated Using Simulated Ecological Data. PLoS ONE 7(7): e41010",
+    "doi_or_url": "10.1371/journal.pone.0041010",
+    "evidence_urls": [
+     "https://github.com/vdakos/earlywarningtoolbox",
+     "https://raw.githubusercontent.com/vdakos/earlywarningtoolbox/master/README.md",
+     "https://raw.githubusercontent.com/cran/earlywarnings/master/DESCRIPTION"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "year": 2012,
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "no",
+    "calibration_reported": "no",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "none",
+    "data_system": "Simulated ecological data (per title)",
+    "outcome_definition": "not visible in search results",
+    "key_finding": "Foundational methods paper and R toolbox ('earlywarnings', CRAN v1.1.29, 2022) for estimating EWS (rolling-window indicators) in time series; illustrated on simulated ecological data.",
+    "notes": "Defines the conventional rolling-window EWS pipeline."
+   },
+   {
+    "citation": "Boettiger C, Hastings A (2012) Limits to the detection of early warning signals for critical transitions [title as shown in repo README]. Journal of the Royal Society Interface",
+    "doi_or_url": "10.1098/rsif.2012.0125",
+    "evidence_urls": [
+     "https://github.com/cboettig/earlywarning",
+     "https://raw.githubusercontent.com/cboettig/earlywarning/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "year": 2012,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Simulations (README references individual-based simulations via the 'populationdynamics' package) and data objects bundled in the R package",
+    "outcome_definition": "not visible in search results",
+    "key_finding": "Research compendium (CC0) for a paper quantifying limits to detecting EWS of critical transitions; the README describes an R package with analysis examples but gives no results.",
+    "notes": "Methodological background on detection limits; details of ROC/false-positive treatment not visible in search results."
+   },
+   {
+    "citation": "Boettiger C, Ross N, Hastings A (2013) Early warning signals: The charted and uncharted territories. Theoretical Ecology",
+    "doi_or_url": "10.1007/s12080-013-0192-6",
+    "evidence_urls": [
+     "https://github.com/cboettig/ews-review",
+     "https://raw.githubusercontent.com/cboettig/ews-review/master/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "year": 2013,
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "none (review)",
+    "data_system": "Review (no new data)",
+    "key_finding": "Review manuscript on early warning signals (arXiv 1305.6700); content not visible beyond title.",
+    "notes": "Background review."
+   },
+   {
+    "citation": "Lapeyrolerie M, Boettiger C (2023) Limits to ecological forecasting: Estimating uncertainty for critical transitions with deep learning. Methods in Ecology and Evolution",
+    "doi_or_url": "10.1111/2041-210X.14013",
+    "evidence_urls": [
+     "https://github.com/boettiger-lab/mee_tipping_point_forecasting",
+     "https://raw.githubusercontent.com/boettiger-lab/mee_tipping_point_forecasting/main/README.md",
+     "https://github.com/boettiger-lab/mee_tipping_point_forecasting/blob/main/manuscript/manuscript.Rmd"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "year": 2023,
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "partial",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "Multiple forecasting models compared (manuscript Fig 2), including LSTM and GRU recurrent networks; other baselines not visible",
+    "data_system": "Simulated scenarios: Hopf bifurcation in a predator-prey model, saddle-node bifurcation in a single species, and a stochastic transition in a single species",
+    "outcome_definition": "Critical transitions (Hopf, saddle-node, stochastic) in simulated dynamics",
+    "key_finding": "manuscript.Rmd figure caption: 'historical data used to train the algorithm' vs 'replicate simulations of the true dynamics (future ensemble)'; models produce 'probabilistic forecast distributions ... seeking to match the true future ensemble as closely as possible', i.e., probabilistic forecasts through transitions evaluated against a simulated future ensemble.",
+    "notes": "Probabilistic forecast-through-transition framing is relevant to the state-space threshold-crossing baseline; evaluation is on simulations."
+   },
+   {
+    "citation": "Pennekamp F, Iles AC, Garland J, Brennan G, Brose U, Gaedke U, Jacob U, Kratina P, Matthews B, Munch S, Novak M, Palamara GM, Rall BC, Rosenbaum B, Tabi A, Ward C, Williams R, Ye H, Petchey OL (year not visible; README: 'accepted for Ecological Monographs'; repo created 2018) The intrinsic predictability of ecological time series and its potential to guide forecasting. Ecological Monographs",
+    "doi_or_url": "10.5281/zenodo.2390198",
+    "evidence_urls": [
+     "https://github.com/pennekampster/intrinsic_predictability_eco",
+     "https://raw.githubusercontent.com/pennekampster/intrinsic_predictability_eco/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "no",
+    "fixed_horizon_labels": "no",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "EDM (empirical dynamic modeling) forecasts on simulated logistic and Ricker maps; permutation entropy as intrinsic-predictability measure",
+    "data_system": "Simulations (logistic and Ricker maps) and empirical ecological time series (datasets listed in the article; provided in repo Data folder)",
+    "outcome_definition": "not applicable (predictability, not collapse)",
+    "key_finding": "Repository reproduces simulations of logistic/Ricker maps with EDM forecasts and an empirical analysis computing permutation entropy; proposes intrinsic predictability as a guide to forecasting. Quantitative results not visible in search results.",
+    "notes": "Candidate convention for a nonlinear forecasting baseline and for reporting realized vs intrinsic predictability; article DOI not visible (only Zenodo code DOI)."
+   },
+   {
+    "citation": "Ward EJ, et al. (2014) Complexity is costly... [full title truncated in repository description]. Oikos",
+    "doi_or_url": "10.1111/j.1600-0706.2014.00916.x",
+    "evidence_urls": [
+     "https://github.com/ericward-noaa/complexity-costly"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "year": 2014,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "not visible in search results (repo README not retrievable; only repository description visible)",
+    "outcome_definition": "not applicable",
+    "key_finding": "Repository 'complexity-costly' is described as 'Repo for data and code from Ward et al. 2014, Complexity is costly... DOI: 10.1111/j.1600-0706.2014.00916.x'. No further details visible.",
+    "notes": "Named in the task as a baseline-forecast convention; README/directory could not be retrieved (raw README 404; GitHub contents API restricted in this session)."
+   },
+   {
+    "citation": "Ye H, et al. (2015) Equation-free mechanistic ecosystem forecasting using empirical dynamic modeling. Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://github.com/ha0ye/fraser_sockeye_PNAS",
+    "evidence_urls": [
+     "https://github.com/ha0ye/fraser_sockeye_PNAS"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "year": 2015,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Fraser River sockeye salmon (per repository name/description)",
+    "outcome_definition": "not applicable (abundance forecasting)",
+    "key_finding": "Repository description: 'code and data for Ye et al. 2015 PNAS Equation-free mechanistic ecosystem forecasting using empirical dynamic modeling'. README not retrievable.",
+    "notes": "EDM forecasting of a fisheries population; candidate baseline-forecast convention (Sugihara group)."
+   },
+   {
+    "citation": "Rogers TL, Johnson BJ, Munch SB (year not visible) Chaos is not rare in natural ecosystems. (journal not visible in search results)",
+    "doi_or_url": "https://github.com/tanyalrogers/chaos_GPDD",
+    "evidence_urls": [
+     "https://github.com/tanyalrogers/chaos_GPDD",
+     "https://raw.githubusercontent.com/tanyalrogers/chaos_GPDD/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "partial",
+    "fixed_horizon_labels": "no",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "none (method-reliability study, not collapse forecasting)",
+    "data_system": "Global Population Dynamics Database (GPDD) time series obtained via rgpdd and merged with life-history info; simulated embedding/test/validation datasets",
+    "outcome_definition": "Chaos classification (not collapse)",
+    "key_finding": "Six chaos-detection methods (direct LE, Jacobian LE via rEDM 0.7.4, RQA, permutation entropy, horizontal visibility graphs, chaos decision tree) were evaluated on simulated test and validation datasets (including a noise validation set); 'the most reliable methods (JLE, RQA, PE) were applied to empirical data in the GPDD'.",
+    "notes": "Illustrates a validate-on-simulations-then-apply-to-GPDD design and GPDD filtering code; not an EWS study."
+   },
+   {
+    "citation": "Munch SB, Rogers TL (2026) Memory, chaos, and noise in ecological forecasting. Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://github.com/tanyalrogers/memory-chaos-noise",
+    "evidence_urls": [
+     "https://github.com/tanyalrogers/memory-chaos-noise",
+     "https://raw.githubusercontent.com/tanyalrogers/memory-chaos-noise/main/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "year": 2026,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "no",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Living Planet Index time series (not redistributable; omitted from repo) and plankton time series; metadata and results for all series analyzed provided in combined_results.csv",
+    "outcome_definition": "not applicable (forecast skill, not collapse)",
+    "key_finding": "Code and results for a PNAS 2026 forecasting study on Living Planet Index and plankton series; the repo provides per-series results and metadata (figures reproducible from combined_results.csv) but LPI raw data are withheld.",
+    "notes": "Directly relevant as a recent forecasting analysis on LPD series (a candidate dataset); design details not visible."
+   },
+   {
+    "citation": "Rogers TL, Munch SB (maintainers) GPEDM: Gaussian Process regression for Empirical Dynamic Modeling (R package, v0.0.0.9010); cites Johnson B & Munch SB (2022) An empirical dynamic modeling framework for missing or irregular samples. Ecological Modelling",
+    "doi_or_url": "https://github.com/tanyalrogers/GPEDM",
+    "evidence_urls": [
+     "https://github.com/tanyalrogers/GPEDM",
+     "https://raw.githubusercontent.com/tanyalrogers/GPEDM/master/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (software)",
+    "data_system": "Software; example on simulated theta-logistic populations",
+    "key_finding": "Hierarchical GP-EDM with automatic relevance determination; supports leave-one-out ('loo') and leave-timepoint-out ('lto') out-of-sample predictions and reports in-sample vs out-of-sample R-squared, including pooling across populations via a dynamic correlation parameter.",
+    "notes": "Candidate capacity-matched nonlinear learner for baselines; 'lto' relates to time-indexed evaluation."
+   },
+   {
+    "citation": "Park J, et al. (Sugihara Lab) rEDM: Empirical Dynamic Modeling (R package, CRAN v2.0.2, 2026-08-21); methods from Sugihara & May (1990), Sugihara (1994), Sugihara et al. (2012), Ye & Sugihara (2016)",
+    "doi_or_url": "https://github.com/SugiharaLab/rEDM",
+    "evidence_urls": [
+     "https://github.com/SugiharaLab/rEDM",
+     "https://raw.githubusercontent.com/SugiharaLab/rEDM/master/README.md",
+     "https://raw.githubusercontent.com/cran/rEDM/master/DESCRIPTION"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (software)",
+    "data_system": "Software; README example on annual sunspots",
+    "key_finding": "Simplex projection, S-map, multivariate/multiview embedding and CCM; README example trains on the first two-thirds of a series (lib) and forecasts the last third (pred) one step ahead, the standard EDM out-of-sample convention.",
+    "notes": "Model-free forecasting convention (Sugihara group) usable as a baseline learner; Perretti-Munch-Sugihara 2013 paper itself was not found on GitHub."
+   },
+   {
+    "citation": "Dietze M (2017) Ecological Forecasting. Princeton University Press (companion repository EcoForecast/EF_Activities)",
+    "doi_or_url": "https://github.com/EcoForecast/EF_Activities",
+    "evidence_urls": [
+     "https://github.com/EcoForecast/EF_Activities",
+     "https://raw.githubusercontent.com/EcoForecast/EF_Activities/master/README.md",
+     "https://github.com/EcoForecast/ecoforecastR"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "year": 2017,
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (textbook/course materials)",
+    "data_system": "Teaching exercises",
+    "key_finding": "Course activities cover state-space models (Ch. 8), fusing time-series data, uncertainty propagation, Kalman and particle filters (data assimilation), model assessment (Ch. 16) and decision support; ecoforecastR provides 'general statistical and informatic tools for ecological forecasting in R'.",
+    "notes": "Dietze et al. 2018 PNAS 'iterative near-term forecasting' paper itself was not locatable via GitHub."
+   },
+   {
+    "citation": "Ecological Forecasting Initiative (eco4cast) NEON Ecological Forecasting Challenge tooling: neon4cast (helper R package), score4cast (scoring utilities), neon4cast-phenology (null models), neon4cast-baselines, Forecast_submissions (EFI Theory Working Group), predictability (no paper citation visible in search results)",
+    "doi_or_url": "https://github.com/eco4cast/neon4cast",
+    "evidence_urls": [
+     "https://github.com/eco4cast/neon4cast",
+     "https://raw.githubusercontent.com/eco4cast/neon4cast/main/README.md",
+     "https://github.com/eco4cast/score4cast",
+     "https://raw.githubusercontent.com/eco4cast/score4cast/main/README.md",
+     "https://github.com/eco4cast/neon4cast-phenology",
+     "https://github.com/eco4cast/neon4cast-baselines",
+     "https://github.com/eco4cast/Forecast_submissions",
+     "https://raw.githubusercontent.com/eco4cast/Forecast_submissions/main/README.md",
+     "https://github.com/eco4cast/predictability"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "yes",
+    "out_of_sample_holdout": "yes",
+    "false_alarms_quantified": "no",
+    "fixed_horizon_labels": "partial",
+    "calibration_reported": "partial",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "Random-walk benchmark (fable RW) in neon4cast README; null models for phenology; EFI Theory WG models incl. linear model, ETS, lasso and random forest run daily via GitHub Actions",
+    "data_system": "NEON continental-scale data streams (aquatics oxygen/temperature, phenology, terrestrial, beetles, ticks)",
+    "outcome_definition": "not applicable (continuous targets; Bernoulli family also supported in score4cast)",
+    "key_finding": "score4cast 'emphasizes the use of strictly proper scores' (CRPS and log score, citing Gneiting & Raftery 2007) for probabilistic forecasts in the EFI standard format with a horizon column; neon4cast README demonstrates blinding the most recent 35 days, issuing a 35-day-ahead random-walk benchmark forecast, and scoring with crps_sample/crps_norm from scoringRules once target data become available; Forecast_submissions automates daily forecasts across NEON streams.",
+    "notes": "Best-documented convention for sequential, out-of-sample, proper-score evaluation with explicit horizons and null/benchmark models; not collapse-specific. The Thomas et al. challenge overview paper was not locatable via GitHub."
+   },
+   {
+    "citation": "Liu Z, Zhang X, Ru X, Gao T-T, Moore JM, Yan G (2024) Early Predictor for the Onset of Critical Transitions in Networked Dynamical Systems. Physical Review X",
+    "doi_or_url": "https://github.com/m-serious/tipping-predictor",
+    "evidence_urls": [
+     "https://github.com/m-serious/tipping-predictor",
+     "https://raw.githubusercontent.com/m-serious/tipping-predictor/main/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "high",
+    "year": 2024,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "partial",
+    "false_alarms_quantified": "unknown",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Synthetic networked dynamical systems (three systems; resource-biomass system among them) plus 'a new empirical system' (empirical_data folder)",
+    "outcome_definition": "Critical time of sharp decline of resource biomass (onset of critical transition)",
+    "key_finding": "GIN-GRU graph/recurrent network pre-trained on massive synthetic data (CTPiCS.py) then fine-tuned to predict a new empirical system (CTPiCS2real.py); includes robustness tests against incomplete data fractions, observational noise (SNR) and transient/continuously increasing control parameters.",
+    "notes": "Physics venue; transfer from synthetic to empirical system is the out-of-sample element."
+   },
+   {
+    "citation": "Patel D, et al. (authors beyond Patel not visible) Reservoir computing applied to simple dynamical system models to predict tipping points and beyond. Chaos (AIP)",
+    "doi_or_url": "10.1063/5.0131787",
+    "evidence_urls": [
+     "https://github.com/dhruvitppatel/reservoir-computing-dynamical-extrapolation",
+     "https://raw.githubusercontent.com/dhruvitppatel/reservoir-computing-dynamical-extrapolation/main/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "low",
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "Simple dynamical system models (simulations)",
+    "key_finding": "MATLAB code for reservoir-computing experiments that predict tipping points and post-tipping dynamics in simple models; paper at doi 10.1063/5.0131787.",
+    "notes": "Machine-learning tipping prediction on simulations only."
+   },
+   {
+    "citation": "Holmes EE, et al. MARSS: Multivariate Autoregressive State-Space Modeling (R package, CRAN v3.11.10, 2025-09-10)",
+    "doi_or_url": "https://github.com/atsa-es/MARSS",
+    "evidence_urls": [
+     "https://github.com/atsa-es/MARSS",
+     "https://raw.githubusercontent.com/atsa-es/MARSS/master/README.md",
+     "https://raw.githubusercontent.com/cran/MARSS/master/DESCRIPTION",
+     "https://github.com/atsa-es/atsa-labs"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (software)",
+    "data_system": "Software",
+    "key_finding": "Maximum-likelihood (EM/BFGS; TMB via marssTMB) fitting of linear Gaussian multivariate autoregressive state-space models with or without covariates; companion 'Applied Time Series Analysis' course labs (atsa-labs) for fisheries and environmental data.",
+    "notes": "Reference implementation for the local-linear state-space (random-walk-with-drift) baseline."
+   },
+   {
+    "citation": "Anderson SC, Branch TB, Cooper AB, Dulvy NK (year not visible; README says 'In press') Black-swan events in animal populations. Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://github.com/seananderson/heavy-tails",
+    "evidence_urls": [
+     "https://github.com/seananderson/heavy-tails",
+     "https://raw.githubusercontent.com/seananderson/heavy-tails/master/README.md"
+    ],
+    "relevance": "adjacent",
+    "confidence": "medium",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "not applicable (heavy-tailed process-noise models fit in Stan)",
+    "data_system": "Global Population Dynamics Database (analysis/gpdd folder)",
+    "outcome_definition": "Extreme (black-swan) population changes; not collapse forecasting",
+    "key_finding": "Analysis of heavy-tailed population dynamics across GPDD animal populations using Stan models; provides GPDD processing code.",
+    "notes": "Relevant to defining abrupt declines and to GPDD handling; not an EWS or forecasting evaluation."
+   },
+   {
+    "citation": "McRae L, et al. (2017) The diversity-weighted Living Planet Index: controlling for taxonomic bias in a global biodiversity indicator. PLoS ONE 12(1): e0169156 (rlpi package, ZSL)",
+    "doi_or_url": "https://github.com/Zoological-Society-of-London/rlpi",
+    "evidence_urls": [
+     "https://github.com/Zoological-Society-of-London/rlpi",
+     "https://raw.githubusercontent.com/Zoological-Society-of-London/rlpi/master/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "year": 2017,
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (data/index method)",
+    "data_system": "Living Planet Database; public CSV version at figshare doi 10.6084/m9.figshare.4300022.v1 excludes around 3000 confidential populations",
+    "key_finding": "rlpi computes LPI indices via geometric means aggregated from population to species to taxonomic/realm groups; source data are rows of popid, speciesname, year, popvalue. The public LPD CSV omits ~3000 confidential populations.",
+    "notes": "Important data-availability constraint for the LPD candidate dataset."
+   },
+   {
+    "citation": "bioTIMEHub (Sagouis A et al.) BioTIMEr: Tools to Use and Explore the BioTIME Database (CRAN v0.3.2, 2026-03-04); database paper: BioTIME 2.0: Expanding and Improving a Database of Biodiversity Time Series (Global Ecology and Biogeography)",
+    "doi_or_url": "10.1111/geb.70003",
+    "evidence_urls": [
+     "https://github.com/bioTIMEHub/BioTIMEr",
+     "https://raw.githubusercontent.com/bioTIMEHub/BioTIMEr/main/README.md",
+     "https://github.com/bioTIMEHub/BioTIME",
+     "https://raw.githubusercontent.com/cran/BioTIMEr/master/DESCRIPTION"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (data resource)",
+    "data_system": "BioTIME 2.0 assemblage time series",
+    "key_finding": "BioTIMEr provides functions (e.g., gridding to standardise dataset extent) and a subset of BioTIME; the bioTIMEHub/BioTIME repo holds code used in BioTIME v2.0.",
+    "notes": "Candidate dataset access tooling."
+   },
+   {
+    "citation": "Maureaud A, et al. (2024) An integrated database of fish biodiversity sampled with scientific bottom trawl surveys [FishGlob_data]. Scientific Data",
+    "doi_or_url": "https://github.com/fishglob/FishGlob_data",
+    "evidence_urls": [
+     "https://github.com/fishglob/FishGlob_data",
+     "https://raw.githubusercontent.com/fishglob/FishGlob_data/main/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "year": 2024,
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (data resource)",
+    "data_system": "29 publicly available bottom trawl surveys from Europe and North America (FishGlob database)",
+    "key_finding": "Repository includes methods to load, clean and process 29 bottom-trawl surveys plus the final database (CC BY 4.0), with a citation/disclaimer policy and survey-specific metadata; paper linked at nature.com/articles/s41597-023-02866-w.",
+    "notes": "Candidate survey-index dataset."
+   },
+   {
+    "citation": "Global Population Dynamics Database access tooling: ropensci/rgpdd (deprecated) and boettiger-lab/gpdd; GPDD now hosted on KNB",
+    "doi_or_url": "10.5063/F1BZ63Z8",
+    "evidence_urls": [
+     "https://github.com/ropensci/rgpdd",
+     "https://raw.githubusercontent.com/ropensci/rgpdd/master/README.md",
+     "https://github.com/boettiger-lab/gpdd",
+     "https://raw.githubusercontent.com/boettiger-lab/gpdd/master/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (data resource)",
+    "data_system": "GPDD tables (gpdd_data, gpdd_main, gpdd_timeperiod, gpdd_taxon, gpdd_datasource, ...)",
+    "key_finding": "rgpdd README states the package is deprecated because the GPDD can be downloaded directly as CSV files from KNB (doi 10.5063/F1BZ63Z8); boettiger-lab/gpdd provides download_gpdd/load_gpdd for the KNB tables.",
+    "notes": "Candidate dataset access."
+   },
+   {
+    "citation": "Gupta K, Boettiger C (rOpenSci) ramlegacy: Download and Read RAM Legacy Stock Assessment Database (R package, CRAN v0.2.0, 2019)",
+    "doi_or_url": "https://github.com/ropensci/ramlegacy",
+    "evidence_urls": [
+     "https://github.com/ropensci/ramlegacy",
+     "https://raw.githubusercontent.com/ropensci/ramlegacy/master/README.md",
+     "https://raw.githubusercontent.com/cran/ramlegacy/master/DESCRIPTION",
+     "https://github.com/seananderson/ramlegacy"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (data resource)",
+    "data_system": "RAM Legacy Stock Assessment Database (Excel versions cached locally)",
+    "key_finding": "Provides download_ramlegacy() to fetch and cache versions of the RAM Legacy Stock Assessment Database, 'an online compilation of stock assessment results for commercially exploited marine populations'.",
+    "notes": "Candidate dataset access."
+   },
+   {
+    "citation": "G\u00e9nin A, et al. (2018) [spatialwarnings package paper; title not visible]. Methods in Ecology and Evolution",
+    "doi_or_url": "10.1111/2041-210X.13058",
+    "evidence_urls": [
+     "https://github.com/spatial-ews/spatialwarnings",
+     "https://raw.githubusercontent.com/cran/spatialwarnings/master/DESCRIPTION"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "year": 2018,
+    "time_indexed_forecast_origins": "no",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "partial",
+    "baseline_comparator": "none (software)",
+    "data_system": "Spatial raster data",
+    "key_finding": "R package (CRAN v3.1.2, 2026-07-23) to compute and assess significance of spatial EWS of ecosystem degradation (e.g., spatial autocorrelation) that increase before nonlinear transitions.",
+    "notes": "Spatial, not temporal, EWS; background only."
+   },
+   {
+    "citation": "Bury TM (2023) ewstools: A Python package for early warning signals of bifurcations in time series data. Journal of Open Source Software",
+    "doi_or_url": "10.21105/joss.05038",
+    "evidence_urls": [
+     "https://github.com/ThomasMBury/ewstools",
+     "https://raw.githubusercontent.com/ThomasMBury/ewstools/main/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "high",
+    "year": 2023,
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "no",
+    "false_alarms_quantified": "no",
+    "baseline_comparator": "none (software)",
+    "data_system": "Software; built-in models (e.g., Ricker) for testing",
+    "key_finding": "Computes CSD indicators (variance, SD, CV, autocorrelation at chosen lags, skewness, kurtosis, spectral metrics, entropy, DFA) with Gaussian/LOWESS detrending, Kendall tau trend statistics, bootstrapping, and applies the Bury et al. 2021 deep-learning classifiers incrementally along a series (apply_classifier_inc); README cites Dakos et al. (2024) Earth System Dynamics review.",
+    "notes": "Reference implementation for the prespecified ar1/variance trend score; also flags a 2024 review (Dakos et al., ESD 15:1117) not otherwise verified here."
+   },
+   {
+    "citation": "Clements CF, Ozgul A (2016) [title and journal not visible in search results; cited in EWSmethods README]",
+    "doi_or_url": "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md",
+     "https://github.com/duncanobrien/EWSmethods"
+    ],
+    "relevance": "adjacent",
+    "confidence": "low",
+    "year": 2016,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "partial",
+    "fixed_horizon_labels": "unknown",
+    "calibration_reported": "unknown",
+    "censoring_or_series_end_handled": "unknown",
+    "non_transitioning_series_included": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "not visible in search results",
+    "key_finding": "EWSmethods README states: 'Including trait information has been shown to decrease the likelihood of both false positive and false negative signals (Clements and Ozgul, 2016; Baruah et al. 2019)'. No other details visible.",
+    "notes": "Only a secondary mention was visible; verify title/DOI via WebSearch."
+   },
+   {
+    "citation": "Drake JM, Griffen BD (2010) [title not visible in search results; cited for the expanding-window EWS approach]. Nature",
+    "doi_or_url": "10.1038/nature09389",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/cran/EWSmethods/master/DESCRIPTION",
+     "https://raw.githubusercontent.com/duncanobrien/EWSmethods/master/README.md"
+    ],
+    "relevance": "background",
+    "confidence": "medium",
+    "year": 2010,
+    "time_indexed_forecast_origins": "partial",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "not visible in search results",
+    "key_finding": "Cited by EWSmethods as the source of the 'expanding window' EWS approach (indicators standardised over an expanding window with a burn-in and threshold), as opposed to Dakos et al. 2012 rolling windows.",
+    "notes": "Expanding-window alarms are inherently sequential (time-indexed); details of the original study not visible."
+   },
+   {
+    "citation": "Weinans E, et al. (2021) [title not visible in search results; multivariate resilience indicators]. Scientific Reports",
+    "doi_or_url": "10.1038/s41598-021-87839-y",
+    "evidence_urls": [
+     "https://raw.githubusercontent.com/cran/EWSmethods/master/DESCRIPTION"
+    ],
+    "relevance": "background",
+    "confidence": "low",
+    "year": 2021,
+    "time_indexed_forecast_origins": "unknown",
+    "out_of_sample_holdout": "unknown",
+    "false_alarms_quantified": "unknown",
+    "baseline_comparator": "not visible in search results",
+    "data_system": "not visible in search results",
+    "key_finding": "Cited in the EWSmethods CRAN DESCRIPTION as a methodological source for multivariate EWS; no details visible.",
+    "notes": "Verify via WebSearch."
+   }
+  ],
+  "notes": "CRITICAL LIMITATION: the session's WebSearch budget was already exhausted (200/200 calls) when this subagent started, so all five seed WebSearch queries were refused and zero WebSearch results were obtained; the required minimum of 8 WebSearch queries could not be met. WebFetch/curl to publishers, PubMed, Crossref, Zenodo, etc. are blocked. The only reachable evidence source was GitHub: (a) GitHub repository search (mcp__github__search_repositories; ~40 queries such as '\\\"early warning\\\" bifurcation deep learning', 'user:eco4cast', 'user:ThomasMBury', 'user:duncanobrien', 'user:tanyalrogers', 'user:cboettig', 'user:boettiger-lab', 'user:ha0ye', 'user:atsa-es', 'user:seananderson', 'user:vdakos', 'ramlegacy in:name', 'FishGlob in:name', 'BioTIME in:name', 'rlpi Living Planet Index', 'neon4cast', 'EWSmethods', 'ewsnet in:name', '\\\"intrinsic predictability\\\" ecological', 'MARSS in:name'), (b) GitHub code search (README-scoped and repo-scoped; mostly empty or noise), and (c) raw.githubusercontent.com fetches of README.md and CRAN DESCRIPTION files. The GitHub contents API (get_file_contents) is restricted to the session's own repo, so directory listings were unavailable; scraping github.com HTML for file lists returned nothing. Consequences: citations, data systems and code-workflow facts are reliable where READMEs state them, but most preregistration design fields (time-indexed origins, fixed-horizon labels, calibration, censoring, false-alarm quantification) are 'unknown' because they are not stated in READMEs. Studies that were explicitly sought but NOT found on GitHub (and therefore are not reported, to avoid inventing details): Cerini/Childs/Clements 'predictive timeline of wildlife population collapse'; Clements & Ozgul 2016 code; Burthe et al. 2016; Gsell et al. 2016; Wilkinson et al. 2018 whole-lake experiments; Carpenter et al. 2011; Grziwotz et al. 2023 (dynamical eigenvalue); Perretti, Munch & Sugihara 2013; Arani et al. 2021 exit time; Dietze et al. 2018 PNAS iterative near-term forecasting; Thomas et al. 2023 NEON challenge overview; Lindegren et al. 2012; Dakos et al. 2024 ESD review (only cited in ewstools README). Ward et al. 2014 'Complexity is costly' repo exists (ericward-noaa/complexity-costly) but has no retrievable README. Ye et al. 2015 PNAS repo (ha0ye/fraser_sockeye_PNAS) has no retrievable README. Recommendation for the orchestrator: re-run this sweep with WebSearch budget restored (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION) targeting: O'Brien et al. 2023 lake-EWS paper (journal/DOI/AUC results), Bury et al. 2021 AUC values, Lapeyrolerie & Boettiger 2023 evaluation design, Munch & Rogers 2026 PNAS LPI forecasting design, Pennekamp et al. 2019 article DOI, Ward et al. 2014 full title and design, and the unfound studies listed above. No EWS-outcome associations were computed or speculated about in any dataset."
  }
 ]

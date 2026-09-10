@@ -25,26 +25,52 @@ Deliverables (repository paths):
 | proposed parameters and clarifications | `reports/stage0_proposed_parameters.md`, `CHANGELOG.md` |
 | power analysis report | `reports/stage0_power_analysis.md` |
 
-## 1. Literature audit (Section 3.1) — gate: PASSED at snippet level
+## 1. Literature audit (Section 3.1) — gate: PASSED, with a narrower claim
 
-243 dated WebSearch queries in four completed topic sweeps yielded 193 study
-records. No record describes a study that already performs sequential,
-fixed-horizon, out-of-sample prediction of population-abundance collapse with a
-matched state/trend baseline, a common false-alarm budget and complete
-follow-up. The closest precedents, which the manuscript must cite as such, are
-Zhang et al. 2020 (Ecological Indicators; SD/AR1 vs productivity regime shifts
-in 191 RAM Legacy populations), Cano, Jensen & Dakos 2025 (PNAS; dynamical-
-footprint classification on RAM/ICES/FishGlob), Pélissié et al. 2026 (Science
-Advances; abrupt productivity declines precede 25 % of collapses by 10–20
-years), Burthe et al. 2016 and O'Brien et al. 2023. Prior work did quantify
-false positives and include non-transitioning series, as the plan already
-concedes. The audit could not open any full text (publisher hosts blocked);
-five of nine planned sweeps, the key-paper extractions and the adversarial
-refutations did not run because of session usage limits. The gate is passed
-provisionally and must be confirmed on full texts (list in the audit report).
-Two factual corrections to the plan: Gsell et al. 2016 analysed five
-freshwater ecosystems, not nine lakes (the nine-lake set is O'Brien et al.
-2023); Pélissié is not an author of Cano et al. 2025.
+482 executed queries across four topic sweeps with working search, two
+GitHub-only supplementary sweeps and eight anchor-paper design extractions
+(256 study records). Detail in `reports/stage0_literature_audit.md`.
+
+No study performs sequential, fixed-horizon prediction of first
+population-abundance collapse with predictors restricted to data available at
+each origin, alarm thresholds calibrated to a common false-alarm budget, a
+matched state-and-trend baseline on the same origins, and complete outcome
+ascertainment for negatives. The combination is novel.
+
+The claim must be narrowed in four ways that a first pass missed. Cano et al.
+(2025) already validate autocorrelation- and variance-type metrics
+out-of-sample on RAM Legacy and FishGlob by leave-one-out cross-validation
+across series, with AUC 0.84, 0.75 and 0.65 on RAM Legacy, ICES cod and
+FishGlob. Zhang et al. (2020) already evaluate standard deviation and lag-1
+autocorrelation on 191 RAM Legacy populations with a positive likelihood ratio
+and lead times beyond five years for more than half of them. Pélissié et al.
+(2026) already quantify their signal's false alarms: 26 % of stocks with a
+negative productivity shift went on to collapse, against base rates of 23 % in
+collapsed and 12 % in non-collapsed stocks. Burthe et al. (2016) already
+counted true positives, false negatives and false positives across 126
+datasets with a ten-year association window, finding false positives more
+common than false negatives. So we are not first to score false alarms, first
+to include non-transitioning series, first to validate out-of-sample, or first
+to apply these indicators at scale to our datasets.
+
+What the audit did strengthen is the motivation. Cano et al. relabel
+predicted-abrupt non-abrupt series as populations "at risk" rather than
+counting them as false alarms, with no follow-up window and no later
+verification; Pélissié et al. report a signal with a 26 % positive predictive
+value and no comparator. An operating-point analysis against a matched
+baseline is the direct remedy for both, and that is the paper's contribution.
+Ward et al. (2014), verified from the authors' PDF, supplies the baseline
+convention: on 2379 vertebrate series a random walk without drift is the
+benchmark that 49 more complex models mostly failed to beat at 1-5 year
+horizons.
+
+Corrections to the plan's text: Gsell et al. 2016 analysed five freshwater
+ecosystems, not nine lakes (the nine-lake set is O'Brien et al. 2023);
+Pélissié is not an author of Cano et al. 2025; Litzow et al. 2013 is in
+Ecological Applications. Caveats: no full text was read except Ward et al.
+2014 and Lapeyrolerie & Boettiger 2023 (both on GitHub), because publisher
+hosts are blocked; five planned sweeps and all three refutation agents did not
+run, and the session's 200-query search budget is now spent.
 
 ## 2. Data access and licensing (Section 3.2)
 
@@ -189,10 +215,15 @@ Summarized from `reports/stage0_proposed_parameters.md`:
    consequences for releasing labels; whether LPD populations duplicate GPDD.
 3. Whether the GMEX event cluster is real.
 4. GPDD Reliability code semantics and the KNB licence.
-5. Full-text verification of Zhang 2020, Cano 2025, Pélissié 2026 designs.
+5. Full-text verification of Zhang 2020, Cano 2025, Pélissié 2026 designs;
+   in particular how Zhang operationalized "no regime shift" and whether
+   Cano's leave-one-out protocol leaks information across related stocks.
 6. The five literature sweeps that did not run (ML/multivariate EWS follow-
    ups, methodological critiques, evaluation methodology, GPDD/LPD/BioTIME
-   applications, 2024–2026 recency).
+   applications, 2024–2026 recency), plus three novelty-refutation agents.
+   One surfaced item needs checking for direct overlap: O'Brien & Clements
+   2025 (`lpi-multivariate-res`), which applies multivariate resilience
+   methods to Living Planet data.
 7. Retrospective bias in assessment series (final vs as-assessed values)
    threatens a strict prequential claim for RAM-derived origins.
 8. B2 state-space convergence check not run (would touch real series).
