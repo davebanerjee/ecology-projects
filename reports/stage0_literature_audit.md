@@ -173,7 +173,45 @@ Hefley 2013; Ward 2014 (already read via the authors' PDF); the 2024 Science
 retrospective-bias paper; Pinsky 2011 and Pinsky & Byler 2015 for collapse
 definitions.
 
-## 7. Known gaps of this audit
+## 7. Living Planet Database precedents (checked 2026-09-12)
+
+Three items were checked directly because they could overlap with the
+terrestrial component or supply annotations.
+
+* **Capdevila, Noviello, McRae, Freeman & Clements (2022). Global patterns of
+  resilience decline in vertebrate populations. Ecology Letters 25: 240-251.**
+  Resilience (resistance and recovery, estimated from changes in the
+  population growth rate) computed for Living Planet Database vertebrate time
+  series; resilience is declining worldwide and faster under multiple
+  threats. A resilience-indicator trend analysis at LPD scale, not a
+  collapse-prediction benchmark; no forecast origins, alarms or baselines are
+  visible. Threat to novelty: low. It establishes that LPD-scale
+  resilience analyses exist and must be cited in the terrestrial positioning.
+* **Capdevila, O'Brien, Marconi, Johnson, Freeman, McRae & Clements (2026).
+  Halting predicted vertebrate declines requires tackling multiple drivers of
+  biodiversity loss. Science Advances 12(7): eadx7973 (bioRxiv
+  2025.01.02.630023; code at duncanobrien/multiple-threats, Zenodo 18775663).**
+  3129 LPD vertebrate population time series with documented exposure to
+  single and multiple threats; populations under disease, invasive species,
+  pollution and climate change decline faster than those under habitat loss
+  or exploitation alone; counterfactual analyses of threat mitigation. A
+  threat-attribution and trend study, not an early-warning benchmark. Threat
+  to novelty: none. Its value for us is different: the per-population threat
+  annotations are exactly the kind of external, outcome-blind annotation the
+  Section 11 mechanism analysis needs, and the code repository is public.
+* **Smith, Morr, Schötz & Boers (2026). Estimating the resilience of
+  non-stationary systems. arXiv:2604.24345 (submitted 2026-04-27).** A
+  regression-based Langevin formulation of critical slowing down that is
+  robust to gaps and irregular sampling and returns uncertainty bounds.
+  Relevant as a candidate for the Section 13 gap-handling sensitivity
+  analysis, since our primary cohort requires complete windows and loses
+  half of the FishGlob events to that rule.
+
+The `lpi-multivariate-res` repository (O'Brien & Clements 2025) surfaced by
+the GitHub-only sweep did not appear in any search result and remains
+unverified; it should be inspected directly before preregistration.
+
+## 8. Known gaps of this audit
 
 No full text was read for any paper except Ward et al. 2014 and Lapeyrolerie &
 Boettiger 2023, whose manuscripts are on GitHub. Five planned sweeps did not
@@ -187,7 +225,7 @@ Bury 2025 (Communications Physics 8:258, surrogate-trained ML with ROC); Liu
 et al. 2024 (Phys Rev X, GIN-GRU tipping predictor); Looker, Rock & Dyson
 (PLoS Comput Biol, doi:10.1371/journal.pcbi.1013524); Pélissié, Devictor &
 Dakos 2024 (Biol Conserv, doi:10.1016/j.biocon.2023.110429, the abrupt-shift
-classifier itself); Evers et al. `bifurcationEWS`; O'Brien & Clements 2025
-(`lpi-multivariate-res`, which applies multivariate resilience methods to
-Living Planet data and must be checked for overlap). Re-running the missing
-searches from a machine with publisher access is the first Stage 1 action.
+classifier itself); Evers et al. `bifurcationEWS`; Laitinen, Dakos & Lahti,
+probabilistic multivariate early warning signals (arXiv:2205.07576).
+Re-running the missing searches from a machine with publisher access is the
+first Stage 1 action.
