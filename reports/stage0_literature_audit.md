@@ -9,19 +9,20 @@ repositories, and (for two papers) from author-hosted PDFs on
 raw.githubusercontent.com. Saved queries:
 `data/metadata/literature_queries.json` (482 executed, 23 submitted after the
 session's 200-query budget was exhausted and refused). Raw structured
-outputs: `data/metadata/literature_sweeps_raw.json` (six sweep agents, 256
+outputs: `data/metadata/literature_sweeps_raw.json` (eight sweep agents, 333
 study records) and `data/metadata/literature_keypapers_raw.json` (eight
 anchor-paper design extractions).
 
-Coverage achieved: four topic sweeps with working search (fixed-horizon
+Coverage achieved: six topic sweeps with working search (fixed-horizon
 prediction and false alarms; out-of-sample validation and forecasting
-baselines; fisheries collapse prediction; lakes and communities), two
-GitHub-only supplementary sweeps, and eight anchor-paper extractions. Five
-planned sweeps (machine-learning and multivariate EWS; methodological
-critiques; evaluation methodology; GPDD/LPD/BioTIME applications; a 2024-2026
-recency sweep), three adversarial novelty refutations and the synthesis and
-critic agents did not run: the session usage limit was reached three times
-and the WebSearch budget is now spent. Those gaps are listed in Section 7.
+baselines; fisheries collapse prediction; lakes and communities;
+machine-learning and multivariate EWS; methodological critiques), two
+GitHub-only supplementary sweeps, and eight anchor-paper extractions. Three
+planned sweeps (evaluation methodology; GPDD/LPD/BioTIME applications; a
+2024-2026 recency sweep), three adversarial novelty refutations and the
+synthesis and critic agents had not completed at the time of writing because
+the session usage limit was reached on four successive attempts. Those gaps
+are listed in Section 10.
 
 ## 1. Novelty verdict
 
@@ -211,21 +212,111 @@ The `lpi-multivariate-res` repository (O'Brien & Clements 2025) surfaced by
 the GitHub-only sweep did not appear in any search result and remains
 unverified; it should be inspected directly before preregistration.
 
-## 8. Known gaps of this audit
+## 8. Machine-learning and multivariate early-warning signals (sweep of 48 queries, 37 records)
+
+No search result showed a pretrained deep-learning classifier (Bury et al.
+2021 and 2023, EWSNet, TipPFN, SDML) evaluated on population-abundance
+collapse in RAM Legacy, GPDD, the Living Planet Database or BioTIME with
+sequential origins, a fixed calendar horizon and complete follow-up; targeted
+queries for such applications returned nothing. The closest empirical test
+remains O'Brien et al. 2023 on lake communities (EWSNet true-negative rates
+0.05-0.20; multivariate indicators only weakly better than univariate).
+False positives are quantified in several machine-learning papers (Bury 2021
+ROC against AR(1) nulls; Bury 2023 and Ma et al. 2025 sensitivity and
+specificity; Falmagne, Stephenson & Levin 2026: half of transitions detected
+at a 3.6 % false-positive rate with a held-out year; Masuda 2026: low
+false-positive rates from sequential adjudication of variance growth), so
+the preregistration must not claim that machine-learning EWS work ignored
+false alarms. None of the visible results used a state-and-trend forecasting
+baseline; comparators were classical indicators, surrogate nulls, chance, or
+other learners.
+
+Items that change the protocol:
+
+* **Dablander & Bury (2022, PNAS letter)**: the Bury et al. 2021 classifier
+  learned features of the detrending filter applied to its training set. The
+  Section 6.3 input-compatibility audit must therefore reproduce each
+  classifier's documented preprocessing exactly, and preprocessing must be
+  frozen before any classifier is applied.
+* **Masuda (2026, PNAS Nexus 5: pgag126, "TIPMOC")**: a sequential
+  variance-only test that adjudicates between linear and power-law variance
+  divergence, robust to uneven sampling and coloured noise. This is a
+  candidate secondary EWS for Section 6.3 and one of the few sequential
+  methods with an explicit false-positive rate.
+* **Huang et al. (2024, Nature Machine Intelligence)** and **Arumugam,
+  Guichard & Lutscher (2024)**: rate-induced tipping, where critical slowing
+  down is not expected; the Section 12 falsification suite should include
+  rate-induced transitions alongside bifurcations.
+* **Sevinchan et al. (2026, TipPFN preprint)**: argues that existing deep
+  classifiers do not extrapolate beyond their training regimes; supports
+  treating H2b as a hierarchically gated secondary hypothesis.
+* Weinans et al. 2021 (Scientific Reports) remains the reference evaluation
+  of multivariate indicators; Grziwotz et al. 2023 (DEV) and Kulkarni, Deb &
+  Dutta 2024 are the DEV sources for Section 6.3.
+
+## 9. Methodological critiques (sweep of 36 executed queries, 40 records)
+
+The critique literature converges on five constraints that the protocol
+already anticipates and should now cite explicitly.
+
+1. **Selection bias.** Boettiger & Hastings (2012, Proc R Soc B, "the
+   prosecutor's fallacy") distinguish selecting systems because they
+   transitioned from forecasting for systems one wishes to monitor; Gsell et
+   al. 2016 chose five systems because they transitioned; the Entropy 2026
+   review names conditional sampling bias directly. Our risk-set design and
+   the inclusion of all monitored systems are the answer, and the manuscript
+   should say so in these terms.
+2. **Detection limits and error rates.** Boettiger & Hastings (2012, J R Soc
+   Interface) frame evaluation as false alarms versus missed warnings and
+   show error rates "can be quite severe for common indicators even under
+   favorable assumptions"; Perretti & Munch (2012) show failure at
+   ecological noise levels; Clements et al. (2015) show subsampling muffles
+   or magnifies signals; Arkilanian et al. (2020) suggest a minimum of
+   roughly 5-10 generations of data. These bound expectations for the
+   effect size and justify the smallest-useful-effect framing.
+3. **No warning for some transitions.** Hastings & Wysham (2010); Boettiger &
+   Hastings (2013, large-deviation theory: conditioning on a stochastic
+   transition can mimic an early warning); van der Bolt, van Nes & Scheffer
+   (2021, J R Soc Interface: records must be long enough to capture the
+   response rate, and drivers must change slowly); the 2025 Scientific
+   Reports paper on rapidly changing parameters (warnings arrive after the
+   bifurcation). These are the null data-generating processes for Section 12.
+4. **Non-specificity and false positives.** Kéfi et al. (2013): critical
+   slowing down precedes non-catastrophic transitions too; Jäger & Füllsack
+   (2019): whole classes of systems always show warnings without
+   transitions; Wagner & Eisenman (2015): autocorrelation rose while variance
+   fell in a model with no bifurcation; Titus & Watson (2020): critical
+   speeding up. These justify the directional, separate speeding-up score
+   and the coloured-noise and variance-change nulls.
+5. **Window, detrending and missing-data sensitivity.** Dakos et al. (2012)
+   and Lenton et al. (2012) document dependence on window width, bandwidth
+   and aggregation; a 2026 Science Advances paper (Beijing Normal
+   University, TU Munich and PIK; authors not visible) shows that the
+   agreement between variance- and autocorrelation-based indicators is
+   driven by the series' initial data point and is weakened substantially by
+   missing values. The last result bears directly on our complete-window
+   rule and on the choice of a mean-removal transform (Section 6.2 window
+   simulation), and must be read in full.
+
+Also relevant: Ben-Yami et al. (2024) and Rietkerk et al. (2025) on the
+ambiguity of climate tipping warnings; Litzow & Hunsicker (2016) on testing
+for nonlinearity before trusting a warning; Dakos et al. (2024, Earth System
+Dynamics) for the taxonomy of warnings that do and do not rely on critical
+slowing down.
+
+## 10. Known gaps of this audit
 
 No full text was read for any paper except Ward et al. 2014 and Lapeyrolerie &
-Boettiger 2023, whose manuscripts are on GitHub. Five planned sweeps did not
-run: machine-learning and multivariate EWS follow-ups, methodological
-critiques (window and detrending sensitivity, sampling frequency, selection
-bias), evaluation methodology (landmark and IPCW methods, seizure-prediction
-metrics, equivalence testing), GPDD/LPD/BioTIME applications, and a dedicated
-2024-2026 recency sweep. No adversarial refutation agent ran. The
-GitHub-only supplements surfaced items worth following up: Ma, Zeng, Zhang &
-Bury 2025 (Communications Physics 8:258, surrogate-trained ML with ROC); Liu
-et al. 2024 (Phys Rev X, GIN-GRU tipping predictor); Looker, Rock & Dyson
-(PLoS Comput Biol, doi:10.1371/journal.pcbi.1013524); Pélissié, Devictor &
-Dakos 2024 (Biol Conserv, doi:10.1016/j.biocon.2023.110429, the abrupt-shift
-classifier itself); Evers et al. `bifurcationEWS`; Laitinen, Dakos & Lahti,
-probabilistic multivariate early warning signals (arXiv:2205.07576).
-Re-running the missing searches from a machine with publisher access is the
-first Stage 1 action.
+Boettiger 2023, whose manuscripts are on GitHub. Three planned sweeps had
+not completed: evaluation methodology (landmark and IPCW methods,
+seizure-prediction metrics, equivalence testing), GPDD/LPD/BioTIME
+applications, and a dedicated 2024-2026 recency sweep. No adversarial
+refutation agent had completed. The GitHub-only supplements surfaced items
+worth following up: Ma, Zeng, Zhang & Bury 2025 (Communications Physics
+8:258); Liu et al. 2024 (Phys Rev X, GIN-GRU tipping predictor); Looker, Rock
+& Dyson (PLoS Comput Biol, doi:10.1371/journal.pcbi.1013524); Pélissié,
+Devictor & Dakos 2024 (Biol Conserv, doi:10.1016/j.biocon.2023.110429, the
+abrupt-shift classifier itself); Evers et al. `bifurcationEWS`; Laitinen,
+Dakos & Lahti, probabilistic multivariate early warning signals
+(arXiv:2205.07576). Re-running the missing searches from a machine with
+publisher access is the first Stage 1 action.
