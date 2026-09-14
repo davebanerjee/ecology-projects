@@ -1,0 +1,422 @@
+[
+ {
+  "queries_run": [
+   "WebSearch [REFUSED - session budget 200/200 exhausted before this subtask]: early warning signals population collapse out-of-sample prediction baseline model machine learning ecological time series benchmark",
+   "WebSearch [REFUSED - budget exhausted]: \"early warning signals\" \"added value\" OR \"incremental\" OR \"beyond current state\" abundance trend predict collapse ecological time series",
+   "WebSearch [REFUSED - budget exhausted]: critical slowing down indicators predictive value hindcast fish stock collapse autocorrelation variance ROC false positive rate",
+   "WebSearch [REFUSED - budget exhausted]: Global Population Dynamics Database early warning signals extinction crash prediction random forest gradient boosting logistic regression",
+   "WebSearch [REFUSED - budget exhausted]: Living Planet Database early warning signals autocorrelation variance decline prediction cross-validation",
+   "WebSearch [REFUSED - budget exhausted]: deep learning early warning signals tipping points empirical ecological data null model comparison out-of-sample Bury Dylewsky",
+   "LOCAL CORPUS (project saved sweeps, 674 previously executed WebSearch queries, 411 records; file data/metadata/literature_sweeps_raw.json): regex filter for random forest|boosted|boosting|gradient|logistic|xgboost|classifier|benchmark|added value|incremental|predictive value|beyond current state/trend|baseline|null model|GPDD|Global Population Dynamics|Living Planet|LPI|BioTIME|microcosm|mesocosm|experiment (341 unique records inspected)",
+   "LOCAL CORPUS (data/metadata/literature_queries.json): listing of earlier executed queries with Angle-B vocabulary, e.g. 'machine learning early warning signals GPDD Living Planet population time series extinction collapse classifier out-of-sample'; '\"Living Planet Database\" OR \"BioTIME\" forecast population decline collapse \"out-of-sample\" OR hindcast OR \"early warning\"'; '\"Global Population Dynamics Database\" \"early warning\" signals population collapse autocorrelation variance test'; 'machine learning predict fish stock collapse hindcast \"RAM Legacy\" random forest out-of-sample'; 'Cano Dakos 2025 PNAS fish abrupt shifts \"boosted regression trees\" OR \"BRT\" cross-validation AUC'; 'Deb 2022 \"machine learning methods trained on simple models\" critical transitions natural systems' (all executed 2026-09-08 by earlier agents)",
+   "LOCAL CORPUS (data/metadata/literature_keypapers_raw.json): full design extractions for Cano 2025, Zhang 2020, Pelissie 2026, Burthe 2016, O'Brien 2023, Bury 2021, Ward 2014, Lapeyrolerie & Boettiger 2023",
+   "GitHub repo search (api.github.com): early warning signals ecological time series machine learning -> 0 hits",
+   "GitHub repo search: critical slowing down tipping point prediction benchmark -> 0 hits",
+   "GitHub repo search: population collapse early warning random forest OR \"gradient boosting\" OR logistic -> 0 hits",
+   "GitHub repo search: \"early warning signals\" (sorted by updated; 266 repos, none an ecological population-collapse benchmark)",
+   "GitHub repo search: \"critical slowing down\" (35 repos; none an ecological population benchmark; surfaced zhugchzo/dynamics_EWS_tipping)",
+   "GitHub repo search: ewstools OR EWSNet OR \"early-warning\" ecology",
+   "GitHub repo search: user:duncanobrien (10 repos incl. ews-assessments, lpi-multivariate-res, EWSmethods, multiple-threats)",
+   "GitHub repo search: \"Living Planet\" resilience OR \"early warning\" OR collapse in:name,description,readme (470 hits, only rlpi relevant, a data/index package)",
+   "GitHub repo search: \"dynamical footprint\" OR \"abrupt shifts\" fish OR population in:name,description,readme (noise)",
+   "GitHub repo search: user:ThomasMBury (34 repos incl. ewstools, deep-early-warnings-pnas, dl_discrete_bifurcation)",
+   "GitHub repo search: user:matpelissie (6 repos incl. abrupt_shifts_ecological_timeseries_classification, ocean_warming_fisheries)",
+   "GitHub repo search: user:alejvcano (6 repos incl. dynfoot2025)",
+   "GitHub repo search: \"early warning\" tipping OR collapse OR \"regime shift\" ecological \"time series\" machine learning -> 0 hits",
+   "GitHub code search: \"early warning\" \"Living Planet\" autocorrelation variance -> 2 irrelevant hits",
+   "GitHub code search: \"early warning signals\" GPDD collapse OR extinction -> 7 hits (cboettig lab-notebook pages only)",
+   "GitHub code search: \"early warning\" \"random forest\" abundance collapse -> 169 hits, all arXiv-digest/unrelated",
+   "GitHub code search: \"early warning\" BioTIME -> 10 hits (bib files/unrelated)",
+   "GitHub code search: ewstools \"RAM Legacy\" OR gpdd OR \"Living Planet\" -> 0 hits",
+   "GitHub code search: \"Living Planet\" \"early warning\" language:R -> 0 hits",
+   "GitHub code search: GPDD \"early warning\" language:R -> 0 hits",
+   "GitHub code search: \"early warning\" \"random forest\" \"time series\" collapse language:R -> 0 hits",
+   "GitHub code search: \"early warning\" \"population\" \"xgboost\" OR \"gbm\" OR \"randomForest\" abundance collapse -> 1 irrelevant hit",
+   "GitHub code search: \"Global Population Dynamics Database\" \"early warning\" -> 32 hits (bib files, lab notebooks; none a benchmark)",
+   "GitHub code search: \"Living Planet\" \"critical slowing down\" -> 8 irrelevant hits",
+   "GitHub code search: BioTIME \"critical slowing down\" OR \"early warning signals\" OR \"resilience indicators\" -> 0 hits",
+   "GitHub code search: \"early warning signals\" \"state-space\" OR \"random walk\" baseline collapse forecast population -> 8 arXiv-digest hits",
+   "GitHub code search: generic_ews \"Living Planet\" OR gpdd OR BioTIME OR \"Global Population Dynamics\" -> 0 hits",
+   "GitHub code search: ewstools gpdd OR \"living planet\" OR biotime OR \"population collapse\" language:Python -> 0 hits",
+   "GitHub code search: \"early warning\" \"population collapse\" \"AUC\" \"random forest\" OR \"xgboost\" OR \"logistic\" -> API error 503",
+   "GitHub code search: \"early warning\" \"population collapse\" \"random forest\" -> 10 irrelevant hits",
+   "GitHub code search: \"Living Planet Index\" \"autocorrelation\" resilience OR \"early warning\" language:R -> 0 hits",
+   "raw.githubusercontent.com README fetch: duncanobrien/lpi-multivariate-res (HTTP 200)",
+   "raw.githubusercontent.com README fetch: duncanobrien/ews-assessments (HTTP 200)",
+   "raw.githubusercontent.com README fetch: duncanobrien/EWSmethods (HTTP 200)",
+   "raw.githubusercontent.com README fetch: zhugchzo/dynamics_EWS_tipping (HTTP 200)"
+  ],
+  "equivalent_study_found": false,
+  "candidates": [
+   {
+    "citation": "Deb, S., Sidheekh, S., Clements, C.F., Krishnan, N.C. & Dutta, P.S. (2022). Machine learning methods trained on simple models can predict critical transitions in complex natural systems (EWSNet). Royal Society Open Science 9(2): 211475.",
+    "url": "https://doi.org/10.1098/rsos.211475",
+    "overlap_with_our_design": "Closest thing to an ML benchmark of EWS in ecology found in the saved search records: a deep network (LSTM + fully convolutional) trained on simulations from nine dynamical models (catastrophic, non-catastrophic, no transition) was compared against four classical ML classifiers (logistic regression, SVM, random forest, MLP) trained on EWS trend statistics such as autocorrelation, with a no-transition class included, and was then applied to real-world series 'from rapid climatic change to the collapse of ecological populations' (record: 6 of 8 climate series classified correctly; simulated test accuracy 99.46 % and 95.93 % on two datasets; error analysis with 1 % catastrophic mislabelled non-catastrophic and 8 % the reverse). Evidence seen: saved sweep records citing https://royalsocietypublishing.org/doi/10.1098/rsos.211475 , https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8847887/ and the EWSNet code repository https://github.com/sahilsid/EWSNet (Zenodo 10.5281/zenodo.5027683).",
+    "what_is_missing": "All comparator learners are fed EWS-derived features, so there is no state-and-trend or conventional-forecast baseline; no sequential forecast origins or fixed calendar horizon are visible; which ecological population datasets were used and any per-dataset false-alarm rate, calibration, or follow-up/censoring handling are not visible in search results. Separately, O'Brien et al. 2023 report EWSNet true-negative probabilities of roughly 0.05-0.2 on lake data (see that candidate). Full text must be checked before preregistration.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Cano, A.V., Jensen, O.P. & Dakos, V. (2025). Identifying fish populations prone to abrupt shifts via dynamical footprint analysis. PNAS 122(34): e2505461122.",
+    "url": "https://doi.org/10.1073/pnas.2505461122",
+    "overlap_with_our_design": "Gradient-boosted trees (caret xgbTree) trained on a 'dynamical footprint' of seven stability metrics including lag-1 autocorrelation, SD and CV (whole-series values plus Kendall-tau trends over rolling windows of 50 % of series length) to predict abrupt vs non-abrupt series across 9,006 fish series (397 RAM Legacy productivity, 199 ICES cod CPUE, 8,410 FishGlob CPUE; 629 retained after the >=20-year, no-missing-values filter); leave-one-out cross-validation across series gave AUC 0.84 (RAM Legacy), 0.75 (ICES cod), 0.65 (FishGlob); non-abrupt series form the negative class and class-wise sensitivity is reported (40 % for the abrupt class in FishGlob). Code: https://github.com/alejvcano/dynfoot2025 (repository existence confirmed directly via GitHub API). Evidence seen: saved anchor-paper extraction citing https://www.pnas.org/doi/10.1073/pnas.2505461122 and https://pmc.ncbi.nlm.nih.gov/articles/PMC12403094/ .",
+    "what_is_missing": "Not time-indexed (one footprint and one predicted class per series; no forecast origins, no 1-5 year horizon); cross-validation is across series, not across time; the outcome is a retrospective trajectory-shape label (AICc model selection confirmed by asdetect), not an abundance-collapse threshold; no state/trend or null-model comparator; no calibration; non-abrupt series predicted abrupt are relabelled 'potential abrupt'/'at risk' (50 populations across 11 LMEs) rather than counted as false alarms, with no follow-up verification; marine fish only.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Falmagne, G., Stephenson, A.B. & Levin, S.A. (2026). Interpretable early warnings using machine learning in an online game-experiment. PNAS 123(1): e2503493122.",
+    "url": "https://doi.org/10.1073/pnas.2503493122",
+    "overlap_with_our_design": "Methodologically the nearest template: gradient-boosted decision trees on multiple system-specific time series with memory-retaining features, a fixed detection horizon, a held-out later event (trained on Reddit r/place 2022, tested on 2023), an explicit false-positive rate (half of transitions detected within 20 minutes at a 3.6 % false-positive rate), an explicit non-transitioning class, and a reported comparison in which standard critical-slowing-down indicators are significantly outperformed; SHAP attributions recover slowing down or speeding up. Evidence seen: saved sweep records citing https://www.pnas.org/doi/10.1073/pnas.2503493122 and https://arxiv.org/abs/2502.09880 .",
+    "what_is_missing": "Not ecological: the system is a human online collective-behaviour experiment, not monitored population abundances; the outcome is a behavioural transition, not population collapse; whether the feature set isolates state/trend features from EWS features (i.e., an incremental-value test) is not visible; no calibration to a common alarm budget across competing models, no biological-system grouping, no censoring logic visible.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Gao, Chakraborty, Greiner, Lewis & Wang (2025). Early detection of disease outbreaks and non-outbreaks using incidence data: a framework using feature-based time series classification and machine learning. PLOS Computational Biology.",
+    "url": "https://doi.org/10.1371/journal.pcbi.1012782",
+    "overlap_with_our_design": "Feature-based time-series classification with machine learning on 22 statistical features plus 5 EWS indicators, an explicit non-outbreak class, expanding- and rolling-window evaluation, and out-of-sample AUC reported from 0.99 (large expanding training windows) down to 0.7 (small rolling windows) on synthetic and real incidence data. Evidence seen: saved sweep record citing https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1012782 and https://arxiv.org/pdf/2404.08893 .",
+    "what_is_missing": "Epidemiological incidence, not ecological population abundance; the real datasets are not named in search results; no state/trend baseline is visible and it is not visible whether the incremental value of the 5 EWS features over the 22 statistical features is isolated; no calibration to a matched false-alarm burden, no biological-system grouping, censoring handling not visible.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "O'Brien, D.A., Deb, S., Gal, G., Thackeray, S.J., Dutta, P.S., Matsuzaki, S.S., May, L. & Clements, C.F. (2023). Early warning signals have limited applicability to empirical lake data. Nature Communications 14: 7942.",
+    "url": "https://doi.org/10.1038/s41467-023-43744-8",
+    "overlap_with_our_design": "Empirical multi-lake test (README of https://github.com/duncanobrien/ews-assessments , fetched directly, names Kinneret, Kasumigaura, Loch Leven, Mendota, Monona, Washington, Windermere and upper/lower Zurich plankton data) of classical univariate and multivariate EWS plus the EWSNet deep classifier, with non-transitioning series included, true-positive and true-negative rates reported separately against a 0.5 chance reference, Bayesian binomial 'success' models, and ROC/precision-recall indices added in review (supplementary_code/ROC_ability.R per the saved GitHub-sweep record). Saved records report most indicators no better than chance, multivariate EWS only weakly superior, and EWSNet true-positive probability about 0.9 but true-negative probability about 0.05-0.2 (two extraction records give slightly different values). Evidence seen: records citing https://www.nature.com/articles/s41467-023-43744-8 and https://pmc.ncbi.nlm.nih.gov/articles/PMC10692136/ .",
+    "what_is_missing": "Outcome is community/regime change in lake plankton, not first population-abundance collapse; binary per-series fate rather than fixed-horizon sequential alarms; no state-and-trend or conventional forecast baseline; no calibration to a common false-alarm budget; no censoring logic visible; nine lakes rather than a cross-realm population database.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Burthe, S.J., Henrys, P.A., Mackay, E.B., Spears, B.M., Campbell, R., Carvalho, L., Dudley, B., Gunn, I.D.M., Johns, D.G., Maberly, S.C., May, L., Newell, M.A., Wanless, S., Winfield, I.J., Thackeray, S.J. & Daunt, F. (2016). Do early warning indicators consistently predict nonlinear change in long-term ecological data? Journal of Applied Ecology 53(3): 666-676.",
+    "url": "https://doi.org/10.1111/1365-2664.12519",
+    "overlap_with_our_design": "The largest multi-series abundance test of variance and lag-1 autocorrelation with explicit true-positive/false-negative/false-positive accounting: 126 abundance datasets from 55 taxa across trophic levels in marine and freshwater systems; series-level true positives uncommon (8 % variance, 6 % autocorrelation), false positives more prevalent than false negatives, and 43 % of series classified differently by the two indicators. Evidence seen: saved anchor-paper extraction citing https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2664.12519 .",
+    "what_is_missing": "Retrospective whole-series classification (indicator presence cross-tabulated against detected turning points with a 10-year association window); no forecast origins, no fixed horizon, no held-out evaluation, no state/trend baseline, no calibration, no censoring rule visible; outcome is 'significant nonlinear change', not an abundance-collapse threshold; no machine-learning learners.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Ward, E.J., Holmes, E.E., Thorson, J.T. & Collen, B. (2014). Complexity is costly: a meta-analysis of parametric and non-parametric methods for short-term population forecasting. Oikos 123(6): 652-661.",
+    "url": "https://doi.org/10.1111/j.1600-0706.2014.00916.x",
+    "overlap_with_our_design": "The strongest precedent for our state-and-trend baseline on the candidate data: population time series from the Global Population Dynamics Database and RAM Legacy (audit records 2,379 vertebrate series), models fit to all but the last five observations, 1-5 step-ahead forecasts scored by MASE against a random walk without drift, 49 model variants; the naive last-observation forecast was among the most accurate and added complexity usually cost accuracy. Evidence seen: saved records citing the DOI and the independent reproduction report http://opetchey.github.io/RREEBES/WARD_etal_2014_Oikos/report/Ward_2014_report.html .",
+    "what_is_missing": "No EWS predictors, no collapse/event outcome, no alarms, no false-alarm accounting, no calibration; a single hold-out origin per series rather than sequential prequential origins; continuous forecast error rather than event detection.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Pinsky, M.L. & Byler, D. (2015). Fishing, fast growth and climate variability increase the risk of collapse. Proceedings of the Royal Society B 282(1813): 20151053.",
+    "url": "https://royalsocietypublishing.org/rspb/article/282/1813/20151053/84303/Fishing-fast-growth-and-climate-variability",
+    "overlap_with_our_design": "Boosted regression trees predicting collapse versus depletion across 154 RAM Legacy marine fish populations (biomass and fishing-pressure series 1950-2008), with non-collapsing populations included; overfishing was the most important predictor (chronic overfishing associated with depletion, acute overfishing with collapse) and fast-growing species were more collapse-prone, especially in variable climates. Evidence seen: saved sweep record citing the Royal Society URL above.",
+    "what_is_missing": "No EWS predictors at all (predictors are fishing pressure, growth rate, climate variability); whether evaluation used held-out data or sequential origins is not visible; no fixed horizon, no alarm thresholds, calibration or false-alarm budget visible; marine fish only.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Zhang, F. (2020). Early warning signals of population productivity regime shifts in global fisheries. Ecological Indicators 115: 106371.",
+    "url": "https://doi.org/10.1016/j.ecolind.2020.106371",
+    "overlap_with_our_design": "Standard deviation and lag-1 AR coefficient evaluated for predicting observed productivity regime shifts in 191 RAM Legacy populations with an explicit true-positive / true-negative / lead-time framing and a positive likelihood ratio (which requires a false-positive rate); more than five years of warning for more than half of populations with a 'successful' EWS; SD and AR1 jointly detected in fewer than half the shifts. Evidence seen: saved anchor-paper extraction citing https://www.sciencedirect.com/science/article/abs/pii/S1470160X20303083 .",
+    "what_is_missing": "Outcome is a productivity regime shift, not first abundance collapse; no state/trend or conventional-forecast comparator; no train/test split, sequential origins or fixed horizon visible; no calibration to a matched false-alarm burden; no censoring handling visible; single realm; no learners.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Pelissie, M., Devictor, V., Jensen, O.P. & Dakos, V. (2026). Abrupt declines in fish productivity often precede stock collapses in marine fisheries. Science Advances 12(36): eaed7911.",
+    "url": "https://doi.org/10.1126/sciadv.aed7911",
+    "overlap_with_our_design": "315 RAM Legacy stocks; abrupt productivity shifts detected by AICc trajectory classification in 25.7 % of stocks; collapse defined as biomass below 25 % of the to-date average (robustness at 10 % of maximum and 15 %/50 % of average); negative shifts occurred in 23 % of collapsed vs 12 % of non-collapsed stocks and only 11 of 42 negative-shift stocks (26 %) later collapsed, most 4-12 years before collapse; non-collapsing stocks are in the sample. Code/data repository https://github.com/matpelissie/ocean_warming_fisheries (existence confirmed via GitHub API). Evidence seen: saved anchor-paper extraction citing https://www.science.org/doi/10.1126/sciadv.aed7911 and https://pmc.ncbi.nlm.nih.gov/articles/PMC13537261/ .",
+    "what_is_missing": "Predictor is a whole-series regime-shift classification (with hindsight), not an AR1/variance EWS score; no forecast origins, no out-of-sample or hindcast evaluation, no state/trend baseline, no calibrated alarm threshold or false-alarm budget; right-censoring handling not visible; marine stocks only; no learners.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Bury, T.M., Sujith, R.I., Pavithran, I., Scheffer, M., Lenton, T.M., Anand, M. & Bauch, C.T. (2021). Deep learning for early warning signals of tipping points. PNAS 118(39): e2106140118.",
+    "url": "https://doi.org/10.1073/pnas.2106140118",
+    "overlap_with_our_design": "Capacity-matched-learner precedent: a CNN-LSTM trained on 500,000/200,000 simulated bifurcation series with a null (no-bifurcation) class, applied incrementally along series and scored by ROC/AUC against Kendall-tau trends of variance and lag-1 autocorrelation, with AR(1) surrogate series as negatives on empirical data (one record: 268 empirical and model series). Code https://github.com/ThomasMBury/deep-early-warnings-pnas (existence confirmed via GitHub API). Evidence seen: saved records citing the PNAS DOI.",
+    "what_is_missing": "No population-abundance data (empirical tests are sediment anoxia, thermoacoustic and paleoclimate records); evaluation uses fractions of the pre-transition series rather than fixed calendar horizons; negatives are surrogates rather than observed non-collapsing populations; comparator is classical EWS, not a state/trend forecast; no calibration to a common alarm budget; Dablander & Bury 2022 (https://doi.org/10.1073/pnas.2207720119) showed detrending-filter dependence.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Hefley, T.J., Tyre, A.J. & Blankenship, E.E. (2013). Statistical indicators and state-space population models predict extinction in a population of bobwhite quail. Theoretical Ecology 6: 319-331.",
+    "url": "https://doi.org/10.1007/s12080-013-0195-3",
+    "overlap_with_our_design": "The one saved record that pairs an EWS-type statistical indicator with a state-space population model estimating a threshold crossing (extinction threshold estimated in 2010, 95 % CI 2002-2036, in one dataset and 2008 in the other) on a wild population - i.e., the same two ingredients as our EWS score and state-space threshold-crossing baseline. Evidence seen: saved record citing https://link.springer.com/article/10.1007/s12080-013-0195-3 .",
+    "what_is_missing": "Single population (two datasets), no non-transitioning series, no comparative skill evaluation between the indicator and the state-space model, no sequential origins, horizon, calibration or false-alarm accounting.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Drake, J.M. & Griffen, B.D. (2010). Early warning signals of extinction in deteriorating environments. Nature 467: 456-459.",
+    "url": "https://doi.org/10.1038/nature09389",
+    "overlap_with_our_design": "Experimental population benchmark with negatives: 60 laboratory Daphnia magna tanks, half under deteriorating food supply and half controls; four critical-slowing-down indicators showed signals in deteriorating but not control populations up to eight generations before extinction. Evidence seen: saved sweep records citing the DOI.",
+    "what_is_missing": "Retrospective comparison of treatment vs control; no forecast origins or fixed horizon, no out-of-sample evaluation, no state/trend baseline, no calibrated alarm threshold or false-alarm budget; laboratory populations rather than monitored field populations; no learners.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Jarvis-Cross, M., Kirk, D., Krichel, L., Luijckx, P., Molnar, P.K. & Krkosek, M. (2025). Early warning signals do not predict a warming-induced experimental epidemic. PLOS Global Public Health.",
+    "url": "https://doi.org/10.1371/journal.pgph.0005142",
+    "overlap_with_our_design": "Experimental Daphnia magna-Ordospora colligata system with 4 control and 4 warming populations plus 1,000 simulated populations each; EWS of epidemic emergence were nearly as likely to be detected in sub-epidemic-temperature controls as in warming populations, an explicit false-positive result. Code https://github.com/MadelineJC/EarlyWarningSignals_Repo . Evidence seen: saved records citing https://journals.plos.org/globalpublichealth/article?id=10.1371%2Fjournal.pgph.0005142 and https://pmc.ncbi.nlm.nih.gov/articles/PMC12507300/ .",
+    "what_is_missing": "Outcome is epidemic emergence, not host population collapse; retrospective treatment-vs-control comparison without forecast origins, horizon, out-of-sample validation, state/trend baseline, calibration or alarm budget; quantitative false-alarm rates not visible in search results.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Clements, C.F. & Ozgul, A. (2016). Including trait-based early warning signals helps predict population collapse. Nature Communications 7: 10984.",
+    "url": "https://doi.org/10.1038/ncomms10984",
+    "overlap_with_our_design": "Microcosm experiment with abundance and body-size time series in which composite trait-plus-abundance EWS gave more reliable warnings of experimentally induced collapse than abundance-only EWS; a follow-up (per saved record) reports weightings that decrease false-positive and increase true-positive frequencies. Related: Clements, Blanchard, Nash, Hindell & Ozgul (2017) Nature Ecology & Evolution 1: 188 (https://doi.org/10.1038/s41559-017-0188) applied the same idea to ~70 years of whaling records, reporting EWS up to 40 years before collapse and reduced false positives when body size is added. Evidence seen: saved sweep records citing the DOIs.",
+    "what_is_missing": "Comparator is another EWS (abundance-only), not a state/trend forecast; retrospective, no forecast origins or fixed horizon, no out-of-sample evaluation, no calibrated alarm budget; laboratory or single historical system rather than a cross-realm population database; no learners.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Krkosek, M. & Drake, J.M. (2014). On signals of phase transitions in salmon population dynamics. Proceedings of the Royal Society B 281: 20133221.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24759855/",
+    "overlap_with_our_design": "Multi-stock field test of critical slowing down: recruitment dynamics of 120 stocks of three Pacific salmon species; pink salmon populations approaching extinction showed increased variability and autocorrelation (per saved record; a Drake-lab summary at https://daphnia.ecology.uga.edu/drakelab/?p=937 notes that forecasting fish stock collapses via CSD 'has not yet been developed'). Evidence seen: saved sweep records citing the PubMed URL.",
+    "what_is_missing": "Design details (origins, horizon, out-of-sample evaluation, baseline, false-alarm rate, censoring) are not visible in search results; anadromous stocks only; no learners.",
+    "verdict": "partial-overlap",
+    "confidence": "low"
+   },
+   {
+    "citation": "Zhuge, C., Luo, Z. & Chen, W. (year and journal not visible). Detecting regime shifts from dynamics using early warning signals. Code repository zhugchzo/dynamics_EWS_tipping.",
+    "url": "https://github.com/zhugchzo/dynamics_EWS_tipping",
+    "overlap_with_our_design": "README (fetched directly from raw.githubusercontent.com) describes a dynamics-based EWS framework with ROC-curve evaluation against 'two competing approaches' on synthetic systems, noise-robustness tests, and empirical tests on two real-world systems: the Veraart et al. 2012 cyanobacterial population-collapse microcosm and a fish-school transition dataset (Lin et al. 2025, PRX Life).",
+    "what_is_missing": "Only two empirical systems, one a laboratory microcosm; no population database, no sequential fixed-horizon origins, no state/trend forecasting baseline, no calibrated alarm budget or complete follow-up visible; publication details not visible.",
+    "verdict": "partial-overlap",
+    "confidence": "low"
+   },
+   {
+    "citation": "O'Brien, D.A. & Clements, C.F. (2025). Stability metrics behave predictably across data qualities but are sensitive to community size. Code repository duncanobrien/lpi-multivariate-res (Zenodo 10.5281/zenodo.8341485).",
+    "url": "https://github.com/duncanobrien/lpi-multivariate-res",
+    "overlap_with_our_design": "Flagged in the project audit as unverified; README fetched directly today states only that the repository holds 'raw multispecies communities and resilience metric data' and R/Julia scripts for a study of how stability metrics respond to data quality and community size. The 'lpi' name suggests Living Planet Index data but the README does not say so.",
+    "what_is_missing": "No collapse outcome, forecast origins, baseline, calibration or false-alarm accounting visible; it is a metric-behaviour study, not a prediction benchmark. Related LPD-scale work in the audit (Capdevila et al. 2022 Ecology Letters resilience-trend analysis; Capdevila, O'Brien et al. 2026 Science Advances threat-attribution study, code https://github.com/duncanobrien/multiple-threats ) likewise shows no alarms or baselines as far as visible.",
+    "verdict": "not-overlapping",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Munch, S.B. & Rogers, T.L. (2026). Memory, chaos, and noise in ecological forecasting. PNAS. Code repository tanyalrogers/memory-chaos-noise.",
+    "url": "https://github.com/tanyalrogers/memory-chaos-noise",
+    "overlap_with_our_design": "The only saved record of a recent forecasting study on Living Planet Index time series (plus plankton series); per-series results and metadata are provided in combined_results.csv while LPI raw data are withheld. Evidence seen: saved GitHub-sweep record citing the repository README.",
+    "what_is_missing": "Forecast skill of abundance, not collapse events; no EWS predictors, alarms, false-alarm accounting or calibration visible; design details not visible.",
+    "verdict": "not-overlapping",
+    "confidence": "low"
+   }
+  ],
+  "reasoning": "Status of the search itself: the session's WebSearch budget (200/200) was exhausted before this subtask started, so all six WebSearch queries I submitted were refused and I could not run the >=10 fresh queries requested. I therefore (1) mined the project's own saved literature sweeps (data/metadata/literature_sweeps_raw.json and literature_keypapers_raw.json: 674 WebSearch queries executed by ten earlier sweep agents between 2026-09-08 and 2026-09-14, 411 study records and 8 anchor-paper extractions; several of those earlier queries used exactly the Angle-B vocabulary - GPDD/Living Planet/BioTIME + machine learning + out-of-sample/hindcast + classifier), and (2) ran ~30 live GitHub API repository and code searches plus four README fetches from raw.githubusercontent.com, which were reachable. Facts from the saved records are second-hand snippet extractions; I marked those at most 'medium' confidence and quoted the URLs the records carry. No full text of any paper was read. Adversarial verdict: no study was found that already performs time-indexed, temporally out-of-sample, baseline-controlled (state/trend or conventional forecast) sequential prediction of ecological population collapse with EWS and an explicit, matched false-alarm burden and complete follow-up. The nearest Angle-B neighbours each contain only some elements: Deb et al. 2022 (EWSNet vs logistic regression/SVM/random forest/MLP, but every learner is fed EWS trend features, no state/trend baseline, ecological test sets and false-alarm rates not visible); Cano et al. 2025 (xgboost on AR1/SD-type footprints over 9,006 fish series with leave-one-out CV across series, but not time-indexed, retrospective shape labels rather than collapse, no baseline, false alarms relabelled 'at risk'); Falmagne et al. 2026 and Gao et al. 2025 (gradient boosting/feature-based classifiers with held-out periods, explicit false-positive rates and non-transitioning classes - but in a human online game and in disease incidence, not ecological populations, and without a state/trend baseline visible); O'Brien et al. 2023 (lake communities, TP and TN rates vs chance, EWSNet TN ~0.05-0.2, no baseline, no horizon); Burthe 2016 and Zhang 2020 (explicit TP/FP tallies or likelihood ratios on abundance/productivity series, retrospective, no baseline); Pelissie 2026 (26 % positive predictive fraction, retrospective); Ward 2014 and Pinsky & Byler 2015 (GPDD/RAM forecasting baseline and BRT collapse predictors on RAM Legacy, respectively, but without EWS); Hefley 2013 (EWS plus a state-space threshold-crossing model, n = 1 population); experimental work (Drake & Griffen 2010, Clements & Ozgul 2016, Jarvis-Cross 2025) that has negatives but no forecasting design. Consistent with the project's stance, several of these did quantify false positives or include non-transitioning series, so the preregistration must not claim otherwise. GitHub searches for code applying EWS packages (ewstools, earlywarnings generic_ews, EWSmethods) to GPDD, Living Planet or BioTIME with random forests/boosting/logistic regression returned nothing relevant; the LPD-adjacent repositories found (lpi-multivariate-res, multiple-threats, memory-chaos-noise, rlpi) are metric-behaviour, threat-attribution, forecasting-skill or index tools, not collapse benchmarks. Residual risk: (a) the audit's planned 'GPDD/LPD/BioTIME applications' sweep never completed and my Angle-B WebSearch could not run, so an unindexed thesis, preprint or workshop paper benchmarking EWS against state/trend features with tree ensembles on GPDD/LPD/BioTIME cannot be ruled out; (b) Deb 2022's ecological test data and Gao 2025's real datasets are not visible and both should be read in full, together with Cano 2025, Falmagne 2026 and O'Brien 2023, before the novelty claim is finalized. Hard rule 1 was respected: no EWS-outcome associations were computed or speculated about for any dataset. Default applied: equivalent_study_found = false, with the closest candidates listed as partial-overlap."
+ },
+ {
+  "queries_run": [
+   "[WebSearch - REFUSED, session budget 200/200 already exhausted before this subtask] \"early warning signals\" fish stock collapse \"RAM Legacy\" critical slowing down autocorrelation variance predict",
+   "[WebSearch - REFUSED, budget] \"resilience indicators\" OR \"early warning indicators\" fisheries stock collapse hindcast cross-validation ROC AUC",
+   "[WebSearch - REFUSED, budget] early warning signals fisheries collapse \"out-of-sample\" prediction autocorrelation variance stock assessment",
+   "[WebSearch - REFUSED, budget] \"critical slowing down\" fish stock collapse \"B/BMSY\" OR \"exploitation rate\" OR \"fishing mortality\" early warning compared predictor",
+   "[WebSearch - REFUSED, budget] ICES working group report \"early warning\" indicators stock collapse regime shift autocorrelation variance time series",
+   "[WebSearch - REFUSED, budget] \"early warning\" \"stock collapse\" OR \"fishery collapse\" prediction \"false alarm\" OR \"false positive\" OR \"false positives\" time series indicators",
+   "[WebFetch - EGRESS_BLOCKED, one attempt] https://html.duckduckgo.com/html/?q=\"early warning signals\" fish stock collapse \"RAM Legacy\" critical slowing down predict",
+   "[GitHub repo search] early warning signals fisheries collapse (0 hits)",
+   "[GitHub repo search] \"RAM Legacy\" early warning OR resilience OR \"critical slowing\" (0 hits)",
+   "[GitHub repo search] critical slowing down fish stock OR fishery OR population collapse (0 hits)",
+   "[GitHub repo search] EWSmethods OR earlywarnings early warning signals R package (4 hits: spatial-ews/spatialwarnings, duncanobrien/EWSmethods, cran/earlywarnings, cran/spatialwarnings)",
+   "[GitHub repo search] tipping point prediction population time series deep learning early warning (0 hits)",
+   "[GitHub repo search] user:cboettig early warning OR ews OR \"critical transition\" (2 hits: earlywarning, ews-review)",
+   "[GitHub repo search] user:ThomasMBury (34 repos; ewstools, deep-early-warnings-pnas, fishery_flip_fold = Ricker-model EWS workspace)",
+   "[GitHub repo search] user:duncanobrien (10 repos; EWSmethods, ews-assessments, lpi-multivariate-res)",
+   "[GitHub repo search] regime shift OR \"critical transition\" fisheries OR \"fish stock\" early warning (60 hits; only jonathan-walter/fish-ewi-ms relevant)",
+   "[GitHub repo search] population collapse forecast OR prediction ecology \"early warning\" (0 hits)",
+   "[GitHub repo search] salmon OR cod OR herring OR sardine \"early warning\" collapse OR \"regime shift\" (8840 hits, none fisheries-EWS relevant in first 30)",
+   "[GitHub repo search] fisheries collapse prediction OR forecasting stock collapse machine learning (0 hits)",
+   "[GitHub repo search] \"Living Planet\" OR GPDD OR BioTIME \"early warning\" OR resilience OR \"tipping\" (generic hits only)",
+   "[GitHub repo search] user:mikelitzow (38 repos; ewi-in-recovery README = 'Files for publishing the FATE/ewi paper', predict-R = early-life-history predictors of recruitment; no collapse-EWS hindcast repo)",
+   "[GitHub repo search] \"dynamical footprint\" OR asdetect OR \"abrupt shift\" fish populations (223 generic hits, none relevant)",
+   "[GitHub repo search] fisheries productivity regime shift OR \"stock collapse\" OR \"fish stock\" resilience indicator (0 hits)",
+   "[GitHub repo search] user:jonathan-walter (28 repos; fish-ewi-ms, fish-ewi-app, wavelet-ewi)",
+   "[GitHub repo search] phase transition salmon population dynamics early warning (0 hits)",
+   "[GitHub repo search] resilience indicator fisheries stock time series critical slowing (0 hits)",
+   "[GitHub repo search] early warning signals empirical ecological time series validation false positive ROC (0 hits)",
+   "[GitHub code search] \"RAM Legacy\" \"early warning\" collapse (9 hits; only juanrocha/marine_tipping manuscript relevant)",
+   "[GitHub code search] \"critical slowing down\" \"stock collapse\" OR \"fishery collapse\" OR \"fisheries collapse\" (0 hits)",
+   "[GitHub code search] \"early warning\" ramlegacy OR RAMLDB autocorrelation (0 hits)",
+   "[GitHub code search] \"early warning\" FishGlob OR \"fish stocks\" \"collapse\" AUC (0 hits)",
+   "[GitHub code search] repo:jonathan-walter/fish-ewi-ms warning (1 hit: README)",
+   "[GitHub code search] generic_ews OR uniEWS OR \"ewstools\" ramlegacy OR RAMLDB OR \"stock assessment\" language:R (0 hits)",
+   "[GitHub code search] \"early warning\" \"hindcast\" OR \"out-of-sample\" fish collapse \"autocorrelation\" (2 irrelevant hits)",
+   "[GitHub code search] \"critical slowing down\" \"fish stocks\" OR \"fish populations\" \"autocorrelation\" collapse predict (1 irrelevant hit)",
+   "[GitHub code search] \"early warning signals\" \"Global Population Dynamics Database\" OR GPDD OR \"Living Planet\" collapse (0 hits)",
+   "[GitHub code search] \"early warning\" salmon OR Chinook OR sockeye collapse \"autocorrelation\" \"variance\" language:R (0 hits)",
+   "[GitHub code search] \"RAM Legacy\" \"autocorrelation\" OR \"critical slowing\" OR \"early warning\" language:R (0 hits)",
+   "[GitHub code search] \"early warning\" \"fish\" \"Kendall\" \"collapse\" \"AUC\" OR \"ROC\" OR \"sensitivity\" OR \"specificity\" language:R (0 hits)",
+   "[GitHub code search] \"early warning\" \"expanding window\" OR \"rolling origin\" OR \"forecast origin\" stock collapse \"autocorrelation\" language:R (0 hits)",
+   "[GitHub code search] \"early warning\" ICES cod \"autocorrelation\" \"variance\" collapse language:R (2 irrelevant hits)",
+   "[GitHub code search] \"collapse\" \"early warning\" \"B/BMSY\" OR \"BMSY\" \"autocorrelation\" fish (0 hits)",
+   "[Direct fetch, pypi.org] https://pypi.org/pypi/ewstools/json (ewstools 2.1.3 README: cites Scheffer 2009, Dakos 2012/2024, Bury 2021)",
+   "[Direct fetch, raw.githubusercontent.com] juanrocha/marine_tipping paper/manuscript.Rmd (Rocha et al., 'Identifying companies and financial actors exposed to marine tipping points')",
+   "[Direct fetch, raw.githubusercontent.com] duncanobrien/EWSmethods README.md and inst/CITATION",
+   "[Direct fetch, raw.githubusercontent.com] jonathan-walter/fish-ewi-ms README.md, code/apply_ewi_abund.R, code/ewi_trends_abund.R",
+   "[Direct fetch, raw.githubusercontent.com] mikelitzow/ewi-in-recovery README.md",
+   "[Consulted saved raw outputs of earlier Stage 0 sweeps in /home/user/ecology-projects/data/metadata/literature_sweeps_raw.json and literature_keypapers_raw.json: 698 saved query strings, 253 fisheries/collapse-related, e.g. 'early warning signals fisheries stock collapse RAM Legacy autocorrelation variance predict test'; '\"early warning signals\" \"RAM Legacy\" stock collapse autocorrelation variance retrospective'; 'machine learning predict fish stock collapse hindcast \"RAM Legacy\" random forest out-of-sample'; '\"early warning signals\" fish stock collapse hindcast OR retrospective \"years before\" ICES assessment sequential detection'; '\"critical slowing down\" fish stock collapse \"early warning\" empirical time series survey ICES OR \"North Sea\" OR cod retrospective test'; 'Litzow \"catch variability\" preceded fisheries collapses Alaska early warning'; 'Krkosek Drake 2014 \"signals of phase transitions\" salmon population dynamics Proceedings B'; 'Cano Jensen Dakos \"dynamical footprint\" fish populations abrupt shifts RAM Legacy FishGlob accuracy cross-validation'; '\"Abrupt declines in fish productivity often precede stock collapses in marine fisheries\" results warning years'; 'Pinsky Jensen Ricard Palumbi 2011 \"unexpected patterns of fisheries collapse\" definition collapse RAM Legacy']"
+  ],
+  "equivalent_study_found": false,
+  "candidates": [
+   {
+    "citation": "Cano, A. V., Jensen, O. P. & Dakos, V. (2025). Identifying fish populations prone to abrupt shifts via dynamical footprint analysis. PNAS 122(34): e2505461122. doi:10.1073/pnas.2505461122",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2505461122",
+    "overlap_with_our_design": "Closest fisheries precedent on out-of-sample validation with EWS-type predictors. Uses two of our candidate datasets plus a third (RAM Legacy productivity, ICES Atlantic cod survey CPUE, FishGlob CPUE; 9,006 series screened, 629 retained with >=20 years and no gaps). Predictors are a 'dynamical footprint' of seven stability metrics including lag-1 autocorrelation, SD, CV, skewness and a Jacobian dominant eigenvalue, each as a whole-series value and as a Kendall-tau rolling-window trend (window = 50% of series). Boosted regression trees (xgbTree) predict abrupt vs non-abrupt series; leave-one-out cross-validation gave AUC 0.84 (RAM Legacy), 0.75 (ICES cod), 0.65 (FishGlob); non-abrupt series are the negative class and class-wise sensitivity is reported (abrupt-class sensitivity as low as 40% in FishGlob). Code and processed data: https://github.com/alejvcano/dynfoot2025. Source of these facts: saved search-result records in the project's Stage 0 sweeps quoting the PNAS/PMC text (https://pmc.ncbi.nlm.nih.gov/articles/PMC12403094/) and the authors' code.",
+    "what_is_missing": "Not time-indexed: one footprint and one predicted class per series, no forecast origins, no lead-time or 1-5-year horizon; the rolling-window Kendall tau uses the whole series. Cross-validation is leave-one-out ACROSS series, not forward in time. Outcome is a retrospective trajectory-shape class (AICc-selected 'abrupt' breakpoint confirmed by asdetect), not an abundance-threshold collapse. No state-and-trend or conventional forecasting comparator. No calibration or common false-alarm budget: class = argmax probability, and non-abrupt series predicted abrupt are relabelled 'potential abrupt' (50 populations 'at risk') rather than counted as false alarms, with no follow-up verification and no censoring rule. No cross-realm grouping (GPDD, LPD, BioTIME, lakes absent). Full published text not seen by me (publisher/PMC blocked; facts come from saved snippets and the authors' repository).",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Zhang, F. (2020). Early warning signals of population productivity regime shifts in global fisheries. Ecological Indicators 115: 106371. doi:10.1016/j.ecolind.2020.106371",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1470160X20303083",
+    "overlap_with_our_design": "Same database (RAM Legacy, 191 populations) and the same two classical indicators (standard deviation and lag-1 autoregressive coefficient) evaluated for 'predicting observed productivity regime shifts'. Explicitly asks (per saved snippets of the paper's text) whether EWS are present when a shift occurs (true positive), absent when there is none (true negative), and how early they appear; reports a positive likelihood ratio (which requires a false-positive rate), SD outperforming AR1 on that ratio, joint detection in <50% of shifts, >5 years of warning for >50% of populations, and better performance in rockfish. Source: saved abstract-level snippets (ScienceDirect and https://www.researchgate.net/publication/340518651_Early_warning_signals_of_population_productivity_regime_shifts_in_global_fisheries).",
+    "what_is_missing": "Outcome is a productivity regime shift, not a first abundance collapse. Nothing visible indicates sequential forecast origins, a fixed 1-5-year horizon, any train/test split or hindcast, any non-EWS (state/trend or state-space) comparator, threshold calibration to a common false-alarm burden, or handling of right-censored series ends; how 'no regime shift' was operationalized is not visible in search results. Single realm. Full methods not seen (abstract-level evidence only), so partial overlap cannot be fully excluded.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "P\u00e9lissi\u00e9, M., Devictor, V., Jensen, O. P. & Dakos, V. (2026). Abrupt declines in fish productivity often precede stock collapses in marine fisheries. Science Advances 12(36): eaed7911. doi:10.1126/sciadv.aed7911",
+    "url": "https://www.science.org/doi/10.1126/sciadv.aed7911",
+    "overlap_with_our_design": "Nearest neighbour on data source and outcome: 315 RAM Legacy stocks (median series 41 years, 1950-2020); collapse defined as biomass below 25% of the average recorded to date, with sensitivity thresholds (10% of maximum; 15% and 50% of average). Reports that abrupt productivity declines preceded collapse by roughly a decade (most negative shifts 4-12 years before collapse) and quantifies its own false alarms: negative productivity shifts in 23% of collapsed vs 12% of non-collapsed stocks, and only 11 of 42 stocks (26%) with a negative shift later collapsed (saved snippets from https://pmc.ncbi.nlm.nih.gov/articles/PMC13537261/ and https://pubmed.ncbi.nlm.nih.gov/42685203/). Promoted publicly as a warning signal with ~12-year lead (https://www.umontpellier.fr/articles/detecter-le-declin-des-stocks-de-poisson-permettrait-deviter-leffondrement-des-pecheries).",
+    "what_is_missing": "Predictor is an AICc-classified abrupt shift in surplus production (whole-series model selection validated by an independent breakpoint method), not an AR1/variance EWS score. Shift dates are located with hindsight from the full series, so there are no forecast origins, no fixed horizon, no out-of-sample or hindcast evaluation, no state/trend or forecasting baseline, no calibration or false-alarm budget (the 26% positive-predictive fraction is a retrospective association), and right-censoring/complete follow-up handling is not visible. Single realm (marine assessed stocks only).",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Litzow, M. A., Mueter, F. J. & Urban, J. D. (2013). Rising catch variability preceded historical fisheries collapses in Alaska. Ecological Applications 23: 1475-1487. doi:10.1890/12-0670.1",
+    "url": "https://doi.org/10.1890/12-0670.1",
+    "overlap_with_our_design": "Empirical fisheries test of a variance-type early warning against collapse with explicit non-collapsing contrasts: spatially resolved catch data from 14 Gulf of Alaska/Bering Sea crustacean fisheries (12 collapsing, 2 non-collapsing; 278 cumulative fishery-years). A random-effects model across the 12 collapsing fisheries showed increasing spatial catch variability 1-4 years before collapse; individual trends were significant for only 4 of 12; variability trends differed significantly between collapsing and non-collapsing fisheries; no pre-collapse rise in skewness; authors attribute rising variability to fishing effects rather than critical slowing down (saved records citing https://esajournals.onlinelibrary.wiley.com/doi/10.1890/12-0670.1 and https://www.ncbi.nlm.nih.gov/pubmed/24147417).",
+    "what_is_missing": "Retrospective alignment on known collapse dates; no sequential forecast origins, no out-of-sample validation, no state/trend or forecasting baseline, no alarm-threshold calibration or matched false-alarm budget; exact collapse criterion and series-end handling not visible in search results; spatial catch variability rather than temporal AR1/variance of abundance; 14 fisheries in one region.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Clements, C. F., Blanchard, J. L., Nash, K. L., Hindell, M. A. & Ozgul, A. (2017). Body size shifts and early warning signals precede the historic collapse of whale stocks. Nature Ecology & Evolution 1(7): 188. doi:10.1038/s41559-017-0188",
+    "url": "https://www.nature.com/articles/s41559-017-0188",
+    "overlap_with_our_design": "Harvest-data test of abundance-based and trait-augmented EWS against a real collapse of exploited stocks (commercial whaling catch and body-size records over ~70 years); EWS reported detectable up to 40 years before global collapse; combining abundance and body size reduced the series length needed and the chance of false-positive predictions; abundance-only EWS serves as the comparator (saved records citing nature.com and https://pubmed.ncbi.nlm.nih.gov/28812591/).",
+    "what_is_missing": "No non-collapsing stocks as negatives, no forecast origins or fixed horizon, no out-of-sample evaluation, no state/trend forecasting baseline, no calibration or false-alarm budget; the comparator is another EWS variant; collapse criterion not visible in search results.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Krko\u0161ek, M. & Drake, J. M. (2014). On signals of phase transitions in salmon population dynamics. Proceedings of the Royal Society B 281: 20133221.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24759855/",
+    "overlap_with_our_design": "Fisheries test of critical slowing down in recruitment dynamics of 120 stocks of three Pacific salmon species; pink salmon populations approaching extinction reportedly showed increased variability and autocorrelation consistent with EWS (saved snippets, including a Drake-lab summary at https://daphnia.ecology.uga.edu/drakelab/?p=937 stating that forecasting fish stock collapses via CSD 'has not yet been developed').",
+    "what_is_missing": "Design details (forecast origins, hold-out, baseline, false-alarm accounting, outcome criterion) are not visible in search results; the authors' own framing (per the lab summary) is that a collapse-forecasting application had not been developed. Cross-stock comparison against a fitted growth parameter rather than sequential prediction.",
+    "verdict": "partial-overlap",
+    "confidence": "low"
+   },
+   {
+    "citation": "Pinsky, M. L. & Byler, D. (2015). Fishing, fast growth and climate variability increase the risk of collapse. Proceedings of the Royal Society B 282(1813): 20151053.",
+    "url": "https://royalsocietypublishing.org/rspb/article/282/1813/20151053/84303/Fishing-fast-growth-and-climate-variability",
+    "overlap_with_our_design": "Collapse-risk prediction on RAM Legacy (v1.0; 154 marine fish populations, 1950-2008) with boosted regression trees using fishing pressure (chronic vs acute overfishing), growth rate and climate variability; overfishing was the most important predictor, fast-growing species more collapse-prone especially in variable climates; non-collapsing populations included (saved records citing the journal page and https://pmc.ncbi.nlm.nih.gov/articles/PMC4632620/; data at https://datadryad.org/dataset/doi:10.5061/dryad.d5f53). Relevant as a 'conventional predictor of collapse' precedent, i.e., the kind of state/pressure baseline our design uses.",
+    "what_is_missing": "Not an EWS study (no AR1/variance indicators); no visible forecast origins, horizon, hindcast or hold-out; false-alarm accounting, calibration and censoring not visible; exact collapse thresholds not attributable from snippets.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Burgess, M. G. et al. (2013). Forecasting fisheries collapse. PNAS 110. doi:10.1073/pnas.1315109110 (co-authors not visible in search results)",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.1315109110",
+    "overlap_with_our_design": "Proposes a forecastable 'T-score' from multispecies life-history and effort information to flag weak incidentally caught stocks before collapse (T<1 not at risk; T>1 projected overfished; T>2 extinction risk) (saved records citing PNAS and https://pmc.ncbi.nlm.nih.gov/articles/PMC3791706/).",
+    "what_is_missing": "Mechanistic/effort-based index, not an EWS; no visible sequential hindcast, hold-out validation, false-alarm quantification, calibration or baseline comparison; datasets not visible in search results.",
+    "verdict": "partial-overlap",
+    "confidence": "low"
+   },
+   {
+    "citation": "Hefley, T. J., Tyre, A. J. & Blankenship, E. E. (2013). Statistical indicators and state-space population models predict extinction in a population of bobwhite quail. Theoretical Ecology 6: 319-331. doi:10.1007/s12080-013-0195-3",
+    "url": "https://link.springer.com/article/10.1007/s12080-013-0195-3",
+    "overlap_with_our_design": "One of the few field studies pairing an EWS-type statistical indicator with a state-space population model to estimate a threshold crossing (extinction threshold estimated at 2010, 95% CI 2002-2036, in one dataset; 2008 in a second) for a wild population (saved record).",
+    "what_is_missing": "Single population (n = 1), no non-transitioning controls, no false alarms, no out-of-sample or sequential-origin evaluation, no calibration; the state-space model is used alongside, not as a matched baseline scored on the same origins.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Holmes, E. E., Fagan, W. F., Rango, J. J., Folarin, A. J. A. S., Lippe, J. E. & McIntyre, N. E. (2005). Cross validation of quasi-extinction risks from real time series: an examination of diffusion approximation methods. NOAA Technical Memorandum NMFS-NWFSC-67.",
+    "url": "https://repository.library.noaa.gov/view/noaa/3422/noaa_3422_DS1.pdf",
+    "overlap_with_our_design": "Grey-literature precedent for the baseline side of our design: cross-validates diffusion-approximation quasi-extinction (decline-to-threshold) risk forecasts against realised outcomes in real population time series, with some horizon structure and partial calibration (saved record; series identities not visible).",
+    "what_is_missing": "No EWS indicators, no comparison of EWS against the state-space forecast, no false-alarm budget; details of origins, negatives and censoring not visible in search results.",
+    "verdict": "partial-overlap",
+    "confidence": "low"
+   },
+   {
+    "citation": "Ward, E. J., Holmes, E. E., Thorson, J. T. & Collen, B. (2014). Complexity is costly: a meta-analysis of parametric and non-parametric methods for short-term population forecasting. Oikos 123(6): 652-661. doi:10.1111/j.1600-0706.2014.00916.x",
+    "url": "https://raw.githubusercontent.com/eeholmes/eeholmes.github.io/master/publications/Wardetal2014.pdf",
+    "overlap_with_our_design": "Out-of-sample forecasting benchmark on 2379 vertebrate series including RAM Legacy recruits-per-spawner productivity (214), Living Planet Index birds/fish/mammals and Pacific salmon: 49 models scored by MASE on a held-out final 5-year window against a random-walk-without-drift (last-observation) baseline; the last observation was the most accurate forecast except for cyclic salmon; ARIMA/GAM errors similar to random walk and worsening at 2-4 steps (full text read from the authors' public PDF in an earlier stage; code at https://github.com/eric-ward/complexity-costly). Directly motivates our 'current state' baseline and capacity-matching concern.",
+    "what_is_missing": "No collapse or event outcome, no EWS indicators as predictors (AR1 and variance appear only as covariates of forecast error), no alarms/false-alarm budget, no calibration, a single forecast origin per series rather than sequential origins.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Burthe, S. J. et al. (2016). Do early warning indicators consistently predict nonlinear change in long-term ecological data? Journal of Applied Ecology 53(3): 666-676. doi:10.1111/1365-2664.12519",
+    "url": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2664.12519",
+    "overlap_with_our_design": "Largest multi-series empirical test of variance and lag-1 autocorrelation (126 abundance data sets, 55 taxa, six UK aquatic systems) with an explicit true-positive/false-negative/false-positive tally within a 10-year association window; false positives were more prevalent than false negatives (53% vs 38% for variance; 47% vs 40% for autocorrelation); true positives uncommon (9% of cases for variance, 13% for autocorrelation); 43% of series classified differently by the two indicators (saved records quoting the Wiley page).",
+    "what_is_missing": "Retrospective whole-series GAM turning-point detection (not time-indexed origins), no out-of-sample validation, no state/trend baseline, no calibration or false-alarm budget, outcome is any nonlinear turning point rather than collapse, 10-year window rather than fixed 1-5-year horizons, series-end/censoring handling not visible; no fisheries stock assessments.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "O'Brien, D. A., Deb, S., Gal, G., Thackeray, S. J., Dutta, P. S., Matsuzaki, S.-i. S., May, L. & Clements, C. F. (2023). Early warning signals have limited applicability to empirical lake data. Nature Communications 14: 7942. doi:10.1038/s41467-023-43744-8",
+    "url": "https://www.nature.com/articles/s41467-023-43744-8",
+    "overlap_with_our_design": "Evaluates classic univariate, multivariate and machine-learning (EWSNet) EWS in both transitioning and non-transitioning lake plankton series, reporting true-positive and true-negative probabilities against a 50-50 chance reference (e.g., unscaled EWSNet TP 0.93/0.89 but TN 0.19/0.05); most indicators not better than chance; strong processing dependence (saved records; code at https://github.com/duncanobrien/ews-assessments). Most relevant prior benchmark for our lake challenge analysis.",
+    "what_is_missing": "Per-series retrospective classification, not sequential fixed-horizon origins; no out-of-sample or hindcast evaluation of thresholds; no state/trend forecasting baseline (comparator is chance and other EWS families); fixed alarm conventions rather than calibration to a common false-alarm burden; ecosystem regime shifts in nine lakes rather than population collapse across realms.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Buelo, C. D. et al. (2022). Evaluating the performance of temporal and spatial early warning statistics of algal blooms. Ecological Applications 32(5): e2616. doi:10.1002/eap.2616",
+    "url": "https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.2616",
+    "overlap_with_our_design": "Explicit true-positive vs false-positive alarm-rate comparison for rolling-window SD and autocorrelation using whole-lake experiment lake-years with vs without nutrient additions: true-positive alarm rates 2.5-8.3 times the false-positive rate for rolling SD, but not for rolling autocorrelation (saved record; data/code on Zenodo 10.5281/zenodo.5874868).",
+    "what_is_missing": "Whole-lake experiments (n small, single system type), no out-of-sample thresholds, no state/trend forecasting baseline, no calibration to a fixed false-alarm budget, no population-collapse outcome.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Pace, M. L., Batt, R. D., Buelo, C. D., Carpenter, S. R., Cole, J. J., Kurtzweil, J. T. & Wilkinson, G. M. (2017). Reversal of a cyanobacterial bloom in response to early warnings. PNAS 114. doi:10.1073/pnas.1612424114",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.1612424114",
+    "overlap_with_our_design": "The one field study with a prospective, preset alarm threshold applied in real time: variance and autocorrelation of pigments/DO/pH exceeded preset boundaries in a gradually enriched lake, enrichment was stopped and the bloom reversed, while a continuously enriched lake bloomed (saved record). Companion: Wilkinson et al. 2018, Ecological Monographs 88:188-203, https://doi.org/10.1002/ecm.1286, quickest-detection alarms with 1-57-day lead across six whole-lake enrichments.",
+    "what_is_missing": "n = 1 manipulated lake (plus references), no population-abundance collapse, no out-of-sample threshold selection across many systems, no state/trend baseline, no false-alarm budget across a population of series.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Bury, T. M., Sujith, R. I., Pavithran, I., Scheffer, M., Lenton, T. M., Anand, M. & Bauch, C. T. (2021). Deep learning for early warning signals of tipping points. PNAS 118(39): e2106140118. doi:10.1073/pnas.2106140118",
+    "url": "https://github.com/ThomasMBury/deep-early-warnings-pnas",
+    "overlap_with_our_design": "Methodological precedent for threshold-free ROC/AUC comparison of a learned classifier against Kendall-tau trends of rolling variance and lag-1 autocorrelation, with explicit null (non-transitioning) series and classifier predictions applied at sequential segment lengths (authors' code repository read directly in an earlier stage; ewstools README at https://pypi.org/pypi/ewstools/json).",
+    "what_is_missing": "No population-abundance monitoring data (simulated models, thermoacoustic, paleoclimate, sediment records); evaluation windows placed relative to the known transition time, not fixed calendar horizons; detrending uses whole pre-transition series; no state/trend baseline, no threshold calibration to a false-alarm budget, no censoring issue; classifier vs single statistic rather than capacity-matched learners.",
+    "verdict": "partial-overlap",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Walter, J., Lewis, Hobbs & Rypel (manuscript; GitHub repository fish-ewi-ms, created 2025-02-19). Quantifying changes in fish population stability using statistical early warnings of regime shifts. Preprint URL not yet given in README.",
+    "url": "https://github.com/jonathan-walter/fish-ewi-ms",
+    "overlap_with_our_design": "Newly surfaced via GitHub: computes early-warning statistics (CV and lag-1 autocorrelation in 5-year moving windows, plus spatial CV/synchrony) on region-by-method CPUE time series of San Francisco Estuary fishes (data from EDI doi:10.6073/pasta/a29a6e674b0f8797e13fbc4b08b92e5b), then measures temporal trends in the EWI statistics and synthesizes composite EWI and 'confidence' scores (README and code read directly: code/apply_ewi_abund.R, code/ewi_trends_abund.R). A companion Shiny app: https://github.com/jonathan-walter/fish-ewi-app.",
+    "what_is_missing": "No collapse outcome, no prediction evaluation: a grep of the analysis script for collapse/predict/ROC/AUC/hindcast/baseline/false terms returned no hits (only a colour palette named 'rocket'); it quantifies stability trends rather than testing detection of collapses against baselines with false-alarm accounting. Manuscript text not available (preprint URL is a placeholder).",
+    "verdict": "not-overlapping",
+    "confidence": "medium"
+   },
+   {
+    "citation": "Rocha, J. C., Jouffray, J.-B., Bengtsson, F., Voicu, B.-I., S\u00e1nchez, P. A. & Galaz, V. (manuscript in GitHub repository marine_tipping). Identifying companies and financial actors exposed to marine tipping points.",
+    "url": "https://github.com/juanrocha/marine_tipping",
+    "overlap_with_our_design": "Only GitHub hit pairing 'RAM Legacy' with 'early warning': computes EWS (autocorrelation, SD, skewness, kurtosis, fractal dimension) on satellite chlorophyll-a and detects break points in RAM Legacy v4.44 biomass series (373 stocks with >25 years; 119 stocks fell below 50% of their historical average, 29 below 15%) (manuscript.Rmd read directly via raw.githubusercontent.com).",
+    "what_is_missing": "EWS are applied to remote-sensed primary productivity, not to stock series; the stock analysis is break-point counting for financial-exposure mapping, with no prediction, hold-out, baseline or false-alarm evaluation of collapse.",
+    "verdict": "not-overlapping",
+    "confidence": "high"
+   },
+   {
+    "citation": "Authors not visible in search results (2024). Empirical validation of integrated stock assessment models to ensuring risk equivalence: a pathway to resilient fisheries management. PLOS ONE. doi:10.1371/journal.pone.0302576",
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0302576",
+    "overlap_with_our_design": "Fisheries precedent for the prequential design element: hindcasting cross-validation (HCXval) removes recent years sequentially ('tail cutting') and scores forecasts of unseen abundance indices by MASE relative to a naive forecast over specified horizons (saved record).",
+    "what_is_missing": "Outcome is forecast skill of abundance indices, not collapse events; no EWS, no alarms/false-alarm budget, no calibration.",
+    "verdict": "not-overlapping",
+    "confidence": "low"
+   },
+   {
+    "citation": "Harris, D. J., Taylor, S. D. & White, E. P. (2018). Forecasting biodiversity in breeding birds using best practices. PeerJ 6: e4278. doi:10.7717/peerj.4278 (with White et al. 2019 MEE doi:10.1111/2041-210X.13104 and Thomas et al. 2023 Frontiers Ecol Environ doi:10.1002/fee.2616 as related conventions)",
+    "url": "https://peerj.com/articles/4278/",
+    "overlap_with_our_design": "Ecological-forecasting conventions we adopt: annual hindcasts evaluated over a decade at 1,237 BBS sites, simple/naive baselines hard to beat; rolling 12-month hindcasts at Portal; NEON challenge scoring against random-walk and climatology nulls at each horizon (saved records).",
+    "what_is_missing": "Continuous-variable forecasting; no collapse/event outcome, no EWS, no alarms, no false-alarm accounting.",
+    "verdict": "not-overlapping",
+    "confidence": "medium"
+   }
+  ],
+  "reasoning": "Process and its limits. This session's WebSearch budget was already exhausted (200/200) when the subtask began, so none of the planned web queries could be executed; the one permitted WebFetch attempt (a DuckDuckGo results page) was EGRESS_BLOCKED. I therefore used the only reachable live sources, GitHub (28 repository/code searches by vocabulary, author account and dataset name) and PyPI/raw.githubusercontent.com (direct reads of the ewstools, EWSmethods, fish-ewi-ms, marine_tipping and ewi-in-recovery repositories), and I re-read the raw saved search outputs of the project's earlier Stage 0 sweeps (literature_sweeps_raw.json: 10 sweeps, ~340 unique study records, 253 saved fisheries/collapse-related queries; literature_keypapers_raw.json: eight verified extractions). Every factual claim above is tied to a URL that appears in those saved results or that I fetched directly; where a design detail was not visible I said so. I computed no EWS-outcome associations in any dataset.\n\nAdversarial conclusion. Assuming the study had already been done on RAM Legacy or ICES stocks, the strongest refutation candidates are Cano, Jensen & Dakos 2025 (PNAS), Zhang 2020 (Ecological Indicators), P\u00e9lissi\u00e9 et al. 2026 (Science Advances) and Litzow et al. 2013 (Ecological Applications). None is equivalent. Cano et al. is genuinely out-of-sample and uses AR1/SD-type metrics on RAM Legacy, ICES cod and FishGlob with negatives and AUC, but the validation is leave-one-out across series (not forward in time), each series gets one static prediction (no origins, no horizon), the outcome is a retrospective trajectory-shape class rather than a collapse, there is no state/trend comparator, no calibration, and non-abrupt series predicted abrupt are relabelled 'at risk' rather than charged as false alarms. Zhang 2020 uses the same database and the same two indicators with TP/TN/likelihood-ratio accounting and lead times, but the outcome is a productivity regime shift and no origins, hold-out, baseline or calibration are visible (full methods not readable here, so its threat rating stays 'moderate'). P\u00e9lissi\u00e9 et al. 2026 matches our data source and abundance-collapse outcome and quantifies false alarms (26% positive predictive fraction), but its predictor is a whole-series abrupt-shift classification located with hindsight and it has no forecasting design or baseline. Litzow et al. 2013 has non-collapsing contrasts and a 1-4-year lead but is retrospective and baseline-free. The remaining fisheries items (Krko\u0161ek & Drake 2014; Pinsky & Byler 2015; Burgess et al. 2013; Clements et al. 2017; Hefley et al. 2013; Holmes et al. 2005; Ward et al. 2014; the 2024 HCXval paper; Walter et al.'s fish-ewi-ms) each supply at most one or two design elements (a collapse predictor, a naive/state-space baseline, sequential hindcasts, or EWS on fish series) and none combines sequential fixed-horizon origins + temporal out-of-sample validation + a matched state/trend baseline + calibration to a common false-alarm budget + complete follow-up for abundance collapse. GitHub searches found no repository implementing such a fisheries hindcast.\n\nWhat we must not claim (confirmed again): prior work did not ignore false positives or non-transitioning series (Burthe 2016, O'Brien 2023, Buelo 2022, Zhang 2020, P\u00e9lissi\u00e9 2026, Cano 2025, Litzow 2013, Bury 2021, Boettiger & Hastings 2012 all account for them in some form), and AR1/variance-type indicators have already been applied at scale to RAM Legacy and FishGlob (Zhang 2020; Cano 2025).\n\nResidual risk and recommended follow-up. Because no fresh web search was possible, the 12 planned queries (early warning / resilience indicator / critical slowing down x predict / forecast / hindcast x out-of-sample / cross-validation x baseline / null model / added value, plus ICES WG reports, NOAA tech memos and theses) should be re-run when the search budget is restored, with priority on: (i) full-text methods of Zhang 2020 (origin structure and 'no shift' definition), (ii) Krko\u0161ek & Drake 2014 and Burgess et al. 2013 design details, (iii) any 2025-2026 follow-ups from the Dakos/Jensen group (e.g., Benerradi, Dakos & Cano 2026, J. R. Soc. Interface, listed in saved results) that might add hindcast validation, and (iv) ICES/NOAA grey literature not indexed on GitHub. Default verdict pending those checks: equivalent_study_found = false."
+ }
+]

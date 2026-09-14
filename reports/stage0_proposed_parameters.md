@@ -71,6 +71,29 @@ operating point on RAM Legacy: 26 % of negative shifts were followed by
 collapse, against 23 % versus 12 % base rates in collapsed and non-collapsed
 stocks. That is the number the fisheries comparator must be scored against.
 
+## D3. Evaluation conventions to adopt by name (Sections 9-10) — from the literature audit
+
+* Describe the origin × label table as a landmark (discrete-time
+  person-period) dataset with a fixed-length horizon window after each
+  landmark (van Houwelingen 2007; Suresh et al. 2022).
+* Report alarm performance as a "prediction characteristic": event
+  sensitivity as a function of false-alarm rate with the refractory rule
+  stated (Winterhalder et al. 2003), and test it against event-time
+  surrogates and the analytic chance predictor (Andrzejak et al. 2003;
+  Snyder et al. 2008), which is the Section 12 permutation null in
+  established form.
+* Call the leave-one-dataset-out analysis internal-external
+  cross-validation (Takada et al. 2021) and map the Section 14 leakage tests
+  onto the Kapoor & Narayanan (2023) taxonomy.
+* Add Riley et al. (2021) minimum-sample-size calculations for the
+  calibration slope, C-statistic and net benefit as an analytic cross-check
+  on the Stage 0 simulation, and report calibration per the Van Calster et
+  al. (2016) hierarchy.
+* Add Pinsky & Byler (2015)-style collapse-risk covariates (fishing
+  pressure, growth rate, climate variability) to the fisheries comparator
+  B3, so that generic EWS are tested against a collapse-risk model as well as
+  against reference points.
+
 ## E. Design and allocation (Section 7) — to be finalized after the power grids
 
 * Locked hold-out with 50 % development beats 70 % development on power in

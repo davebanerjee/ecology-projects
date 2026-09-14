@@ -27,9 +27,11 @@ Deliverables (repository paths):
 
 ## 1. Literature audit (Section 3.1) — gate: PASSED, with a narrower claim
 
-482 executed queries across four topic sweeps with working search, two
-GitHub-only supplementary sweeps and eight anchor-paper design extractions
-(256 study records). Detail in `reports/stage0_literature_audit.md`.
+674 executed queries across all nine planned topic sweeps, four GitHub-only
+supplementary sweeps, eight anchor-paper design extractions and two of three
+adversarial novelty refutations (411 study records). Both refutations
+returned "no equivalent study found". Detail in
+`reports/stage0_literature_audit.md`.
 
 No study performs sequential, fixed-horizon prediction of first
 population-abundance collapse with predictors restricted to data available at
@@ -64,13 +66,21 @@ convention: on 2379 vertebrate series a random walk without drift is the
 benchmark that 49 more complex models mostly failed to beat at 1-5 year
 horizons.
 
-Corrections to the plan's text: Gsell et al. 2016 analysed five freshwater
-ecosystems, not nine lakes (the nine-lake set is O'Brien et al. 2023);
-Pélissié is not an author of Cano et al. 2025; Litzow et al. 2013 is in
-Ecological Applications. Caveats: no full text was read except Ward et al.
-2014 and Lapeyrolerie & Boettiger 2023 (both on GitHub), because publisher
-hosts are blocked; five planned sweeps and all three refutation agents did not
-run, and the session's 200-query search budget is now spent.
+Two further precedents belong in the fisheries comparator set: Pinsky &
+Byler (2015) fit boosted regression trees predicting collapse across 154 RAM
+Legacy populations from fishing pressure, growth rate and climate
+variability, and Burgess et al. (2013) proposed a forecastable collapse
+score; neither uses early-warning signals. The evaluation-methodology sweep
+supplies established names and tests for the protocol's design elements
+(landmarking, the seizure-prediction characteristic with event-time
+surrogates as the chance null, internal-external cross-validation, Riley
+sample-size targets, Van Calster calibration hierarchy). Corrections to the
+plan's text: Gsell et al. 2016 analysed five freshwater ecosystems, not nine
+lakes (the nine-lake set is O'Brien et al. 2023); Pélissié is not an author
+of Cano et al. 2025; Litzow et al. 2013 is in Ecological Applications.
+Caveats: no full text was read except Ward et al. 2014 and Lapeyrolerie &
+Boettiger 2023 (both on GitHub), because publisher hosts are blocked; the
+third refutation angle and three data-content checks did not run.
 
 ## 2. Data access and licensing (Section 3.2)
 
@@ -210,7 +220,10 @@ Summarized from `reports/stage0_proposed_parameters.md`:
 ## 7. Unresolved uncertainties
 
 1. RAM Legacy current release: exact stock counts with ≥ 25–35 years of
-   biomass, and the number of collapses after 2013 (recovers follow-up).
+   biomass, and the number of collapses after 2013 (recovers follow-up). One
+   independent calibration surfaced: a manuscript by Rocha et al. counts 373
+   stocks with more than 25 years in v4.44, so the "RAM × 3" projection (510
+   eligible stocks) is an upper bound and × 2 is the safer central case.
 2. LPD and BioTIME: series lengths, effort constancy, event rates, licence
    consequences for releasing labels; whether LPD populations duplicate GPDD.
 3. Whether the GMEX event cluster is real.
@@ -218,12 +231,9 @@ Summarized from `reports/stage0_proposed_parameters.md`:
 5. Full-text verification of Zhang 2020, Cano 2025, Pélissié 2026 designs;
    in particular how Zhang operationalized "no regime shift" and whether
    Cano's leave-one-out protocol leaks information across related stocks.
-6. The five literature sweeps that did not run (ML/multivariate EWS follow-
-   ups, methodological critiques, evaluation methodology, GPDD/LPD/BioTIME
-   applications, 2024–2026 recency), plus three novelty-refutation agents.
-   One surfaced item needs checking for direct overlap: O'Brien & Clements
-   2025 (`lpi-multivariate-res`), which applies multivariate resilience
-   methods to Living Planet data.
+6. Full texts of the ~12 papers listed in the audit's Section 6, and the
+   three data-content checks that did not run (RAM v4.66 series-length
+   counts; LPD lengths and GPDD overlap; BioTIME long-series counts).
 7. Retrospective bias in assessment series (final vs as-assessed values)
    threatens a strict prequential claim for RAM-derived origins.
 8. B2 state-space convergence check not run (would touch real series).

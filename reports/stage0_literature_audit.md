@@ -9,20 +9,24 @@ repositories, and (for two papers) from author-hosted PDFs on
 raw.githubusercontent.com. Saved queries:
 `data/metadata/literature_queries.json` (482 executed, 23 submitted after the
 session's 200-query budget was exhausted and refused). Raw structured
-outputs: `data/metadata/literature_sweeps_raw.json` (eight sweep agents, 333
-study records) and `data/metadata/literature_keypapers_raw.json` (eight
-anchor-paper design extractions).
+outputs: `data/metadata/literature_sweeps_raw.json` (thirteen sweep agents,
+including four GitHub-only supplements, 411 study records),
+`data/metadata/literature_keypapers_raw.json` (eight anchor-paper design
+extractions) and `data/metadata/literature_refutations_raw.json` (two
+adversarial novelty checks).
 
-Coverage achieved: six topic sweeps with working search (fixed-horizon
-prediction and false alarms; out-of-sample validation and forecasting
-baselines; fisheries collapse prediction; lakes and communities;
-machine-learning and multivariate EWS; methodological critiques), two
-GitHub-only supplementary sweeps, and eight anchor-paper extractions. Three
-planned sweeps (evaluation methodology; GPDD/LPD/BioTIME applications; a
-2024-2026 recency sweep), three adversarial novelty refutations and the
-synthesis and critic agents had not completed at the time of writing because
-the session usage limit was reached on four successive attempts. Those gaps
-are listed in Section 10.
+Coverage achieved: all nine planned topic sweeps (fixed-horizon prediction
+and false alarms; out-of-sample validation and forecasting baselines;
+fisheries collapse prediction; lakes and communities; machine-learning and
+multivariate EWS; methodological critiques; evaluation methodology;
+GPDD/LPD/BioTIME applications; 2024-2026 recency), four GitHub-only
+supplements, eight anchor-paper extractions and two of three adversarial
+refutations (fisheries angle; machine-learning benchmark angle). The
+refutations ran after the search budget was spent and therefore mined the
+saved sweep records and live GitHub searches rather than fresh web queries.
+Not completed: the third refutation (recent and forthcoming work), three
+data-content checks, and the automated synthesis and critique; this document
+is the synthesis.
 
 ## 1. Novelty verdict
 
@@ -304,19 +308,175 @@ for nonlinearity before trusting a warning; Dakos et al. (2024, Earth System
 Dynamics) for the taxonomy of warnings that do and do not rely on critical
 slowing down.
 
-## 10. Known gaps of this audit
+## 10. Evaluation methodology to borrow (sweep of 54 queries, 59 records)
 
-No full text was read for any paper except Ward et al. 2014 and Lapeyrolerie &
-Boettiger 2023, whose manuscripts are on GitHub. Three planned sweeps had
-not completed: evaluation methodology (landmark and IPCW methods,
-seizure-prediction metrics, equivalence testing), GPDD/LPD/BioTIME
-applications, and a dedicated 2024-2026 recency sweep. No adversarial
-refutation agent had completed. The GitHub-only supplements surfaced items
-worth following up: Ma, Zeng, Zhang & Bury 2025 (Communications Physics
-8:258); Liu et al. 2024 (Phys Rev X, GIN-GRU tipping predictor); Looker, Rock
-& Dyson (PLoS Comput Biol, doi:10.1371/journal.pcbi.1013524); Pélissié,
-Devictor & Dakos 2024 (Biol Conserv, doi:10.1016/j.biocon.2023.110429, the
-abrupt-shift classifier itself); Evers et al. `bifurcationEWS`; Laitinen,
-Dakos & Lahti, probabilistic multivariate early warning signals
-(arXiv:2205.07576). Re-running the missing searches from a machine with
-publisher access is the first Stage 1 action.
+The protocol's evaluation design has direct precedents outside ecology that
+should be cited and, where possible, reused rather than reinvented.
+
+* **Sequential fixed-horizon labels.** Landmarking (van Houwelingen 2007,
+  Scand J Stat) fits at each landmark time to the individuals still at risk
+  using only information observed by then, over a horizon window of fixed
+  length after the landmark; the discrete-time person-period formulation
+  (Suresh, Severn & Ghosh 2022, BMC Med Res Methodol) is the tabular form our
+  origin × label table already takes. A review of horizon definitions
+  (PMC13182843) distinguishes fixed-length windows after the landmark from
+  fixed calendar horizons; ours is the former and should say so.
+* **Censoring, if any origins are retained with incomplete follow-up.**
+  Inverse-probability-of-censoring-weighted time-dependent AUC and Brier
+  scores (Heagerty, Lumley & Pepe 2000; Uno et al. 2007; Graf et al. 1999;
+  Blanche, Dartigues & Jacqmin-Gadda 2013; Blanche et al. 2015 for landmark
+  AUC(s,t) with paired comparison tests). The complete-case primary analysis
+  avoids these; the IPCW sensitivity should use Blanche et al. 2015.
+* **Alarm-episode metrics.** The seizure-prediction literature defines the
+  quantities we need: occurrence period, prediction horizon, sensitivity at a
+  fixed false-prediction rate, and the "seizure prediction characteristic"
+  (Winterhalder et al. 2003); event-time surrogates as the chance null
+  (Andrzejak et al. 2003; Schelter et al. 2006); the expected performance of
+  a chance predictor under the scoring rule as the control in a hypothesis
+  test (Snyder et al. 2008); and the cautionary history in which optimistic
+  results were not reproduced under rigorous evaluation (Mormann et al.
+  2007). Andrzejak et al. (2026, Epilepsia) warn that "better than chance"
+  is underspecified unless the null is stated; our permutation null at the
+  system level answers that. Clinical early-warning-score work supplies the
+  episode-aware framework (Scully & Daluwatte 2017; Gadhoumi et al. 2021),
+  alarm burden per unit time, and the argument that the C-statistic misleads
+  when events are rare (Romero-Brufau et al. 2015: prevalence 0.02 per
+  patient-day). Operational warning verification uses the 2 × 2 event table
+  with probability of detection, false-alarm ratio and lead time (Wilks
+  2011; NOAA NWS materials); quickest-detection theory controls false alarms
+  through the average run length (Mei 2008).
+* **Calibration and decision value.** Calibration hierarchy and
+  intercept/slope reporting (Van Calster et al. 2016, 2019); decision-curve
+  net benefit with confidence intervals (Vickers & Elkin 2006; Vickers et al.
+  2023); minimum sample sizes for external validation targeting the
+  calibration slope, C-statistic and net benefit (Riley et al. 2021), which
+  should be run alongside the Stage 0 simulation as a check.
+* **Paired comparisons and increments.** Pepe et al. (2013) prove that
+  testing for improvement in AUC from an added predictor is equivalent to
+  testing that predictor's coefficient, so a likelihood-ratio test on the
+  development set is not evidence of out-of-sample improvement (as the
+  protocol already states); DeLong et al. (1988) and Obuchowski (1997, for
+  clustered data) for paired AUC differences; LeDell, Petersen & van der
+  Laan (2015) for cross-validated AUC intervals; two one-sided tests against
+  a smallest effect size of interest (Lakens 2017; Riesthuis 2024 for
+  simulation-based power with a confidence-interval approach) and paired
+  non-inferiority tests for diagnostic accuracy.
+* **Prequential evaluation and leakage.** Dawid (1984) and Gneiting et al.
+  (2007) for the prequential principle; Bergmeir & Benítez (2012) for
+  rolling-origin evaluation; Roberts et al. (2017) for blocked
+  cross-validation under temporal, spatial and hierarchical structure;
+  Takada et al. (2021) for internal-external cross-validation, which is our
+  leave-one-dataset-out analysis under its established name; Kapoor &
+  Narayanan (2023) for the leakage taxonomy the Section 14 tests should map
+  onto.
+
+## 11. Terrestrial and freshwater population applications (sweep of 72 queries, 51 records)
+
+No study was visible that applies classical EWS across GPDD, the Living
+Planet Database or BioTIME at scale with sequential out-of-sample evaluation
+against matched baselines; BioTIME with EWS returned nothing. The visible
+wild-population tests are single systems or small sets: Hefley et al. 2013
+(bobwhite quail, threshold-crossing forecast plus an indicator); Krkošek &
+Drake 2014 (120 salmon stocks; increased variability and autocorrelation in
+pink salmon stocks with growth parameters near zero); Rozek, Camp & Reed
+2017 (no critical slowing down in two endangered Hawaiian honeycreepers,
+with the remark that EWS methods are rarely applied to population-size data
+from wild populations); Burant et al. 2021 (seasonal timing of the stressor
+changes detectability). The experimental lineage (Drake & Griffen 2010; Dai
+et al. 2012, 2013, 2015; Clements & Ozgul 2016; Baruah et al. 2019, 2020,
+2022; Arkilanian et al. 2020; Cerini et al. 2025) establishes detectability
+under controlled forcing, the value of trait information, and a minimum of
+roughly 5-10 generations of data.
+
+Facts that bear on the census and the outcome definition:
+
+* Reed et al. (2003): severe die-offs occur at roughly 14 % per generation
+  in vertebrate populations and their frequency scales with generation
+  length; Anderson et al. (2017, PNAS): black-swan events are mainly crashes
+  (86 %) and heavy-tailed process noise is common. Both imply that a
+  fraction of first collapses will be genuinely unforecastable shocks, which
+  bounds achievable sensitivity and belongs in the falsification suite.
+* Leung et al. (2020, Nature): the Living Planet Index decline is driven by
+  fewer than 3 % of populations, with clusters of extreme decline in 16
+  systems; Daskalova, Myers-Smith & Godlee (2020): 15 % of LPD populations
+  declined, 18 % increased, 67 % showed no net change. The LPD event rate for
+  an 80 % decline is therefore likely to be low and clustered, consistent
+  with the small placeholder used in the power scenarios.
+* Buschke et al. (2021) and Wauchope et al. (2019): random fluctuations
+  bias index-based trend estimates and short series mislead; both argue for
+  the complete-window and minimum-history rules.
+* Holmes et al. (2007): quasi-extinction forecasts from a 20-year
+  parameterization period were validated over 10-30-year windows, a
+  precedent for B2 on GPDD-type data. Fagan & Holmes (2006) and Williams et
+  al. (2021, LPD): rate of decline and growth-rate variability increase as
+  extinction approaches, which is a state-and-trend signal, not a
+  critical-slowing-down signal, and is exactly what B1 must capture so that
+  EWS are not credited for it.
+* Di Fonzo, Collen & Mace (2013) provide a trajectory-shape method for
+  diagnosing rapid declines in wild vertebrate populations, an alternative
+  outcome-labelling family to Pélissié et al.
+
+## 12. Recent and forthcoming work, 2024-2026 (sweep of 74 queries, 48 records)
+
+New fisheries items beyond those already positioned: Walter, Lewis, Hobbs &
+Rypel (2025; GitHub `fish-ewi-ms`) apply CV and lag-1 autocorrelation in
+five-year windows to San Francisco Estuary fish CPUE series to quantify
+stability change, without a collapse outcome or prediction evaluation; Tao,
+Hsieh, Hidalgo & Dakos (2025) track dynamic stability of North Sea cod with
+empirical dynamic modelling; Benerradi, Dakos & Cano (2026) attribute
+productivity changes to fishing and temperature across stocks; Medeiros et
+al. (2025, PNAS) infer unseen dynamical regimes from population series;
+Brock, Carpenter, Pace & Wilkinson (2026) show that driver rate alters
+indicator behaviour in ecosystem experiments; Sguotti et al. (2024) estimate
+resilience from a stochastic cusp model; Jafari et al. (2026) offer a
+discrete-time benchmark for critical-slowing-down indicators; Ling & Keane
+(2024, Nature Communications) report incipient spatial warnings of kelp
+collapse. A GitHub manuscript by Rocha et al. counts break points in RAM
+Legacy v4.44 biomass series: 373 stocks with more than 25 years, of which
+119 fell below 50 % of their historical average. That count is the only
+independent calibration of our RAM projection found: the "RAM × 3"
+scenario (510 eligible stocks) is an upper-end guess, and a × 2 case is the
+more defensible central projection.
+
+## 13. Adversarial refutation (two angles completed)
+
+Two agents were asked to assume the study had already been done and to find
+it, one from the fisheries side and one from the machine-learning benchmark
+side. Both worked from the saved sweep records plus live GitHub repository
+and code searches, because the web-search budget was exhausted. Both
+returned `equivalent_study_found = false`. Their candidate lists coincide
+with Sections 2, 3 and 8 above; the closest partial overlaps named were
+Cano et al. 2025 (leave-one-out across series, not across time; static
+per-series prediction; false positives relabelled "at risk"), Zhang 2020,
+Pélissié et al. 2026, Deb et al. 2022 (EWSNet against logistic regression,
+SVM, random forest and MLP, but every comparator is fed EWS features, so
+there is no state/trend baseline), Falmagne et al. 2026 (methodologically
+the nearest template: gradient-boosted trees, fixed horizon, held-out year,
+explicit false-positive rate, but an online-game system) and Gao et al.
+2025 (epidemiology). Two additional precedents surfaced that belong in the
+manuscript: Pinsky & Byler (2015, Proc R Soc B) fit boosted regression
+trees predicting collapse versus depletion across 154 RAM Legacy populations
+from fishing pressure, growth rate and climate variability, with
+non-collapsing populations included; and Burgess et al. (2013, PNAS)
+proposed a forecastable T-score for flagging weak incidentally caught stocks.
+Neither uses EWS, but both are collapse-risk models on RAM Legacy and the
+first is a natural addition to the fisheries comparator set in Section 6.1.
+The `lpi-multivariate-res` repository was resolved: it is O'Brien & Clements
+(2025), a study of how stability metrics behave across data qualities and
+community sizes, not a prediction benchmark.
+
+## 14. Remaining gaps
+
+No full text was read for any paper except Ward et al. 2014 and Lapeyrolerie
+& Boettiger 2023. The third refutation angle (recent and forthcoming work
+by the Dakos, Clements, Boettiger, Bury, Munch, Jensen, Pinsky and Ozgul
+groups) did not run; the recency sweep partly covers it. Three data-content
+checks (RAM v4.66 stock and series-length counts; LPD series lengths and GPDD
+overlap; BioTIME long-series counts) did not run and remain the first
+retrieval task for a human with portal access. Items surfaced only by title
+that need follow-up: Ma et al. 2025; Liu et al. 2024; Looker, Rock & Dyson;
+Pélissié, Devictor & Dakos 2024; Evers et al. `bifurcationEWS`; Laitinen,
+Dakos & Lahti (arXiv:2205.07576); Munch & Rogers 2026 (PNAS, forecasting on
+Living Planet series); the 2024 Science retrospective-bias paper; the 2026
+Science Advances paper on initial-data-point dependence of indicator
+agreement.
