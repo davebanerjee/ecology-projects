@@ -1,0 +1,21 @@
+{
+ "fishglob_series_with_origins": 156,
+ "fishglob_species": 139,
+ "ram_v466_stocks_with_biomass": 1091,
+ "ram_v466_eligible_stocks": 457,
+ "species_shared_any_region": 51,
+ "fishglob_series_with_candidate_ram_match": 53,
+ "fishglob_event_series_with_candidate_ram_match": 10,
+ "ram_stocks_with_candidate_fishglob_match": 130,
+ "ram_eligible_stocks_with_candidate_fishglob_match": 67,
+ "ram_event_stocks_with_candidate_fishglob_match": 20,
+ "candidate_pairs": 131,
+ "pairs_by_survey": {
+  "EBS": 16,
+  "GMEX-Fall": 6,
+  "GSL-S": 1,
+  "NEUS-Spring": 7,
+  "NS-IBTS-1": 87,
+  "SCS-SUMMER": 14
+ }
+}

@@ -1,0 +1,5 @@
+criterion,n_series,n_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins
+"all stocks with SSB, TBbest or TB series",1091,457,8921,111,500,8421
+n_obs >= 30,698,457,8921,111,500,8421
+">=1 eligible forecast origin (complete 24-yr window, 5-yr follow-up)",457,457,8921,111,500,8421
+... and not Pacific salmon,349,349,7907,92,428,7479

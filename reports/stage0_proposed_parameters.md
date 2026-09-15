@@ -19,7 +19,10 @@ event counts, and pure simulations.
 
 | Parameter | Provisional | Proposal | Basis |
 |---|---|---|---|
-| minimum history before an origin | 30 observations | **25** (technical floor = 24 for the provisional 15-year window + 10 trend points); present 20 only together with a 12-year window | 30 discards 63 of 106 fisheries collapses (proxy), most FishGlob origins, and most GPDD events; 25 recovers +13 fisheries events (+30 %) and roughly doubles FishGlob events; 20 recovers +25 fisheries events but forces a shorter indicator window. |
+| minimum history before an origin | 30 observations | **25** (technical floor = 24 for the provisional 15-year window + 10 trend points); present 20 only together with a 12-year window | 30 discards 198 of 316 RAM v4.66 collapses, most FishGlob origins, and most GPDD events; 25 recovers +23 RAM events (111 → 134, +21 %) and roughly doubles FishGlob events; 20 recovers +56 RAM events (167) but forces a shorter indicator window. |
+| abundance variable (RAM) | SSB, else total biomass | choose ONE quantity per stock (SSB for the whole stock if any SSB exists, else TBbest, else TB); never coalesce row-wise | row-wise coalescing splices lower SSB rows into TB series in 180 v4.66 stocks and manufactures spurious drops (verifier finding); the TBbest-preferred variant gives 106 instead of 111 events. |
+| exact zeros (RAM) | not specified | keep zeros as observations in the primary cohort; zeros-as-missing as a sensitivity | 15 v4.66 SSB stocks (14 salmon escapements) contain zeros; no labelled onset falls on a zero; the two variants differ by one stock and no events. |
+| Pacific-salmon stocks (RAM) | not specified | keep in the cohort, grouped as river-within-region systems for the cluster bootstrap, and report the non-salmon cohort as a prespecified sensitivity | 108 of 457 eligible stocks (19 of 111 events) are single-river escapement series in three regions that end by 2005; biennial pink-salmon series are already removed by the complete-window rule. |
 | follow-up for negatives | 5 years complete | keep | required by the estimand. |
 | complete feature window | "complete regular windows" | require the trailing 24 years up to the origin to be fully observed (no imputation); gap-tolerant eligibility only in the state-space sensitivity | code review found 27 % of FishGlob and 24 % of GPDD origins had a missing year inside the window under the earlier census. |
 | unconfirmed collapse | not specified | a low year whose confirmation year is missing censors all later origins of that series | prevents already-collapsed years from entering as positive origins. |
@@ -160,6 +163,11 @@ Findings and proposals:
   simulated series of matching length and on real series with convergence
   diagnostics logged and no outcome linkage, before Stage 1.
 * GPDD Reliability coding; KNB licence; LPD data-use terms; BioTIME per-study
-  restrictions; RAM current version and stock counts.
+  restrictions (v1 subset shows CC BY-NC and ODbL studies that may not be
+  admissible for released labels). RAM v4.66 stock counts are now known from
+  a derived mirror but must be confirmed on the official Zenodo file, which
+  alone carries an authoritative version stamp.
+* LPD and BioTIME long-series and event counts (no published figures; the
+  400-system / 32-event LPD placeholder is unverified in either direction).
 * Whether the GMEX collapse cluster (24 of 40 FishGlob events) survives the
   method-change audit.

@@ -1,19 +1,25 @@
 # Stage 0 literature audit (Section 3.1)
 
-Searches: 2026-09-08 to 2026-09-10. Engine: the sandbox's WebSearch tool.
+Searches: 2026-09-08 to 2026-09-15. Engine: the sandbox's WebSearch tool.
 Publisher sites, PubMed/PMC, Crossref, OpenAlex, Semantic Scholar, Google
 Scholar, Web of Science, Scopus, Zenodo, Dryad, OSF, arXiv and bioRxiv were
 blocked by the egress policy throughout, so no full text was read; details
 below come from search-result snippets, from authors' public code
 repositories, and (for two papers) from author-hosted PDFs on
 raw.githubusercontent.com. Saved queries:
-`data/metadata/literature_queries.json` (482 executed, 23 submitted after the
-session's 200-query budget was exhausted and refused). Raw structured
-outputs: `data/metadata/literature_sweeps_raw.json` (thirteen sweep agents,
-including four GitHub-only supplements, 411 study records),
-`data/metadata/literature_keypapers_raw.json` (eight anchor-paper design
-extractions) and `data/metadata/literature_refutations_raw.json` (two
-adversarial novelty checks).
+`data/metadata/literature_queries.json` (896 query strings executed, 878
+unique, of which 21 are GitHub repository or code searches rather than web
+searches; 31 submitted after the session's 200-query budget was exhausted
+and refused; the budget was exhausted on 2026-09-10, 2026-09-12 and
+2026-09-14). Raw structured outputs: `data/metadata/literature_sweeps_raw.json`
+(thirteen sweep agents, including four GitHub-only supplements; 569 study
+records, 339 unique by DOI or citation prefix, and about 411 unique after
+manual merging of citation variants), `data/metadata/literature_keypapers_raw.json`
+(eight anchor-paper design extractions), `data/metadata/literature_refutations_raw.json`
+(angles A and B, and the three lenses plus adjudication of angle D),
+`data/metadata/literature_synthesis_raw.json` (the synthesis agent's
+structured output, Section 15) and `data/metadata/data_content_checks_raw.json`
+(the three data-content checks, Section 16).
 
 Coverage achieved: all nine planned topic sweeps (fixed-horizon prediction
 and false alarms; out-of-sample validation and forecasting baselines;
@@ -438,7 +444,7 @@ independent calibration of our RAM projection found: the "RAM × 3"
 scenario (510 eligible stocks) is an upper-end guess, and a × 2 case is the
 more defensible central projection.
 
-## 13. Adversarial refutation (two angles completed)
+## 13. Adversarial refutation (three angles completed)
 
 Two agents were asked to assume the study had already been done and to find
 it, one from the fisheries side and one from the machine-learning benchmark
@@ -465,18 +471,184 @@ The `lpi-multivariate-res` repository was resolved: it is O'Brien & Clements
 (2025), a study of how stability metrics behave across data qualities and
 community sizes, not a prediction benchmark.
 
+Angle D (recent and forthcoming work, run 2026-09-14) used three lenses:
+group-by-group searches for 2024-2026 output from the Dakos, Clements,
+Boettiger, Bury, Munch, Jensen, Pinsky, Ozgul and allied groups (37
+queries); preprint servers, conference abstracts and theses (45 queries plus
+GitHub searches); and a close reading of the two nearest anchors, Cano et al.
+2025 and Pélissié et al. 2026, against five design criteria (30 queries). An
+adjudicator merged 36 candidate entries into 22, and none was rated
+equivalent or substantial overlap, so the planned skeptic pass had nothing to
+check. `equivalent_study_found = false` for the third time.
+
+For the anchors, the criterion-by-criterion verdicts are: Cano et al. 2025
+issue one static shape classification per series (no sequential origins),
+validate by leave-one-out across series rather than across time, report ROC
+curves and confusion matrices but calibrate no operating point to a
+false-alarm budget, and relabel non-abrupt series predicted abrupt as "50
+populations at risk" without a follow-up window; a state or trend comparator
+is not visible. Pélissié et al. 2026 classify full productivity trajectories
+of 315 stocks retrospectively and report a relative risk (an abrupt decline
+roughly doubles the chance of later collapse, with a lead of about a decade;
+the preprint says 10-20 years in a quarter of cases), with no predictive
+validation, comparator, calibrated alarm rate or censoring treatment visible.
+The one 2026 follow-up from the same group, Benerradi, Dakos & Cano (2026, J.
+R. Soc. Interface), is an empirical-dynamic-modelling causality analysis of
+155 stocks, not a prediction study; its public repository is the source of
+the RAM v4.66 extract used in Section 16. Angle D reported that neither
+anchor has a GitHub repository; that is wrong for Cano et al. 2025
+(`alejvcano/dynfoot2025`, read by the key-paper extraction) and for Pélissié
+et al. 2026 (`matpelissie/ocean_warming_fisheries`, found by angle B), and
+the audit follows the earlier findings.
+
+New candidates worth citing, none of which threatens the claim: TipPFN
+(arXiv 2605.12308; a prior-data-fitted transformer evaluated on 14
+semi-real and real systems with real non-transitioning series scored; the
+author list differs between sweep 8 and angle D and is unresolved); Cerini,
+Jackson, O'Brien, Childs & Clements (2025, Ecology; behavioural and
+morphological signals precede abundance EWS in a Paramecium experiment, with
+the remark that abundance EWS are prone to false positives); Babazadeh
+Maghsoodlo, Anand & Bauch (2025, arXiv 2509.04683; a flickering detector with
+a deliberately variance-inflating null); Ma, Zeng, Zhang & Bury (2025, Comm.
+Phys.; surrogate-trained classifiers beat variance and AR1 on sensitivity and
+specificity, but on non-ecological data; lens D1 had misattributed this paper
+to Deb et al.); Mullett (2026, arXiv 2606.00329; detectors compared under a
+locked equal-false-positive contract, a methodological neighbour of our
+calibration); Ashwin, Bastiaansen, von der Heydt & Ritchie (2025, Proc. R.
+Soc. A; horizon-specific ROC skill for EWS); Masuda et al. (2026, PNAS Nexus;
+a sequential variance-only test with explicit false-positive control, not yet
+applied to empirical data); Antão et al. (2026, Nature Communications; more
+than 60,000 BioTIME populations, trend-based association with extinction risk);
+and the Alvarez-Martinez & Miramontes (2026, Entropy) review, whose reference
+list should be checked in full at submission.
+
 ## 14. Remaining gaps
 
 No full text was read for any paper except Ward et al. 2014 and Lapeyrolerie
-& Boettiger 2023. The third refutation angle (recent and forthcoming work
-by the Dakos, Clements, Boettiger, Bury, Munch, Jensen, Pinsky and Ozgul
-groups) did not run; the recency sweep partly covers it. Three data-content
-checks (RAM v4.66 stock and series-length counts; LPD series lengths and GPDD
-overlap; BioTIME long-series counts) did not run and remain the first
-retrieval task for a human with portal access. Items surfaced only by title
-that need follow-up: Ma et al. 2025; Liu et al. 2024; Looker, Rock & Dyson;
+& Boettiger 2023; every design judgement about Zhang 2020, Cano 2025,
+Pélissié 2026, Burthe 2016, O'Brien 2023, Bury 2021, Deb 2022 and Falmagne
+2026 rests on snippets, abstracts and public code and must be confirmed
+against the published methods and supplements before the novelty statement is
+frozen. All three refutation angles have now run (Section 13), and the three
+data-content checks have run against public mirrors where a licence-compliant
+mirror exists (Section 16); the Living Planet Database check could use
+published counts only. Still open: whether Cano et al. 2025 used the
+label-informed truncation (`cut=TRUE` with `asclassif` detrending) that their
+code defaults to, which would make the leave-one-out AUCs partly reflect label
+leakage; Pélissié et al. 2026's handling of right-censored stocks and whether
+only first collapses were used; the TipPFN author list and whether any
+monitored population series are among its real systems; and items surfaced
+only by title (Ma et al. 2025; Liu et al. 2024; Looker, Rock & Dyson;
 Pélissié, Devictor & Dakos 2024; Evers et al. `bifurcationEWS`; Laitinen,
-Dakos & Lahti (arXiv:2205.07576); Munch & Rogers 2026 (PNAS, forecasting on
-Living Planet series); the 2024 Science retrospective-bias paper; the 2026
+Dakos & Lahti, arXiv:2205.07576; Munch & Rogers 2026, PNAS, forecasting on
+Living Planet series; the 2024 Science retrospective-bias paper; the 2026
 Science Advances paper on initial-data-point dependence of indicator
-agreement.
+agreement; arXiv 2605.28260, 2608.06608, 2605.04024, 2607.15423, 2603.14944).
+EcoEvoRxiv, bioRxiv and the ESA, ICES, ASLO and BES abstract databases are
+poorly indexed by the search engine and unreachable by fetch, so an unindexed
+sequential-prediction sequel from the Montpellier group cannot be excluded;
+the claim is made "to our knowledge" and will be re-checked at submission.
+
+## 15. Synthesis: positioning statement and reconciliation (2026-09-14)
+
+A synthesis agent read this audit, the eight key-paper extractions, the three
+refutations and the sweep records and returned the verdict
+`novel-combination-supported`. Its positioning statement is reproduced
+verbatim below as a manuscript draft; every judgement in it rests on
+snippets and public code, as Section 14 says.
+
+> Generic early-warning signals (EWS) of critical slowing down, rising lag-1 autocorrelation and variance, have been tested on ecological monitoring data for more than a decade, and the largest tests have been sobering. Burthe et al. (2016) tallied true positives, false negatives and false positives for variance and autocorrelation across 126 abundance series from six UK aquatic systems within a 10-year association window and found false positives more prevalent than false negatives and true positives in fewer than one series in ten. O'Brien et al. (2023) evaluated classical, multivariate and machine-learning (EWSNet; Deb et al. 2022) indicators in transitioning and non-transitioning lake plankton series and reported that most indicators performed no better than a 0.5 chance reference, with unscaled EWSNet reaching true-positive probabilities of about 0.9 only at true-negative probabilities of 0.05-0.19. In fisheries, Zhang (2020) evaluated standard deviation and AR1 against productivity regime shifts in 191 RAM Legacy populations with an explicit true-negative and positive-likelihood-ratio framing; Cano, Jensen and Dakos (2025) trained boosted regression trees on a "dynamical footprint" that includes AR1 and SD across RAM Legacy, ICES cod and FishGlob series and obtained leave-one-out AUCs of 0.84, 0.75 and 0.65; and Pélissié et al. (2026) showed that abrupt productivity declines in 315 assessed stocks were followed by biomass collapse in 11 of 42 cases (26%), negative shifts being present in 23% of collapsed and 12% of non-collapsed stocks. Whole-lake experiments (Pace et al. 2017; Wilkinson et al. 2018; Buelo et al. 2022) and laboratory systems (Drake and Griffen 2010; Jarvis-Cross et al. 2025; Cerini et al. 2025) supply reference systems or controls and explicit true- versus false-alarm rates. We therefore do not claim that prior work ignored false positives or non-transitioning series, nor that AR1/variance-type indicators have not been applied to RAM Legacy or FishGlob at scale; each of those has been done.
+>
+> What has not been done, to our knowledge, is to ask whether a prespecified EWS score adds detection of first population-abundance collapses beyond what the current state and recent trend of the same series already provide, at a common false-alarm burden, in a design that is time-indexed and complete in follow-up. Every empirical EWS evaluation above is retrospective or static. Burthe et al. and O'Brien et al. classify whole series after the fact; Zhang locates shifts in the full record and looks back; Cano et al. assign one footprint and one class per series, validate across series rather than across time, and relabel non-abrupt series predicted abrupt as 50 populations "at risk" with no follow-up window; Pélissié et al. date shifts with hindsight and report a relative risk rather than a calibrated alarm. None scores a state-or-trend comparator on the same origins. The forecasting literature supplies that comparator but has not connected it to EWS: Ward et al. (2014) showed on 2379 vertebrate series that a random walk without drift is essentially unbeatable at 1-5-year horizons; Holmes et al. (2007) validated diffusion-approximation quasi-extinction forecasts from 20-year parameterization windows; Hefley et al. (2013) paired an indicator with a state-space threshold-crossing model in a single quail population; and Pinsky and Byler (2015) predicted collapse across 154 RAM Legacy populations from fishing pressure, growth rate and climate variability without any EWS. Machine-learning EWS work has the evaluation machinery we borrow. Bury et al. (2021) and Ma et al. (2025) report ROC or sensitivity and specificity against variance and AR1; Falmagne et al. (2026) detect half of transitions within a fixed window at a 3.6% false-positive rate on a held-out year; Deb et al. (2022) compare EWSNet with logistic regression, SVM, random forest and MLP. But its negatives are surrogates, nulls or non-ecological systems, every comparator is itself fed EWS features, and no study uses monitored population series with a calendar horizon. Outside ecology, Mullett (2026) evaluates detectors under a locked equal-false-positive contract, and the seizure-prediction and landmarking literatures define sensitivity at a fixed false-prediction rate with event-time surrogates; we import these conventions rather than reinvent them.
+>
+> Our contribution is therefore the combination, not any single element: (i) sequential forecast origins at which every predictor uses only data available by that year; (ii) fixed 1-5-year horizons with negatives requiring complete follow-up, so that right-censored origins are never counted as non-events, a treatment not visible in any anchor paper; (iii) alarm thresholds for the EWS score and for a capacity-matched state-and-trend baseline (abundance relative to reference, recent slope, a local-linear state-space threshold-crossing forecast, and a last-value score after Ward et al.) calibrated in development data to the same false-alarm budget; and (iv) evaluation grouped by biological system across RAM Legacy, survey indices, GPDD, the Living Planet Database and BioTIME, with lake regime shifts as a separate challenge analysis positioned against O'Brien et al. (2023). The quantities Cano et al. and Pélissié et al. report, 50 at-risk populations without later verification and a 26% positive predictive fraction with no comparator, are exactly what an operating-point analysis against a matched baseline is designed to adjudicate, and Boettiger and Hastings' (2012) warning against selecting systems because they transitioned is answered by the risk-set design.
+>
+> Two caveats bound the claim. First, every judgment about prior designs rests on abstracts, search snippets and public code; full text was read only for Ward et al. (2014) and Lapeyrolerie and Boettiger (2023). The methods of Zhang (2020), Cano et al. (2025) and Pélissié et al. (2026), especially pre-shift windowing, the operationalization of "no shift" and series-end handling, must be confirmed against the published supplements before the novelty statement is frozen. Second, the search could not reach EcoEvoRxiv, ESA/ICES/ASLO abstracts or the reference list of the 2026 Entropy review, and a very recent sequential-prediction sequel from the Montpellier group cannot be excluded; the claim is made "to our knowledge" and will be re-checked at submission.
+
+The synthesis also listed contradictions between the audit, the raw records
+and the Stage 0 report. They were resolved as follows. Query and record
+counts: the header now quotes the query log directly (896 executed, 878
+unique, 31 refused) and gives the raw record count (569) alongside the
+deduplicated count. Zhang 2020 is a sole-author paper and the Stage 0 report
+now says "Zhang (2020)"; its article number is uncertain (106344 or 106371).
+Cano et al. 2025 do have a code repository (`alejvcano/dynfoot2025`) and
+Pélissié et al. 2026 do (`matpelissie/ocean_warming_fisheries`); the angle D
+claim to the contrary is superseded (Section 13). Pélissié's lead-time figure
+differs by source (4-12 years in the PMC results text, "about a decade" in
+the abstract, 12 years in the press release, 10-20 years in a quarter of
+cases in the preprint); the audit quotes the results-text figure and notes
+the range. Falmagne et al. 2026's author initials and false-positive rate
+(3.6 % versus 3.7 %) differ between sweeps and remain unverified. The
+TipPFN author list (Sevinchan versus Ramien) is unresolved. Medeiros,
+Sorenson, Johnson, Palkovacs & Munch (2025, PNAS) is the better-supported
+attribution for the "unseen dynamical regimes" paper. Jarvis-Cross et al.
+2025 is published (PLOS Global Public Health 5(10): e0005142), not a preprint.
+Ward et al. 2014 used LPI, BBS, RSPB, RAM recruits-per-spawner and Pacific
+salmon series, with GPDD entering only through the LPI. Burthe et al. 2016
+true-positive figures exist at series level (8 % / 6 %) and case level (9 % /
+13 %); the report should specify the level when quoting them. The O'Brien et
+al. 2023 lake count (nine, with Upper and Lower Zurich counted separately)
+follows the key-paper extraction.
+
+Design lessons the synthesis added to Sections 5 and 10: include a last-value
+(random walk without drift) score in the baseline set and report a MASE-like
+skill alongside alarm metrics (Ward et al. 2014); count relabelled
+false alarms as false alarms with a frozen budget (Cano's 50 "at risk"
+populations; Pélissié's 31 of 42 negative shifts not followed by collapse);
+bracket the conventional forecast between an idealized and a phenomenological
+model (Lapeyrolerie & Boettiger 2023); preregister a collapse-definition
+family that includes Pélissié's 25 %-of-to-date-average rule and Pinsky's
+Bmin < 0.2 BMSY; keep the critical-speeding-up score separate and
+directional; state that RAM-derived origins are "as finally assessed" and
+treat survey indices as the robustness set; freeze preprocessing before any
+classifier is applied (Dablander & Bury 2022); include rate-induced and
+noise-driven transitions in the falsification suite; name the risk-set design
+as the answer to the prosecutor's fallacy (Boettiger & Hastings 2012); borrow
+landmarking, IPCW time-dependent AUC and fixed-false-prediction-rate
+conventions rather than inventing them; and cite Mullett 2026 and Ashwin et
+al. 2025 as methodological neighbours only.
+
+## 16. Data-content checks (2026-09-14)
+
+Three agents checked what the blocked sources contain, using published
+counts and, where a licence permits, a public mirror; a second agent
+recomputed every mirror-derived count independently. Structured outputs are
+in `data/metadata/data_content_checks_raw.json`; the census consequences are
+in `reports/stage0_feasibility_census.md` Section 2 and Section 8.
+
+* RAM Legacy v4.66: the `timeseries_values_views` table for v4.66 is
+  redistributed (CC BY 4.0 upstream) in `RaphBnrd/RAMLDB_causality`, the
+  repository of Benerradi, Dakos & Cano (2026). It holds 1438 stocks with any
+  series, 1091 with SSB, TBbest or TB, 639 SSB stocks with >= 30 annual
+  values (420 non-salmon), 357 TBbest stocks with >= 30, 488 stocks with
+  B/BMSY-type and 569 with U/UMSY-type reference points (625 with either,
+  432 with both, matching the Zenodo record description). The verifier
+  reproduced all length and coverage counts exactly; the only discrepancies
+  were a NaN-after-gap bug and row-wise TB/SSB coalescing in the first
+  agent's collapse flags, both avoided in the census. The official stock
+  count is inferred as 1442 and cannot be checked from the mirror.
+* Living Planet Database: no mirror was used (the data-use agreement forbids
+  redistribution, so a mirror would itself violate it). Published counts:
+  the 2024 index uses 34,836 populations of 5,495 species (1970-2020, public
+  release without confidential records); the whole database holds almost
+  42,000 populations, about 18 % confidential; the modal series length is
+  6-10 years, more than 2,000 records sit at the 2-year minimum and "more
+  than 2,000" span 1970 to 2011-2015; Leung et al. 2020 lost 52 % of series
+  with a 10-point minimum. No published count of populations with >= 30
+  annual observations or with 80 % declines exists; the GPDD is listed as an
+  LPI source but the number of GPDD-sourced populations is not published.
+  These must be computed from the official download.
+* BioTIME 2.0: no public mirror of the 2.0 data or metadata exists (one
+  repository tracks the query file through git-LFS only). A June-2021 v1
+  metadata export (417 studies, including about 8 % non-public studies
+  used with permission) was read as a floor: 50 studies have >= 30 sampled
+  years (22 gap-free), 27 have >= 35, 101 have >= 20; by realm the >= 30
+  studies are marine 19, terrestrial 23, freshwater 8, and by taxon birds 11,
+  fish 10, terrestrial invertebrates 6. The long marine fish studies are the
+  ICES, NEFSC and DFO trawl programmes that also underlie FishGlob and RAM.
+  BioTIME 2.0 has 708 studies, and each study carries its own licence (in a
+  53-study v1 subset: 36 CC BY, 5 PDDL, 4 ODC-BY, 3 CC0, 3 ODbL, 2 CC BY-NC).
+  The verifier confirmed every count and flagged that DATA_POINTS counts
+  distinct years rather than years under constant effort, that GRAIN_SQ_KM
+  is zero for 213 studies, and that 17 studies' title year ranges disagree
+  with their metadata years.

@@ -1,5 +1,5 @@
 {
- "manifest_version": "stage0-2026-09-09",
+ "manifest_version": "stage0-2026-09-15",
  "note": "Stage 0 retrievals only; raw files are not committed. Sources blocked by the sandbox egress policy are listed with status 'blocked'. Checksums are sha256 of the files as cloned (shallow clones, depth 1).",
  "sources": [
   {
@@ -278,10 +278,25 @@
    ]
   },
   {
-   "name": "RAM Legacy current release",
-   "url": "https://www.ramlegacy.org / Zenodo (v4.66 'Extended' record 14043038 seen in search results)",
-   "status": "blocked",
-   "notes": "egress blocked (zenodo.org, ramlegacy.org)"
+   "name": "RAM Legacy v4.66 (derived mirror of timeseries_values_views)",
+   "github_repo": "RaphBnrd/RAMLDB_causality",
+   "commit": "09766f24be1e3ba9d283dfd3fffc201aa4b9dd5d|2026-06-08",
+   "retrieved": "2026-09-14",
+   "license": "repository MIT (Copyright 2024 RaphBnrd); upstream RAMLDB v4.66 CC BY 4.0 (Zenodo 14043031); Zenodo archive of the repo 10.5281/zenodo.20594195",
+   "status": "retrieved (derived extract; official Zenodo release still blocked)",
+   "notes": "one preferred series per stock from the most recent assessment (35 standard columns) full-joined with a HadISST stock-boundary SST table; 4 stocks removed by the author (HADNS, HERR30, HERRNS, SOLEIIIa); 156 SST-only stockids; no internal version field. Used for results/stage0/ram_v466_*.",
+   "files": [
+    {
+     "path": "RaphBnrd/RAMLDB_causality/data/timeseries_clean-v4.66.csv",
+     "sha256": "c910121955e461599913303bcd945744bc315fd822bbee9d5ef2027da7a70864",
+     "bytes": 60069885
+    },
+    {
+     "path": "RaphBnrd/RAMLDB_causality/data/timeseries_clean-v4.66.RData",
+     "sha256": "9a22c0c741e1c6b1ff947b0bc4ccbb9c8c1769eb04929bf2c581bbffe880523f",
+     "bytes": 5443844
+    }
+   ]
   },
   {
    "name": "Living Planet Database public release",
@@ -293,7 +308,7 @@
    "name": "BioTIME 2.0",
    "url": "https://doi.org/10.5281/zenodo.10932823",
    "status": "blocked",
-   "notes": "egress blocked"
+   "notes": "egress blocked | 2026-09-14: no public mirror of the 2.0 data/metadata found (emd-aquila/cs3-biodiversity tracks the query file via git-LFS only); a June-2021 v1 metadata export was read instead (next entry)."
   },
   {
    "name": "ICES DATRAS / SAG",
@@ -306,6 +321,28 @@
    "url": "doi:10.1111/1365-2664.12519 supplement / Dryad",
    "status": "blocked",
    "notes": "egress blocked"
+  },
+  {
+   "name": "RAM Legacy v4.66 official release",
+   "url": "https://zenodo.org/records/14043031 (and 'Extended' record 14043038)",
+   "status": "blocked",
+   "notes": "egress blocked (zenodo.org, ramlegacy.org); the derived mirror above stands in for Stage 0 and must be re-verified against this record"
+  },
+  {
+   "name": "BioTIME v1 metadata export, June 2021 (collaborator mirror)",
+   "github_repo": "gndaskalova/GlobalChangeSpace",
+   "commit": "master (main byte-identical)",
+   "retrieved": "2026-09-14",
+   "license": "repository licence not recorded; BioTIME v1 metadata is CC BY 4.0 upstream; the file includes ~8% non-public studies used with permission by the repository authors",
+   "status": "retrieved (v1 lineage; not BioTIME 2.0)",
+   "notes": "417 studies x 27 columns; not byte-identical to the official June-2021 Zenodo file (record 5026943); used only as a floor for long-series counts",
+   "files": [
+    {
+     "path": "gndaskalova/GlobalChangeSpace/data/input/bioTIMEMetadataJune2021.csv",
+     "sha256": "f6e23044ef83043e6a838e7dd34327fb497f6cd2ab83d9e2ff22fdf9c43b169b",
+     "bytes": 123676
+    }
+   ]
   }
  ]
 }

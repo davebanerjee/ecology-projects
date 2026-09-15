@@ -1,0 +1,12 @@
+n_series_with_origins,n_origins,n_events_in_window,n_pos_origins,n_neg_origins,n_series_with_any_onset,min_complete_window,frac,persistence,min_history,horizon,variant
+457,8921,111,500,8421,316,,,,,,"SSB>TBbest>TB, zeros kept"
+460,8944,111,500,8444,316,0.0,,,,,"SSB>TBbest>TB, zeros kept"
+529,10999,57,268,10731,142,,0.1,,,,"SSB>TBbest>TB, zeros kept"
+379,7080,142,596,6484,482,,0.3,,,,"SSB>TBbest>TB, zeros kept"
+494,9412,99,452,8960,235,,,3.0,,,"SSB>TBbest>TB, zeros kept"
+653,14576,167,779,13797,316,20.0,,,20.0,,"SSB>TBbest>TB, zeros kept"
+558,11486,134,612,10874,316,,,,25.0,,"SSB>TBbest>TB, zeros kept"
+486,9663,110,315,9348,316,,,,,3.0,"SSB>TBbest>TB, zeros kept"
+456,8914,111,500,8414,314,,,,,,"SSB>TBbest>TB, zeros dropped"
+462,9034,106,469,8565,292,,,,,,"TBbest>TB>SSB, zeros kept"
+349,7907,92,428,7479,193,,,,,,"SSB>TBbest>TB, non-salmon only"

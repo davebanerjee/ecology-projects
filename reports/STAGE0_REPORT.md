@@ -2,7 +2,9 @@
 
 Project: Do generic early-warning signals add useful predictive information
 about ecological population collapse? (PROTOCOL.md, Version 2.0 draft)
-Stage executed: Stage 0 only (Section 15). Dates: 2026-09-08 to 2026-09-09.
+Stage executed: Stage 0 only (Section 15). Dates: 2026-09-08 to 2026-09-15
+(the residual audit pieces, the RAM v4.66 census and the power re-run were
+added on 2026-09-14/15).
 Branch: `claude/ews-collapse-stage-0-p85x0w`.
 
 Stage 0 rules were respected: no EWS feature was computed on any real series
@@ -14,11 +16,11 @@ Deliverables (repository paths):
 
 | Item | Path |
 |---|---|
-| saved literature queries (243, dated) and raw sweep results | `data/metadata/literature_queries.json`, `data/metadata/literature_sweeps_raw.json` |
+| saved literature queries (896 executed, dated) and raw sweep, refutation, synthesis and data-check outputs | `data/metadata/literature_queries.json`, `data/metadata/literature_sweeps_raw.json`, `literature_refutations_raw.json`, `literature_synthesis_raw.json`, `data_content_checks_raw.json` |
 | literature audit and positioning | `reports/stage0_literature_audit.md` |
 | data-source register (versions, licences, access, human actions) | `data/metadata/data_sources.json`, `MANIFEST.json`, `data/raw/README.md` |
 | canonical system_id / deduplication plan and preliminary crosswalk | `data/metadata/system_crosswalk_plan.md`, `data/metadata/crosswalk_*.csv` |
-| feasibility census (per source, attrition, sensitivity) | `reports/stage0_feasibility_census.md`, `results/stage0/*census*`, `*attrition*`, `*sensitivity_grid*` |
+| feasibility census (per source, attrition, sensitivity; RAM v4.66 via a derived mirror) | `reports/stage0_feasibility_census.md`, `src/census/census_ram_v466.py`, `results/stage0/*census*`, `*attrition*`, `*sensitivity_grid*` |
 | outcome-label implementation and tests | `src/census/labels.py`, `tests/test_labels.py` |
 | power/precision simulation and grids | `src/sim/power_sim.py`, `src/sim/run_power_grid*.py`, `results/stage0/power_*.csv`, `results/stage0/power_curves.png` |
 | window-detectability simulation (Section 6.2) | `src/sim/ews_window_detectability.py`, `results/stage0/ews_window_detectability.csv` |
@@ -27,11 +29,14 @@ Deliverables (repository paths):
 
 ## 1. Literature audit (Section 3.1) — gate: PASSED, with a narrower claim
 
-674 executed queries across all nine planned topic sweeps, four GitHub-only
-supplementary sweeps, eight anchor-paper design extractions and two of three
-adversarial novelty refutations (411 study records). Both refutations
-returned "no equivalent study found". Detail in
-`reports/stage0_literature_audit.md`.
+896 executed queries across all nine planned topic sweeps, four GitHub-only
+supplementary sweeps, eight anchor-paper design extractions, all three
+adversarial novelty refutations (angle D on 2024-2026 work ran on
+2026-09-14 with three lenses and an adjudicator) and a synthesis agent
+(569 raw study records, about 411 unique). All three refutations returned
+"no equivalent study found" and the synthesis verdict is
+`novel-combination-supported`; its manuscript-ready positioning statement is
+in Section 15 of `reports/stage0_literature_audit.md`.
 
 No study performs sequential, fixed-horizon prediction of first
 population-abundance collapse with predictors restricted to data available at
@@ -43,7 +48,7 @@ The claim must be narrowed in four ways that a first pass missed. Cano et al.
 (2025) already validate autocorrelation- and variance-type metrics
 out-of-sample on RAM Legacy and FishGlob by leave-one-out cross-validation
 across series, with AUC 0.84, 0.75 and 0.65 on RAM Legacy, ICES cod and
-FishGlob. Zhang et al. (2020) already evaluate standard deviation and lag-1
+FishGlob. Zhang (2020) already evaluates standard deviation and lag-1
 autocorrelation on 191 RAM Legacy populations with a positive likelihood ratio
 and lead times beyond five years for more than half of them. Pélissié et al.
 (2026) already quantify their signal's false alarms: 26 % of stocks with a
@@ -79,19 +84,20 @@ plan's text: Gsell et al. 2016 analysed five freshwater ecosystems, not nine
 lakes (the nine-lake set is O'Brien et al. 2023); Pélissié is not an author
 of Cano et al. 2025; Litzow et al. 2013 is in Ecological Applications.
 Caveats: no full text was read except Ward et al. 2014 and Lapeyrolerie &
-Boettiger 2023 (both on GitHub), because publisher hosts are blocked; the
-third refutation angle and three data-content checks did not run.
+Boettiger 2023 (both on GitHub), because publisher hosts are blocked. A
+completeness critic ran last (Section 17 of the audit) and its verified
+missing-study claims are listed there.
 
 ## 2. Data access and licensing (Section 3.2)
 
 | Source | Reached | Licence / terms (evidence) | Human action before Stage 1 |
 |---|---|---|---|
-| RAM Legacy | blocked (proxy v4.41 extract used) | v4.66 on Zenodo (record 14043031, 2024-11-06), CC BY 4.0 per record metadata seen in search results | download release; freeze DOI/version/checksum; confirm licence text; extract B/BMSY, U/UMSY |
+| RAM Legacy v4.66 | official release blocked; the v4.66 `timeseries_values_views` table was read from a public derived mirror (RaphBnrd/RAMLDB_causality, MIT; upstream CC BY 4.0) and verified by an independent recomputation | v4.66 on Zenodo (record 14043031, 2024-11-06), CC BY 4.0 per record metadata seen in search results | download the official release; freeze DOI/version/checksum; confirm licence text; re-run `census_ram_v466.py` on the official table (expect identical counts); decide zero-escapement handling and the salmon grouping |
 | FishGlob v2.1.0 | yes | CC BY 4.0 (LICENSE file) + citation policy (linked Google Doc, unread) | read the disclaimer; decide on GMEX after audit |
 | ICES DATRAS / SAG | blocked | ICES Data Policy; DATRAS open data CC BY 4.0 (snippets) | only for surveys/stocks absent from FishGlob/RAM |
 | GPDD v2010 | yes (rgpdd bundle) | package CC0; KNB terms unverified; Reliability: higher = more reliable (IWC summary) | verify KNB licence and the user guide's reliability definitions |
 | Living Planet Database | blocked | LPI Data Use Policy: non-commercial free use; substantial-use publications must contact LPI; derived data only passed on under the same terms; confidential records excluded | register, accept terms, record release; confirm that labels/partitions may be published (checkpoint 1) |
-| BioTIME 2.0 | blocked | CC BY 4.0 expected (Zenodo 10932823; unverified) | download; check per-study terms |
+| BioTIME 2.0 | blocked (a June-2021 v1 metadata export with 417 studies was read from a collaborator's public repository as a floor) | CC BY for the database plus a per-study LICENSE column (v1 subset: 36 CC BY, 5 PDDL, 4 ODC-BY, 3 CC0, 3 ODbL, 2 CC BY-NC) | download record 15222193 (v4); recompute long-series counts for all 708 studies; read per-study licences; derive species x cell series |
 | Lake challenge (O'Brien 2023) | yes (7 of 9 lakes) | no LICENSE; two lakes on request only | request restricted lakes if the challenge analysis proceeds |
 | Bury 2021 classifiers | yes | CC BY-NC-SA 4.0 | confirm compatibility with benchmark release |
 | EWSNet weights | yes (in O'Brien repo) | unverified | confirm licence |
@@ -105,11 +111,13 @@ check.
 `data/metadata/system_crosswalk_plan.md` defines `system_id`, six matching
 rules (identifier, species + stock boundary, species + region, taxon +
 coordinates, GPDD taxon × location groups, published-set membership), a
-blinded audit protocol and partition-integrity tests. Preliminary pass:
-30 of 156 FishGlob series with eligible origins match a RAM v4.41 stock by
-species and region (74 candidate pairs); with the full RAM release most long
-commercial-species survey series will be dependent on an assessed stock, so
-FishGlob and RAM cannot be treated as independent evidence for those species.
+blinded audit protocol and partition-integrity tests. Preliminary pass
+against the full v4.66 stock list: 53 of 156 FishGlob series with eligible
+origins match a RAM stock by species and region (131 candidate pairs, 130
+RAM stocks of which 67 are eligible and 20 carry events; 10 of the 22
+FishGlob event series have a candidate match), so FishGlob and RAM cannot be
+treated as independent evidence for those species. Against the v4.41 proxy
+the figures were 30 series and 74 pairs.
 GPDD eligible series concentrate in a few data sources, some sit in
 multi-MainID groups and 27 pairs of the same taxon lie within 50 km. Species within one FishGlob
 survey unit share survey-level shocks; a survey-unit cluster bootstrap is
@@ -119,20 +127,24 @@ proposed as a robustness analysis.
 
 | Source | systems with eligible origins | first collapses inside eligible windows | origins (positive / negative) |
 |---|---|---|---|
-| RAM v4.41 proxy (328 stocks) | 170 | 43 | 3107 (204 / 2903) |
+| RAM v4.66 (1091 stocks with biomass; derived mirror) | 457 | 111 | 8921 (500 / 8421) |
+| ... of which not Pacific salmon | 349 | 92 | 7907 (428 / 7479) |
 | FishGlob v2.1.0 (screened) | 129 | 22 | 756 (86 / 670) |
 | GPDD v2010 (screened) | 38 | 5 | 303 (13 / 290) |
-| total accessible now | 337 | 70 | 4166 |
+| total accessible now | 624 | 138 | 9980 (599 / 9381) |
+| (previous total with the RAM v4.41 proxy: 170 / 43) | 337 | 70 | 4166 |
 
 Dominant attrition driver: the 30-observation history minimum. It discards
-63 of the 106 proxy fisheries collapses (most occurred inside the first 30
+198 of the 316 RAM v4.66 collapses (most occurred inside the first 30
 years of the assessment series), reduces FishGlob events from 89 (20-year
 minimum) to 22, and GPDD from 16 to 5. A 25-observation minimum (the technical
-floor for the provisional 15-year window + 10 trend points) recovers 56
-fisheries events and 51 FishGlob events. Second driver: the no-imputation
-rule (a complete 24-year window), which halves FishGlob events (42 → 22).
-Third: complete 5-year follow-up (the proxy ends 2013–2016; the current RAM
-release recovers most). Fourth: survey method changes and unknown effort.
+floor for the provisional 15-year window + 10 trend points) gives 134 RAM
+events and 51 FishGlob events; 20 observations gives 167 RAM events. Second
+driver: the no-imputation rule (a complete 24-year window), which halves
+FishGlob events (42 → 22) and removes every biennial salmon series. Third:
+complete 5-year follow-up (106 RAM stocks with ≥ 30 observations are too
+short for it; the v4.66 series end in 2016 at the median, so the proxy's
+follow-up loss is largely recovered). Fourth: survey method changes and unknown effort.
 FishGlob events are clustered: half sit in one Gulf of Mexico survey unit with
 onsets in 2016–2020, more plausibly a survey-level shift than independent
 collapses; they must not enter the confirmatory cohort before the
@@ -140,10 +152,18 @@ method-change audit. GPDD's
 surviving cohort is 35 bird counts from 12 locations with onsets in 1937–1978.
 The lake challenge set offers 7 public lakes with 9–28 annual and 97–332
 monthly observations; annual series are far too short for the confirmatory
-rules. Projections for blocked sources: RAM v4.66 ≈ 3 × the proxy (≈ 510
-eligible stocks, ≈ 130 events; uncertain); LPD and BioTIME unknown (a 400-
-system / 32-event placeholder was used in the power scenarios).
-Structure of eligible origins: RAM median 10 origins per stock (IQR 5–25);
+rules. RAM v4.66 is no longer a projection: the derived mirror gives 457 eligible
+stocks and 111 events (2.7 × and 2.6 × the proxy, between the × 2 and × 3
+cases used before), of which 108 stocks and 19 events are Pacific-salmon
+escapement series ending by 2005. Independent events after the crosswalk
+are fewer: up to 10 FishGlob event series duplicate a RAM stock and the GMEX
+cluster is unaudited, so 118–128 independent first collapses is the
+defensible range for the accessible data. LPD and BioTIME remain unknown
+(published LPD counts say most series are 6–10 years long; the BioTIME v1
+metadata floor is 50 studies with ≥ 30 sampled years, mostly the same trawl
+programmes as FishGlob; the 400-system / 32-event placeholder is kept in the
+power scenarios).
+Structure of eligible origins: RAM median 11 origins per stock (IQR 5–25);
 FishGlob median 4 (3–7); GPDD median 8 (6–12).
 
 ## 5. Power and precision gate (Section 3.3) — gate: FAILED on accessible data
@@ -219,21 +239,28 @@ Summarized from `reports/stage0_proposed_parameters.md`:
 
 ## 7. Unresolved uncertainties
 
-1. RAM Legacy current release: exact stock counts with ≥ 25–35 years of
-   biomass, and the number of collapses after 2013 (recovers follow-up). One
-   independent calibration surfaced: a manuscript by Rocha et al. counts 373
-   stocks with more than 25 years in v4.44, so the "RAM × 3" projection (510
-   eligible stocks) is an upper bound and × 2 is the safer central case.
-2. LPD and BioTIME: series lengths, effort constancy, event rates, licence
-   consequences for releasing labels; whether LPD populations duplicate GPDD.
+1. RAM Legacy v4.66: the census now rests on a derived public mirror of the
+   `timeseries_values_views` table (verified internally by an independent
+   recomputation, but not against the official Zenodo file, which carries
+   the only authoritative version stamp); the official release must be
+   downloaded and the census re-run. Two labelling decisions surfaced:
+   whether zero escapement counts are observations (15 SSB stocks; no
+   event onset falls on a zero) and how the 108 eligible Pacific-salmon
+   rivers are grouped into biological systems.
+2. LPD and BioTIME: no published count of LPD populations with ≥ 30 annual
+   observations or with 80 % declines exists (modal length 6–10 years);
+   BioTIME 2.0 long-series counts are known only from a v1 floor (50
+   studies with ≥ 30 sampled years), per-study licences vary, and the long
+   marine studies duplicate FishGlob/RAM surveys; whether LPD populations
+   duplicate GPDD is unpublished.
 3. Whether the GMEX event cluster is real.
 4. GPDD Reliability code semantics and the KNB licence.
 5. Full-text verification of Zhang 2020, Cano 2025, Pélissié 2026 designs;
    in particular how Zhang operationalized "no regime shift" and whether
    Cano's leave-one-out protocol leaks information across related stocks.
-6. Full texts of the ~12 papers listed in the audit's Section 6, and the
-   three data-content checks that did not run (RAM v4.66 series-length
-   counts; LPD lengths and GPDD overlap; BioTIME long-series counts).
+6. Full texts of the ~12 papers listed in the audit's Section 6 and the
+   title-only items in its Section 14; the unresolved author attributions
+   (TipPFN, Falmagne et al.) noted in Section 15.
 7. Retrospective bias in assessment series (final vs as-assessed values)
    threatens a strict prequential claim for RAM-derived origins.
 8. B2 state-space convergence check not run (would touch real series).

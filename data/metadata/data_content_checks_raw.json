@@ -1,0 +1,1069 @@
+{
+ "date": "2026-09-14",
+ "workflow": "stage0-residual-audit",
+ "checks": [
+  {
+   "check": {
+    "source": "RAM Legacy Stock Assessment Database v4.66 (Zenodo record 14043031, published 2024-11-06, CC BY 4.0; companion Extended record 14043038)",
+    "queries_run": [
+     "2026-09-14 | \"DBdata[asmt][v4.66].RData\" github",
+     "2026-09-14 | RAMLDB v4.66 github",
+     "2026-09-14 | ramlegacy 4.66 timeseries_values_views csv github",
+     "2026-09-14 | RAM Legacy v4.65 github data RData",
+     "2026-09-14 | RAM Legacy Stock Assessment Database v4.66 zenodo 14043031 stocks time series",
+     "2026-09-14 | kshtzgupta1 ramlegacy-assets backup RAM Legacy database versions files",
+     "2026-09-14 | Rocha RAM Legacy 373 stocks collapse 50% historical average github manuscript early warning",
+     "2026-09-14 | Hilborn 2020 PNAS \"effective fisheries management\" RAM Legacy number of stocks biomass time series",
+     "2026-09-14 | P\u00e9lissi\u00e9 Devictor Jensen Dakos abrupt declines RAM Legacy fish stocks 2026",
+     "2026-09-14 | Cano Jensen Dakos 2025 early warning signals population collapse leave-one-out AUC fisheries",
+     "2026-09-14 | Free 2019 Science \"Impacts of historical warming on marine fisheries production\" 235 populations RAM Legacy",
+     "2026-09-14 | Pinsky Byler 2015 \"Fishing, fast growth and climate variability increase the risk of collapse\" 154 populations RAM",
+     "2026-09-14 | \"dynamical footprint\" Cano Jensen Dakos PNAS 2025 stocks RAM Legacy AUC abrupt shifts number of populations",
+     "2026-09-14 | ramlegacy.org database description number of stocks assessed \"time series\" v4.66 release notes",
+     "2026-09-14 | \"RAM Legacy\" github.io manuscript \"early warning signals\" stocks \"25 years\" \"v4.44\" collapse Rocha",
+     "2026-09-14 | \"Identifying fish populations prone to abrupt shifts\" PNAS 2025 supplementary number of stocks RAM Legacy \"area under\" ROC",
+     "2026-09-14 | \"Abrupt declines in fish productivity often precede stock collapses\" 315 stocks collapse definition number of collapsed stocks methods",
+     "2026-09-14 | RAM Legacy Stock Assessment Database v4.66 \"stocks\" \"assessments\" total number of stocks in database 2024 ramlegacy.org",
+     "2026-09-14 | \"Juan Rocha\" OR \"Rocha\" fisheries collapse \"early warning\" \"RAM Legacy\" manuscript github \"historical average\" stocks",
+     "2026-09-14 | zenodo \"RAM Legacy Stock Assessment Database v4.66\" license \"Creative Commons Attribution 4.0\" RAMLDB v4.66.zip",
+     "2026-09-14 | Cano Jensen Dakos 2025 PNAS \"dynamical footprint\" RAM Legacy \"time series\" number of fish stocks analysed abrupt nonabrupt classification",
+     "2026-09-14 | ramlegacy.org \"RAM Legacy Stock Assessment Database\" \"stocks\" \"assessments\" 2024 database includes over stocks worldwide",
+     "2026-09-14 | \"RAM Legacy Stock Assessment Database\" v4.67 OR v4.68 OR v4.70 OR v5.0 zenodo new release 2025 2026",
+     "2026-09-14 | [GitHub code search, not WebSearch] \"DBdata[asmt][v4.66]\"",
+     "2026-09-14 | [GitHub code search] \"v4.66\" \"RAM Legacy\"",
+     "2026-09-14 | [GitHub code search] \"DBdata[asmt][v4.65]\" OR \"DBdata[asmt][v4.64]\" OR \"DBdata[asmt][v4.61]\"",
+     "2026-09-14 | [GitHub repo search] RAMLDB OR \"RAM Legacy\" OR ramlegacy",
+     "2026-09-14 | [GitHub code search] \"RAM Legacy\" \"early warning\" 373 stocks",
+     "2026-09-14 | [GitHub code search] \"DBdata[asmt]\" load RData",
+     "2026-09-14 | [GitHub code search] \"RAMLDB v4.66\" OR \"RAMLDB v4.65\" OR \"RAMLDB v4.64\""
+    ],
+    "search_budget_exhausted": false,
+    "published_counts": [
+     {
+      "statistic": "v4.66: stocks with time series of biomass or fishing pressure relative to management targets / stocks with both",
+      "value": "625 stocks either; 432 stocks both",
+      "source_citation": "Zenodo record description, RAM Legacy Stock Assessment Database v4.66 (as quoted in search snippet); reproduced exactly from the mirrored file (625 / 432)",
+      "url": "https://zenodo.org/records/14043031",
+      "confidence": "high"
+     },
+     {
+      "statistic": "v4.66 release metadata",
+      "value": "published 2024-11-06; file 'RAMLDB v4.66.zip' 111.9 MB; DOI 10.5281/zenodo.14043031; licence Creative Commons Attribution 4.0 International (per search snippet); 'asmt' version recommended over 'mdl' version",
+      "source_citation": "Zenodo record 14043031 / Extended record 14043038 (search snippets)",
+      "url": "https://zenodo.org/records/14043031",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Total stocks in RAM Legacy DB at time of Hilborn et al. 2020 / stocks with B or F relative to reference points",
+      "value": "882 stocks; 635 with estimates of biomass or fishing pressure relative to biological reference points (MSY-based or management targets)",
+      "source_citation": "Hilborn et al. 2020, PNAS 117(4):2218-2224, 'Effective fisheries management instrumental in improving fish stock status' (search snippet)",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1909726116",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Populations analysed by Free et al. 2019 (RAM Legacy)",
+      "value": "235 populations of 124 species in 38 ecoregions; 9 significantly positive and 19 significantly negative responses to warming",
+      "source_citation": "Free, Thorson, Pinsky, Oken, Wiedenmann, Jensen 2019, Science 'Impacts of historical warming on marine fisheries production' (search snippet)",
+      "url": "https://www.science.org/doi/10.1126/science.aau1758",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Populations analysed by Pinsky & Byler 2015 and RAM version",
+      "value": "154 marine fish populations; RAM Legacy v1.0; time series of biomass and fishing pressure 1950-2008; collapse = decline below a fixed threshold",
+      "source_citation": "Pinsky & Byler 2015, Proc. R. Soc. B 282(1813):20151053 (search snippet)",
+      "url": "https://royalsocietypublishing.org/rspb/article/282/1813/20151053/84303/Fishing-fast-growth-and-climate-variability",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Stocks analysed by P\u00e9lissi\u00e9, Devictor, Jensen & Dakos 2026 and collapse definition",
+      "value": "315 fish stocks; productivity abrupt shifts detected in more than a quarter; abrupt decline doubles risk of collapse with average delay ~12 years; collapse = adult biomass declines by 70% within max(3 generations, 10 years) followed by prolonged depletion (mean adult biomass over a succeeding generation remains below the 70% level)",
+      "source_citation": "P\u00e9lissi\u00e9 M, Devictor V, Jensen OP, Dakos V (2026) 'Abrupt declines in fish productivity often precede stock collapses in marine fisheries', Science Advances, 2026-09-02 (search snippets; PubMed 42685203; PMC13537261)",
+      "url": "https://www.science.org/doi/10.1126/sciadv.aed7911",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "RAM version used in the P\u00e9lissi\u00e9 abrupt-shift classification repository",
+      "value": "RAMLDB v4.61 (downloaded from zenodo record 7814638); only the 'R Data' folder is redistributed in the repo",
+      "source_citation": "matpelissie/abrupt_shifts_ecological_timeseries_classification, data/01_RAMLDB/README.txt (read directly via git)",
+      "url": "https://github.com/matpelissie/abrupt_shifts_ecological_timeseries_classification",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Cano, Jensen & Dakos 2025 performance and counts",
+      "value": "AUC 0.84 for RAM Legacy dataset (ROC); 13 productivity shifts identified in RAM Legacy, 6 (ICES) and 31 (FishGlob) CPUE shifts; 50 populations at risk in total across three datasets; dynamical footprint of 7 metrics (DEV, ar1, SD, dispersion, disparity, CV, skewness); number of RAM stocks classified not visible in search results",
+      "source_citation": "Cano AV, Jensen OP, Dakos V (2025) 'Identifying fish populations prone to abrupt shifts via dynamical footprint analysis', PNAS 122:e2505461122 (search snippet)",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2505461122",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Rocha et al. manuscript (juanrocha/marine_tipping): stocks with time series in RAM v4.44 / stocks with >25 years",
+      "value": "479 stocks with time series reported; 373 stocks with more than 25 years of data assessed",
+      "source_citation": "Rocha JC, Jouffray J-B, Bengtsson F, Voicu B-I, S\u00e1nchez PA, Galaz V, 'Identifying companies and financial actors exposed to marine tipping points', paper/manuscript.Rmd lines 148-149 (read directly via git; repo licence GPL-3)",
+      "url": "https://github.com/juanrocha/marine_tipping/blob/main/paper/manuscript.Rmd",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Rocha et al. manuscript: abrupt-change and collapse counts (RAM v4.44)",
+      "value": "353 stocks with significant abrupt changes (271 declining, 82 increasing); 252 detected by both Pettitt and structural-change tests, 14 only by structural change, 83 only by Pettitt, 20 no detection; 119 stocks (31%) collapsed below 50% of historical average; 29 stocks (7%) below 15% of historical record; mean decline 50% of biomass",
+      "source_citation": "same manuscript.Rmd, lines 110, 206-210",
+      "url": "https://github.com/juanrocha/marine_tipping/blob/main/paper/manuscript.Rmd",
+      "confidence": "high"
+     },
+     {
+      "statistic": "OHI 2025 processing of v4.66: stocks with B/Bmsy-type values (TBdivTBmsy, SSBdivSSBmsy, TBdivTBmgt or SSBdivSSBmgt), years 2001-2023",
+      "value": "476 total stocks (code comment); 501 RAM stocks with B/Bmsy data after spatial join (v2025); 238 species; 2 stocks with year gaps (SDOGATLC, WPOLLWBS); 3 stocks dropped for insufficient years (GEMFISHSE, NZLINGESE, NZLINGWSE); a further comment '854 stocks have at least one year of bbmsy values after 2010' appears stale/inconsistent (low confidence)",
+      "source_citation": "OHI-Science/ohiprep_v2025, globalprep/fis/v2025/STEP4a_RAM_data_prep.Rmd, loads 'RAMLDB v4.66/R Data/DBdata[asmt][v4.66].RData' (file fetched from raw.githubusercontent.com, branch gh-pages)",
+      "url": "https://github.com/OHI-Science/ohiprep_v2025/blob/gh-pages/globalprep/fis/v2025/STEP4a_RAM_data_prep.Rmd",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Newer RAM Legacy version than v4.66",
+      "value": "None found: highest version indexed is v4.66 (2024-11-06); mirror README states v4.66 is 'the latest version as of February 2026'",
+      "source_citation": "Zenodo community listing (search snippet) and RaphBnrd/RAMLDB_causality README",
+      "url": "https://zenodo.org/communities/rlsadb/records",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "ramlegacy R package: versions downloadable / kshtzgupta1 backup repo",
+      "value": "package supports versions 1.0, 2.0, 2.5, 3.0, 4.3, 4.40, 4.41, 4.44 (docs written for 4.44); older versions (1.0-4.3) mirrored in kshtzgupta1/ramlegacy-assets",
+      "source_citation": "ropensci/ramlegacy docs and rdrr.io package page (search snippets)",
+      "url": "https://docs.ropensci.org/ramlegacy/",
+      "confidence": "medium"
+     }
+    ],
+    "mirror_found": true,
+    "mirror_details": "PRIMARY MIRROR USED: github.com/RaphBnrd/RAMLDB_causality, branch main, HEAD 09766f24be1e3ba9d283dfd3fffc201aa4b9dd5d (2026-06-08, commit 'Zenodo creation'; README badge DOI 10.5281/zenodo.20594195; accompanies 'Sensitivity of fish stock trajectories to climate forcing and human exploitation at a global scale', J. R. Soc. Interface). Files: data/timeseries_clean-v4.66.csv (60,069,885 bytes, sha256 c910121955e461599913303bcd945744bc315fd822bbee9d5ef2027da7a70864) and data/timeseries_clean-v4.66.RData (5,443,844 bytes, sha256 9a22c0c741e1c6b1ff947b0bc4ccbb9c8c1769eb04929bf2c581bbffe880523f; R object df.ini, tbl_df 143,188 x 56). Both are real blobs (gzip/RData magic and CSV header verified), not git-lfs pointers. Version stamp: file names carry '-v4.66'; README says 'we use the version 4.66, which is the latest version as of February 2026, available at https://zenodo.org/records/14043031'; utils/00-prepare_data.R sets version_RAM = \"v4.66\" and loads 'data/RAMLDB v4.66/R Data/DBdata[asmt][v4.66].RData'. CONTENT: it is NOT the raw DBdata file; it is timeseries_values_views (one 'most-used' series per stock from the most recent assessment, all 35 standard columns TBbest...EFFORT) full-joined with a HadISST stock-boundary SST table (adds 156 SST-only stockids with no RAM series), plus derived prod/prodbest/sst.z columns and stock/taxonomy metadata (scientificname, commonname, areaid, region, kingdom...genus, FisheryType, assessid). The script removes 4 stocks with non-consecutive/empty years: HADNS, HERR30, HERRNS, SOLEIIIa. Licence: repository LICENSE = MIT (Copyright (c) 2024 RaphBnrd); underlying RAMLDB v4.66 is CC BY 4.0 per Zenodo (search snippet). add_repo result: status 'read_available' (public repo; anonymous git reads served by the session proxy; nothing attached; no refusal). Fetched via curl from raw.githubusercontent.com/RaphBnrd/RAMLDB_causality/main/data/... . OTHER MIRRORS FOUND (add_repo 'read_available' for all; not downloaded): matpelissie/abrupt_shifts_ecological_timeseries_classification (main, b737a50 2025-01-15) hosts the raw 'data/01_RAMLDB/RAMLDB v4.61/R Data/DBdata[asmt][v4.61].RData' (12,308,158 bytes; README.txt: downloaded from zenodo record 7814638; no repo LICENSE file seen); nggrimes/manager-ibi (main, e25b2c3 2026-05-08) hosts raw 'R Data/DBdata[asmt][v4.64].RData' (12,294,794 bytes; no repo-level LICENSE seen); kshtzgupta1/ramlegacy-assets (master) holds 5 'RLSADB ...' files of 5-34 MB (older versions 1.0-4.3 per package docs; not inspected); ramadmin/RLSADB (master) contains only documentation/templates (~19 small files), no data; cfree14/ram is an empty package skeleton; OHI-Science/ohiprep_v2025 and OHI-GOC/ohi_goc_prep reference DBdata[asmt][v4.66].RData from a local directory, not in-repo. No public repo hosting the raw v4.66 DBdata[asmt][v4.66].RData was found.",
+    "computed_counts": [
+     {
+      "statistic": "File dimensions and stock identifiers",
+      "value": "143,188 rows x 56 columns; 1,594 distinct stockid, of which 1,438 have at least one RAM time-series value and 156 are SST-only rows added by the full join (no RAM data). RData cross-check identical (df.ini 143,188 x 56, 1,594 stockid). Inferred v4.66 timeseries_values_views stock count = 1,438 + 4 dropped = 1,442 (inferred, verify on official file)",
+      "method": "pandas read_csv; notna().any over the 35 RAM series columns; rdata.read_rda for RData"
+     },
+     {
+      "statistic": "Year range",
+      "value": "1800-2024 across RAM series rows",
+      "method": "min/max of year on rows with any RAM value"
+     },
+     {
+      "statistic": "TBbest (best total biomass) series: stocks and length distribution",
+      "value": "475 stocks; >=20 yrs 411; >=25 yrs 387; >=30 yrs 357; >=35 yrs 309; >=40 yrs 234; >=50 yrs 159; median length 39 (min/max not reported); 10 stocks have internal gaps (n < span); histogram of lengths [0,10):2 [10,15):30 [15,20):32 [20,25):24 [25,30):30 [30,35):48 [35,40):75 [40,50):75 [50,60):40 [60,80):65 [80+):53; first-year quantiles 5/25/50/75/95% = 1905/1957/1977/1986/1999; last-year quantiles = 2007/2012/2015/2018/2021; last year >=2015: 268, >=2018: 151, >=2020: 60. No Pacific salmon stock has TBbest",
+      "method": "per stockid count of distinct years with non-NA value; span = last-first+1"
+     },
+     {
+      "statistic": "TB (total biomass) series",
+      "value": "500 stocks; >=25: 393; >=30: 362; >=35: 312; median length 39; 11 with gaps; 25 stocks have TB but no TBbest (e.g. AMPL3Ps, CODKAT, DABIIIa-IV, ILLEXNWATLC, several West Africa stocks); where both present TBbest == TB in 99.4% of rows",
+      "method": "as above"
+     },
+     {
+      "statistic": "SSB (spawning biomass) series",
+      "value": "976 stocks; >=25: 722; >=30: 639; >=35: 542; median length 37; 100 with gaps; last >=2015: 441, >=2018: 332. Excluding Pacific Salmon (FisheryType): 618 stocks, >=25: 460, >=30: 420, >=35: 371. Pacific salmon SSB: 358 stocks, >=30: 219, and none has a last year >= 2015",
+      "method": "as above; FisheryType == 'Pacific Salmon' split"
+     },
+     {
+      "statistic": "SSB-or-TB (TB preferred, else SSB) series",
+      "value": "1,091 stocks; >=25: 797; >=30: 707; >=35: 596; median 37; 111 with gaps; 385 stocks have both TB and SSB; non-salmon: 733 stocks, >=25: 535, >=30: 488, >=35: 425; non-salmon >=30 with last year >=2015: 368, >=2018: 288",
+      "method": "B_any = TB where notna else SSB"
+     },
+     {
+      "statistic": "Other series (stocks / >=30 yrs)",
+      "value": "TN 258/164; R 716/481; TC 1098/704; TCbest 1053/699; ERbest & ER 770/521; F 521/349; TBdivTBmsy 187/152; SSBdivSSBmsy 333/293; FdivFmsy 380/319; ERdivERmsy 248/180; survB 215/43; CPUE 136/49",
+      "method": "as above"
+     },
+     {
+      "statistic": "Reference-point coverage (B/BMSY, U/UMSY)",
+      "value": "BdivBmsypref: 488 stocks (33.9% of 1,438); UdivUmsypref: 569 (39.6%); both: 432; either: 625 -- exactly reproduces the Zenodo v4.66 description (625/432). Mgt-based prefs give identical counts (BdivBmgtpref 488, UdivUmgtpref 569). Among the 357 TBbest>=30 stocks: 292 have B/BMSY, 297 U/UMSY, 272 both",
+      "method": "set of stockid with any non-NA value per column"
+     },
+     {
+      "statistic": "Region codes (stocks with any RAM series; 24 codes, none missing)",
+      "value": "European Union 209; US Alaska (Pacific Salmon) 190; Canada West Coast (Pacific Salmon) 122; Canada East Coast 119; Mediterranean-Black Sea 93; Japan 80; West Africa 70; US East Coast 60; US Alaska 56; US West Coast 53; New Zealand 53; Canada West Coast 48; US Southeast and Gulf 47; Russia Japan (Pacific Salmon) 37; South America 35; Europe non EU 30; Australia 27; US West Coast (Pacific Salmon) 24; Pacific Ocean 22; Southern Africa 21; Atlantic Ocean 18; Indian Ocean 11; US Hawaii 8; Other 5. TBbest>=30 by region: EU 51, US West Coast 47, US Alaska 36, South America 26, US SE&Gulf 23, Canada East 20, Southern Africa 19, Australia 19, Japan 18, US East 17, New Zealand 16, Canada West 16, Europe non-EU 14, Atlantic 12, Pacific 9, Med-Black Sea 6, Indian 6, Other 2",
+      "method": "value_counts of region on one row per stockid"
+     },
+     {
+      "statistic": "FisheryType and species",
+      "value": "Pacific Salmon 373; Other Marine 223; Invertebrate 220; Gadids 149; Forage Fish 146; Flatfish 115; Sharks Rays and Skates 96; Rockfish 68; Tuna and Marlin 48; 397 distinct scientific names",
+      "method": "value_counts on one row per stockid"
+     },
+     {
+      "statistic": "Stocks whose biomass fell below 20% of the running maximum of the trailing 5-year median (event flagged if B_t < 0.2 * max over s<t of median(B_{s-4..s}), series reindexed to consecutive years, medians need 5 non-missing years)",
+      "value": "TBbest: 138 of 475 stocks (any length), 117 of 357 stocks with >=30 obs; first-event year quantiles (10/50/90%) 1974/1994/2012; first event >=1990: 76 stocks, >=2000: 45 (among >=30). TB: 145/500; 121/362 (>=30); first event >=1990: 78, >=2000: 44. SSB: 440/976; 349/639 (>=30); non-salmon 171/420 (>=30; first event >=1990: 114, >=2000: 60); salmon 178/219. SSB-or-TB: 475/1091; 376/707 (>=30); non-salmon 198/488 (>=30; first event >=1990: 139, >=2000: 91). Variants (running max including current year; requiring >=10 prior observations) change totals by at most 4 stocks (e.g. TBbest any-length 134-139)",
+      "method": "pandas rolling(5, min_periods=5).median().cummax().shift(1); flag = value < 0.2*runmax; count stocks with >=1 flagged year; first flagged year recorded"
+     },
+     {
+      "statistic": "TBbest>=30 non-salmon collapsed stocks by region (20%-of-max-trailing-median definition)",
+      "value": "EU 16; Canada East Coast 14; US West Coast 10; South America 10; US Alaska 8; Southern Africa 8; Canada West Coast 7; US SE&Gulf 6; Europe non-EU 6; Australia 6; Japan 5; US East Coast 5; New Zealand 5; Med-Black Sea 4; Pacific 2; Atlantic 2; Indian 2; Other 1",
+      "method": "as above, grouped by region"
+     }
+    ],
+    "computed_from_file": "/tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/ramldb_v466/timeseries_clean-v4.66.csv (and timeseries_clean-v4.66.RData cross-check); scripts: /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/ramldb_v466/compute_counts_v466.py and /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/ramldb_v466/compute_counts_v466_part2.py; outputs counts_v466.json and counts_v466_part2.json in the same directory; also README.md, LICENSE, 00-prepare_data.R saved there",
+    "version_caveat": "The mirror is the exact target version (v4.66, Zenodo 14043031; file names, README and prep script all stamp v4.66; the 625/432 reference-point counts reproduce the official Zenodo description exactly), but it is a DERIVED extract, not the official DBdata[asmt][v4.66].RData: (1) it contains only timeseries_values_views (one preferred series per stock from the most recent assessment), not the full 'timeseries' table with all assessments, nor the stock/assessment/bioparams tables; (2) four stocks (HADNS, HERR30, HERRNS, SOLEIIIa) were dropped by the author as empty/non-consecutive, so the official stock count is inferred as 1,442 and must be verified; (3) 156 SST-only stockids were added by a full join and were excluded from all counts here; (4) TBbest covers 475 stocks vs TB 500 -- the official TBbest definition and why 25 TB stocks lack TBbest must be checked in the v4.66 documentation; (5) units/scaling per stock and the 'mdl' (Extended) record were not inspected; (6) no version newer than v4.66 was visible in search results, but the Zenodo community should be checked directly. All counts above should be re-run on the official RAMLDB v4.66.zip (Zenodo, blocked from this sandbox) before preregistration.",
+    "implications_for_census_projection": "Number of systems with >=30 annual observations (verified on the v4.66 mirror): 357 stocks on TBbest (all non-salmon), 362 on TB, 639 on SSB (420 excluding Pacific salmon), 707 on TB-or-SSB (488 excluding Pacific salmon). Of the 357 TBbest>=30 stocks, 292 also have B/BMSY and 272 have both B/BMSY and U/UMSY, so a state-relative-to-reference baseline is available for roughly 80%. Follow-up completeness: TBbest series have a median last year of 2015 (only 151 of 475 end >=2018, 60 end >=2020), so with a 5-year horizon the last usable forecast origin is typically ~2010, and most series end 2012-2018 -- this constrains the number of origins with complete follow-up more than the 30-year length rule does. Collapse-event projection under the 20%-of-max-trailing-5-year-median definition: 117 of 357 TBbest>=30 stocks (33%) have at least one event, but first events are old (median 1994): only 76 first events fall after 1990 and 45 after 2000; because a prequential design needs a training window before each origin (e.g. >=15-20 years), the usable first-collapse pool on TBbest is on the order of ~45-76 events, ~60-114 on non-salmon SSB, and ~91-139 on non-salmon TB-or-SSB. Pacific salmon (358 SSB stocks; 178 of 219 >=30-year series flagged; all series end before 2015) would dominate the event count if pooled and should be treated as a separate biological system stratum or excluded in the primary analysis. Regional grouping is feasible: 18 regions have TBbest>=30 stocks, but several have <=10 (Mediterranean-Black Sea 6, Indian Ocean 6, Pacific 9, Other 2). Published comparators are consistent in scale: Rocha et al. (v4.44) found 479 stocks with series, 373 with >25 years, and 119 (31%) below 50% of historical average; P\u00e9lissi\u00e9 et al. 2026 used 315 stocks; Pinsky & Byler 154; Free et al. 235. No EWS-outcome associations were computed.",
+    "human_action_required": "1) Download the official 'RAMLDB v4.66.zip' from https://zenodo.org/records/14043031 (blocked from this sandbox) and re-run the two scripts against DBdata[asmt][v4.66].RData: confirm the 1,442 stock count, the four dropped stocks, the TBbest definition (475 vs 500 TB), units, and whether the full 'timeseries' table (all assessments) should be used instead of timeseries_values_views. 2) Check the Zenodo rlsadb community for any release newer than v4.66 and decide which version is locked for preregistration. 3) Decide on Pacific salmon handling (separate stratum vs exclusion) and freeze the exact collapse definition (prior-only vs inclusive running max; minimum prior observations) since variants shift counts by <=4 stocks. 4) Confirm reuse/citation terms: mirror is MIT-licensed code with CC BY 4.0 underlying data -- cite RAM Legacy v4.66 (DOI 10.5281/zenodo.14043031) and the RaphBnrd/RAMLDB_causality archive (DOI 10.5281/zenodo.20594195) if the extract is used. 5) Retrieve the full text of Cano et al. 2025 (PNAS) and P\u00e9lissi\u00e9 et al. 2026 (Sci. Adv.) to record the exact number of RAM stocks each used (not visible in search results) for the overlap table.",
+    "evidence_urls": [
+     "https://zenodo.org/records/14043031",
+     "https://zenodo.org/records/14043038",
+     "https://zenodo.org/communities/rlsadb/records",
+     "https://github.com/RaphBnrd/RAMLDB_causality",
+     "https://raw.githubusercontent.com/RaphBnrd/RAMLDB_causality/main/README.md",
+     "https://raw.githubusercontent.com/RaphBnrd/RAMLDB_causality/main/LICENSE",
+     "https://raw.githubusercontent.com/RaphBnrd/RAMLDB_causality/main/utils/00-prepare_data.R",
+     "https://raw.githubusercontent.com/RaphBnrd/RAMLDB_causality/main/data/timeseries_clean-v4.66.csv",
+     "https://raw.githubusercontent.com/RaphBnrd/RAMLDB_causality/main/data/timeseries_clean-v4.66.RData",
+     "https://github.com/matpelissie/abrupt_shifts_ecological_timeseries_classification",
+     "https://github.com/nggrimes/manager-ibi",
+     "https://github.com/kshtzgupta1/ramlegacy-assets",
+     "https://github.com/ramadmin/RLSADB",
+     "https://github.com/juanrocha/marine_tipping/blob/main/paper/manuscript.Rmd",
+     "https://github.com/OHI-Science/ohiprep_v2025/blob/gh-pages/globalprep/fis/v2025/STEP4a_RAM_data_prep.Rmd",
+     "https://github.com/OHI-GOC/ohi_goc_prep",
+     "https://www.pnas.org/doi/10.1073/pnas.1909726116",
+     "https://www.science.org/doi/10.1126/science.aau1758",
+     "https://royalsocietypublishing.org/rspb/article/282/1813/20151053/84303/Fishing-fast-growth-and-climate-variability",
+     "https://www.science.org/doi/10.1126/sciadv.aed7911",
+     "https://pmc.ncbi.nlm.nih.gov/articles/PMC13537261/",
+     "https://www.pnas.org/doi/10.1073/pnas.2505461122",
+     "https://royalsocietypublishing.org/rsif/article/23/241/20251040/482743/Sensitivity-of-fish-stock-trajectories-to-climate",
+     "https://docs.ropensci.org/ramlegacy/",
+     "https://github.com/ropensci/ramlegacy"
+    ],
+    "overlap_with_other_sources": "RAM Legacy is the common substrate for most of the closest prior work: P\u00e9lissi\u00e9 et al. 2026 (315 stocks; their repo used v4.61), Cano et al. 2025 (RAM plus ICES and FishGlob survey CPUE; RAM stock count not visible), Rocha et al. manuscript (v4.44; 479/373 stocks), Hilborn et al. 2020 (882/635 stocks), Free et al. 2019 (235 populations), Pinsky & Byler 2015 (154 populations, v1.0), Zhang 2020 (productivity regime shifts; not re-searched). Overlap with the study's other candidate sources: many RAM assessments (especially the 209 EU and 30 Europe non-EU stocks) are built on ICES survey indices, so RAM biomass and FishGlob/ICES survey series for the same stock are not independent systems and should be grouped by stock/species-area rather than by database (inferred from the region composition; not verified stock-by-stock). RAM's 373 Pacific salmon stocks (spawner counts) may overlap with salmon populations in GPDD/LPD (not verified). OHI (v2025) uses the same v4.66 B/Bmsy fields (476-501 stocks) for a different purpose.",
+    "confidence": "high"
+   },
+   "verify": {
+    "recomputed": true,
+    "file_readable": true,
+    "version_stamp_seen": "File names timeseries_clean-v4.66.csv / timeseries_clean-v4.66.RData (CSV sha256 c910121955e461599913303bcd945744bc315fd822bbee9d5ef2027da7a70864, matches previous agent). README.md: \"we use the version 4.66, which is the latest version as of February 2026, available at https://zenodo.org/records/14043031\". utils/00-prepare_data.R: `version_RAM = \"v4.66\"` (commented-out `# version_RAM = \"v4.64\"`), loading \"data/RAMLDB v4.66/R Data/DBdata[asmt][v4.66].RData\" and building df.ini from timeseries_values_views. RData cross-check with pyreadr (different reader from previous agent's `rdata`): object df.ini, 143,188 x 56, 1,594 stockid; TBbest/TB/SSB identical to the CSV in all 143,188 (stockid, year) rows. External confirmation (WebSearch 2026-09-14 | zenodo RAM Legacy Stock Assessment Database v4.66 \"625\" stocks B/BMSY U/UMSY \"432\"): search-engine summary of https://zenodo.org/records/14043031 states 625 stocks have B/BMSY or U/UMSY series and 432 have both (confidence medium: summary text only; page itself not fetchable). Note: the file is a derived extract (timeseries_values_views + HadISST SST join), not the official DBdata[asmt][v4.66].RData; nothing inside the file itself carries a RAM version string other than the file/README/script names.",
+    "agreements": [
+     {
+      "statistic": "File dimensions and stock identifiers",
+      "original_value": "143,188 rows x 56 cols; 1,594 distinct stockid; 1,438 with >=1 RAM value; 156 SST-only; RData identical; inferred official count 1,442 (1,438 + 4 dropped)",
+      "recomputed_value": "143,188 x 56; 35 RAM columns TBbest..EFFORT (taken by header position); 1,594 stockid; 1,438 with any finite RAM value; 156 SST-only (all 35 RAM columns NA, years 1870-2020, 105 of them lack a region); 0 duplicated (stockid,year) rows; 0 fully duplicated rows; 4 dropped ids (HADNS, HERR30, HERRNS, SOLEIIIa) confirmed absent; RData (pyreadr) 143,188 x 56, 1,594 stockid, values identical row-for-row",
+      "agree": true,
+      "note": "The 1,442 figure is an inference from the prep script (4 ids removed for non-consecutive/empty years) and is not checkable from this file; the prep-script comment says those ids had empty data, so the official count of stocks with >=1 value may still be 1,438."
+     },
+     {
+      "statistic": "Year range",
+      "original_value": "1800-2024 across RAM series rows",
+      "recomputed_value": "1800-2024 on rows with any RAM value (same for all rows)",
+      "agree": true,
+      "note": "1800 comes from a single stock, ATHAL5YZ (TBbest 1800-2007, 208 yrs); next-earliest TBbest start is 1872 (RSNAPGM)."
+     },
+     {
+      "statistic": "TBbest series: stocks, lengths, gaps, histogram, first/last-year quantiles",
+      "original_value": "475 stocks; >=20 411; >=25 387; >=30 357; >=35 309; >=40 234; >=50 159; median 39; 10 gapped; hist [0,10):2 [10,15):30 [15,20):32 [20,25):24 [25,30):30 [30,35):48 [35,40):75 [40,50):75 [50,60):40 [60,80):65 [80+):53; first-yr q5/25/50/75/95 = 1905/1957/1977/1986/1999; last-yr = 2007/2012/2015/2018/2021; last>=2015 268, >=2018 151, >=2020 60; no salmon has TBbest",
+      "recomputed_value": "475; 411; 387; 357; 309; 234; 159; median 39 (min 4, max 208); 10 gapped (PANDALSFA5, PANDALSMA16, PANDALSMA18-19, PANDALSMAGTSE, SARDMEDGSA7, SNOWCRAB3Ps, SRAKEROCKGA, SSHRIMPSMAGTSE, SSSHRIMPSMA16, SSSHRIMPSMA18-19); hist identical except [80+) = 54; first-yr quantiles (linear) 1905/1957/1977/1986/1999.3; last-yr 2007/2012/2015/2018/2021; 268/151/60; 0 Pacific-salmon stocks with TBbest; 0 zero or negative TBbest values",
+      "agree": false,
+      "note": "Only discrepancy: previous histogram's top bin was [80,200) with right=False, which excluded the 208-year ATHAL5YZ series, so the previous histogram sums to 474 not 475. Correct [80+) count is 54. Everything else reproduces exactly."
+     },
+     {
+      "statistic": "TB (total biomass) series",
+      "original_value": "500 stocks; >=25 393; >=30 362; >=35 312; median 39; 11 gapped; 25 stocks have TB but no TBbest; TBbest == TB in 99.4% of rows where both present",
+      "recomputed_value": "500; 393; 362; 312; median 39; 11 gapped; 25 TB-without-TBbest stocks (AMPL3Ps, BGRUNTCWACOG_AGO, BOARVI-VIII, BRMSPPCWACIV-BEN, BRMSPPCWAGAB-AGO, CATCWAGAB, CODKAT, CROAKSPPCWAGAB-AGO, CROAKSPPCWAGIN-LBR, CUTTLECWAGHA, DABIIIa-IV, GGRUNTCWAGAB-AGO, GGRUNTCWAGIN-LBR, ILLEXNWATLC, LDENTCWAAGO, PANDALSFA2-3, PLAIC2432, REDDEEPDP-1-2-V-XII-XIV, RPANDCWACIV-BEN, SKJEPAC, SOLECWAGAB-COD, THREADCWACIV-BEN, THREADCWAGAB-AGO, WINDOWGOMGB, WINDOWSNEMATL; TB lengths 9-41 yrs, 6 of them also have SSB); 0 TBbest-without-TB stocks; TBbest==TB in 99.37% of 22,419 rows (differences confined to HADROCK, HERR30-31, HERRVIaVIIbc, PLAICECHW); 20 rows have TBbest but no TB, none equal SSB",
+      "agree": true,
+      "note": "Why 25 TB stocks lack TBbest cannot be determined from this file (needs v4.66 documentation), as the previous agent already cautioned."
+     },
+     {
+      "statistic": "SSB (spawning biomass) series",
+      "original_value": "976 stocks; >=25 722; >=30 639; >=35 542; median 37; 100 gapped; last>=2015 441, >=2018 332; non-salmon 618 stocks, >=25 460, >=30 420, >=35 371; salmon 358 stocks, >=30 219, none with last year >= 2015",
+      "recomputed_value": "976; 722; 639; 542; median 37 (min 1, max 146); 100 gapped; 441 / 332 (and >=2020: 206); non-salmon 618 / 460 / 420 / 371; salmon 358, >=30 219, latest salmon SSB year = 2005 (0 with last >= 2015 at any length). Salmon defined by FisheryType == 'Pacific Salmon' (373 stocks) is identical to the set with '(Pacific Salmon)' in region.",
+      "agree": true,
+      "note": "19 salmon SSB series (all pink salmon, e.g. PSALMA21-27, PSALMCHV, PSALMSKAGPS) are strictly biennial/non-annual and 15 SSB stocks contain zero values (14 salmon + URAYVIIde); both are counted as stocks and toward >=N-year thresholds because n = number of distinct years with a value."
+     },
+     {
+      "statistic": "SSB-or-TB (TB preferred, else SSB) series",
+      "original_value": "1,091 stocks; >=25 797; >=30 707; >=35 596; median 37; 111 gapped; 385 have both TB and SSB; non-salmon 733, >=25 535, >=30 488, >=35 425; non-salmon >=30 with last>=2015 368, >=2018 288",
+      "recomputed_value": "Row-wise coalesce (previous method): 1,091; 797; 707; 596; median 37; 111 gapped; 385 both; non-salmon 733 / 535 / 488 / 425; 368 / 288 -- all identical. Stock-level coalesce (use TB for the whole stock if the stock has any TB, else SSB): 1,091 stocks; >=25 785; >=30 696; >=35 581; median 36; 107 gapped; non-salmon 733 / 523 / 477 / 410; non-salmon >=30 last>=2015 308, >=2018 184",
+      "agree": true,
+      "note": "Numbers reproduce, but the row-wise coalesce splices SSB rows into TB series wherever TB is missing: 180 stocks (160 with >=30 obs) get a mixed TB/SSB series, which inflates lengths and recency and creates artificial level shifts (see method concerns)."
+     },
+     {
+      "statistic": "Other series (stocks / >=30 yrs)",
+      "original_value": "TN 258/164; R 716/481; TC 1098/704; TCbest 1053/699; ERbest & ER 770/521; F 521/349; TBdivTBmsy 187/152; SSBdivSSBmsy 333/293; FdivFmsy 380/319; ERdivERmsy 248/180; survB 215/43; CPUE 136/49",
+      "recomputed_value": "TN 258/164; R 716/481; TC 1098/704; TCbest 1053/699; ERbest 770/521; ER 770/521; F 521/349; TBdivTBmsy 187/152; SSBdivSSBmsy 333/293; FdivFmsy 380/319; ERdivERmsy 248/180; survB 215/43; CPUE 136/49",
+      "agree": true,
+      "note": "All identical. Side observations: survB and CPUE each have one stock with negative values; TC has zeros in 159 stocks (not relevant to the biomass counts)."
+     },
+     {
+      "statistic": "Reference-point coverage (B/BMSY, U/UMSY)",
+      "original_value": "BdivBmsypref 488 (33.9% of 1,438); UdivUmsypref 569 (39.6%); both 432; either 625 (matches Zenodo v4.66 description); BdivBmgtpref 488, UdivUmgtpref 569; among TBbest>=30: 292 B, 297 U, 272 both",
+      "recomputed_value": "488 (33.94%); 569 (39.57%); both 432; either 625; mgt-pref 488 / 569 (UdivUmgtpref has >=30 count 405 vs 404 for UdivUmsypref, trivial); among the 357 TBbest>=30 stocks: 292 / 297 / 272. WebSearch summary of zenodo.org/records/14043031 states 625 stocks with B/BMSY or U/UMSY and 432 with both (confidence medium).",
+      "agree": true,
+      "note": "Exact match; the Zenodo 625/432 claim is corroborated by the search-engine summary of the record page (page itself not fetchable from this sandbox)."
+     },
+     {
+      "statistic": "Region codes (stocks with any RAM series; 24 codes) and TBbest>=30 by region",
+      "original_value": "EU 209; US Alaska (PS) 190; Canada West Coast (PS) 122; Canada East Coast 119; Med-Black Sea 93; Japan 80; West Africa 70; US East Coast 60; US Alaska 56; US West Coast 53; New Zealand 53; Canada West Coast 48; US SE&Gulf 47; Russia Japan (PS) 37; South America 35; Europe non EU 30; Australia 27; US West Coast (PS) 24; Pacific 22; Southern Africa 21; Atlantic 18; Indian 11; US Hawaii 8; Other 5. TBbest>=30: EU 51, US West Coast 47, US Alaska 36, South America 26, US SE&Gulf 23, Canada East 20, Southern Africa 19, Australia 19, Japan 18, US East 17, New Zealand 16, Canada West 16, Europe non-EU 14, Atlantic 12, Pacific 9, Med-Black Sea 6, Indian 6, Other 2",
+      "recomputed_value": "Identical on every code (24 codes, 0 missing region among the 1,438 RAM stocks, region constant within stock). TBbest>=30 by region identical on every entry.",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "FisheryType and species",
+      "original_value": "Pacific Salmon 373; Other Marine 223; Invertebrate 220; Gadids 149; Forage Fish 146; Flatfish 115; Sharks Rays and Skates 96; Rockfish 68; Tuna and Marlin 48; 397 distinct scientific names",
+      "recomputed_value": "Identical: 373 / 223 / 220 / 149 / 146 / 115 / 96 / 68 / 48; 397 scientific names; 0 stocks missing FisheryType",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Collapse flag (B_t < 0.2 x running max over s<t of trailing 5-yr median), TBbest and TB",
+      "original_value": "TBbest: 138 of 475 (any length); 117 of 357 (>=30); first-event q10/50/90 1974/1994/2012; first event >=1990: 76, >=2000: 45. TB: 145/500; 121/362; >=1990 78, >=2000 44. Variants (include current year; >=10 prior obs) change totals by at most 4 (TBbest any-length 134-139)",
+      "recomputed_value": "TBbest: 139 of 475 (any length); 117 of 357; q10/50/90 = 1973.8/1994/2012; 76 / 45; 0 first events on a zero value. TB: 146/500; 121/362; 78 / 44. Variants: include-current 139; >=10 prior obs 136; zero-as-missing 139 (range 136-139).",
+      "agree": false,
+      "note": "Any-length totals differ by exactly one stock (PANDALSMA18-19, 12 obs, 2 gaps, first event 2004). Cause: the previous implementation `rolling(5).median().cummax().shift(1)` leaves the running max NaN for the 5 years after any gap (pandas cummax does not fill NaN positions), so events shortly after a gap are missed; an explicit running maximum over all prior medians flags them. All >=30-year counts and first-event summaries are unaffected."
+     },
+     {
+      "statistic": "Collapse flag, SSB and SSB-or-TB",
+      "original_value": "SSB: 440/976; 349/639 (>=30); non-salmon 171/420 (>=1990: 114, >=2000: 60); salmon 178/219. SSB-or-TB: 475/1091; 376/707; non-salmon 198/488 (>=1990: 139, >=2000: 91)",
+      "recomputed_value": "SSB: 444/976; 350/639; non-salmon 171/420 (114 / 60); salmon 179/219; 7 SSB first events fall on a zero value; zero-as-missing variant 442 / 348. SSB-or-TB (row-wise coalesce): 481/1091; 377/707; non-salmon 198/488 (139 / 91). SSB-or-TB (stock-level coalesce): 442/1091; 340/696; non-salmon 161/477 (>=1990: 103, >=2000: 57)",
+      "agree": false,
+      "note": "Same NaN-after-gap cause: 8 gapped salmon SSB series differ (CSALMDFL, PSALMJERVISI, PSALMJOHNST, PSALMPCHATHAM, PSALMSBPCKD, PSALMTOBAI, SSALMA2W, SSALMAWKER; PSALMJOHNST has 30 obs, hence 349->350 and 178->179). Non-salmon counts identical. The SSB-or-TB hits depend strongly on the coalescing rule: 89 of the 481 row-coalesce hits are in mixed-source stocks and 35 first events sit on an SSB-sourced year immediately following TB-sourced years (a level shift from TB to lower SSB, not a biological decline)."
+     },
+     {
+      "statistic": "TBbest>=30 non-salmon collapsed stocks by region",
+      "original_value": "EU 16; Canada East Coast 14; US West Coast 10; South America 10; US Alaska 8; Southern Africa 8; Canada West Coast 7; US SE&Gulf 6; Europe non-EU 6; Australia 6; Japan 5; US East Coast 5; New Zealand 5; Med-Black Sea 4; Pacific 2; Atlantic 2; Indian 2; Other 1 (sum 117)",
+      "recomputed_value": "Identical on every region (sum 117). For reference, TB>=30 gives Canada East Coast 15 and US East Coast 8 (sum 121).",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Mirror content description: 'one most-used series per stock from the most recent assessment' with assessid as stock metadata",
+      "original_value": "timeseries_values_views ... plus stock/taxonomy metadata (scientificname, commonname, areaid, region, kingdom...genus, FisheryType, assessid)",
+      "recomputed_value": "Every RAM stock has at most one assessid (0 stocks with >1), but only 585 of the 1,438 RAM stocks have any assessid; assessid is non-null on 88,335 rows vs 87,721 rows with SST, and never null where SST is present. The prep script joins assessid from the HadISST/stock-boundary table (SST.yearly$assessid), not from RAM.",
+      "agree": false,
+      "note": "assessid in this file is the stock-boundary-database assessment id (end years up to 2021), not the v4.66 assessment behind timeseries_values_views; it cannot be used to verify the most-recent-assessment convention. The one-series-per-stock property rests on the prep script's use of timeseries_values_views, which is visible in 00-prepare_data.R, and is consistent with the absence of duplicate (stockid, year) rows."
+     }
+    ],
+    "method_concerns": [
+     "Running-max NaN propagation: the previous collapse code used pandas rolling(5).median().cummax().shift(1); cummax leaves NaN at NaN positions, so for the 5 years after any internal gap the threshold is undefined and events there are missed or delayed. Affects gapped series only: 1 TBbest/TB stock (PANDALSMA18-19) and 8 salmon SSB stocks; changes any-length totals by 1 (TBbest, TB), 4 (SSB), 6 (SSB-or-TB) and the SSB >=30 count by 1 (349 -> 350). No non-salmon >=30 count changes. Recommend an explicit running maximum over all prior valid medians (as in recheck_v466.py) and prespecifying gap handling.",
+     "Row-wise TB/SSB coalescing produces hybrid series: B_any = TB where present else SSB splices SSB rows into 180 stocks that have both series (160 with >=30 obs). Because SSB is generally lower than TB, the switch appears as a drop: 35 of the row-coalesce first events land on an SSB-sourced year immediately after TB-sourced years. Under a stock-level rule (TB for the whole stock if any TB, else SSB) the >=30 collapse count falls from 377 to 340 (non-salmon 198 -> 161) and the >=30 denominator from 707 to 696. Any 'SSB-or-TB' analysis should choose one series per stock, never per row.",
+     "The assessid column is not RAM assessment metadata: it comes from the HadISST/stock-boundary table joined by the mirror author (present for only 585 of 1,438 RAM stocks, end years <= 2021). It cannot verify the 'most recent assessment per stock' convention; that property is only inferable from the prep script's use of timeseries_values_views. The official DBdata[asmt][v4.66].RData 'timeseries' and 'assessment' tables are needed to confirm it.",
+     "Non-annual and gapped series are counted as stocks and toward >=N-year thresholds because n = number of distinct years with a value: 19 SSB series (all pink salmon) are strictly biennial and 1 TBbest/TB series (SRAKEROCKGA, 15 obs at 2-3 yr steps) is strictly non-annual; 100 SSB, 10 TBbest and 11 TB series have internal gaps. Such series can never be flagged by the 5-consecutive-year median rule, so they inflate denominators; prespecify whether length means observations, span or longest consecutive run.",
+     "Zero values: 15 SSB stocks contain exact zeros (14 Pacific salmon + URAYVIIde) and 7 SSB first-collapse events fall on a zero; treating zeros as missing changes SSB any-length hits 444 -> 442 and >=30 hits 350 -> 348. TBbest and TB have no zeros or negatives. Decide in advance whether zero escapement is a true observation or missing.",
+     "TBbest length histogram: the previous top bin [80,200) omitted the 208-year ATHAL5YZ series (histogram summed to 474, not 475); correct [80+) count is 54. Also, the 1800 start of the year range is this single stock.",
+     "The inferred official stock count of 1,442 (1,438 + 4 dropped ids) is not checkable from the file; the prep-script comment says the 4 dropped ids had empty data, so the count of stocks with >=1 value may be 1,438 in the official file too.",
+     "Version stamp rests on file names, README text and the prep script only; the extract carries no internal RAM version field. Counts for 625/432 reference-point stocks match the search-engine summary of Zenodo record 14043031 (v4.66), which supports but does not prove that the extract was built from v4.66. The official file remains blocked from this sandbox.",
+     "Quantile convention: first/last-year quantiles were reported as integers; the 95% first-year quantile is 1999.3 under linear interpolation (1999 with method='lower'). Minor, but prespecify the quantile method.",
+     "Salmon splits are robust: FisheryType == 'Pacific Salmon' and region labels containing '(Pacific Salmon)' identify exactly the same 373 stocks; no Pacific-salmon stock has TBbest or TB, and salmon SSB series end by 2005."
+    ],
+    "verdict": "partially-confirmed"
+   }
+  },
+  {
+   "check": {
+    "source": "Living Planet Database (LPD) public release, livingplanetindex.org (ZSL/WWF), LPR 2024 release",
+    "queries_run": [
+     "2026-09-14 | Living Planet Database time series length distribution",
+     "2026-09-14 | LPD populations 30 years or more",
+     "2026-09-14 | Living Planet Index GPDD overlap source",
+     "2026-09-14 | LPR 2024 technical supplement number of populations",
+     "2026-09-14 | Leung 2020 Nature 14700 populations time series length",
+     "2026-09-14 | livingplanetindex.org data portal public dataset 2024 release populations download date",
+     "2026-09-14 | Living Planet Report 2024 34,836 populations 5,495 species LPI",
+     "2026-09-14 | Daskalova Myers-Smith Godlee 2020 rare and common vertebrates Living Planet Database populations declines number of populations analysed",
+     "2026-09-14 | Buschke 2021 random population fluctuations bias Living Planet Index number of populations time series",
+     "2026-09-14 | rlpi package github Zoological Society of London Living Planet Index R package data file",
+     "2026-09-14 | Living Planet Database data sources Global Population Dynamics Database NERC Centre for Population Biology Imperial College",
+     "2026-09-14 | Clustered versus catastrophic global vertebrate declines Leung 14,700 populations extreme declines clusters 1% fewer than 10 points",
+     "2026-09-14 | LPR2024 Technical Supplement time series length data points GAM interpolation chain method populations species",
+     "2026-09-14 | Toszogyova mathematical biases Living Planet Index number of populations mean time series length observations",
+     "2026-09-14 | Quantifying reliability and data deficiency Living Planet Index Marconi populations years of data reliability categories",
+     "2026-09-14 | Living Planet Index data use agreement FAQ redistribution confidential populations public dataset version",
+     "2026-09-14 | Living Planet Database populations declined more than 80 percent count catastrophic declines",
+     "2026-09-14 | Marconi Living Planet Index paper populations time series Global Change Biology Biological Conservation",
+     "2026-09-14 | Ledger 2023 Living Planet Database majority of records 6-10 years over 2,000 records two years time series length jump 1970",
+     "2026-09-14 | Monitoring quality thresholds change the Living Planet Index minimum time series length populations retained Ecological Indicators",
+     "2026-09-14 | Living Planet Database \"GPDD\" populations sourced Global Population Dynamics Database Loh 2005 Collen 2009 data sources",
+     "2026-09-14 | Leung 2020 Nature vertebrate declines populations species analysed Living Planet Database 2018 dataset number of time series",
+     "2026-09-14 | Our World in Data FAQ Living Planet Index how many data points per population time series short",
+     "2026-09-14 | livingplanetindex.org database_stats.pdf \"Database stats\" Living Planet number of records time series length years histogram",
+     "2026-09-14 | Wolfram Data Repository \"Living Planet Index Data\" populations rows years columns version",
+     "2026-09-14 | Living Planet Database public dataset LPD 2024 \"Data_source\" \"Citation\" columns Binomial ID 1950 2020 populations rows",
+     "2026-09-14 | livingplanetindex.org news data portal updated Living Planet Report 2024 dataset now available download October 2024",
+     "2026-09-14 | Toszogyova Storch 2024 fullness proportion of years with recorded value mean time series Living Planet Index gaps",
+     "2026-09-14 | Oppenheimer Freeman 2026 Living Planet Index quality thresholds number of data points years proportion of time series excluded",
+     "2026-09-14 | Living Planet Index \"Global Population Dynamics Database\" number of populations obtained from GPDD percentage of Living Planet Database records",
+     "2026-09-14 | Living Planet Database proportion of populations with at least 20 years of data long-term monitoring percent of time series",
+     "2026-09-14 | [WebFetch attempt, EGRESS_BLOCKED] https://livingplanetindex.org/documents/LPR2024_Technical_Supplement.pdf",
+     "2026-09-14 | [WebFetch attempt, EGRESS_BLOCKED] https://ourworldindata.org/2024-living-planet-index"
+    ],
+    "search_budget_exhausted": false,
+    "published_counts": [
+     {
+      "statistic": "Global LPI (LPR 2024): populations and species in the index; period",
+      "value": "34,836 populations of 5,495 species; average decline 73% between 1970 and 2020",
+      "source_citation": "livingplanetindex.org LPI page (also repeated by Our World in Data 2024 LPI article and OWID FAQ)",
+      "url": "https://livingplanetindex.org/lpi",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Change in LPI population/species count from LPR 2022 to LPR 2024",
+      "value": "populations increased by around 3,000 (just short of a 10% rise); species increased by around 250 (a 5% rise)",
+      "source_citation": "Our World in Data, 'The 2024 Living Planet Index reports a 73% average decline ... what's changed since the last report?'",
+      "url": "https://ourworldindata.org/2024-living-planet-index",
+      "confidence": "high"
+     },
+     {
+      "statistic": "LPR 2024 Technical Supplement: regional change in population count",
+      "value": "Asia and the Pacific LPI: total number of populations increased by 29% (search snippet; full document not fetchable - egress blocked)",
+      "source_citation": "ZSL Institute of Zoology, LPR 2024 Technical Supplement (PDF)",
+      "url": "https://livingplanetindex.org/documents/LPR2024_Technical_Supplement.pdf",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Public dataset scope on the LPD data portal",
+      "value": "time-series of population abundance data for vertebrate species spanning years between 1970 and 2020; public version with confidential records removed; download requires a short description of intended use and agreement to the data-use agreement. Public release DATE: not visible in search results",
+      "source_citation": "livingplanetindex.org data portal page",
+      "url": "https://www.livingplanetindex.org/data_portal",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Current LPD holdings (whole database incl. confidential records)",
+      "value": "almost 42,000 populations of 5,579 mammal, bird, fish, reptile and amphibian species (snippet attributed to the data-portal/ZSL text); database_stats.pdf says 'over 5,500 species and almost 42,000 populations'. Date of the stats document not visible in search results",
+      "source_citation": "livingplanetindex.org data portal / database_stats.pdf",
+      "url": "https://www.livingplanetindex.org/documents/database_stats.pdf",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "LPD holdings at earlier snapshots",
+      "value": "'over 38,000 populations of more than 5,200 species' (Ledger et al. 2023, npj Biodiversity); 'nearly 40,000 populations of more than 5,200 mammal, bird, fish, reptile, amphibian and butterfly species' (ZSL/data-portal text)",
+      "source_citation": "Ledger et al. 2023 'Past, present, and future of the Living Planet Index', npj Biodiversity; ZSL LPI project page",
+      "url": "https://www.nature.com/articles/s44185-023-00017-3",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Time-series length distribution in the LPD (Figure 5 of database_stats.pdf)",
+      "value": "the majority of records cover 6-10 years of population data; over 2,000 records have the minimum amount of data (2 years); more than 2,000 records run from 1970 to 2011-2015 (an 'unusual jump' in an otherwise decreasing frequency of longer series, attributed to long-term monitoring programmes such as the North American Breeding Bird Survey). No published counts for >=20/25/30/35 observations and no mean/median length were visible in search results",
+      "source_citation": "ZSL 'Database stats' document (database_stats.pdf); same wording surfaced under livingplanetindex.org/stats",
+      "url": "https://www.livingplanetindex.org/documents/database_stats.pdf",
+      "confidence": "high"
+     },
+     {
+      "statistic": "INFERRED (not a published figure): share of LPD populations with ~40+ years of data",
+      "value": "roughly 4-5% (search-engine inference from '>2,000 records spanning 1970-2011/2015' out of ~42,000 populations). Treat as an upper-bound hint only; must be recomputed from the official download",
+      "source_citation": "inference over database_stats.pdf and livingplanetindex.org/stats snippets",
+      "url": "https://www.livingplanetindex.org/stats",
+      "confidence": "low"
+     },
+     {
+      "statistic": "Taxonomic pattern of series length (attribution uncertain among search results)",
+      "value": "'time series for birds, mammals and fish are longer, amphibians are almost exclusively represented by shorter time-series'; 'mean time series lengths for all regional taxonomic groups in the LPD are much shorter than the length of the trend being measured'. Exact source among listed results not visible; most likely Dove et al. 2023 GCB or Toszogyova et al. 2024",
+      "source_citation": "search summary for 'Living Planet Database time series length distribution' (results included Dove et al. 2023 GCB 10.1111/gcb.16841)",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/gcb.16841",
+      "confidence": "low"
+     },
+     {
+      "statistic": "LPD inclusion criteria (Collen et al. 2009)",
+      "value": "at least two data points; same monitoring method throughout; reputable method appropriate for the species; units represent population size/abundance",
+      "source_citation": "Journal of Herpetology 52(3) 'Tracking Global Population Trends ... Living Planet Index for Reptiles' (citing Collen et al. 2009)",
+      "url": "https://bioone.org/journals/journal-of-herpetology/volume-52/issue-3/17-076/Tracking-Global-Population-Trends--Population-Time-Series-Data-and/10.1670/17-076.full",
+      "confidence": "high"
+     },
+     {
+      "statistic": "LPI modelling rule by series length; definitions of length and fullness (gaps)",
+      "value": "series must contain at least two years of counts, not necessarily consecutive; 'length' = years between first and last observation, 'fullness' = proportion of years within that span with a recorded value; series with six or more data points are modelled with a GAM, shorter series are processed differently (chain method); 'series with lower fullness are on average those comprising decreasing populations'; length has very little effect on the overall trend. Mean fullness (fraction of gap years) NOT visible in search results",
+      "source_citation": "Toszogyova, Smycka & Storch 2024, Nature Communications, 'Mathematical biases in the calculation of the Living Planet Index ...'",
+      "url": "https://www.nature.com/articles/s41467-024-49070-x",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Share of LPD marked confidential (excluded from public release)",
+      "value": "18% of the data in the Living Planet Database are marked as confidential",
+      "source_citation": "Ledger et al. 2023, npj Biodiversity (PMC version)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11332142/",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Confidential populations excluded from the LPR 2016 public CSV",
+      "value": "the CSV version of the LPD 'excludes around 3000 populations which are confidential' (public CSV also deposited at figshare DOI 10.6084/m9.figshare.4300022.v1)",
+      "source_citation": "Zoological-Society-of-London/rlpi README.md and creating_infiles.md (read from raw.githubusercontent.com)",
+      "url": "https://github.com/Zoological-Society-of-London/rlpi/blob/master/README.md",
+      "confidence": "high"
+     },
+     {
+      "statistic": "LPD data-use policy (redistribution)",
+      "value": "recipients cannot pass original datasets to third parties (requests redirected to LivingPlanetIndex@ioz.ac.uk); cannot publish data in original format on websites/media; may pass on DERIVED datasets if supplied under the same terms; should link to the original source location",
+      "source_citation": "ZSL 'Data Use Policy: Living Planet Index' (data_agreement.pdf)",
+      "url": "https://www.livingplanetindex.org/documents/data_agreement.pdf",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Leung et al. 2020 (Nature) dataset size",
+      "value": "'over 14,000 vertebrate populations' from the LPD (phys.org summary); exact figure 14,700 not visible in search results",
+      "source_citation": "phys.org summary of Leung et al. 2020 'Clustered versus catastrophic global vertebrate declines'",
+      "url": "https://phys.org/news/2020-11-extreme-losses-populations-apparent-global.html",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Leung et al. 2020: effect of a 10-point minimum length",
+      "value": "excluding time series with fewer than 10 points removed 52% of the data",
+      "source_citation": "Leung et al. 2020, Nature 588:267-271 (article page snippet)",
+      "url": "https://www.nature.com/articles/s41586-020-2920-6",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Leung et al. 2020: share of populations in extreme-decline clusters",
+      "value": "mean decline driven by <3% of populations; ~1% of populations suffered extreme declines since 1970; ~0.4% extreme increases; remaining 98.6% show no mean global trend; three systems (all Indo-Pacific) declining strongly with high certainty, seven with less certainty. NOTE: these are cluster-membership shares, not counts of >=80% declines",
+      "source_citation": "Leung et al. 2020, Nature; Nature article page and St Andrews/UCL repository copies",
+      "url": "https://www.nature.com/articles/s41586-020-2920-6",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Daskalova, Myers-Smith & Godlee 2020 (Nat Commun) dataset and outcome shares",
+      "value": "nearly 10,000 abundance time series from over 2,000 vertebrate species (LPD); 15% of populations declined, 18% increased, 67% no net change; README: LPD extract of 133,092 records covering 1970-2014, file LPIdata_Feb2016.csv (raw data not redistributed per data-use rules). No >=80%-decline count visible",
+      "source_citation": "Daskalova et al. 2020 Nature Communications 'Rare and common vertebrates span a wide spectrum of population trends'; gndaskalova/PopChangeRarity README",
+      "url": "https://www.nature.com/articles/s41467-020-17779-0",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Buschke et al. 2021 (Nat Ecol Evol) LPD version and findings",
+      "value": "LPD version downloaded 09 September 2020; code accurate as of 05 April 2021; used rlpi v0.1.0; neutral-model drift alone can make the index decline by up to 20% in 50 years. Number of populations analysed not visible in search results or README",
+      "source_citation": "falko-buschke/LPI README; Buschke, Hagan, Santini & Coetzee 2021 Nat Ecol Evol 5:1145-1152",
+      "url": "https://github.com/falko-buschke/LPI",
+      "confidence": "high"
+     },
+     {
+      "statistic": "GPDD as an LPD data source",
+      "value": "The LPI 'uses data from the Global Population Dynamics Database from the Center for Population Biology at Imperial College London, among numerous other data sources'. GPDD itself: 'nearly five thousand time series, over 1400 species' (Imperial news) / 'more than 4500 time series for over 1800 animal species' (J. Herpetology). NUMBER of LPD populations sourced from GPDD: not visible in search results; whether the public 'Data_source'/'Citation' field cites GPDD must be checked on the official download",
+      "source_citation": "livingplanetindex.org Partners and Collaborators page; Imperial College news on GPDD; J. Herpetology 52(3)",
+      "url": "https://www.livingplanetindex.org/about_partners",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Dove et al. 2023 (GCB) reliability drivers",
+      "value": "trend reliability depends on the number and length of time series and on mean/variance of growth rates; bird trends most reliable, reptiles and amphibians most data-deficient (Global Change Biology 29:4966-4982). No length-distribution counts visible",
+      "source_citation": "Dove, Bohm, Freeman, McRae & Murrell 2023, Global Change Biology (author list from search summary)",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/gcb.16841",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Oppenheimer & Freeman 2026 (Ecological Indicators 189) quality-threshold study",
+      "value": "removing lower temporal-quality series makes the LPI decline less; lower-quality data concentrated in taxa/regions in decline; lambdas capped at +/-1 (10-fold per year). Counts of series retained per minimum-length threshold NOT visible in search results",
+      "source_citation": "Oppenheimer & Freeman 2026, 'Monitoring quality thresholds change the Living Planet Index ...', Ecological Indicators",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1470160X26005777",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "LPR 2022 LPI dataset (as mirrored on Wolfram Data Repository; NOT downloaded)",
+      "value": "31,821 populations across 5,230 species, 1970-2018 (Living Planet Report 2022)",
+      "source_citation": "Wolfram Data Repository 'Living Planet Index Data' resource description",
+      "url": "https://datarepository.wolframcloud.com/resources/Living-Planet-Index-Data/",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Published count of LPD populations with declines >= 80%",
+      "value": "NOT FOUND in any search result (Leung 2020's <3% / ~1% cluster shares are the nearest published figures but are not threshold-crossing counts). Marconi et al.: search located only Marconi as co-author of 'The utility of the Living Planet Index as a policy tool ...' (Phil Trans B 2025); no relevant counts visible",
+      "source_citation": "search results for queries 17 and 18",
+      "url": "https://royalsocietypublishing.org/rstb/article/380/1917/20230207/109657/The-utility-of-the-Living-Planet-Index-as-a-policy",
+      "confidence": "low"
+     }
+    ],
+    "mirror_found": false,
+    "mirror_details": "No LPD records were downloaded (LPD data-use agreement forbids redistribution; task rule). Public GitHub locations that DO host LPD-derived files were identified but deliberately not fetched: (1) Zoological-Society-of-London/rlpi, branch master, HEAD bfa317723cd2c5cf4ab36b27524535a11d50dd3f (commit date 2026-05-04), repo licence GPL-2 (DESCRIPTION, rlpi v0.1.1, authors Freeman, McRae, Deinet, Amin, Collen); blob-less tree listing shows inst/extdata/example_data/LPI_LPR2016data_public.csv and inst/extdata/example_data.zip (LPR 2016 public LPD, columns X1950..'Managed' per creating_infiles.md; README says it excludes ~3000 confidential populations; also deposited at figshare DOI 10.6084/m9.figshare.4300022.v1); file sizes not retrieved (no blobs fetched); no .gitattributes so not git-lfs. (2) gndaskalova/PopChangeRarity (master): README states raw LPD (LPIdata_Feb2016.csv, 133,092 records, 1970-2014) is NOT uploaded per data-use rules; only derived outputs. (3) falko-buschke/LPI (master/main identical README): code only; LPD version downloaded 09 Sept 2020; data governed by data_agreement.pdf. (4) Wolfram Data Repository hosts an LPR 2022 LPI dataset (31,821 populations) - not fetched. add_repo results: all three repos returned status 'read_available' (public; anonymous git reads served; nothing attached; no refusal). Only documentation files were fetched, saved under /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/lpd/ (rlpi README.md/DESCRIPTION/creating_infiles.md, PopChangeRarity README.md, falko-buschke LPI README.md) plus a blob-less clone rlpi_meta/ used only for `git ls-tree`. WebFetch of livingplanetindex.org and ourworldindata.org: EGRESS_BLOCKED.",
+    "computed_counts": [],
+    "computed_from_file": "",
+    "version_caveat": "Target is the LPR 2024 public release (1970-2020, confidential records removed; release date not visible in search results). All mirrors found are older and were not used: LPR 2016 public CSV in rlpi/figshare, Feb 2016 extract (Daskalova), 09 Sept 2020 download (Buschke), LPR 2022 dataset on Wolfram. The 'almost 42,000 populations / 5,579 species' and the 6-10-year modal length figures come from ZSL's whole-database stats (undated document; includes ~18% confidential records), NOT from the public release; the index itself uses 34,836 populations. On the official download the human must re-verify: release/version stamp, number of populations, per-population observation counts (>=20/25/30/35), mean/median length, fullness (fraction of gap years within span), whether a Data_source/Citation column exists and how many rows cite GPDD/NERC Centre for Population Biology, and the overlap with RAM Legacy/ICES survey series and the North American BBS.",
+    "implications_for_census_projection": "Published evidence says most LPD series are short (modal 6-10 years; >2,000 series at the 2-year minimum; Leung 2020 lost 52% of series with a 10-point minimum), while only 'more than 2,000' records span 1970 to 2011-2015. Hence the number of populations with >=30 ANNUAL OBSERVATIONS is expected to be a small minority of the ~35k public populations - plausibly on the order of low thousands, and fewer than the number with a >=30-year span because 'fullness' (gaps) is incomplete and lower fullness is associated with declining series (Toszogyova 2024). A large share of the long series is expected to come from a few monitoring programmes (BBS named explicitly; GPDD-sourced records not quantified), so effective independent systems are fewer than raw counts and system-level grouping/de-duplication against GPDD, RAM Legacy and ICES will be needed. For collapse-event projection: no published count of LPD populations with >=80% declines was found; the nearest published figures (Leung 2020: <3% of populations drive the index decline, ~1% in extreme-decline clusters) are trend-cluster shares, not threshold-crossing counts, so the expected number of first-collapse events among long, gap-tolerant series cannot be projected from the literature and must be computed from the official download. No EWS-outcome associations were computed or inferred.",
+    "human_action_required": "1) Register at https://www.livingplanetindex.org/data_portal, state intended use, accept the data-use agreement, and download the current public release; record the release date/version stamp shown at download and the row count. 2) From that file compute: observations per population (columns X1950..X2020), counts with >=20/25/30/35 non-missing annual values, mean/median length and span, fullness (share of gap years within span), and the number of rows whose Data_source/Citation/Source fields mention 'GPDD', 'Global Population Dynamics Database' or 'NERC Centre for Population Biology'. 3) Open https://livingplanetindex.org/documents/LPR2024_Technical_Supplement.pdf and https://www.livingplanetindex.org/documents/database_stats.pdf (both blocked here) to extract the exact population/species counts, the Figure-5 length histogram bins, and any GPDD/source statements. 4) Do not use the rlpi/figshare LPR2016 CSV, the Wolfram LPR2022 mirror, or any other redistributed copy. 5) Note that derived outputs (e.g. per-series collapse labels) may be shared only under the same LPD terms.",
+    "evidence_urls": [
+     "https://livingplanetindex.org/lpi",
+     "https://www.livingplanetindex.org/data_portal",
+     "https://www.livingplanetindex.org/documents/database_stats.pdf",
+     "https://www.livingplanetindex.org/stats",
+     "https://www.livingplanetindex.org/documents/data_agreement.pdf",
+     "https://www.livingplanetindex.org/about_partners",
+     "https://livingplanetindex.org/documents/LPR2024_Technical_Supplement.pdf",
+     "https://ourworldindata.org/2024-living-planet-index",
+     "https://ourworldindata.org/faq-living-planet-index",
+     "https://www.nature.com/articles/s44185-023-00017-3",
+     "https://pmc.ncbi.nlm.nih.gov/articles/PMC11332142/",
+     "https://www.nature.com/articles/s41467-024-49070-x",
+     "https://www.nature.com/articles/s41586-020-2920-6",
+     "https://phys.org/news/2020-11-extreme-losses-populations-apparent-global.html",
+     "https://www.nature.com/articles/s41467-020-17779-0",
+     "https://github.com/gndaskalova/PopChangeRarity",
+     "https://www.nature.com/articles/s41559-021-01494-0",
+     "https://github.com/falko-buschke/LPI",
+     "https://github.com/Zoological-Society-of-London/rlpi/blob/master/README.md",
+     "https://github.com/Zoological-Society-of-London/rlpi/blob/master/creating_infiles.md",
+     "https://onlinelibrary.wiley.com/doi/10.1111/gcb.16841",
+     "https://www.sciencedirect.com/science/article/pii/S1470160X26005777",
+     "https://bioone.org/journals/journal-of-herpetology/volume-52/issue-3/17-076/Tracking-Global-Population-Trends--Population-Time-Series-Data-and/10.1670/17-076.full",
+     "https://www.imperial.ac.uk/news/13994/new-global-population-dynamics-database-website/",
+     "https://datarepository.wolframcloud.com/resources/Living-Planet-Index-Data/",
+     "https://royalsocietypublishing.org/rstb/article/380/1917/20230207/109657/The-utility-of-the-Living-Planet-Index-as-a-policy",
+     "https://www.zsl.org/what-we-do/projects/living-planet-index"
+    ],
+    "confidence": "medium"
+   },
+   "verify": null
+  },
+  {
+   "check": {
+    "source": "BioTIME 2.0 (Dornelas et al. 2025, Global Ecology and Biogeography 34(5): e70003; Zenodo concept 10932823, latest version record 15222193 = v4, 15 April 2025; BioTIMEr 0.3.2; bioTIMEHub GitHub organisation)",
+    "queries_run": [
+     "2026-09-14 | BioTIME 2.0 Dornelas 2025 Global Ecology and Biogeography number of studies time series years duration",
+     "2026-09-14 | bioTIMEHub GitHub BioTIMEr package metadata table",
+     "2026-09-14 | BioTIME 2.0 Zenodo 10932823 data licence CC-BY studies",
+     "2026-09-14 | BioTIME metadata csv \"NUMBER_OF_YEARS\" \"START_YEAR\" github",
+     "2026-09-14 | Dornelas 2014 Science assemblage time series BioTIME 100 studies number of species sites duration",
+     "2026-09-14 | Dornelas 2025 BioTIME 2.0 \"duration\" median years studies figure distribution \"longest\"",
+     "2026-09-14 | BioTIME overlap \"Living Planet\" OR GPDD OR \"Global Population Dynamics Database\" shared time series duplication",
+     "2026-09-14 | BioTIME fisheries bottom trawl survey studies ICES NOAA \"FishGlob\" OR \"trawl\" assemblage time series included",
+     "2026-09-14 | Blowes 2019 Science geography of biodiversity change BioTIME 239 studies cells time series duration years",
+     "2026-09-14 | BioTIME metadata fields \"GRAIN_SIZE_TEXT\" OR \"AREA_SQ_KM\" OR \"SAMPLE_DESC\" sampling effort standardisation rarefaction",
+     "2026-09-14 | Dornelas 2018 \"BioTIME\" database Anthropocene 361 studies duration years median longest 1874 sampling frequency",
+     "2026-09-14 | Ant\u00e3o 2020 Nature Ecology Evolution temperature-related biodiversity change BioTIME number of time series cells studies",
+     "2026-09-14 | BioTIME 2.0 per-study licence \"CC BY-NC\" OR \"CC0\" OR \"ODbL\" studies contributors licence table",
+     "2026-09-14 | Daskalova \"Representation of global change across biodiversity databases\" Living Planet BioTIME PREDICTS overlap time series number",
+     "2026-09-14 | biotime.st-andrews.ac.uk selectStudy studies table \"years\" \"start year\" \"end year\" list of studies",
+     "2026-09-14 | zenodo BioTIME 2.0 record files \"BioTIMEQuery\" \"BioTIMEMetadata\" csv zip version v2",
+     "2026-09-14 | BioTIME analysis \"at least 10 years\" OR \"minimum of 10 years\" OR \"\u226510 years\" time series cells retained studies count",
+     "2026-09-14 | \"biotime_v2_metadata_15April25\" OR \"biotime_v2_query_15April25\" OR \"biotime_v2_metadata\"",
+     "2026-09-14 | \"BioTIME 2.0\" studies \"number of years\" OR \"time series length\" OR \"sampled for\" distribution \"years\" Dornelas 2025 results section",
+     "2026-09-14 | \"BioTIME\" \"Living Planet Database\" complementary assemblage-level population-level Dornelas 2025 OR 2018 comparison GPDD",
+     "2026-09-14 | \"BioTIME 2.0\" inclusion criteria \"sampling effort\" consistent methodology \"grain\" \"same protocol\" studies excluded Dornelas 2025 methods",
+     "2026-09-14 | \"FISHGLOB\" OR \"FishGlob\" Maureaud 2024 Scientific Data bottom-trawl surveys \"BioTIME\" overlap OR \"also included\"",
+     "2026-09-14 | St Andrews news 2025 BioTIME biggest biodiversity time series database 708 studies \"years\" longest countries species records press release",
+     "2026-09-14 | BioTIME 2.0 metadata table columns \"LICENSE\" OR \"DATA_LICENSE\" \"START_YEAR\" \"END_YEAR\" \"NUMBER_OF_SAMPLES\" \"ABUNDANCE_TYPE\" description Table",
+     "2026-09-14 | Dornelas 2025 BioTIME 2.0 \"Figure\" study duration years histogram \"number of studies\" temporal extent longest time series \"years\"",
+     "2026-09-14 | BioTIME database \"longest\" time series \"years\" 2.0 OR \"second version\" 708 studies proportion studies longer than 10 20 years",
+     "2026-09-14 | BioTIME study \"Breeding Bird Survey\" OR \"Christmas Bird Count\" OR \"Continuous Plankton Recorder\" OR \"Rothamsted\" included dataset biotime.st-andrews.ac.uk",
+     "2026-09-14 | \"GPDD\" \"BioTIME\" population time series databases both used overlap sources \"Living Planet\" Dornelas 2018 \"unlike\" OR \"differs\" OR \"complements\"",
+     "2026-09-14 | Daskalova Bowler Myers-Smith Dornelas \"global change\" representation BioTIME \"time series\" duration \"years\" median number of studies Living Planet comparison results",
+     "2026-09-14 | BioTIME \"median\" \"19 years\" \"12 sampling years\" OR \"12 years\" monitoring time span studies Dornelas 2025",
+     "2026-09-14 | \"BioTIME 2.0\" studies sampled \"annually\" OR \"every year\" OR \"sampling frequency\" OR \"temporal grain\" proportion Dornelas 2025 \"years\" \"realm\" marine terrestrial freshwater number of studies",
+     "2026-09-14 | \"BioTIME\" 2.0 studies \"time span\" OR \"monitoring span\" median \"sampling years\" 708 Dornelas",
+     "2026-09-14 | [GitHub code search, not WebSearch] user:bioTIMEHub (repository listing)",
+     "2026-09-14 | [GitHub code search] \"NUMBER_OF_YEARS\" \"AREA_SQ_KM\" \"START_YEAR\" extension:csv  -> 0 hits",
+     "2026-09-14 | [GitHub code search] \"BioTIMEMetadata\" extension:csv -> 0 hits",
+     "2026-09-14 | [GitHub code search] \"STUDY_ID\" \"REALM\" \"CLIMATE\" \"GRAIN_SIZE_TEXT\" extension:csv -> 5 hits",
+     "2026-09-14 | [GitHub code search] biotime metadata \"NUMBER_OF_YEARS\" language:R -> 0 hits",
+     "2026-09-14 | [GitHub code search] biotime_v2_metadata in:path -> 0 hits",
+     "2026-09-14 | [GitHub code search] \"biotime_v2_query\" OR \"biotime_v2_metadata\" OR \"BioTIMEQuery\" -> 0 hits",
+     "2026-09-14 | [GitHub code search] \"SAMPLE_DESC_NAME\" \"DATE_STUDY_ADDED\" \"STUDY_ID\" -> 23 hits (found gndaskalova/GlobalChangeSpace data/input/bioTIMEMetadataJune2021.csv)",
+     "2026-09-14 | [GitHub code search] biotime metadata csv \"DATA_POINTS\" \"START_YEAR\" NOT karinorman -> 13 hits",
+     "2026-09-14 | [GitHub code search] \"biotime_v2\" -> 17 hits (scripts only; emd-aquila/cs3-biodiversity tracks biotime_v2_query_15April25.rds via git-LFS)",
+     "2026-09-14 | [GitHub code search] \"BioTIME 2.0\" metadata read language:R -> 1 hit"
+    ],
+    "search_budget_exhausted": false,
+    "published_counts": [
+     {
+      "statistic": "BioTIME 2.0 size: records / sample events / sampling locations / studies / taxa",
+      "value": "11,989,233 records nested in 1,603,067 sample events from 553,253 sampling locations nested in 708 studies; 56,400 taxa (any eukaryotic taxa)",
+      "source_citation": "Dornelas et al. 2025, BioTIME 2.0: Expanding and Improving a Database of Biodiversity Time Series, Global Ecology and Biogeography 34(5): e70003 (abstract, as reproduced by several repositories)",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/geb.70003",
+      "confidence": "high"
+     },
+     {
+      "statistic": "BioTIME 2.0 temporal extent and study definition",
+      "value": "Earliest time series start in 1874, most recent records from 2023; a study = a sampling methodology applied to an assemblage for a minimum of 2 years; 'temporal grain and duration vary across studies'; database = one main data table + 11 metadata tables",
+      "source_citation": "Dornelas et al. 2025 GEB (Time Period and Grain section, as quoted in search snippets)",
+      "url": "https://andrewsforest.oregonstate.edu/publications/5394",
+      "confidence": "high"
+     },
+     {
+      "statistic": "BioTIME 2.0 vs 1.0: number of studies and removals",
+      "value": "v2.0 'doubles the number of studies' of v1.0; 16 studies previously in v1.0 were removed because they did not meet inclusion criteria (details in File S4)",
+      "source_citation": "Dornelas et al. 2025 GEB (search snippet)",
+      "url": "https://research-repository.st-andrews.ac.uk/handle/10023/32216",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "BioTIME 2.0 median monitoring span / sampling years (UNVERIFIED PROVENANCE)",
+      "value": "'The median monitoring time span was 19 years, with 12 sampling years' \u2014 sentence appeared once in a WebSearch synthesis alongside the 708-study figure; two follow-up searches could not locate it in any snippet, so the source (Dornelas 2025 text vs. another paper) is not visible",
+      "source_citation": "search synthesis returned for query 'Daskalova Bowler Myers-Smith Dornelas ...'; candidate sources listed were par.nsf.gov and the St Andrews PDF",
+      "url": "https://par.nsf.gov/biblio/10591805-biotime-expanding-improving-database-biodiversity-time-series",
+      "confidence": "low"
+     },
+     {
+      "statistic": "Zenodo BioTIME 2.0 record versions and files",
+      "value": "Latest = Version 4, published 15 April 2025, record 15222193: biotime_v2_sql_15April25.sql, biotime_v2_query_15April25.rds, biotime_v2_metadata_15April25.csv, references_biotime_v2_15April25.csv, BIB_biotime_v2_15April25.csv.txt; Version 3 = record 14514183 (18 Dec 2024); concept DOI 10.5281/zenodo.10932823; file sizes not visible in search results",
+      "source_citation": "Zenodo record pages (titles/descriptions as returned by search)",
+      "url": "https://zenodo.org/records/15222193",
+      "confidence": "high"
+     },
+     {
+      "statistic": "BioTIME 2.0 licence model",
+      "value": "Database available via Zenodo and BioTIME website under CC-BY, free to use with attribution; in addition 'each study has a licence associated with a spectrum of governmental, Creative Commons and Data Commons licences' selected by contributors, recorded in the metadata table; usage-guidelines page describes CC0, CC-BY-compatible and ODbL options; users must cite all underlying DOIs",
+      "source_citation": "Dornelas et al. 2025 GEB (data availability) + BioTIME 'Use data' page + BioTIMEr README",
+      "url": "https://biotime.st-andrews.ac.uk/usageGuidelines.php",
+      "confidence": "high"
+     },
+     {
+      "statistic": "BioTIME 2.0 metadata columns relevant to series length, effort and grain (verified in BioTIMEr 0.3.2 source, cloned)",
+      "value": "BTsubset_meta has 25 columns incl. DATA_POINTS ('Number of unique data points in study, e.g. 10 data points spanning 15 years = 10'), START_YEAR, END_YEAR, NUMBER_OF_SAMPLES ('Number of distinct samples in study'), NUMBER_LAT_LONG, GRAIN_SIZE_TEXT, AREA_SQ_KM, ABUNDANCE_TYPE, BIOMASS_TYPE, SAMPLE_DESC_NAME, DATE_STUDY_ADDED; raw data (BTsubset_data, 81,084 rows x 17 cols) carries SAMPLE_DESC, LATITUDE, LONGITUDE, DAY, MONTH, YEAR per record, so per-year sample counts (effort) are recoverable; the 12-study subset in the package has no LICENSE column (full metadata reportedly does)",
+      "source_citation": "bioTIMEHub/BioTIMEr R/data.R (commit 7c33f32, 'BioTIMEr 0.3.2 accepted on CRAN', 2026-03-04)",
+      "url": "https://github.com/bioTIMEHub/BioTIMEr",
+      "confidence": "high"
+     },
+     {
+      "statistic": "BioTIME effort/grain standardisation recommendations",
+      "value": "BioTIME recommends sample-level rarefaction to a common number of samples per year within each cell-level time series and gridding into ~96 km2 hexagonal cells (dggridR res 12); BioTIMEr resampling() picks the minimum number of samples across years and randomly resamples each year to it",
+      "source_citation": "BioTIMEr vignette (introduction.qmd, cloned) and Dornelas 2025 recommendations",
+      "url": "https://biotimehub.github.io/BioTIMEr/articles/vignette1.html",
+      "confidence": "high"
+     },
+     {
+      "statistic": "BioTIME v1.0 (2018) size and duration statistics",
+      "value": "8,777,413 species abundance records from assemblages consistently sampled for a minimum of 2 years (need not be consecutive); records span 118 years (1874-2016); longest time series 97 years; average duration 13 years; minimal temporal grain 1 year; '56.5% of studies contain up to 10 years of data'. One search summary also quoted '387 studies, 12,623,386 records, 652,675 locations, 45,093 species' \u2014 likely a later website/version figure; not reconciled",
+      "source_citation": "Dornelas et al. 2018, BioTIME: A database of biodiversity time series for the Anthropocene, GEB 27:760-786",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.12729",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "BioTIME v1 June-2021 release: number of studies in the public query",
+      "value": "381 studies (unique STUDY_ID in BioTIMEquery_24_06_2021.csv); 170 single-location studies (NUMBER_LAT_LONG==1) and 211 multi-location; max NUMBER_LAT_LONG 93,906",
+      "source_citation": "third-party notebook mariaproebstl/MScThesis explore/00-import-BioTIME-database.md computed on the official 24_06_2021 files",
+      "url": "https://github.com/mariaproebstl/MScThesis",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Blowes et al. 2019 (Science) BioTIME-derived cell time series",
+      "value": "239 studies; 126 with multiple locations/large extents partitioned into 96-km2 hexagonal cells, 113 kept whole; 51,932 individual cell time series",
+      "source_citation": "Blowes et al. 2019, The geography of biodiversity change in marine and terrestrial assemblages, Science 366:339-345",
+      "url": "https://www.science.org/doi/10.1126/science.aaw1620",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Ant\u00e3o et al. 2020 (Nat Ecol Evol) BioTIME-derived assemblage time series",
+      "value": "21,500 terrestrial and marine assemblage time series across temperate regions (23.5-60.0 deg latitude)",
+      "source_citation": "Ant\u00e3o et al. 2020, Temperature-related biodiversity change across temperate marine and terrestrial systems, Nature Ecology & Evolution 4:927-933",
+      "url": "https://www.nature.com/articles/s41559-020-1185-7",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Dornelas et al. 2014 (Science) number of assemblage time series",
+      "value": "100 time series from biomes across Earth",
+      "source_citation": "Dornelas et al. 2014, Assemblage time series reveal biodiversity change but not systematic loss, Science 344:296-299",
+      "url": "https://www.science.org/doi/10.1126/science.1248484",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Overlap statement BioTIME vs LPD/GPDD",
+      "value": "'there is only partial overlap between these databases (Living Planet Database, GPDD) and BioTIME because inclusion criteria differ'; BioTIME is assemblage-level whereas LPD/GPDD are population-level; populations can be tracked from assemblage data but not vice versa",
+      "source_citation": "Dornelas et al. 2018 GEB (introduction, as quoted in search snippet)",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12729",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "Concrete programmes present in BioTIME that are also LPD/GPDD-type sources",
+      "value": "BioTIME study 195 = 'Breeding birds survey North America' (USGS Patuxent); study 593 = 'Christmas Bird Count - Bogota (1989-2015)'; study 184 = 'DFO Central and Arctic Multi-species Stock Assessment'; study 293 = Rothamsted Park Grass Experiment (in mirrored metadata)",
+      "source_citation": "BioTIME study pages",
+      "url": "https://biotime.st-andrews.ac.uk/selectStudy.php?study=195",
+      "confidence": "high"
+     },
+     {
+      "statistic": "FishGlob relationship to BioTIME",
+      "value": "FISHGLOB_data integrates 29 bottom-trawl surveys; Wubing Xu, Jonathan Chase and Shane Blowes shared BioTIME spatial-standardisation methods/code with FISHGLOB, and a second spatio-temporal flagging method 'from BioTIME' was applied to each survey unit; no explicit list of shared surveys visible",
+      "source_citation": "Maureaud et al. 2024, FISHGLOB_data: an integrated dataset of fish biodiversity sampled with scientific bottom-trawl surveys, Scientific Data 11:24",
+      "url": "https://www.nature.com/articles/s41597-023-02866-w",
+      "confidence": "high"
+     },
+     {
+      "statistic": "Daskalova et al. database-representation comparison (LPD, BioTIME, PREDICTS)",
+      "value": "Spatial representation of global change up to 78% in the marine realm and 31% on land; no numeric overlap between databases reported in visible text",
+      "source_citation": "Daskalova, Bowler, Myers-Smith & Dornelas, Representation of global change drivers across biodiversity datasets (EcoEvoRxiv preprint) and GitHub supplement",
+      "url": "https://github.com/gndaskalova/GlobalChangeSpace",
+      "confidence": "medium"
+     },
+     {
+      "statistic": "BioTIMEr package facts",
+      "value": "CRAN version 0.3.2 (package PDF dated 4 March 2026), MIT licence, maintainer Alban Sagouis; ships a 12-study subset only (BTsubset_meta/BTsubset_data); full data 'freely available on the BioTIME website'",
+      "source_citation": "CRAN BioTIMEr page and cloned DESCRIPTION",
+      "url": "https://cran.r-project.org/web/packages/BioTIMEr/index.html",
+      "confidence": "high"
+     },
+     {
+      "statistic": "bioTIMEHub/BioTIME repository content",
+      "value": "'A repo for code used in the BioTIME v2.0 database': 324 per-study curation R scripts, 55-byte README, no data or metadata files (last commit 2025-02-05)",
+      "source_citation": "cloned repository at commit e30d4b5",
+      "url": "https://github.com/bioTIMEHub/BioTIME",
+      "confidence": "high"
+     }
+    ],
+    "mirror_found": true,
+    "mirror_details": "NO public GitHub mirror of the BioTIME 2.0 data or metadata (biotime_v2_metadata_15April25.csv / biotime_v2_query_15April25.rds) was found: GitHub code searches for those filenames and for 2.0-specific column combinations returned no data files; emd-aquila/cs3-biodiversity tracks biotime_v2_query_15April25.rds via git-LFS only (.gitattributes), which this session's anonymous lane cannot fetch and which is not a plain-file mirror; the bioTIMEHub org (7 repos: BioTIMEr, BioTIME, labsandbox, BTDataCuration, Dataset-Explorer, VIPpractice, testing-BioTIMEr) holds no full metadata table. WHAT WAS FOUND AND READ (v1 lineage): (1) gndaskalova/GlobalChangeSpace, branch master (main is byte-identical), file data/input/bioTIMEMetadataJune2021.csv, 123,676 bytes, sha256 prefix f6e23044ef83043e, 417 rows x 27 columns (STUDY_ID, MIN_SAMPLE, REALM, CLIMATE, HABITAT, PROTECTED_AREA, AREA, BIOME_MAP, TAXA, ORGANISMS, TITLE, AB_BIO, DATA_POINTS, START_YEAR, END_YEAR, CENT_LAT, CENT_LONG, NUMBER_OF_SPECIES, NUMBER_OF_SAMPLES, NUMBER_LAT_LONG, TOTAL, GRAIN_SQ_KM, AREA_SQ_KM, DATE_STUDY_ADDED, ABUNDANCE_TYPE, BIOMASS_TYPE, SAMPLE_DESC_NAME). Version stamp: none inside the file; filename says June 2021 and DATE_STUDY_ADDED runs to 'Jun-21' (30 rows). It is NOT byte-identical to the official Zenodo BioTIMEMetadata_24_06_2021.csv (record 5026943): it carries two non-standard columns (MIN_SAMPLE, AREA), lacks LICENSE/METHODS/contact columns, and lists 417 STUDY_IDs (max 548) whereas a third-party notebook using the official June-2021 query reports 381 studies; 31 rows have STUDY_ID > 516 (added Mar-18, Jun-19, Jun-21). Repository licence: not visible (README has no licence statement; no LICENSE file fetched). (2) karinorman/biodivTS branch master paper/study_metadata.csv, 143,811 bytes, 53 studies x 39 columns (bird/mammal subset of the 2018-era v1 metadata, lower-case column names incl. license), used only for licence-spectrum evidence. (3) indo-r/kopdar_user_indonesia branch master ... /input/biotime_metadata.csv, 27,087 bytes, 10 rows (3 studies) \u2014 too small to use. (4) bioTIMEHub/BioTIMEr commit 7c33f32 (0.3.2): data/BTsubset_meta.RData (2,232 bytes, 12 studies x 25 cols) and data/BTsubset_data.RData (375,352 bytes, 81,084 rows) read with rdata. add_repo results (access read) for bioTIMEHub/BioTIME, bioTIMEHub/BioTIMEr, karinorman/biodivTS, indo-r/kopdar_user_indonesia, gndaskalova/GlobalChangeSpace, mariaproebstl/MScThesis, CIEE-Living-Data-Project/predicting_species_abundance, emd-aquila/cs3-biodiversity: all 'read_available' (public; anonymous git reads served by the proxy; nothing attached; the github MCP get_file_contents tool refused these unattached repos, so files were obtained by shallow git clone into the scratchpad or curl from raw.githubusercontent.com). Data licence: BioTIME v1 was CC-BY, so redistribution of its metadata is licence-compatible.",
+    "computed_counts": [
+     {
+      "statistic": "Mirror rows / unique STUDY_ID / STUDY_ID max / year range",
+      "value": "417 rows, 417 unique STUDY_ID, max 548; START_YEAR 1858-2015; END_YEAR 1909-2018",
+      "method": "pandas read of gcs/bioTIMEMetadataJune2021_master.csv (latin-1)"
+     },
+     {
+      "statistic": "Span (END_YEAR-START_YEAR+1) median / mean / max",
+      "value": "13 / 19.0 / 130 years",
+      "method": "computed per study from START_YEAR, END_YEAR"
+     },
+     {
+      "statistic": "DATA_POINTS (number of sampled years) median / mean / max",
+      "value": "10 / 13.6 / 97",
+      "method": "DATA_POINTS column (BioTIMEr definition: distinct years with data)"
+     },
+     {
+      "statistic": "Studies with no missing years (DATA_POINTS == span)",
+      "value": "224 of 417",
+      "method": "equality test per study"
+     },
+     {
+      "statistic": "Studies with >= 20 years: span / sampled years / sampled years AND gap-free",
+      "value": "142 / 101 / 45",
+      "method": "thresholds on span, DATA_POINTS, and DATA_POINTS with DATA_POINTS==span"
+     },
+     {
+      "statistic": "Studies with >= 25 years: span / sampled years / gap-free",
+      "value": "112 / 74 / 31",
+      "method": "as above"
+     },
+     {
+      "statistic": "Studies with >= 30 years: span / sampled years / gap-free",
+      "value": "91 / 50 / 22",
+      "method": "as above"
+     },
+     {
+      "statistic": "Studies with >= 35 years: span / sampled years / gap-free",
+      "value": "58 / 27 / 10",
+      "method": "as above"
+     },
+     {
+      "statistic": "Studies with >= 10 / >= 40 / >= 50 sampled years",
+      "value": ">=10: 211 (span 277; gap-free 117); >=40: 18 (span 37; gap-free 6); >=50: 6 (span 20; gap-free 3)",
+      "method": "as above"
+     },
+     {
+      "statistic": "Same thresholds restricted to STUDY_ID <= 516 (n=386, closer to the 2018-2019 public releases)",
+      "value": ">=20: 129/89/45; >=25: 99/66/31; >=30: 80/44/22; >=35: 49/26/10 (span / DATA_POINTS / gap-free)",
+      "method": "subset by STUDY_ID, same thresholds"
+     },
+     {
+      "statistic": "Studies with DATA_POINTS >= 20/25/30/35 by REALM (n)",
+      "value": "Freshwater (29): 12/10/8/2; Marine (169): 41/29/19/13; Terrestrial (219): 48/35/23/12",
+      "method": "groupby REALM"
+     },
+     {
+      "statistic": "Studies by TAXA: n, DATA_POINTS>=20, DATA_POINTS>=30",
+      "value": "Terrestrial plants 102 (10, 4); Fish 73 (20, 10); Marine invertebrates 54 (11, 5); Birds 51 (18, 11); Terrestrial invertebrates 35 (15, 6); Mammals 25 (6, 2); Benthos 20 (6, 4); All 16 (6, 3); Freshwater invertebrates 14 (6, 4); Marine plants 10 (1, 0); Fungi 6 (0, 0); Amphibians 5 (1, 1); Reptiles 4 (0, 0); Freshwater plants 2 (1, 0)",
+      "method": "groupby TAXA"
+     },
+     {
+      "statistic": "ABUNDANCE_TYPE and AB_BIO distributions",
+      "value": "ABUNDANCE_TYPE: Count 294, NA 46, Density 42, Presence/Absence 28, MeanCount 7; AB_BIO: A 302, AB 66, B 48, NA 1",
+      "method": "value_counts"
+     },
+     {
+      "statistic": "Effort / grain fields populated",
+      "value": "GRAIN_SQ_KM, AREA_SQ_KM and NUMBER_OF_SAMPLES non-null for all 417 studies (GRAIN_SIZE_TEXT absent from this mirror but present in BioTIMEr 2.0 subset)",
+      "method": "notna counts"
+     },
+     {
+      "statistic": "Upper bound on species x study series",
+      "value": "sum of NUMBER_OF_SPECIES = 80,181 (median 60 species per study); species x site series cannot be counted from metadata alone",
+      "method": "sum/median of NUMBER_OF_SPECIES"
+     },
+     {
+      "statistic": "Marine fish studies and fisheries-survey-like titles (FishGlob overlap candidates)",
+      "value": "64 marine Fish studies; 31 have titles matching trawl/groundfish/survey/ICES/NOAA, e.g. ICES NS-IBTS (study 210, 1965-2011, 47 sampled yrs), ICES Beam Trawl (209, 256), French Southern Atlantic (208), Irish GFS (207), Northern Irish GFS (206), Baltic BITS (198), Scottish West Coast (197), Rockall (205, 466), DFO Maritimes RV survey (119: 1970-2010, 41 yrs; 288; 289), Maine inshore trawl (123, 286, 287), Israeli Mediterranean trawl (507); plus NEFSC Bottom Trawl Survey (study 213, TAXA=All, 1948-2008, 48 sampled yrs)",
+      "method": "regex on TITLE within REALM==Marine & TAXA contains Fish; NEFSC found in the longest-series listing"
+     },
+     {
+      "statistic": "Longest studies by sampled years",
+      "value": "428 Skagerrak coastal fish (1919-2015, 97 yrs); 214 tree plots (1910-2010, 88); 215 HMANA hawk migration (1952-2008, 57); 339 Swedish woodland birds (1953-2009, 57); 298 Kansas prairie quadrats (1903-1972, 56); 147 OBIS bryozoans (1874-2003, 51 of 130-yr span); 330 Australian zooplankton (1938-2014, 49); 414 Illinois birds (1924-1976, 48); 213 NEFSC trawl (48); 210 NS-IBTS (47); 46 Skokholm Bird Observatory (1928-1979, 47); 39 deciduous-forest birds (1970-2015, 45)",
+      "method": "sort by DATA_POINTS"
+     },
+     {
+      "statistic": "Per-study licence spectrum in the 53-study karinorman/biodivTS v1 subset",
+      "value": "CC-by 36, PDDL 5, ODC-by 4, CC0 3, ODbL 3, CC-by-NC 2 (bird/mammal studies only; not representative of all 708 v2 studies)",
+      "method": "value_counts on license column of karinorman_biodivTS_study_metadata_master.csv"
+     }
+    ],
+    "computed_from_file": "/tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/mirrors/gcs/bioTIMEMetadataJune2021_master.csv ; script /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/mirrors/gcs/compute_biotime_v1_june2021_counts.py (output in compute_biotime_v1_june2021_counts.out.txt and extra_rows_check.txt in the same directory); licence subset: /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/mirrors/v1candidates/karinorman_biodivTS_study_metadata_master.csv; BioTIMEr subset: /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/mirrors/biotimehub-BioTIMEr/data/BTsubset_meta.RData",
+    "version_caveat": "The computed counts come from a June-2021 BioTIME v1 metadata export (417 studies) mirrored in a collaborator's repository, NOT from BioTIME 2.0 (708 studies, Zenodo v4 of 15 April 2025). The mirror is not byte-identical to the official June-2021 Zenodo file (extra MIN_SAMPLE/AREA columns, missing LICENSE column, 417 vs 381 studies in the public query of the same date), so treat its counts as a lower bound for v2 with these qualifications: (a) v2 added roughly 300 studies and removed 16 v1 studies; (b) v2 re-curation may have changed START_YEAR/END_YEAR/DATA_POINTS for continuing programmes (e.g., extended end years to 2023) and split or merged studies (curation scripts named 'study200_split', 'recurate108' exist in bioTIMEHub/BioTIME); (c) DATA_POINTS counts distinct years, not 'years under a constant protocol' \u2014 protocol constancy is a study-inclusion criterion but within-study effort varies and must be handled by rarefaction; (d) species x site series counts require the raw query file (biotime_v2_query_15April25.rds) and a grain decision. Everything must be re-verified on the official Zenodo v4 release (record 15222193): recompute DATA_POINTS/span thresholds for all 708 studies, read the per-study LICENSE column, and check the unverified 'median span 19 years / 12 sampling years' statement against the GEB paper full text (all publisher/repository hosts were egress-blocked here).",
+    "implications_for_census_projection": "Using the v1-lineage mirror as a floor: only 50 of 417 studies have >= 30 sampled years (22 of them gap-free), 27 have >= 35, 101 have >= 20; by realm the >= 30-year studies are Marine 19, Terrestrial 23, Freshwater 8, and by taxon they concentrate in Birds (11), Fish (10), Terrestrial invertebrates (6), Marine invertebrates (5), Terrestrial plants (4). Because BioTIME is assemblage-level, the unit for the census (species x site/cell annual series with >= 30 observations) must be derived from the raw records; the number of such series could be large in the long marine trawl programmes (hundreds of species x many ~96 km2 cells) but these are exactly the ICES DATRAS, NEFSC and DFO surveys that also underlie FishGlob and RAM Legacy, so they should be de-duplicated or treated as one biological system per survey rather than as independent BioTIME systems. Realistic independent contribution from BioTIME 2.0 to the >= 30-annual-observation pool is therefore a few dozen studies (v1 floor 50; v2 total unknown but the 2.0 additions are largely recent, shorter programmes, and no v2 duration distribution was visible), of which only the gap-free ones (22 in v1) satisfy strictly annual sampling without imputation. Sampling effort per year (NUMBER_OF_SAMPLES, SAMPLE_DESC per event) and grain (GRAIN_SIZE_TEXT, AREA_SQ_KM) are provided, so effort-standardised annual abundance series are constructible. Overlap with LPD/GPDD is 'partial' and includes named programmes (North American BBS study 195, Christmas Bird Count 593, Rothamsted 293, Skokholm 46); overlap with FishGlob is substantial for the 31 trawl/survey fish studies. No collapse-event count is projected here: per the hard rules, collapse frequencies and EWS-outcome associations were not computed, and the collapse projection should be re-derived only after the v2 series census is built from the official release.",
+    "human_action_required": "1) Download biotime_v2_metadata_15April25.csv (and, for the series census, biotime_v2_query_15April25.rds) from Zenodo record 15222193 (blocked from this sandbox) and rerun the saved script logic on all 708 studies: counts of studies with DATA_POINTS >= 20/25/30/35 and with DATA_POINTS == END_YEAR-START_YEAR+1 (gap-free), by REALM and TAXA. 2) Read the per-study LICENSE column and decide whether CC-BY-NC / ODbL studies are admissible for the project's outputs. 3) Derive species x cell annual series from the query file (gridding at ~96 km2 per BioTIMEr defaults, sample-based rarefaction) and count those with >= 30 annual observations under one SAMPLE_DESC_NAME/protocol. 4) Verify in the GEB paper full text (10.1111/geb.70003) the duration distribution and the unverified 'median span 19 years / 12 sampling years' sentence. 5) Build a de-duplication table matching BioTIME TITLE/DATA_SOURCE against the FishGlob survey list (29 surveys), RAM Legacy survey indices and LPD/GPDD source citations before counting independent systems. 6) Optionally confirm the repository licence of gndaskalova/GlobalChangeSpace if the mirrored file is to be redistributed rather than merely used for a sanity check.",
+    "evidence_urls": [
+     "https://onlinelibrary.wiley.com/doi/10.1111/geb.70003",
+     "https://andrewsforest.oregonstate.edu/publications/5394",
+     "https://research-repository.st-andrews.ac.uk/handle/10023/32216",
+     "https://par.nsf.gov/biblio/10591805-biotime-expanding-improving-database-biodiversity-time-series",
+     "https://zenodo.org/records/15222193",
+     "https://zenodo.org/records/14514183",
+     "https://zenodo.org/records/5026943",
+     "https://biotime.st-andrews.ac.uk/usageGuidelines.php",
+     "https://biotime.st-andrews.ac.uk/downloadFull.php",
+     "https://biotime.st-andrews.ac.uk/selectStudy.php?study=195",
+     "https://biotime.st-andrews.ac.uk/selectStudy.php?study=593",
+     "https://biotime.st-andrews.ac.uk/selectStudy.php?study=184",
+     "https://github.com/bioTIMEHub",
+     "https://github.com/bioTIMEHub/BioTIMEr",
+     "https://github.com/bioTIMEHub/BioTIME",
+     "https://cran.r-project.org/web/packages/BioTIMEr/index.html",
+     "https://biotimehub.github.io/BioTIMEr/articles/vignette1.html",
+     "https://github.com/gndaskalova/GlobalChangeSpace",
+     "https://raw.githubusercontent.com/gndaskalova/GlobalChangeSpace/master/data/input/bioTIMEMetadataJune2021.csv",
+     "https://github.com/karinorman/biodivTS",
+     "https://github.com/mariaproebstl/MScThesis",
+     "https://github.com/emd-aquila/cs3-biodiversity",
+     "https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.12729",
+     "https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12729",
+     "https://www.science.org/doi/10.1126/science.aaw1620",
+     "https://www.nature.com/articles/s41559-020-1185-7",
+     "https://www.science.org/doi/10.1126/science.1248484",
+     "https://www.nature.com/articles/s41597-023-02866-w",
+     "https://ecoevorxiv.org/repository/view/4013/"
+    ],
+    "confidence": "medium"
+   },
+   "verify": {
+    "recomputed": true,
+    "file_readable": true,
+    "version_stamp_seen": "No version stamp inside the file. Filename: bioTIMEMetadataJune2021.csv; DATE_STUDY_ADDED runs Oct-12 to Jun-21 (30 rows 'Jun-21'). sha256 f6e23044ef83043e6a838e7dd34327fb497f6cd2ab83d9e2ff22fdf9c43b169b, 123,676 bytes, CRLF line endings, UTF-8 (3 non-ASCII bytes = one en-dash in a title). Independently re-fetched from https://raw.githubusercontent.com/gndaskalova/GlobalChangeSpace/master/data/input/bioTIMEMetadataJune2021.csv (HTTP 200, 123,676 bytes): byte-identical to the scratchpad copy. The repository README (README_master.md, 'BioTIME' section) cites Zenodo concept DOI 10.5281/zenodo.1211105 and the BioTIME website download, and states that 'Approximately 92% of the biodiversity studies analysed here are available as part of the published BioTIME Database ... The remaining 8% of the studies were used with permission' -- i.e. this is the GlobalChangeSpace authors' working copy, not the public release table. BioTIMEr subset used for the DATA_POINTS check: commit 7c33f32f0235d2bb396ea8b71f7f39a91f0253f9, DESCRIPTION Version 0.3.2 ('BioTIMEr 0.3.2 accepted on CRAN', 4 Mar 2026). Fresh scripts and outputs: /tmp/claude-0/-home-user-ecology-projects/e9cdc0c9-87a1-52b8-8355-eba28a360be7/scratchpad/recheck_biotime/recompute_biotime_metadata.py (.out.txt) and audit_details.py (.out.txt). No WebSearch queries were run (none needed); the only network call was the single allowed raw.githubusercontent.com fetch.",
+    "agreements": [
+     {
+      "statistic": "Mirror rows / unique STUDY_ID / STUDY_ID max / year range",
+      "original_value": "417 rows, 417 unique STUDY_ID, max 548; START_YEAR 1858-2015; END_YEAR 1909-2018",
+      "recomputed_value": "417 data rows (csv module and pandas), 27 columns, 417 unique STUDY_ID (min 10, max 548), 0 duplicate STUDY_ID, 0 ragged rows; START_YEAR 1858-2015; END_YEAR 1909-2018",
+      "agree": true,
+      "note": "Raw csv-module audit: one field (STUDY_ID 522 TITLE) contains embedded CRLF newlines, which is why wc -l reports 420 lines for 417 rows + header; parsers handle it correctly. No NaN in DATA_POINTS/START_YEAR/END_YEAR (all int64)."
+     },
+     {
+      "statistic": "Span (END_YEAR-START_YEAR+1) median / mean / max",
+      "original_value": "13 / 19.0 / 130 years",
+      "recomputed_value": "13 / 19.0 / 130",
+      "agree": true,
+      "note": "No rows with START_YEAR > END_YEAR; no SPAN == 1."
+     },
+     {
+      "statistic": "DATA_POINTS (number of sampled years) median / mean / max",
+      "original_value": "10 / 13.6 / 97",
+      "recomputed_value": "10 / 13.6 / 97",
+      "agree": true,
+      "note": "Definition verified in BioTIMEr R/data.R line 45: 'Number of unique data points in study, e.g. 10 data points spanning 15 years = 10'. Empirical check on the 12 studies in BTsubset_data.RData (complete studies: row counts equal the mirror's TOTAL): DATA_POINTS == number of distinct YEAR for 12 of 12."
+     },
+     {
+      "statistic": "Studies with no missing years (DATA_POINTS == span)",
+      "original_value": "224 of 417",
+      "recomputed_value": "224 of 417 with strict equality; 226 if DATA_POINTS >= span is used",
+      "agree": true,
+      "note": "Two studies have DATA_POINTS > span, which is impossible if DATA_POINTS counts distinct years: STUDY_ID 249 (DP 24, 1992-2009, span 18) and 421 (DP 3, 1999-2000, span 2). The equality test silently classifies them as gapped."
+     },
+     {
+      "statistic": "Studies with >= 20 years: span / sampled years / sampled years AND gap-free",
+      "original_value": "142 / 101 / 45",
+      "recomputed_value": "142 / 101 / 45 (46 under DATA_POINTS >= span)",
+      "agree": true,
+      "note": "Study 249 (DP 24 > span 18) is the one extra under the >= variant."
+     },
+     {
+      "statistic": "Studies with >= 25 years: span / sampled years / gap-free",
+      "original_value": "112 / 74 / 31",
+      "recomputed_value": "112 / 74 / 31 (31 under >= variant)",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Studies with >= 30 years: span / sampled years / gap-free",
+      "original_value": "91 / 50 / 22",
+      "recomputed_value": "91 / 50 / 22 (22 under >= variant)",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Studies with >= 35 years: span / sampled years / gap-free",
+      "original_value": "58 / 27 / 10",
+      "recomputed_value": "58 / 27 / 10 (10 under >= variant)",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Studies with >= 10 / >= 40 / >= 50 sampled years",
+      "original_value": ">=10: 211 (span 277; gap-free 117); >=40: 18 (span 37; gap-free 6); >=50: 6 (span 20; gap-free 3)",
+      "recomputed_value": ">=10: 211 (span 277; gap-free 117, or 118 under >= variant); >=40: 18 (span 37; gap-free 6); >=50: 6 (span 20; gap-free 3)",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Same thresholds restricted to STUDY_ID <= 516 (n=386)",
+      "original_value": ">=20: 129/89/45; >=25: 99/66/31; >=30: 80/44/22; >=35: 49/26/10",
+      "recomputed_value": "n=386; >=20: 129/89/45; >=25: 99/66/31; >=30: 80/44/22; >=35: 49/26/10",
+      "agree": true,
+      "note": "31 rows have STUDY_ID > 516 (DATE_STUDY_ADDED: Jun-21 21, Mar-18 7, Jun-19 3). STUDY_ID <= 516 is a proxy only; it does not identify the ~8% non-public studies mentioned in the README."
+     },
+     {
+      "statistic": "Studies with DATA_POINTS >= 20/25/30/35 by REALM (n)",
+      "original_value": "Freshwater (29): 12/10/8/2; Marine (169): 41/29/19/13; Terrestrial (219): 48/35/23/12",
+      "recomputed_value": "Freshwater (29): 12/10/8/2; Marine (169): 41/29/19/13; Terrestrial (219): 48/35/23/12",
+      "agree": true,
+      "note": "REALM has no missing values."
+     },
+     {
+      "statistic": "Studies by TAXA: n, DATA_POINTS>=20, DATA_POINTS>=30",
+      "original_value": "Terrestrial plants 102 (10, 4); Fish 73 (20, 10); Marine invertebrates 54 (11, 5); Birds 51 (18, 11); Terrestrial invertebrates 35 (15, 6); Mammals 25 (6, 2); Benthos 20 (6, 4); All 16 (6, 3); Freshwater invertebrates 14 (6, 4); Marine plants 10 (1, 0); Fungi 6 (0, 0); Amphibians 5 (1, 1); Reptiles 4 (0, 0); Freshwater plants 2 (1, 0)",
+      "recomputed_value": "Identical for all 14 TAXA categories: Terrestrial plants 102 (10, 4); Fish 73 (20, 10); Marine invertebrates 54 (11, 5); Birds 51 (18, 11); Terrestrial invertebrates 35 (15, 6); Mammals 25 (6, 2); Benthos 20 (6, 4); All 16 (6, 3); Freshwater invertebrates 14 (6, 4); Marine plants 10 (1, 0); Fungi 6 (0, 0); Amphibians 5 (1, 1); Reptiles 4 (0, 0); Freshwater plants 2 (1, 0)",
+      "agree": true,
+      "note": "TAXA has exactly 14 distinct values, no NaN. Caveat: the BioTIMEr 2.0-era subset uses different TAXA labels for the same studies (e.g. study 10/18 'Plants' vs mirror 'Terrestrial plants'), so this breakdown will not map one-to-one onto BioTIME 2.0 categories."
+     },
+     {
+      "statistic": "ABUNDANCE_TYPE and AB_BIO distributions",
+      "original_value": "ABUNDANCE_TYPE: Count 294, NA 46, Density 42, Presence/Absence 28, MeanCount 7; AB_BIO: A 302, AB 66, B 48, NA 1",
+      "recomputed_value": "ABUNDANCE_TYPE: Count 294, NA 46 (literal 'NA' strings), Density 42, Presence/Absence 28, MeanCount 7; AB_BIO: A 302, AB 66, B 48, NA 1 (empty field, study 464); additionally BIOMASS_TYPE: NA 305, Weight 68, Cover 37, Size 3, Volume 3, Relative biomass 1",
+      "agree": true,
+      "note": "Two studies are internally inconsistent: 465 and 548 have AB_BIO='B' but ABUNDANCE_TYPE='Count' and BIOMASS_TYPE=NA (Bavarian Forest plant studies). Study 464 has AB_BIO blank but ABUNDANCE_TYPE='Count'."
+     },
+     {
+      "statistic": "Effort / grain fields populated",
+      "original_value": "GRAIN_SQ_KM, AREA_SQ_KM and NUMBER_OF_SAMPLES non-null for all 417 studies",
+      "recomputed_value": "Non-null: 417 / 417 / 417 -- but GRAIN_SQ_KM == 0 for 213 of 417 studies (Marine 110, Terrestrial 79, Freshwater 24) and AREA_SQ_KM == 0 for 6 studies (460, 461, 463, 543, 544, 546, all Bavarian Forest, NUMBER_LAT_LONG 19)",
+      "agree": true,
+      "note": "Numerically correct but 'populated' overstates usability: more than half of the grain values are zero placeholders, so grain cannot be used as an effort covariate for those studies without the raw data. The non-standard AREA column disagrees with AREA_SQ_KM in 236 of 417 rows and should be ignored."
+     },
+     {
+      "statistic": "Upper bound on species x study series",
+      "original_value": "sum of NUMBER_OF_SPECIES = 80,181 (median 60 species per study)",
+      "recomputed_value": "sum 80,181; median 60.0; no NaN",
+      "agree": true,
+      "note": "Per-study metadata only; species x site series cannot be derived from this file."
+     },
+     {
+      "statistic": "Marine fish studies and fisheries-survey-like titles (FishGlob overlap candidates)",
+      "original_value": "64 marine Fish studies; 31 have titles matching trawl/groundfish/survey/ICES/NOAA, e.g. ICES NS-IBTS (210, 1965-2011, 47 sampled yrs), 209, 256, 208, 207, 206, 198, 197, 205, 466, 119 (1970-2010, 41 yrs), 288, 289, 123, 286, 287, 507; plus NEFSC (213, TAXA=All, 1948-2008, 48 sampled yrs)",
+      "recomputed_value": "64 studies with REALM Marine and TAXA 'Fish' (identical whether matched by substring or exact); 31 titles match the same regex (trawl|groundfish|bottom.?fish|ICES|IBTS|NOAA|survey); 21 match without the generic word 'survey'. All 18 cited STUDY_IDs verified with the stated years and DATA_POINTS (210: 1965-2011, DP 47; 119: 1970-2010, DP 41; 213: Marine/All, 1948-2008, DP 48)",
+      "agree": true,
+      "note": "The 31 is inflated by the keyword 'survey': it includes roughly 10 non-trawl programmes (121 CRED reef belt transects, 189/190 USVI NOAA-CCMA reef fish, 295 Reef Life Survey, 436-438 WCS Indonesian reef fish surveys, 125/127/252 MARMAP trap surveys, 112 SEFSC pelagic observer programme). Treat 31 as a loose upper bound; a hand-curated bottom-trawl list is ~20 Fish studies plus 213."
+     },
+     {
+      "statistic": "Longest studies by sampled years",
+      "original_value": "428 (1919-2015, 97); 214 (1910-2010, 88); 215 (1952-2008, 57); 339 (1953-2009, 57); 298 (1903-1972, 56); 147 (1874-2003, 51 of 130-yr span); 330 (1938-2014, 49); 414 (1924-1976, 48); 213 (48); 210 (47); 46 (1928-1979, 47); 39 (1970-2015, 45)",
+      "recomputed_value": "Identical: 428/97 (span 97); 214/88 (span 101); 215/57; 339/57; 298/56 (span 70); 147/51 (span 130); 330/49 (span 77); 414/48 (span 53); 213/48 (span 61); 210/47 (span 47); 46/47 (span 52); 39/45 (span 46); next: 117/44, 413/44",
+      "agree": true,
+      "note": ""
+     },
+     {
+      "statistic": "Per-study licence spectrum in the 53-study karinorman/biodivTS v1 subset",
+      "original_value": "CC-by 36, PDDL 5, ODC-by 4, CC0 3, ODbL 3, CC-by-NC 2",
+      "recomputed_value": "53 rows, 39 columns, 53 unique study_id, 0 duplicate rows; license: CC-by 36, PDDL 5, ODC-by 4, CC0 3, ODbL 3, CC-by-NC 2; taxa: Birds 30, Mammals 17, All 3, Amphibians 3",
+      "agree": true,
+      "note": "Confirms the subset is birds/mammals(+3 All, 3 Amphibians) only, as the original caveat says."
+     },
+     {
+      "statistic": "BioTIMEr subset dimensions (cited in mirror_details)",
+      "original_value": "BTsubset_meta.RData 12 studies x 25 cols; BTsubset_data.RData 81,084 rows",
+      "recomputed_value": "BTsubset_meta 12 x 25 (STUDY_IDs 10, 18, 41, 53, 59, 211, 333, 372, 402, 431, 437, 466); BTsubset_data 81,084 x 16 as read by python rdata (R/data.R documents 17 columns), YEAR 1923-2016",
+      "agree": true,
+      "note": "For these 12 studies, DATA_POINTS/START_YEAR/END_YEAR are identical between the June-2021 mirror and the BioTIMEr 2.0-era metadata (12 of 12), a small indication that year fields were not re-curated for these studies; n=12 is not representative of the 708-study release."
+     }
+    ],
+    "method_concerns": [
+     "Provenance/composition (most important): the collaborator README states ~92% of its BioTIME studies are in the published database and ~8% were 'used with permission'. 8% of 417 is about 33, close to the 417 vs 381 gap the previous agent noted. So this 417-row table is the GlobalChangeSpace authors' working copy including non-public studies, not the public June-2021 release, and the non-public studies cannot be identified from the file (no LICENSE column). Counts are therefore neither exact v1-public figures nor clean lower bounds for v2 without qualification.",
+     "Gap-free definition: two studies (249 and 421) have DATA_POINTS greater than the year span, contradicting the 'distinct years' definition; the strict equality test counts them as gapped. Using DATA_POINTS >= span gives 226 gap-free studies (vs 224) and changes only the >=10 (117 -> 118) and >=20 (45 -> 46) gap-free counts. Either START/END_YEAR or DATA_POINTS is wrong for those rows.",
+     "START_YEAR/END_YEAR reliability: 17 studies whose titles contain a year range disagree with the metadata years (e.g. 125 'MARMAP Chevron Trap Survey 1990-2009' has START 1988/END 2000; all six MARMAP studies 125, 126, 127, 211, 212, 252 are titled '1990-2009' but carry 1973-2000 metadata years). Span-based thresholds inherit this uncertainty.",
+     "'Populated' effort fields: GRAIN_SQ_KM is exactly 0 for 213 of 417 studies and AREA_SQ_KM is 0 for 6, so non-null does not mean usable. The non-standard AREA column differs from AREA_SQ_KM in 236 rows and should be ignored.",
+     "Keyword inflation: the fisheries-survey regex includes the generic word 'survey', so 31 includes about 10 reef-transect, trap-survey and observer-programme studies; 21 match without 'survey'.",
+     "Category drift between versions: the BioTIMEr 2.0-era subset labels TAXA differently (e.g. 'Plants' where the mirror says 'Terrestrial plants'), so the by-TAXA breakdown cannot be transferred directly to BioTIME 2.0.",
+     "Unit of analysis: all counts are per study (one row per STUDY_ID, no duplicates found), not per population/species-by-site series; the prequential design's unit cannot be counted from metadata. RAM-style pitfalls (assessment vs stock, SSB vs biomass) do not apply to this file.",
+     "Minor parsing points that do not change any statistic: the file is UTF-8 with one en-dash (a latin-1 read mangles only that title); 'NA' is a literal string in ABUNDANCE_TYPE (46) and BIOMASS_TYPE (305) and pandas maps it to NaN; AB_BIO's single NA is an empty field; study 522's TITLE contains embedded CRLF newlines (wc -l overcounts). Studies 465 and 548 are flagged AB_BIO='B' yet have ABUNDANCE_TYPE='Count' and no BIOMASS_TYPE.",
+     "Verification scope: no WebSearch queries were issued; the single network call was to raw.githubusercontent.com (an allowed host) and confirmed byte-identity with the upstream master file. The claims about Zenodo record 5026943 contents (381 studies, column set) and about BioTIME 2.0 (708 studies) were not re-verifiable here because those hosts are egress-blocked."
+    ],
+    "verdict": "confirmed"
+   }
+  }
+ ]
+}

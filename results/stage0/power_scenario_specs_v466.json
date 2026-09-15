@@ -1,0 +1,51 @@
+{
+ "RAMproxy": {
+  "name": "RAMproxy",
+  "n_systems": 170,
+  "n_events": 43,
+  "scale": 1.0,
+  "n_clusters": 17
+ },
+ "GPDD": {
+  "name": "GPDD",
+  "n_systems": 38,
+  "n_events": 5,
+  "scale": 1.0,
+  "n_clusters": 12
+ },
+ "FishGlob": {
+  "name": "FishGlob",
+  "n_systems": 129,
+  "n_events": 22,
+  "scale": 1.0,
+  "n_clusters": 4
+ },
+ "RAMfull_x3": {
+  "name": "RAMfull_x3",
+  "n_systems": 170,
+  "n_events": 43,
+  "scale": 3.0,
+  "n_clusters": 17
+ },
+ "LPD_proj": {
+  "name": "LPD_proj",
+  "n_systems": 400,
+  "n_events": 32,
+  "scale": 1.0,
+  "n_clusters": 40
+ },
+ "RAMv466": {
+  "name": "RAMv466",
+  "n_systems": 457,
+  "n_events": 111,
+  "scale": 1.0,
+  "n_clusters": 23
+ },
+ "RAMv466ns": {
+  "name": "RAMv466ns",
+  "n_systems": 349,
+  "n_events": 92,
+  "scale": 1.0,
+  "n_clusters": 19
+ }
+}

@@ -11,12 +11,41 @@
    "raw_redistribution": "yes with attribution (CC BY 4.0)",
    "derived_labels_redistribution": "expected yes with attribution",
    "reachable_from_sandbox": false,
-   "human_action": "download release, record DOI, version, checksum; confirm licence text",
+   "human_action": "download the official v4.66 release from Zenodo 14043031, record DOI/version/checksum, confirm the licence text, and re-run src/census/census_ram_v466.py on the official timeseries_values_views (expect identical counts if the mirror is faithful); decide zero-escapement handling and the salmon grouping before Stage 1",
    "stage0_proxy": "cfree14/sst_recruitment RAM v4.41 extract (328 stocks)",
    "evidence": [
     "https://zenodo.org/records/14043031",
-    "https://zenodo.org/records/14043038"
-   ]
+    "https://zenodo.org/records/14043038",
+    "https://github.com/RaphBnrd/RAMLDB_causality",
+    "https://doi.org/10.5281/zenodo.20594195"
+   ],
+   "stage0_mirror": "timeseries_values_views for v4.66 (one preferred series per stock, 35 standard columns + stock/taxonomy metadata) redistributed in github.com/RaphBnrd/RAMLDB_causality (commit 09766f24be1e3ba9d283dfd3fffc201aa4b9dd5d, 2026-06-08; repo licence MIT; upstream CC BY 4.0; Zenodo archive 10.5281/zenodo.20594195). File data/timeseries_clean-v4.66.csv, sha256 c910121955e461599913303bcd945744bc315fd822bbee9d5ef2027da7a70864. Derived extract: not the official DBdata[asmt][v4.66].RData; 4 stocks removed by the mirror author (HADNS, HERR30, HERRNS, SOLEIIIa); 156 SST-only stockids added by a full join and excluded here; the file carries no internal version field (version rests on file names, README and prep script; the 625/432 reference-point counts match the Zenodo record description).",
+   "content_v466_from_mirror": {
+    "stocks_with_any_ram_series": 1438,
+    "stocks_with_SSB_TBbest_or_TB": 1091,
+    "pacific_salmon_stocks_with_biomass": 358,
+    "SSB_stocks": 976,
+    "SSB_ge25": 722,
+    "SSB_ge30": 639,
+    "SSB_ge35": 542,
+    "SSB_nonsalmon_ge30": 420,
+    "TBbest_stocks": 475,
+    "TBbest_ge25": 387,
+    "TBbest_ge30": 357,
+    "TBbest_ge35": 309,
+    "TB_stocks": 500,
+    "TB_ge30": 362,
+    "BdivBmsypref_stocks": 488,
+    "UdivUmsypref_stocks": 569,
+    "either_reference_point": 625,
+    "both_reference_points": 432,
+    "year_range": "1800-2024 (1800 is one stock, ATHAL5YZ; next earliest 1872)",
+    "non_annual_series": "19 pink-salmon SSB series are biennial; 1 rockfish TBbest series is at 2-3-year steps; 100 SSB / 10 TBbest series have internal gaps; all are excluded from origins by the complete-window rule",
+    "zero_values": "15 SSB stocks contain exact zeros (14 Pacific salmon + URAYVIIde); no zeros or negatives in TBbest/TB",
+    "census_primary": "457 stocks with >=1 eligible origin, 111 first collapses inside eligible windows, 8921 origins (500 positive / 8421 negative); non-salmon 349 / 92 / 7907 (428 / 7479)",
+    "verification": "independent recomputation by a second agent: all length/coverage counts reproduced exactly; collapse flags differed only through a NaN-after-gap bug in the first agent's code and through row-wise vs stock-level TB/SSB coalescing; the census here uses the label module (src/census/labels.py) with stock-level variable choice",
+    "official_stock_count_inferred": "1442 (1438 + 4 dropped) - not checkable from the mirror"
+   }
   },
   {
    "name": "FishGlob_data",
@@ -47,7 +76,7 @@
    "role": "primary (terrestrial/freshwater counts)",
    "version_target": "v2010 (KNB doi:10.5063/F1BZ63Z8); rgpdd bundle used in Stage 0",
    "download": "https://knb.ecoinformatics.org/view/doi:10.5063/F1BZ63Z8 ; https://github.com/ropensci/rgpdd",
-   "license": "rgpdd package CC0 (verified); KNB record licence not visible in search results \u2014 verify on https://knb.ecoinformatics.org/view/doi:10.5063/F1BZ63Z8",
+   "license": "rgpdd package CC0 (verified); KNB record licence not visible in search results — verify on https://knb.ecoinformatics.org/view/doi:10.5063/F1BZ63Z8",
    "raw_redistribution": "unverified (685 MainIDs flagged Restricted in the bundle carry no data)",
    "reachable_from_sandbox": true,
    "human_action": "verify KNB licence and the meaning of the Reliability code (1-5, -1) in the GPDD user guide",
@@ -62,12 +91,21 @@
    "raw_redistribution": "no (same-terms pass-on only)",
    "derived_labels_redistribution": "conditional (same terms of use)",
    "reachable_from_sandbox": false,
-   "human_action": "register, accept terms, record the release date and population count; check whether derived labels/partitions may be published (checkpoint 1)",
+   "human_action": "register, accept terms, record the release date and population count; check whether derived labels/partitions may be published (checkpoint 1) | From the official download compute observations per population (X1970..X2020), counts with >=20/25/30/35 non-missing annual values, fullness, and rows citing GPDD / NERC Centre for Population Biology; read LPR2024_Technical_Supplement.pdf and database_stats.pdf (blocked here).",
    "evidence": [
     "https://www.livingplanetindex.org/documents/data_agreement.pdf",
     "https://www.livingplanetindex.org/documents/FAQs.pdf",
     "https://www.livingplanetindex.org/data_portal"
-   ]
+   ],
+   "content_published": {
+    "lpi_2024_index": "34,836 populations of 5,495 species (livingplanetindex.org/lpi); LPR 2024 public release spans 1970-2020 with confidential records removed",
+    "whole_database": "almost 42,000 populations of 5,579 species incl. ~18% confidential (database_stats.pdf; Ledger et al. 2023)",
+    "series_length": "modal length 6-10 years; >2,000 records at the 2-year minimum; 'more than 2,000' records span 1970 to 2011-2015 (database_stats.pdf Figure 5); Leung et al. 2020 lost 52% of series with a 10-point minimum; 'length' = span between first and last observation and 'fullness' = share of observed years (Toszogyova et al. 2024)",
+    "populations_with_ge30_annual_observations": "NOT PUBLISHED; expected a small minority (plausibly low thousands or fewer) and concentrated in a few programmes (BBS, GPDD-sourced records)",
+    "gpdd_overlap": "LPI lists the GPDD (Imperial College) among its data sources (about_partners); the number of GPDD-sourced populations is not published and must be counted from the Data_source/Citation field of the download",
+    "collapse_counts": "no published count of populations with >=80% declines; Leung et al. 2020: <3% of populations drive the index decline, ~1% in extreme-decline clusters; Daskalova et al. 2020: 15% declined / 18% increased / 67% no net change",
+    "mirrors": "public GitHub copies of older LPD releases exist (rlpi LPR2016 CSV; Wolfram LPR2022 dataset) but were deliberately not downloaded: the data-use agreement forbids redistribution"
+   }
   },
   {
    "name": "BioTIME 2.0",
@@ -75,7 +113,27 @@
    "download": "https://doi.org/10.5281/zenodo.10932823",
    "license": "CC BY 4.0 (search results; unverified)",
    "reachable_from_sandbox": false,
-   "human_action": "download, check per-study restrictions, extract constant-effort species x site annual series"
+   "human_action": "download biotime_v2_metadata_15April25.csv and biotime_v2_query_15April25.rds from Zenodo 15222193; recompute DATA_POINTS/span thresholds for all 708 studies; read per-study LICENSE; derive species x ~96 km2 cell annual series with sample-based rarefaction and count those with >=30 annual observations under one protocol; verify the duration distribution in the GEB full text",
+   "content_published": {
+    "biotime_2_0": "708 studies, 11,989,233 records, 1,603,067 sample events, 553,253 sampling locations, 56,400 taxa; earliest 1874, latest 2023 (Dornelas et al. 2025 GEB 34(5): e70003); Zenodo concept 10932823, latest record 15222193 (v4, 15 April 2025); 16 v1 studies removed",
+    "licence": "CC BY for the database plus a per-study LICENSE column; in a 53-study v1 subset: CC-by 36, PDDL 5, ODC-by 4, CC0 3, ODbL 3, CC-by-NC 2",
+    "median_span_unverified": "'median monitoring span 19 years, 12 sampling years' surfaced once in a search synthesis (low confidence; verify in the GEB full text)"
+   },
+   "stage0_mirror": "no public mirror of BioTIME 2.0 data or metadata; a June-2021 v1 metadata export (417 studies, incl. ~8% non-public studies used with permission) in github.com/gndaskalova/GlobalChangeSpace (data/input/bioTIMEMetadataJune2021.csv, sha256 f6e23044ef83043e6a838e7dd34327fb497f6cd2ab83d9e2ff22fdf9c43b169b) was used as a v1 floor; counts independently recomputed and confirmed",
+   "content_v1_from_mirror": {
+    "studies": 417,
+    "span_median_mean_max": "13 / 19.0 / 130",
+    "sampled_years_median_mean_max": "10 / 13.6 / 97",
+    "gap_free_studies": 224,
+    "studies_ge20_years": "span 142 / sampled 101 / sampled and gap-free 45",
+    "studies_ge25": "112 / 74 / 31",
+    "studies_ge30": "91 / 50 / 22",
+    "studies_ge35": "58 / 27 / 10",
+    "ge30_sampled_by_realm": "Freshwater 8, Marine 19, Terrestrial 23",
+    "ge30_sampled_by_taxa": "Birds 11, Fish 10, Terrestrial invertebrates 6, Marine invertebrates 5, Terrestrial plants 4",
+    "fisheries_survey_studies": "64 marine fish studies; ~21 are trawl/groundfish programmes that also underlie FishGlob/ICES/RAM (NS-IBTS, BITS, EVHOE, IGFS, NIGFS, SWC-IBTS, Rockall, DFO Maritimes, NEFSC, Maine inshore)",
+    "caveats": "per-study metadata only (species x site series need the raw query file); DATA_POINTS counts distinct years, not years under constant effort; GRAIN_SQ_KM is 0 for 213 of 417 studies; 17 studies have title year ranges that disagree with metadata years; 2 studies have DATA_POINTS > span"
+   }
   },
   {
    "name": "Lake challenge set (O'Brien et al. 2023)",
