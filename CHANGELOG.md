@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2026-09-15 — Stage 0 residual audit, RAM v4.66 census, power re-run — no frozen parameters
+
+* Third adversarial novelty refutation (angle D: 2024-2026 work; three lenses,
+  adjudicator): no equivalent study; 22 merged candidates, none rated equivalent
+  or substantial overlap. Synthesis agent verdict `novel-combination-supported`
+  with a manuscript-ready positioning statement (audit Sections 13, 15).
+* Data-content checks (audit Section 16): RAM v4.66 `timeseries_values_views`
+  read from a public derived mirror (RaphBnrd/RAMLDB_causality; upstream CC BY
+  4.0) and independently recomputed; LPD published counts only (no mirror, by
+  licence); BioTIME v1 June-2021 metadata (417 studies) as a floor.
+* `src/census/census_ram_v466.py`: census of RAM v4.66 with a STOCK-LEVEL
+  abundance-variable rule (SSB > TBbest > TB; never row-wise coalescing, which
+  manufactures spurious drops), zeros kept, Pacific salmon reported separately.
+  457 eligible stocks / 111 events (349 / 92 without salmon), between the x2
+  and x3 projections used before. New proposed rules recorded in
+  `reports/stage0_proposed_parameters.md` Section B (variable choice, zeros,
+  salmon grouping).
+* `src/dedup/crosswalk_ram_v466.py`: 53 of 156 FishGlob series match a v4.66
+  stock by species and region (131 pairs; 10 of 22 FishGlob event series).
+* `src/sim/run_power_grid_v466.py`: power gate re-run with the v4.66 cohort;
+  accessible data pass at a true +0.15 with grouped cross-fitting under the
+  Section 10 rule and sit just under rule B at +0.10; the locked 50 % hold-out
+  still fails. Go/no-go revised to a conditional go with cross-fitting as the
+  primary design (Stage 0 report Section 8).
+* Query log, sweep/refutation/synthesis/data-check raw outputs, data-source
+  register and MANIFEST updated; report count discrepancies reconciled.
+
 ## 2026-09-09 — Stage 0 (feasibility) — no frozen parameters
 
 * Added collapse-onset and forecast-origin label code with tests (`src/census/labels.py`).

@@ -32,10 +32,13 @@ clusters); Section 10 classification with the +0.10 smallest useful effect;
 replicates with fewer than five discordant events are inconclusive. 400
 replicates per cell.
 
-Scenarios (systems / events): A accessible now (RAM proxy + FishGlob + GPDD:
-337 / 70); B fisheries proxy only (170 / 43); C RAM ×3 projection (510 / 129);
-D = C + FishGlob + GPDD (677 / 156); E = D + an LPD placeholder of 400 systems /
-32 events (1077 / 188); D scaled ×1.5–×4 (235–624 events).
+Scenarios (systems / events), proxy-era grids: A accessible now (RAM proxy +
+FishGlob + GPDD: 337 / 70); B fisheries proxy only (170 / 43); C RAM ×3
+projection (510 / 129); D = C + FishGlob + GPDD (677 / 156); E = D + an LPD
+placeholder of 400 systems / 32 events (1077 / 188); D scaled ×1.5–×4
+(235–624 events). Grids with the RAM v4.66 census (Section 5, run 2026-09-15):
+F RAM v4.66 alone (457 / 111); G = F + FishGlob + GPDD (624 / 138); Gns = G
+without Pacific salmon (516 / 119); H = G + the LPD placeholder (1024 / 170).
 
 ## 2. Gate result under the Section 10 decision rule
 
@@ -181,3 +184,42 @@ percentile intervals slightly under-cover at small sizes (0.79–0.93);
 calibration drift of ±0.01–0.02 in the realized increment is absorbed by
 interpolation. None of these would turn a failed gate into a passed one;
 all of them argue for treating the "events needed" numbers as lower bounds.
+
+## 5. Re-run with the RAM v4.66 cohort (2026-09-15)
+
+The v4.41 proxy and its × 2 / × 3 projections were replaced by the census of
+the v4.66 `timeseries_values_views` table (derived public mirror; see the
+census report). Same simulator, same settings (S_B = 0.45, w = 0.3, block
+episode rule, 400 replicates, 400 bootstrap draws), both decision rules scored
+on the same replicates (`results/stage0/power_grid_v466.csv`,
+`power_gate_table_v466.csv`, `power_curves_v466.png`). Power is read at the
+realized increment; the H and Gns calibrations drifted (realized 0.092 /
+0.132 and 0.095 / 0.146 at nominal 0.10 / 0.15), so their +0.15 entries are
+quoted at the realized value.
+
+| scenario | design | events (eval) | power at +0.10: Section 10 / rule B | power at +0.15: Section 10 / rule B | P(negligible) at true 0 | P(meaningful) at true +0.05: Section 10 / rule B | CI width at +0.10 | coverage |
+|---|---|---|---|---|---|---|---|---|
+| F RAM v4.66 alone | cross-fit | 111 (111) | 0.47 / 0.77 | 0.92 / 0.99 | 0.83 | 0.09 / 0.33 | 0.14 | 0.94 |
+| F | hold-out 50 % | 111 (55) | 0.41 / 0.44 | 0.76 / 0.77 | 0.45 | 0.16 / 0.19 | 0.20 | 0.93 |
+| G accessible now | cross-fit | 138 (138) | 0.49 / 0.77 | 0.89 / 0.97 | 0.83 | 0.11 / 0.45 | 0.13 | 0.92 |
+| G | hold-out 50 % | 138 (69) | 0.50 / 0.55 | 0.81 / 0.83 | 0.50 | 0.20 / 0.27 | 0.17 | 0.92 |
+| G, dataset weighting | cross-fit | 138 (138) | 0.34 / 0.56 | 0.66 / 0.84 | 0.61 | 0.30 / 0.52 | 0.18 | 0.79 |
+| Gns accessible, no salmon | cross-fit | 119 (119) | 0.57 / 0.84 | 0.92 / 0.98 (at +0.146) | 0.85 | 0.07 / 0.26 | 0.13 | 0.92 |
+| Gns | hold-out 50 % | 119 (60) | 0.50 / 0.56 | 0.76 / 0.80 (at +0.146) | 0.50 | 0.15 / 0.17 | 0.19 | 0.91 |
+| H + LPD placeholder | cross-fit | 170 (170) | 0.54 / 0.92 | 0.89 / 1.00 (at +0.132) | 0.95 | 0.01 / 0.30 | 0.11 | 0.94 |
+| H | hold-out 50 % | 170 (85) | 0.49 / 0.68 | 0.77 / 0.89 (at +0.132) | 0.75 | 0.06 / 0.13 | 0.16 | 0.93 |
+
+Reading. The accessible cohort behaves like the proxy-era scenario D (156
+projected events) rather than scenario A (70): with grouped cross-fitting it
+passes the gate at a true +0.15 under the Section 10 rule (0.89 power, 0.83
+probability of calling a true zero negligible) and sits just under 0.80 under
+rule B at +0.10 (0.77; 0.84 once the salmon cluster is removed). The locked
+50 % hold-out is still under-powered at every scenario short of ≈ 300 events,
+and its probability of calling a true zero negligible (0.45–0.75) is the
+binding failure. Dataset weighting remains mis-calibrated (coverage 0.79)
+while GPDD holds 5 events. Adding an LPD-sized block of 32 events makes the
+cross-fitting design pass under either rule. The recommendation in the Stage
+0 report follows: cross-fitting as the primary analysis with a 0.15 power
+target under the Section 10 rule, reported as internally validated, and the
+locked hold-out only if the LPD and BioTIME retrievals bring the independent
+event count to about 300.

@@ -166,43 +166,58 @@ power scenarios).
 Structure of eligible origins: RAM median 11 origins per stock (IQR 5–25);
 FishGlob median 4 (3–7); GPDD median 8 (6–12).
 
-## 5. Power and precision gate (Section 3.3) — gate: FAILED on accessible data
+## 5. Power and precision gate (Section 3.3) — gate: FAILED at +0.10 on accessible data; PASSED at +0.15 with grouped cross-fitting
 
-Full detail in `reports/stage0_power_analysis.md`; figure
-`results/stage0/power_curves.png`. The whole Sections 7–10 procedure was
-simulated on census-derived structure (systems, events, origin counts,
-clusters, dataset imbalance) with calibrated latent alarm scores, 400
-replicates per cell and a 400-draw paired bootstrap.
+Full detail in `reports/stage0_power_analysis.md`; figures
+`results/stage0/power_curves.png` (proxy-era grids) and
+`results/stage0/power_curves_v466.png` (grids with the v4.66 cohort). The whole
+Sections 7–10 procedure was simulated on census-derived structure (systems,
+events, origin counts, clusters, dataset imbalance) with calibrated latent
+alarm scores, 400 replicates per cell and a 400-draw paired bootstrap. The
+grids were re-run on 2026-09-15 with the RAM v4.66 census in place of the
+v4.41 proxy and its × 2 / × 3 projections (`power_grid_v466.csv`,
+`power_gate_table_v466.csv`); the earlier grids are kept for comparison.
 
-| data scenario | events | best design | power at +0.10 (Section 10 rule) | power at +0.15 | P(negligible) at 0 | verdict |
+| data scenario | events (evaluated) | design | power at +0.10, Section 10 rule / rule B | power at +0.15, Section 10 rule / rule B | P(negligible) at 0 | verdict |
 |---|---|---|---|---|---|---|
-| accessible now (RAM proxy + FishGlob + GPDD) | 70 | grouped cross-fitting | 0.44 | 0.75 | 0.68 | fail |
-| accessible now | 70 | locked hold-out, 50 % development | 0.31 | 0.53 | 0.18 | fail |
-| RAM ×3 projection alone | 129 | grouped cross-fitting | 0.51 | 0.86 | 0.75 | fail |
-| RAM ×3 + FishGlob + GPDD | 156 | grouped cross-fitting | 0.50 | 0.91 | 0.86 | fails at +0.10, passes at +0.15 |
-| RAM ×3 + FishGlob + GPDD | 156 | locked hold-out, 50 % | 0.52 | 0.86 | 0.60 | fail |
-| + LPD placeholder | 188 | grouped cross-fitting | 0.43 | 0.84 | 0.86 | fails at +0.10, passes at +0.15 |
-| pooled projection ×2 | 312 | locked hold-out, 50 % | 0.50 | 0.91 | 0.87 | fails at +0.10, passes at +0.15 |
+| RAM v4.66 alone | 111 (111) | grouped cross-fitting | 0.47 / 0.77 | 0.92 / 0.99 | 0.81 | fails at +0.10; passes at +0.15 under the Section 10 rule |
+| RAM v4.66 alone | 111 (55) | locked hold-out, 50 % | 0.41 / 0.44 | 0.76 / 0.77 | 0.44 | fail |
+| RAM v4.66 + FishGlob + GPDD (accessible now) | 138 (138) | grouped cross-fitting | 0.49 / 0.77 | 0.89 / 0.97 | 0.83 | fails at +0.10 (rule B just under 0.80); passes at +0.15 |
+| accessible now | 138 (69) | locked hold-out, 50 % | 0.50 / 0.55 | 0.81 / 0.83 | 0.50 | fail (P(negligible) far below 0.80) |
+| accessible now, dataset weighting | 138 (138) | grouped cross-fitting | 0.34 / 0.56 | 0.66 / 0.84 | 0.61 | fail; coverage 0.79 |
+| accessible now without Pacific salmon | 119 (119) | grouped cross-fitting | 0.57 / 0.84 | ≈ 0.92 at +0.146 | 0.85 (raw, at true 0) | passes at +0.15; rule B power passes at +0.10 |
+| accessible now without Pacific salmon | 119 (60) | locked hold-out, 50 % | 0.50 / 0.56 | 0.76 / 0.80 | 0.50 | fail |
+| + LPD placeholder (400 systems / 32 events) | 170 (170) | grouped cross-fitting | 0.54 / 0.92 | 0.89 / 1.00 at +0.13 | 0.89 | PASS under rule B; passes at +0.15 under the Section 10 rule |
+| + LPD placeholder | 170 (85) | locked hold-out, 50 % | 0.49 / 0.68 | 0.77 / 0.89 at +0.13 | 0.68 | fail |
+| (previous accessible-now scenario with the RAM proxy) | 70 (70) | grouped cross-fitting | 0.44 / 0.56 | 0.83 / 0.87 | 0.68 | fail |
 
-Two findings dominate. First, the Section 10 rule ("estimate ≥ 0.10 and CI
-excludes 0") cannot reach 80 % power at a true +0.10 whatever the sample
-size, because the point estimate is below 0.10 half the time when the truth
-is 0.10; the gate must be defined at a larger true increment (0.15
-recommended) or use a superiority-plus-relevance rule (rule B in the power
-report: passes at ≈ 150 events with cross-fitting and ≈ 300 with a 50 %
-hold-out, but calls a true +0.05 "meaningful" 20–45 % of the time). Second,
-design dominates: 70 % development leaves too few evaluation events for any
-conclusion; a 50 % locked hold-out needs ≈ 300 events; grouped cross-fitting
-of thresholds over all systems needs ≈ 150 events but must be described as
-internally validated (gate alternative 3). The dataset-weighted estimand is
-under-powered and mis-calibrated while GPDD contributes 5 events (system
-weighting, or a 15-event floor per dataset, is needed). Sensitivities: a less
-correlated EWS model (w = 0.6, closer to a real learner) costs about a third
-of the power; cluster shocks and cluster bootstrap change little at 4–17
-clusters per dataset; the 'run' episode rule gives similar power once its
-threshold search maximizes sensitivity under the budget; the simulator
-ignores learner estimation error, so all "events needed" figures are lower
-bounds. The Section 6.2 window simulation (`ews_window_detectability.csv`)
+Power is read at the realized increment (the calibration drifts by up to
+0.02 from nominal), so the +0.15 entries for the two scenarios whose realized
+increments capped at 0.13–0.146 are quoted at the realized value.
+
+Two findings dominate, and the v4.66 cohort sharpens rather than changes
+them. First, the Section 10 rule ("estimate ≥ 0.10 and CI excludes 0") cannot
+reach 80 % power at a true +0.10 whatever the sample size, because the point
+estimate is below 0.10 half the time when the truth is 0.10; the gate must be
+defined at a larger true increment (0.15) or use a superiority-plus-relevance
+rule (rule B). Under rule B the accessible cohort with grouped cross-fitting
+sits just under the gate (0.77 at 138 events; 0.84 without the salmon
+cluster, whose calibration drifted low) and rule B calls a true +0.05
+"meaningful" 26–45 % of the time; under the Section 10 rule with a 0.15
+target the accessible cohort passes (0.89 power, 0.83 probability of calling
+a true zero negligible) and calls a true +0.05 meaningful 7–11 % of the time.
+Second, design dominates: a 50 % locked hold-out leaves 55–85 evaluation
+events, which gives at most 0.50 power at +0.10 and a 0.44–0.68 chance of
+calling a true zero negligible, so the locked hold-out still needs ≈ 300
+events; grouped cross-fitting of thresholds over all systems reaches the
+0.15 target now but must be described as internally validated (gate
+alternative 3). The dataset-weighted estimand is under-powered and
+mis-calibrated (coverage 0.76–0.79) while GPDD contributes 5 events. The
+usual caveats hold: a less correlated EWS model (w = 0.6) costs about a
+third of the power; the simulator ignores learner estimation error, so all
+"events needed" figures are lower bounds; and the 138 accessible events are
+118–128 after the crosswalk (Section 4), which the salmon-free scenario
+brackets. The Section 6.2 window simulation (`ews_window_detectability.csv`)
 shows AUROC ≈ 0.6–0.66 for the classical two-indicator score on annual data
 even under favourable forcing, with mean removal clearly better than
 within-window linear detrending and 15/10 (24 obs) near the floor of usable
@@ -271,34 +286,48 @@ Summarized from `reports/stage0_proposed_parameters.md`:
 
 ## 8. Go / no-go recommendation
 
-**No-go for the confirmatory study on the data accessible from this sandbox**
-(≈ 340 systems, 70 first collapses): no design, weighting or decision rule
-comes close to the Section 3.3 gate, and an imprecise null would not be
-interpretable.
+**Conditional go, narrower than the plan assumed.** With the RAM v4.66
+cohort the accessible data hold 624 systems and 138 first collapses (118–128
+independent after the FishGlob crosswalk; 516 systems and 119 events without
+the Pacific-salmon rivers). That is enough for a confirmatory study only
+under one specific design: grouped nested cross-fitting of alarm thresholds
+over all systems as the primary analysis (reported as internally validated,
+gate alternative 3), system weighting, the block episode rule, and the
+Section 10 decision rule with the smallest useful effect kept at +0.10 but
+the power target defined at a true +0.15 (0.89 power; 0.83 probability of
+calling a true zero negligible; 7–11 % chance of calling a true +0.05
+meaningful). It is not enough for the plan's preferred design: a 50 %
+locked hold-out reaches 0.50 power at +0.10 and 0.81 at +0.15 but calls a
+true zero negligible only half the time, so an imprecise null would not be
+interpretable. Rule B (superiority plus relevance) reaches 0.77–0.84 power at
++0.10 with cross-fitting but labels a true +0.05 meaningful a third of the
+time and is not recommended as the primary rule.
 
-**Conditional go, in three steps.**
+**Three conditions before Stage 1.**
 
-1. Human acquisition of the blocked sources (RAM Legacy v4.66 from Zenodo,
-   Living Planet Database under its data-use agreement, BioTIME 2.0), and a
-   re-run of the census scripts with the tightened label rules. The decisive
-   numbers are the count of first collapses with a complete 24-year window
-   and 5-year follow-up, and how many of them are biologically independent
-   after the crosswalk (FishGlob survey series that duplicate RAM stocks do
-   not add events; the GMEX cluster must be audited).
-2. Design chosen by that count: ≥ 300 independent events → locked 50 %
-   hold-out with the Section 10 rule and a 0.15 power target (gate
-   alternative 1, the preferred design); 150–300 events → grouped nested
-   cross-fitting as the primary analysis with a small single-use lockbox,
-   reported as internally validated (gate alternative 3); < 150 events →
-   narrow to a fisheries-only, estimation-focused study (gate alternative 2)
-   and drop equivalence claims.
+1. Human acquisition of the official RAM Legacy v4.66 release from Zenodo
+   and a re-run of `census_ram_v466.py` on it (the Stage 0 counts come from
+   a derived public mirror, verified internally but not against the official
+   file), plus the Living Planet Database and BioTIME 2.0 if the locked
+   hold-out design is wanted: with ≈ 32 further independent events the
+   cross-fitting design passes under either rule, and the hold-out design
+   needs ≈ 300 events in total.
+2. The independence audit: the 10 FishGlob event series with a candidate RAM
+   match, the GMEX cluster, and the grouping of the 108 salmon rivers into
+   systems, all decided blind to any predictor.
 3. Stage 1 freezes, with human sign-off: the 25-observation history minimum
-   with the 15/10 EWS windows (or 30 with 20/10), the block episode rule, the
-   smallest useful effect and power target, system weighting (or a per-dataset
-   event floor), and the FishGlob/GPDD screening rules listed in Section 6.
+   with the 15/10 EWS windows (or 30 with 20/10; 25 gives 134 RAM events),
+   the block episode rule, the stock-level abundance-variable rule and the
+   zero-value rule for RAM, the smallest useful effect and the 0.15 power
+   target, system weighting (or a per-dataset event floor), and the
+   FishGlob/GPDD screening rules listed in Section 6.
 
-The literature gate is provisionally passed (novel combination; Zhang 2020,
-Cano 2025 and Pélissié 2026 must be read in full first). The licensing
-position is workable: RAM, FishGlob, ICES and (pending the KNB check) GPDD
-allow redistribution of raw values with attribution; LPD raw values cannot be
-released and derived labels only under the same terms.
+If the official RAM file or the independence audit removes more than about
+20 events, the study should narrow to a fisheries-only, estimation-focused
+design (gate alternative 2) and drop equivalence claims. The literature gate
+is passed (novel combination, three refutations, synthesis verdict
+supported; Zhang 2020, Cano 2025 and Pélissié 2026 must be read in full
+first). The licensing position is workable: RAM, FishGlob, ICES and (pending
+the KNB check) GPDD allow redistribution of raw values with attribution; LPD
+raw values cannot be released and derived labels only under the same terms;
+BioTIME carries per-study licences that must be read.
